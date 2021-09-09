@@ -10,7 +10,6 @@
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
 		5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57226EA2B68008C8578 /* SceneDelegate.swift */; };
 		5B0DC57526EA2B68008C8578 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57426EA2B68008C8578 /* ViewController.swift */; };
-		5B0DC57826EA2B68008C8578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57626EA2B68008C8578 /* Main.storyboard */; };
 		5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */; };
 		5B0DC57D26EA2B6A008C8578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */; };
 		5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */; };
@@ -40,7 +39,6 @@
 		5B0DC57026EA2B68008C8578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B0DC57226EA2B68008C8578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B0DC57426EA2B68008C8578 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5B0DC57726EA2B68008C8578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B0DC57A26EA2B68008C8578 /* MimicRPG.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MimicRPG.xcdatamodel; sourceTree = "<group>"; };
 		5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B0DC57F26EA2B6A008C8578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,14 +99,14 @@
 		5B0DC56F26EA2B68008C8578 /* MimicRPG */ = {
 			isa = PBXGroup;
 			children = (
-				5B0DC57026EA2B68008C8578 /* AppDelegate.swift */,
-				5B0DC57226EA2B68008C8578 /* SceneDelegate.swift */,
-				5B0DC57426EA2B68008C8578 /* ViewController.swift */,
-				5B0DC57626EA2B68008C8578 /* Main.storyboard */,
-				5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */,
-				5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */,
-				5B0DC58126EA2B6A008C8578 /* Info.plist */,
-				5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */,
+				5B0DC5AC26EA2D31008C8578 /* Model */,
+				5B0DC5AB26EA2D1F008C8578 /* View Models */,
+				5B0DC5AA26EA2D12008C8578 /* Coordinator */,
+				5B0DC5A926EA2D03008C8578 /* Services */,
+				5B0DC5A826EA2CC1008C8578 /* Extensions */,
+				5B0DC5A726EA2CB2008C8578 /* View */,
+				5B0DC5A526EA2C46008C8578 /* Assets */,
+				5B0DC5A426EA2C39008C8578 /* Helpers */,
 			);
 			path = MimicRPG;
 			sourceTree = "<group>";
@@ -131,6 +129,69 @@
 			path = MimicRPGUITests;
 			sourceTree = "<group>";
 		};
+		5B0DC5A426EA2C39008C8578 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC58126EA2B6A008C8578 /* Info.plist */,
+				5B0DC57026EA2B68008C8578 /* AppDelegate.swift */,
+				5B0DC57226EA2B68008C8578 /* SceneDelegate.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5B0DC5A526EA2C46008C8578 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */,
+				5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		5B0DC5A726EA2CB2008C8578 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC57426EA2B68008C8578 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B0DC5A826EA2CC1008C8578 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5B0DC5A926EA2D03008C8578 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5B0DC5AA26EA2D12008C8578 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		5B0DC5AB26EA2D1F008C8578 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		5B0DC5AC26EA2D31008C8578 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +202,7 @@
 				5B0DC56926EA2B68008C8578 /* Sources */,
 				5B0DC56A26EA2B68008C8578 /* Frameworks */,
 				5B0DC56B26EA2B68008C8578 /* Resources */,
+				5B0DC5AD26EA2DC9008C8578 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -236,7 +298,6 @@
 			files = (
 				5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */,
 				5B0DC57D26EA2B6A008C8578 /* Assets.xcassets in Resources */,
-				5B0DC57826EA2B68008C8578 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +316,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B0DC5AD26EA2DC9008C8578 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B0DC56926EA2B68008C8578 /* Sources */ = {
@@ -300,14 +381,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5B0DC57626EA2B68008C8578 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5B0DC57726EA2B68008C8578 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +515,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 795A25396T;
-				INFOPLIST_FILE = MimicRPG/Info.plist;
+				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,7 +534,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 795A25396T;
-				INFOPLIST_FILE = MimicRPG/Info.plist;
+				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
