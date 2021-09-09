@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
+		5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57226EA2B68008C8578 /* SceneDelegate.swift */; };
+		5B0DC57526EA2B68008C8578 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57426EA2B68008C8578 /* ViewController.swift */; };
+		5B0DC57826EA2B68008C8578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57626EA2B68008C8578 /* Main.storyboard */; };
+		5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */; };
+		5B0DC57D26EA2B6A008C8578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */; };
+		5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */; };
+		5B0DC58B26EA2B6A008C8578 /* MimicRPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC58A26EA2B6A008C8578 /* MimicRPGTests.swift */; };
+		5B0DC59626EA2B6A008C8578 /* MimicRPGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B0DC58726EA2B6A008C8578 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B0DC56526EA2B67008C8578 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B0DC56C26EA2B68008C8578;
+			remoteInfo = MimicRPG;
+		};
+		5B0DC59226EA2B6A008C8578 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B0DC56526EA2B67008C8578 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B0DC56C26EA2B68008C8578;
+			remoteInfo = MimicRPG;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5B0DC56D26EA2B68008C8578 /* MimicRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MimicRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0DC57026EA2B68008C8578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B0DC57226EA2B68008C8578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5B0DC57426EA2B68008C8578 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B0DC57726EA2B68008C8578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B0DC57A26EA2B68008C8578 /* MimicRPG.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MimicRPG.xcdatamodel; sourceTree = "<group>"; };
+		5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B0DC57F26EA2B6A008C8578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B0DC58126EA2B6A008C8578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B0DC58626EA2B6A008C8578 /* MimicRPGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MimicRPGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0DC58A26EA2B6A008C8578 /* MimicRPGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimicRPGTests.swift; sourceTree = "<group>"; };
+		5B0DC58C26EA2B6A008C8578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B0DC59126EA2B6A008C8578 /* MimicRPGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MimicRPGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimicRPGUITests.swift; sourceTree = "<group>"; };
+		5B0DC59726EA2B6A008C8578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B0DC56A26EA2B68008C8578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B0DC58326EA2B6A008C8578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B0DC58E26EA2B6A008C8578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B0DC56426EA2B67008C8578 = {
+			isa = PBXGroup;
+			children = (
+				5B0DC56F26EA2B68008C8578 /* MimicRPG */,
+				5B0DC58926EA2B6A008C8578 /* MimicRPGTests */,
+				5B0DC59426EA2B6A008C8578 /* MimicRPGUITests */,
+				5B0DC56E26EA2B68008C8578 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B0DC56E26EA2B68008C8578 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC56D26EA2B68008C8578 /* MimicRPG.app */,
+				5B0DC58626EA2B6A008C8578 /* MimicRPGTests.xctest */,
+				5B0DC59126EA2B6A008C8578 /* MimicRPGUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B0DC56F26EA2B68008C8578 /* MimicRPG */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC57026EA2B68008C8578 /* AppDelegate.swift */,
+				5B0DC57226EA2B68008C8578 /* SceneDelegate.swift */,
+				5B0DC57426EA2B68008C8578 /* ViewController.swift */,
+				5B0DC57626EA2B68008C8578 /* Main.storyboard */,
+				5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */,
+				5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */,
+				5B0DC58126EA2B6A008C8578 /* Info.plist */,
+				5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */,
+			);
+			path = MimicRPG;
+			sourceTree = "<group>";
+		};
+		5B0DC58926EA2B6A008C8578 /* MimicRPGTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC58A26EA2B6A008C8578 /* MimicRPGTests.swift */,
+				5B0DC58C26EA2B6A008C8578 /* Info.plist */,
+			);
+			path = MimicRPGTests;
+			sourceTree = "<group>";
+		};
+		5B0DC59426EA2B6A008C8578 /* MimicRPGUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */,
+				5B0DC59726EA2B6A008C8578 /* Info.plist */,
+			);
+			path = MimicRPGUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B0DC56C26EA2B68008C8578 /* MimicRPG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B0DC59A26EA2B6A008C8578 /* Build configuration list for PBXNativeTarget "MimicRPG" */;
+			buildPhases = (
+				5B0DC56926EA2B68008C8578 /* Sources */,
+				5B0DC56A26EA2B68008C8578 /* Frameworks */,
+				5B0DC56B26EA2B68008C8578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MimicRPG;
+			productName = MimicRPG;
+			productReference = 5B0DC56D26EA2B68008C8578 /* MimicRPG.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B0DC58526EA2B6A008C8578 /* MimicRPGTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B0DC59D26EA2B6A008C8578 /* Build configuration list for PBXNativeTarget "MimicRPGTests" */;
+			buildPhases = (
+				5B0DC58226EA2B6A008C8578 /* Sources */,
+				5B0DC58326EA2B6A008C8578 /* Frameworks */,
+				5B0DC58426EA2B6A008C8578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B0DC58826EA2B6A008C8578 /* PBXTargetDependency */,
+			);
+			name = MimicRPGTests;
+			productName = MimicRPGTests;
+			productReference = 5B0DC58626EA2B6A008C8578 /* MimicRPGTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5B0DC59026EA2B6A008C8578 /* MimicRPGUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B0DC5A026EA2B6A008C8578 /* Build configuration list for PBXNativeTarget "MimicRPGUITests" */;
+			buildPhases = (
+				5B0DC58D26EA2B6A008C8578 /* Sources */,
+				5B0DC58E26EA2B6A008C8578 /* Frameworks */,
+				5B0DC58F26EA2B6A008C8578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B0DC59326EA2B6A008C8578 /* PBXTargetDependency */,
+			);
+			name = MimicRPGUITests;
+			productName = MimicRPGUITests;
+			productReference = 5B0DC59126EA2B6A008C8578 /* MimicRPGUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B0DC56526EA2B67008C8578 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					5B0DC56C26EA2B68008C8578 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					5B0DC58526EA2B6A008C8578 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 5B0DC56C26EA2B68008C8578;
+					};
+					5B0DC59026EA2B6A008C8578 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 5B0DC56C26EA2B68008C8578;
+					};
+				};
+			};
+			buildConfigurationList = 5B0DC56826EA2B68008C8578 /* Build configuration list for PBXProject "MimicRPG" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5B0DC56426EA2B67008C8578;
+			productRefGroup = 5B0DC56E26EA2B68008C8578 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B0DC56C26EA2B68008C8578 /* MimicRPG */,
+				5B0DC58526EA2B6A008C8578 /* MimicRPGTests */,
+				5B0DC59026EA2B6A008C8578 /* MimicRPGUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B0DC56B26EA2B68008C8578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */,
+				5B0DC57D26EA2B6A008C8578 /* Assets.xcassets in Resources */,
+				5B0DC57826EA2B68008C8578 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B0DC58426EA2B6A008C8578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B0DC58F26EA2B6A008C8578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B0DC56926EA2B68008C8578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0DC57526EA2B68008C8578 /* ViewController.swift in Sources */,
+				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
+				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
+				5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B0DC58226EA2B6A008C8578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0DC58B26EA2B6A008C8578 /* MimicRPGTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B0DC58D26EA2B6A008C8578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0DC59626EA2B6A008C8578 /* MimicRPGUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B0DC58826EA2B6A008C8578 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B0DC56C26EA2B68008C8578 /* MimicRPG */;
+			targetProxy = 5B0DC58726EA2B6A008C8578 /* PBXContainerItemProxy */;
+		};
+		5B0DC59326EA2B6A008C8578 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B0DC56C26EA2B68008C8578 /* MimicRPG */;
+			targetProxy = 5B0DC59226EA2B6A008C8578 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5B0DC57626EA2B68008C8578 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B0DC57726EA2B68008C8578 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B0DC57F26EA2B6A008C8578 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B0DC59826EA2B6A008C8578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5B0DC59926EA2B6A008C8578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B0DC59B26EA2B6A008C8578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 795A25396T;
+				INFOPLIST_FILE = MimicRPG/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.MimicRPG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B0DC59C26EA2B6A008C8578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 795A25396T;
+				INFOPLIST_FILE = MimicRPG/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.MimicRPG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5B0DC59E26EA2B6A008C8578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 795A25396T;
+				INFOPLIST_FILE = MimicRPGTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.MimicRPGTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MimicRPG.app/MimicRPG";
+			};
+			name = Debug;
+		};
+		5B0DC59F26EA2B6A008C8578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 795A25396T;
+				INFOPLIST_FILE = MimicRPGTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.MimicRPGTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MimicRPG.app/MimicRPG";
+			};
+			name = Release;
+		};
+		5B0DC5A126EA2B6A008C8578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 795A25396T;
+				INFOPLIST_FILE = MimicRPGUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.MimicRPGUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MimicRPG;
+			};
+			name = Debug;
+		};
+		5B0DC5A226EA2B6A008C8578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 795A25396T;
+				INFOPLIST_FILE = MimicRPGUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.MimicRPGUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MimicRPG;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B0DC56826EA2B68008C8578 /* Build configuration list for PBXProject "MimicRPG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B0DC59826EA2B6A008C8578 /* Debug */,
+				5B0DC59926EA2B6A008C8578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B0DC59A26EA2B6A008C8578 /* Build configuration list for PBXNativeTarget "MimicRPG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B0DC59B26EA2B6A008C8578 /* Debug */,
+				5B0DC59C26EA2B6A008C8578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B0DC59D26EA2B6A008C8578 /* Build configuration list for PBXNativeTarget "MimicRPGTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B0DC59E26EA2B6A008C8578 /* Debug */,
+				5B0DC59F26EA2B6A008C8578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B0DC5A026EA2B6A008C8578 /* Build configuration list for PBXNativeTarget "MimicRPGUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B0DC5A126EA2B6A008C8578 /* Debug */,
+				5B0DC5A226EA2B6A008C8578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5B0DC57A26EA2B68008C8578 /* MimicRPG.xcdatamodel */,
+			);
+			currentVersion = 5B0DC57A26EA2B68008C8578 /* MimicRPG.xcdatamodel */;
+			path = MimicRPG.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5B0DC56526EA2B67008C8578 /* Project object */;
+}
