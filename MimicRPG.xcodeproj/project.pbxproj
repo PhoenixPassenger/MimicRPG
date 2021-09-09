@@ -16,6 +16,10 @@
 		5B0DC58B26EA2B6A008C8578 /* MimicRPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC58A26EA2B6A008C8578 /* MimicRPGTests.swift */; };
 		5B0DC59626EA2B6A008C8578 /* MimicRPGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */; };
 		5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5AF26EA3462008C8578 /* Coordinator.swift */; };
+		5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B126EA34F8008C8578 /* Service.swift */; };
+		5B0DC5B526EA3509008C8578 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B426EA3509008C8578 /* ViewModel.swift */; };
+		5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */; };
+		5B0DC5BA26EA352F008C8578 /* Extension+Extended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B926EA352F008C8578 /* Extension+Extended.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimicRPGUITests.swift; sourceTree = "<group>"; };
 		5B0DC59726EA2B6A008C8578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B0DC5AF26EA3462008C8578 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		5B0DC5B126EA34F8008C8578 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		5B0DC5B426EA3509008C8578 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		5B0DC5B926EA352F008C8578 /* Extension+Extended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Extended.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +170,7 @@
 		5B0DC5A826EA2CC1008C8578 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5B0DC5B926EA352F008C8578 /* Extension+Extended.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,6 +178,7 @@
 		5B0DC5A926EA2D03008C8578 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5B0DC5B126EA34F8008C8578 /* Service.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -176,6 +186,7 @@
 		5B0DC5AA26EA2D12008C8578 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 		5B0DC5AB26EA2D1F008C8578 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B0DC5B426EA3509008C8578 /* ViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -354,10 +366,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B0DC57526EA2B68008C8578 /* ViewController.swift in Sources */,
+				5B0DC5BA26EA352F008C8578 /* Extension+Extended.swift in Sources */,
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
+				5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */,
 				5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
 				5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */,
+				5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */,
+				5B0DC5B526EA3509008C8578 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
