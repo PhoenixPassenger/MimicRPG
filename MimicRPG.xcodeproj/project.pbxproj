@@ -15,6 +15,7 @@
 		5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */; };
 		5B0DC58B26EA2B6A008C8578 /* MimicRPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC58A26EA2B6A008C8578 /* MimicRPGTests.swift */; };
 		5B0DC59626EA2B6A008C8578 /* MimicRPGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */; };
+		5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5AF26EA3462008C8578 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5B0DC59126EA2B6A008C8578 /* MimicRPGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MimicRPGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimicRPGUITests.swift; sourceTree = "<group>"; };
 		5B0DC59726EA2B6A008C8578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B0DC5AF26EA3462008C8578 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		5B0DC56F26EA2B68008C8578 /* MimicRPG */ = {
 			isa = PBXGroup;
 			children = (
+				5B0DC5AE26EA3450008C8578 /* Protocol */,
 				5B0DC5AC26EA2D31008C8578 /* Model */,
 				5B0DC5AB26EA2D1F008C8578 /* View Models */,
 				5B0DC5AA26EA2D12008C8578 /* Coordinator */,
@@ -190,6 +193,14 @@
 				5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5B0DC5AE26EA3450008C8578 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC5AF26EA3462008C8578 /* Coordinator.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +355,7 @@
 			files = (
 				5B0DC57526EA2B68008C8578 /* ViewController.swift in Sources */,
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
+				5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
 				5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */,
 			);
