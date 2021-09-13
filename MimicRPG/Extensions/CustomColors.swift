@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// swiftlint:disable all
 extension UIColor {
     // MARK: - Color Hex Code Approach
     convenience init?(hex: String) {
