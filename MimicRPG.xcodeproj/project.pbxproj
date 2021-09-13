@@ -26,6 +26,7 @@
 		9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684023E26EF7435009AF620 /* DiceRollerViewController.swift */; };
 		9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024026EF7447009AF620 /* SettingsViewController.swift */; };
 		9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024226EF7486009AF620 /* UserSheetsViewController.swift */; };
+		9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		9684023E26EF7435009AF620 /* DiceRollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewController.swift; sourceTree = "<group>"; };
 		9684024026EF7447009AF620 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9684024226EF7486009AF620 /* UserSheetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewController.swift; sourceTree = "<group>"; };
+		9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				9684023E26EF7435009AF620 /* DiceRollerViewController.swift */,
 				9684024026EF7447009AF620 /* SettingsViewController.swift */,
 				9684024226EF7486009AF620 /* UserSheetsViewController.swift */,
+				9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				5B0DC5BA26EA352F008C8578 /* Extension+Extended.swift in Sources */,
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
 				5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */,
+				9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */,
 				5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */,
 				9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,

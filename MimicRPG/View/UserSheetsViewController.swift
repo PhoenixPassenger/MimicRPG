@@ -9,12 +9,33 @@ import UIKit
 
 class UserSheetsViewController: UIViewController {
 
+    lazy var nextButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Ficha escolhida", for: .normal)
+        button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
+        self.view.addSubview(button)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = UIColor(named: "Background")
+
+        NSLayoutConstraint.activate([
+            nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            nextButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ])
+        
+        nextButton.addTarget(self, action: #selector(self.toSheet), for: .touchUpInside)
     }
     
+    @objc func toSheet() {
+        let viewController = DisplaySheetViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 
     /*
     // MARK: - Navigation

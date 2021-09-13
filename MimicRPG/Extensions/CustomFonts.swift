@@ -18,7 +18,7 @@ extension UIFont {
         }
         return font
     }
-    
+
     class func josefinSansBold17() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Bold", size: 17) else {
             fatalError("""
@@ -29,11 +29,11 @@ extension UIFont {
         }
         return font
     }
-    
+
     class func josefinSansSkillTitle() -> UIFont {
         return josefinSansBold17()
     }
-    
+
     class func josefinSansBold25() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Bold", size: 25) else {
             fatalError("""
@@ -44,7 +44,7 @@ extension UIFont {
         }
         return font
     }
-    
+
     class func josefinSansSkillDesc() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Regular", size: 12) else {
             fatalError("""
@@ -55,7 +55,7 @@ extension UIFont {
         }
         return font
     }
-    
+
     class func josefinSansRegular() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Regular", size: 20) else {
             fatalError("""
@@ -66,7 +66,7 @@ extension UIFont {
         }
         return font
     }
-    
+
     class func josefinSansResult() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Bold", size: 70) else {
             fatalError("""
@@ -77,7 +77,7 @@ extension UIFont {
         }
         return font
     }
-    
+
     class func josefinSansDetail() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Regular", size: 14) else {
             fatalError("""
@@ -88,7 +88,7 @@ extension UIFont {
         }
         return font
     }
-    
+
     class func josefinSansButton() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Regular", size: 17) else {
             fatalError("""
@@ -100,4 +100,3 @@ extension UIFont {
         return font
     }
 }
-

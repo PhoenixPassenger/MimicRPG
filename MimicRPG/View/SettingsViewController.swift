@@ -12,9 +12,11 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = UIColor(named: "Background")
+
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
