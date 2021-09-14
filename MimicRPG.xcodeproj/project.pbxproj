@@ -23,6 +23,16 @@
 		5B0DC5B526EA3509008C8578 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B426EA3509008C8578 /* ViewModel.swift */; };
 		5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */; };
 		5B0DC5BA26EA352F008C8578 /* Extension+Extended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B926EA352F008C8578 /* Extension+Extended.swift */; };
+		5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */; };
+		5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F626F0C09F00E01EBA /* Notes+CoreDataClass.swift */; };
+		5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F826F0C09F00E01EBA /* Profile+CoreDataClass.swift */; };
+		5B7C970E26F0C09F00E01EBA /* Sheet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96FA26F0C09F00E01EBA /* Sheet+CoreDataClass.swift */; };
+		5B7C971026F0C09F00E01EBA /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96FC26F0C09F00E01EBA /* User+CoreDataClass.swift */; };
+		5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96FE26F0C09F00E01EBA /* Characteristics+CoreDataClass.swift */; };
+		5B7C971426F0C09F00E01EBA /* Attributes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C970026F0C09F00E01EBA /* Attributes+CoreDataClass.swift */; };
+		5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C970226F0C09F00E01EBA /* Points+CoreDataClass.swift */; };
+		5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C970426F0C09F00E01EBA /* Item+CoreDataClass.swift */; };
+		5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C970626F0C09F00E01EBA /* Skill+CoreDataClass.swift */; };
 		9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684023E26EF7435009AF620 /* DiceRollerViewController.swift */; };
 		9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024026EF7447009AF620 /* SettingsViewController.swift */; };
 		9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024226EF7486009AF620 /* UserSheetsViewController.swift */; };
@@ -69,6 +79,16 @@
 		5B0DC5B426EA3509008C8578 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		5B0DC5B926EA352F008C8578 /* Extension+Extended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Extended.swift"; sourceTree = "<group>"; };
+		5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attack+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C96F626F0C09F00E01EBA /* Notes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C96F826F0C09F00E01EBA /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C96FA26F0C09F00E01EBA /* Sheet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sheet+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C96FC26F0C09F00E01EBA /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C96FE26F0C09F00E01EBA /* Characteristics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Characteristics+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C970026F0C09F00E01EBA /* Attributes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attributes+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C970226F0C09F00E01EBA /* Points+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Points+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C970426F0C09F00E01EBA /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C970626F0C09F00E01EBA /* Skill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skill+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9684023E26EF7435009AF620 /* DiceRollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewController.swift; sourceTree = "<group>"; };
 		9684024026EF7447009AF620 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9684024226EF7486009AF620 /* UserSheetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +243,16 @@
 		5B0DC5AC26EA2D31008C8578 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */,
+				5B7C96F626F0C09F00E01EBA /* Notes+CoreDataClass.swift */,
+				5B7C96F826F0C09F00E01EBA /* Profile+CoreDataClass.swift */,
+				5B7C96FA26F0C09F00E01EBA /* Sheet+CoreDataClass.swift */,
+				5B7C96FC26F0C09F00E01EBA /* User+CoreDataClass.swift */,
+				5B7C96FE26F0C09F00E01EBA /* Characteristics+CoreDataClass.swift */,
+				5B7C970026F0C09F00E01EBA /* Attributes+CoreDataClass.swift */,
+				5B7C970226F0C09F00E01EBA /* Points+CoreDataClass.swift */,
+				5B7C970426F0C09F00E01EBA /* Item+CoreDataClass.swift */,
+				5B7C970626F0C09F00E01EBA /* Skill+CoreDataClass.swift */,
 				5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */,
 			);
 			path = Model;
@@ -387,8 +417,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
+				5B0DC57526EA2B68008C8578 /* ViewController.swift in Sources */,
+				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
+				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */,
 				5B0DC5BA26EA352F008C8578 /* Extension+Extended.swift in Sources */,
+				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
 				5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */,
 				9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */,
@@ -396,7 +431,13 @@
 				9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
 				2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */,
+				5B7C970E26F0C09F00E01EBA /* Sheet+CoreDataClass.swift in Sources */,
+				5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */,
+				5B7C971026F0C09F00E01EBA /* User+CoreDataClass.swift in Sources */,
+				5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */,
+				5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */,
 				5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */,
+				5B7C971426F0C09F00E01EBA /* Attributes+CoreDataClass.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
 				9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */,
@@ -499,7 +540,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -554,7 +595,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -1,4 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Attack" representedClassName="Attack" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="characteristics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="attack" inverseEntity="Characteristics"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Sheet" inverseName="attack" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="Attributes" representedClassName="Attributes" syncable="YES" codeGenerationType="category">
+        <attribute name="abbreviation" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="sheet" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Sheet" inverseName="attribute" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="Characteristics" representedClassName="Characteristics" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="numberValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="stringValue" optional="YES" attributeType="String"/>
+        <relationship name="attack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Attack" inverseName="characteristics" inverseEntity="Attack"/>
+        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="characteristics" inverseEntity="Item"/>
+        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notes" inverseName="characteristics" inverseEntity="Notes"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="characteristics" inverseEntity="Profile"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="characteristics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="item" inverseEntity="Characteristics"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Sheet" inverseName="item" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="Notes" representedClassName="Notes" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="characteristics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="notes" inverseEntity="Characteristics"/>
+        <relationship name="sheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="notes" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="Points" representedClassName="Points" syncable="YES" codeGenerationType="category">
+        <attribute name="actualValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="maxValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="sheet" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Sheet" inverseName="points" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="category">
+        <relationship name="characteristics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="profile" inverseEntity="Characteristics"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Sheet" inverseName="profile" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="Sheet" representedClassName="Sheet" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="occupation" optional="YES" attributeType="String"/>
+        <relationship name="attack" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Attack" inverseName="investigator" inverseEntity="Attack"/>
+        <relationship name="attribute" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Attributes" inverseName="sheet" inverseEntity="Attributes"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Item" inverseName="investigator" inverseEntity="Item"/>
+        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notes" inverseName="sheet" inverseEntity="Notes"/>
+        <relationship name="points" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Points" inverseName="sheet" inverseEntity="Points"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Profile" inverseName="investigator" inverseEntity="Profile"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Skill" inverseName="investigator" inverseEntity="Skill"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sheets" inverseEntity="User"/>
+    </entity>
+    <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="category">
+        <attribute name="isActivated" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="value" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Sheet" inverseName="skills" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="category">
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="sheets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sheet" inverseName="user" inverseEntity="Sheet"/>
+    </entity>
+    <configuration name="CloudKit" usedWithCloudKit="YES">
+        <memberEntity name="Profile"/>
+        <memberEntity name="Item"/>
+        <memberEntity name="Sheet"/>
+        <memberEntity name="Attack"/>
+        <memberEntity name="Points"/>
+        <memberEntity name="Attributes"/>
+        <memberEntity name="Skill"/>
+        <memberEntity name="User"/>
+        <memberEntity name="Characteristics"/>
+        <memberEntity name="Notes"/>
+    </configuration>
+    <elements>
+        <element name="Attack" positionX="-201.7059326171875" positionY="-46.24162292480469" width="128" height="74"/>
+        <element name="Attributes" positionX="36" positionY="81" width="128" height="89"/>
+        <element name="Characteristics" positionX="-405.3682861328125" positionY="269.3602447509766" width="128" height="134"/>
+        <element name="Item" positionX="-540.6806640625" positionY="5.531661987304688" width="128" height="74"/>
+        <element name="Notes" positionX="-408.4749755859375" positionY="-106.1026611328125" width="128" height="74"/>
+        <element name="Points" positionX="-4.2418212890625" positionY="-177.4718627929688" width="128" height="89"/>
+        <element name="Profile" positionX="-196.2710571289062" positionY="80.95466613769531" width="128" height="59"/>
+        <element name="Sheet" positionX="-667.0755615234375" positionY="328.3356323242188" width="128" height="179"/>
+        <element name="Skill" positionX="-360.7604370117188" positionY="12.67359924316406" width="128" height="89"/>
+        <element name="User" positionX="-120.60693359375" positionY="228.7191314697266" width="128" height="59"/>
+    </elements>
 </model>
