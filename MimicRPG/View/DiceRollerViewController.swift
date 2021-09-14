@@ -9,6 +9,8 @@ import UIKit
 
 class DiceRollerViewController: UIViewController {
 
+    weak var coordinator: MainCoordinator?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

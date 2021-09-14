@@ -9,6 +9,8 @@ import UIKit
 
 class UserSheetsViewController: UIViewController {
 
+    weak var coordinator: MainCoordinator?
+
     lazy var nextButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -28,13 +30,12 @@ class UserSheetsViewController: UIViewController {
             nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             nextButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
-        
+
         nextButton.addTarget(self, action: #selector(self.toSheet), for: .touchUpInside)
     }
-    
+
     @objc func toSheet() {
-        let viewController = DisplaySheetViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
+        coordinator?.goToSelectedSheet(from: self)
     }
 
     /*
