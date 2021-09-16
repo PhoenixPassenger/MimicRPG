@@ -10,8 +10,9 @@ import UIKit
 protocol SettingsViewModelType {
     var output: SettingsViewModelOutput? {get set}
     func restartApplication()
-    func changeLanguage(language: String)
+    func changeLanguage(language: Languages)
     func numberOfSections() -> Int
     func viewForHeaderInSection(section: Int) -> UIView
-    func cellForRowAt(cell: UITableViewCell) -> UITableViewCell
+    func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell
+    func didSelectRowAt(indexPath: IndexPath)
 }

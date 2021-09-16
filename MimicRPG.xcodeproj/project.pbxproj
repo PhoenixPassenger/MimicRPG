@@ -11,7 +11,6 @@
 		2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74B526EA51FA00D9487F /* CustomFonts.swift */; };
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
 		5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57226EA2B68008C8578 /* SceneDelegate.swift */; };
-		5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */; };
 		5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */; };
 		5B0DC57D26EA2B6A008C8578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */; };
 		5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 		5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B126EA34F8008C8578 /* Service.swift */; };
 		5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */; };
 		5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */; };
-		5B0DC5BA26EA352F008C8578 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B926EA352F008C8578 /* String+Localized.swift */; };
 		5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */; };
 		5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F626F0C09F00E01EBA /* Notes+CoreDataClass.swift */; };
 		5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F826F0C09F00E01EBA /* Profile+CoreDataClass.swift */; };
@@ -49,6 +47,8 @@
 		5BC9C7C926F37533006F6BC1 /* JosefinSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7BB26F37533006F6BC1 /* JosefinSans-ExtraLight.ttf */; };
 		5BC9C7CC26F37FEA006F6BC1 /* SettingsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */; };
 		5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */; };
+		5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */; };
+		5BC9C7D026F3A954006F6BC1 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B926EA352F008C8578 /* String+Localized.swift */; };
 		9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684023E26EF7435009AF620 /* DiceRollerViewController.swift */; };
 		9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024026EF7447009AF620 /* SettingsViewController.swift */; };
 		9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024226EF7486009AF620 /* UserSheetsViewController.swift */; };
@@ -492,13 +492,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC9C7D026F3A954006F6BC1 /* String+Localized.swift in Sources */,
+				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
-				5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
-				5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */,
-				5B0DC5BA26EA352F008C8578 /* String+Localized.swift in Sources */,
-				5B0DC5BA26EA352F008C8578 /* String+Localized.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
 				5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */,

@@ -9,19 +9,50 @@ import Foundation
 import UserNotifications
 import UIKit
 
+enum Languages: String, CaseIterable {
+    case english = "en"
+    case ptbr = "pt-br"
+
+    var description: String {
+        switch self {
+        case .english:
+            return "English"
+        case .ptbr:
+            return "Português-Brasil"
+        }
+    }
+}
+
+enum Configurations: CaseIterable {
+    case enabled
+    case language
+
+    var language: String {
+        return UserDefaults.standard.stringArray(forKey: "AppleLanguages")?.first ?? "en"
+
+    }
+
+    var description: String? {
+        switch self {
+        case .enabled: return "Habilitadas"
+        case .language: return Languages(rawValue: (self.language))?.description
+        }
+    }
+}
+
 enum Settings: CaseIterable {
     case language
     case notifications
     var description: String {
         switch self {
-            case .language: return "Language"
-            case .notifications: return "Notifications"
+        case .language: return "Language"
+        case .notifications: return "Notifications"
         }
     }
-    var configurations: Int {
+    var configurations: Configurations {
         switch self {
-            case .language: return 1
-            case .notifications: return 1
+        case .language: return .language
+        case .notifications: return .enabled
         }
     }
     init?(id : Int) {
@@ -38,12 +69,60 @@ enum Settings: CaseIterable {
 
 final class SettingsViewModel {
     public weak var output: SettingsViewModelOutput?
+
+    func switchButton() -> UIView {
+        let switchButton = UISwitch()
+        switchButton.isOn = false
+        switchButton.isEnabled = false
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings(completionHandler: { settings in
+            guard (settings.authorizationStatus == .authorized) ||
+                    (settings.authorizationStatus == .provisional) else { return }
+            DispatchQueue.main.async {
+                switchButton.isOn = true
+                switchButton.isEnabled = true
+            }
+        })
+        switchButton.addTarget(self, action: #selector(handleSwitchAction), for: .valueChanged)
+        return switchButton
+    }
+
+    @objc func handleSwitchAction(sender: UISwitch) {
+
+        if sender.isOn {
+            print("habilitado")
+        } else {
+            print("desabilitado")
+        }
+    }
+
 }
 extension SettingsViewModel: SettingsViewModelType {
-    func cellForRowAt(cell: UITableViewCell) -> UITableViewCell {
-        cell.textLabel?.text = "en"
+    func didSelectRowAt(indexPath: IndexPath) {
+        switch Settings(id:indexPath.section) {
+        case .language:
+            self.changeLanguage(language: .ptbr)
+        case .notifications:
+            self.output?.openSettingsAlert()
+            return
+        case .none:
+            break
+        }
+    }
+
+    func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell {
         cell.textLabel?.font = .systemFont(ofSize: 17)
-        cell.accessoryType = .disclosureIndicator
+        switch Settings(id:section) {
+        case .language:
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.text = Settings(id: section)?.configurations.description
+        case .notifications:
+            cell.accessoryView = self.switchButton()
+            cell.textLabel?.text = Settings(id: section)?.configurations.description
+        case .none:
+            break
+        }
+
         cell.backgroundColor = UIColor(named: "SecondaryBackground")
         return cell
     }
@@ -60,8 +139,8 @@ extension SettingsViewModel: SettingsViewModelType {
         return view
     }
 
-    func changeLanguage(language: String) {
-        UserDefaults.standard.set([language], forKey: "AppleLanguages")
+    func changeLanguage(language: Languages) {
+        UserDefaults.standard.set([language.rawValue], forKey: "AppleLanguages")
         UserDefaults.standard.synchronize()
         self.output?.showAlert()
     }

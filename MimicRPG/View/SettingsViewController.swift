@@ -9,22 +9,46 @@ import UIKit
 import UserNotifications
 
 class SettingsViewController: UITableViewController, SettingsViewModelOutput {
+    func openSettingsAlert() {
+        let alertController = UIAlertController(title: "Title", message: "Go to Settings?", preferredStyle: .alert)
+
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                    print("Settings opened: \(success)") // Prints true
+                })
+            }
+        }
+        alertController.addAction(settingsAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
     weak var coordinator: MainCoordinator?
     var viewModel: SettingsViewModelType!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel = SettingsViewModel()
-        self.viewModel.output = self
         self.view.backgroundColor = UIColor(named: "Background")
+        self.setupTableView()
+        print(LocalizedStrings.hello.localized)
+    }
+
+    func setupTableView() {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.viewModel.changeLanguage(language: "en")
-        print(LocalizedStrings.hello.localized)
+        self.tableView.tableFooterView = UIView()
     }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        return self.viewModel.cellForRowAt(cell: cell)
+        return self.viewModel.cellForRowAt(cell: cell, section: indexPath.section)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,6 +57,11 @@ class SettingsViewController: UITableViewController, SettingsViewModelOutput {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel.didSelectRowAt(indexPath: indexPath)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
