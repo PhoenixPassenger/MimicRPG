@@ -6,6 +6,7 @@
 //
 // swiftlint:disable all
 
+import Foundation
 import UIKit
 
 class Dice {
@@ -21,8 +22,10 @@ class Dice {
     }
 }
 
-class DiceRollerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
 
+    var viewModel: DiceRollerViewModelType!
+    
     weak var coordinator: MainCoordinator?
 
     let cellReuseIdentifier = "cell"
@@ -158,10 +161,10 @@ class DiceRollerViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 }
 
-extension DiceRollerViewController {
+extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return self.viewModel.numberOfSections()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

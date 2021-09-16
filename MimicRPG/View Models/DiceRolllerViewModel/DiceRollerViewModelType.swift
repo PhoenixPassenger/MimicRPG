@@ -13,7 +13,7 @@ protocol DiceRollerViewModelType {
 //    func restartApplication()
 //    func changeLanguage(language: Languages)
     func numberOfSections() -> Int
-    func viewForHeaderInSection(section: Int) -> UIView
+//    func viewForHeaderInSection(section: Int) -> UIView
 //    func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell
-    func didSelectRowAt(indexPath: IndexPath)
+//    func didSelectRowAt(indexPath: IndexPath)
 }
