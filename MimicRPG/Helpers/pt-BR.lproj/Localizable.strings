@@ -6,3 +6,8 @@
   
 */
 hello = "oi";
+English = "Inglês";
+Portuguese = "Português";
+Enabled = "Habilitado";
+Language = "Linguagem";
+Notifications = "Notificações";

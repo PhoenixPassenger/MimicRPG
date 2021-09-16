@@ -16,9 +16,9 @@ enum Languages: String, CaseIterable {
     var description: String {
         switch self {
         case .english:
-            return "English"
+            return "English".localized()
         case .ptbr:
-            return "Português-Brasil"
+            return "Portuguese".localized()
         }
     }
 }
@@ -34,7 +34,7 @@ enum Configurations: CaseIterable {
 
     var description: String? {
         switch self {
-        case .enabled: return "Habilitadas"
+        case .enabled: return "Enabled".localized()
         case .language: return Languages(rawValue: (self.language))?.description
         }
     }
@@ -45,8 +45,8 @@ enum Settings: CaseIterable {
     case notifications
     var description: String {
         switch self {
-        case .language: return "Language"
-        case .notifications: return "Notifications"
+        case .language: return "Language".localized()
+        case .notifications: return "Notifications".localized()
         }
     }
     var configurations: Configurations {
@@ -79,7 +79,7 @@ final class SettingsViewModel {
             guard (settings.authorizationStatus == .authorized) ||
                     (settings.authorizationStatus == .provisional) else { return }
             DispatchQueue.main.async {
-                switchButton.isOn = true
+                switchButton.isOn = UserDefaults.standard.bool(forKey: "notificationsEnabled")
                 switchButton.isEnabled = true
             }
         })
@@ -88,12 +88,8 @@ final class SettingsViewModel {
     }
 
     @objc func handleSwitchAction(sender: UISwitch) {
-
-        if sender.isOn {
-            print("habilitado")
-        } else {
-            print("desabilitado")
-        }
+        let userDefault = UserDefaults.standard
+        userDefault.set(sender.isOn, forKey: "notificationsEnabled")
     }
 
 }
@@ -101,15 +97,26 @@ extension SettingsViewModel: SettingsViewModelType {
     func didSelectRowAt(indexPath: IndexPath) {
         switch Settings(id:indexPath.section) {
         case .language:
-            self.changeLanguage(language: .ptbr)
+            self.changeLanguage(language: .english)
         case .notifications:
-            self.output?.openSettingsAlert()
+            let center = UNUserNotificationCenter.current()
+            center.getNotificationSettings(completionHandler: { settings in
+                guard (settings.authorizationStatus == .authorized) ||
+                        (settings.authorizationStatus == .provisional) else {
+                    DispatchQueue.main.async {
+                        self.output?.openSettingsAlert()
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.output?.reloadData()
+                }
+            })
             return
         case .none:
             break
         }
     }
-
     func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell {
         cell.textLabel?.font = .systemFont(ofSize: 17)
         switch Settings(id:section) {

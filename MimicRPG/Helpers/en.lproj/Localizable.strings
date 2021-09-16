@@ -6,3 +6,8 @@
   
 */
 hello = "hello";
+English = "English";
+Portuguese = "Portuguese";
+Enabled = "Enabled";
+Language = "Language";
+Notifications = "Notifications";

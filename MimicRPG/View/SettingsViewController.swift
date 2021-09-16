@@ -9,6 +9,10 @@ import UIKit
 import UserNotifications
 
 class SettingsViewController: UITableViewController, SettingsViewModelOutput {
+    func reloadData() {
+        self.tableView.reloadData()
+    }
+    
     func openSettingsAlert() {
         let alertController = UIAlertController(title: "Title", message: "Go to Settings?", preferredStyle: .alert)
 
