@@ -13,4 +13,5 @@ protocol SettingsViewModelType {
     func changeLanguage(language: String)
     func numberOfSections() -> Int
     func viewForHeaderInSection(section: Int) -> UIView
+    func cellForRowAt(cell: UITableViewCell) -> UITableViewCell
 }

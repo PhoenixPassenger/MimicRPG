@@ -24,21 +24,26 @@ class SettingsViewController: UITableViewController, SettingsViewModelOutput {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        cell.textLabel?.text = "en"
-        cell.textLabel?.font = .systemFont(ofSize: 17)
-        cell.accessoryType = .disclosureIndicator
-        return cell
+        return self.viewModel.cellForRowAt(cell: cell)
     }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.viewModel.numberOfSections()
     }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view  = self.viewModel.viewForHeaderInSection(section: section)
         return view
     }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+
     func showAlert() {
         let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in

@@ -14,8 +14,14 @@ enum Settings: CaseIterable {
     case notifications
     var description: String {
         switch self {
-        case .language: return "Language"
-        case .notifications: return "Notifications"
+            case .language: return "Language"
+            case .notifications: return "Notifications"
+        }
+    }
+    var configurations: Int {
+        switch self {
+            case .language: return 1
+            case .notifications: return 1
         }
     }
     init?(id : Int) {
@@ -34,12 +40,24 @@ final class SettingsViewModel {
     public weak var output: SettingsViewModelOutput?
 }
 extension SettingsViewModel: SettingsViewModelType {
+    func cellForRowAt(cell: UITableViewCell) -> UITableViewCell {
+        cell.textLabel?.text = "en"
+        cell.textLabel?.font = .systemFont(ofSize: 17)
+        cell.accessoryType = .disclosureIndicator
+        cell.backgroundColor = UIColor(named: "SecondaryBackground")
+        return cell
+    }
+
     func viewForHeaderInSection(section: Int) -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "Background")
         let label = UILabel()
         label.text = Settings(id: section)?.description
         label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = UIColor(hex: "#3C3C4399")
-        return label
+        label.frame = CGRect(x: 10, y: 10, width: 130, height: 44)
+        view.addSubview(label)
+        return view
     }
 
     func changeLanguage(language: String) {
