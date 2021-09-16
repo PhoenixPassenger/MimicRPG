@@ -192,15 +192,19 @@ extension DiceRollerViewController {
 
     }
 
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
-            tableView.beginUpdates()
-            self.dices.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.endUpdates()
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if indexPath.section == 1 {
+            let delete = UIContextualAction(style: .destructive, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .left)
+                self.dices.remove(at: indexPath.row)
+                tableView.endUpdates()
+            }
+            delete.image = UIImage(systemName: "trash")
+            return UISwipeActionsConfiguration(actions: [delete])
+        } else {
+            return UISwipeActionsConfiguration(actions: [])
         }
-        delete.image = UIImage(systemName: "trash")
-        return UISwipeActionsConfiguration(actions: [delete])
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -200,7 +200,6 @@
 		5B0DC56F26EA2B68008C8578 /* MimicRPG */ = {
 			isa = PBXGroup;
 			children = (
-				2E16CCB226F36A8600500E44 /* Fonts */,
 				5B0DC5AE26EA3450008C8578 /* Protocol */,
 				5B0DC5AC26EA2D31008C8578 /* Model */,
 				5B0DC5AB26EA2D1F008C8578 /* View Models */,
@@ -245,6 +244,7 @@
 		5B0DC5A526EA2C46008C8578 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2E16CCB226F36A8600500E44 /* Fonts */,
 				5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */,
 				5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */,
 			);
@@ -683,7 +683,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 795A25396T;
+				DEVELOPMENT_TEAM = P3PDP2RPN7;
 				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
