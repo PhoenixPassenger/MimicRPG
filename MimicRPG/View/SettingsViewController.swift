@@ -6,28 +6,45 @@
 //
 
 import UIKit
+import UserNotifications
 
-class SettingsViewController: UIViewController {
-    
+class SettingsViewController: UITableViewController, SettingsViewModelOutput {
     weak var coordinator: MainCoordinator?
-
+    var viewModel: SettingsViewModelType!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.viewModel = SettingsViewModel()
+        self.viewModel.output = self
         self.view.backgroundColor = UIColor(named: "Background")
-
-        // Do any additional setup after loading the view.
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.viewModel.changeLanguage(language: "en")
+        print(LocalizedStrings.hello.localized)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
+        cell.textLabel?.text = "en"
+        cell.textLabel?.font = .systemFont(ofSize: 17)
+        cell.accessoryType = .disclosureIndicator
+        return cell
     }
-    */
-
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.viewModel.numberOfSections()
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view  = self.viewModel.viewForHeaderInSection(section: section)
+        return view
+    }
+    func showAlert() {
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
+            self.viewModel.restartApplication()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
