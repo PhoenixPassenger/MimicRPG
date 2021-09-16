@@ -35,7 +35,9 @@ class DiceRollerViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var dices: [Dice] = [Dice(size: 10, quantity: 1)] {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.tableView.reloadData()
+            }
         }
     }
 
