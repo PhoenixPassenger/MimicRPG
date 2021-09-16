@@ -43,8 +43,8 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
     var filteredSheets: [MockSheet] = []
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
         navigationItem.searchController = searchController
