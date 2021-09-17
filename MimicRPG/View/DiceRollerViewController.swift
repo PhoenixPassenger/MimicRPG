@@ -19,16 +19,6 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
     
     weak var coordinator: MainCoordinator?
 
-    let cellReuseIdentifier = "cell"
-
-    let screenWidth = UIScreen.main.bounds.width - 10
-    let screenHeight = UIScreen.main.bounds.height / 2
-    
-    var diceSizes: [Int] = [2, 4, 6, 8, 10, 12, 20, 100]
-    var selectedRow = 0
-    
-    var bonusStepper: UIStepper = UIStepper()
-
     var tableView = UITableView()
     lazy var rollButton = UIBarButtonItem(title: "Rolar", style: .plain, target: self, action: #selector(rollDices))
 
@@ -43,7 +33,7 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
 
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
         self.view.addSubview(tableView)
         self.tableView.tableFooterView = UIView()
@@ -55,6 +45,12 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
     override func viewWillAppear(_ animated: Bool) {
         viewModel.dices = [Dice(size: 20, quantity: 1)]
         viewModel.bonus = 0
+        viewModel.cellReuseIdentifier = "cell"
+        viewModel.screenWidth = UIScreen.main.bounds.width - 10
+        viewModel.screenHeight = UIScreen.main.bounds.height / 2
+        viewModel.diceSizes = [2, 4, 6, 8, 10, 12, 20, 100]
+        viewModel.selectedRow = 0
+        viewModel.bonusStepper = UIStepper()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -64,15 +60,15 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         tableView.layer.backgroundColor = UIColor(named: "Background")?.cgColor
     }
 
-    @objc func addDices() {
+    func addDices() {
         let vc = UIViewController()
-        vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        vc.preferredContentSize = CGSize(width: viewModel.screenWidth!, height: viewModel.screenHeight!)
         
-        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: viewModel.screenWidth!, height: viewModel.screenHeight!))
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        pickerView.selectRow(selectedRow, inComponent: 0, animated: true)
+        pickerView.selectRow(viewModel.selectedRow!, inComponent: 0, animated: true)
         
         vc.view.addSubview(pickerView)
         pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
@@ -80,34 +76,29 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         
         let alert = UIAlertController(title: "Escolha o dado", message: "", preferredStyle: .actionSheet)
         alert.setValue(vc, forKey: "contentViewController")
-        alert.addAction(UIAlertAction(title: "Confirmar", style: .default, handler: { (UIAlertAction) in
-            self.selectedRow = pickerView.selectedRow(inComponent: 0)
+        alert.addAction(UIAlertAction(title: "Confirmar", style: .default, handler: { [self] (UIAlertAction) in
+            viewModel.selectedRow = pickerView.selectedRow(inComponent: 0)
             if self.viewModel.dices!.count > 0 {
                 var isAdditionalDice: Bool = false
                 for dice in self.viewModel.dices! {
-                    if dice.size == self.diceSizes[self.selectedRow] {
+                    if dice.size == viewModel.diceSizes![viewModel.selectedRow!] {
                         dice.quantity = dice.quantity + 1
                         dice.stepper.value = Double(dice.quantity)
                         isAdditionalDice = true
                     }
                 }
                 if !isAdditionalDice {
-                    self.viewModel.dices!.append(Dice(size: self.diceSizes[self.selectedRow], quantity: 1))
+                    self.viewModel.dices!.append(Dice(size: viewModel.diceSizes![viewModel.selectedRow!], quantity: 1))
                 }
             } else {
-                self.viewModel.dices!.append(Dice(size: self.diceSizes[self.selectedRow], quantity: 1))
+                self.viewModel.dices!.append(Dice(size: viewModel.diceSizes![viewModel.selectedRow!], quantity: 1))
             }
-            
             self.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: { (UIAlertAction) in
         }))
         
         self.present(alert, animated: true, completion: nil)
-    }
-
-    @objc func reloadDatas() {
-        tableView.reloadData()
     }
 
     @objc func rollDices() {
@@ -159,26 +150,13 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         cell.backgroundColor = UIColor(named: "Background")
-        if indexPath.section == 1 {
-            cell.accessoryView = viewModel.dices![indexPath.row].stepper
-            viewModel.dices![indexPath.row].stepper.addTarget(self, action: #selector(reloadDatas), for: .valueChanged)
-            viewModel.dices![indexPath.row].quantity = Int(viewModel.dices![indexPath.row].stepper.value)
-            cell.textLabel?.text = "d\(viewModel.dices![indexPath.row].size) (x\(viewModel.dices![indexPath.row].quantity))"
-            cell.textLabel?.font = UIFont.josefinSansRegular()
-        } else if indexPath.section == 2 {
-            cell.accessoryView = bonusStepper
-            bonusStepper.addTarget(self, action: #selector(reloadDatas), for: .valueChanged)
-            viewModel.bonus! = Int(bonusStepper.value)
-            cell.textLabel?.text = "\(viewModel.bonus!)"
-        }
-        cell.textLabel?.font = UIFont.josefinSansRegular()
-        return cell
+        return self.viewModel.cellForRowAt(cell: cell, indexPath: indexPath)
 
     }
-
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if indexPath.section == 1 {
             let delete = UIContextualAction(style: .destructive, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
                 tableView.beginUpdates()
@@ -209,8 +187,8 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
 extension DiceRollerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
-        label.text = "\(diceSizes[row])"
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: viewModel.screenWidth!, height: 30))
+        label.text = "\(viewModel.diceSizes![row])"
         label.sizeToFit()
         return label
     }
@@ -220,7 +198,7 @@ extension DiceRollerViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        diceSizes.count
+        viewModel.diceSizes!.count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {

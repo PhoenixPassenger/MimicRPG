@@ -61,11 +61,39 @@ final class DiceRollerViewModel {
             }
         }
     }
-    
     public var bonus: Int?
+    var cellReuseIdentifier: String?
+    var screenWidth: CGFloat?
+    var screenHeight: CGFloat?
+    var diceSizes: [Int]?
+    var selectedRow: Int?
+    var bonusStepper: UIStepper?
+    
 }
 
 extension DiceRollerViewModel: DiceRollerViewModelType {
+    func cellForRowAt(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
+        switch DiceRoller(id: indexPath.section) {
+        case .result:
+            break
+        case .dices:
+            cell.accessoryView = dices![indexPath.row].stepper
+            dices![indexPath.row].stepper.addTarget(self, action: #selector(reloadDataViewModel), for: .valueChanged)
+            dices![indexPath.row].quantity = Int(dices![indexPath.row].stepper.value)
+            cell.textLabel?.text = "d\(dices![indexPath.row].size) (x\(dices![indexPath.row].quantity))"
+            cell.textLabel?.font = UIFont.josefinSansRegular()
+        case .bonus:
+            cell.accessoryView = bonusStepper
+            bonusStepper!.addTarget(self, action: #selector(reloadDataViewModel), for: .valueChanged)
+            bonus! = Int(bonusStepper!.value)
+            cell.textLabel?.text = "\(bonus!)"
+        cell.textLabel?.font = UIFont.josefinSansRegular()
+        case .none:
+            break
+        }
+        return cell
+    }
+    
 
     func numberOfSections() -> Int {
         return DiceRoller.allCases.count
@@ -109,7 +137,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
             button.setImage(UIImage(systemName: "plus"), for: .normal)
             button.frame = CGRect(x: UIScreen.main.bounds.width - 50, y: 0, width: 44, height: 44)
             button.tintColor = UIColor(named: "Azure")
-            button.addTarget(self, action: #selector(placeholder), for: .touchUpInside)
+            button.addTarget(self, action: #selector(addDiceViewModel), for: .touchUpInside)
             view.addSubview(button)
         case .bonus:
             let label = UILabel()
@@ -128,7 +156,11 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
 //        //
 //    }
     
-    @objc func placeholder() {
-        // aaa
+    @objc func addDiceViewModel() {
+        self.output?.addDices()
+    }
+    
+    @objc func reloadDataViewModel() {
+        self.output?.reloadData()
     }
 }
