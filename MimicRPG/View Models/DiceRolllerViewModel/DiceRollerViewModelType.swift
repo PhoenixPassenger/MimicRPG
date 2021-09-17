@@ -24,6 +24,7 @@ protocol DiceRollerViewModelType {
     func numberOfRowsInSection(section: Int) -> Int
     func viewForHeaderInSection(section: Int) -> UIView
     func cellForRowAt(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell
+    func trailingSwipeActionsConfigurationForRowAt (indexPath: IndexPath) -> UISwipeActionsConfiguration
 //    func didSelectRowAt(indexPath: IndexPath)
 }
 

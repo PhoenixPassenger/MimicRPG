@@ -72,6 +72,18 @@ final class DiceRollerViewModel {
 }
 
 extension DiceRollerViewModel: DiceRollerViewModelType {
+    func trailingSwipeActionsConfigurationForRowAt(indexPath: IndexPath) -> UISwipeActionsConfiguration {
+        if indexPath.section == 1 {
+            let delete = UIContextualAction(style: .destructive, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
+                self.output?.removeDice(indexPath: indexPath)
+            }
+            delete.image = UIImage(systemName: "trash")
+            return UISwipeActionsConfiguration(actions: [delete])
+        } else {
+            return UISwipeActionsConfiguration(actions: [])
+        }
+    }
+    
     func cellForRowAt(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
         switch DiceRoller(id: indexPath.section) {
         case .result:

@@ -28,7 +28,6 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
         rollButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.josefinSansButton()], for: .normal)
-
         navigationItem.rightBarButtonItem = rollButton
 
         tableView.delegate = self
@@ -100,6 +99,13 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func removeDice(indexPath: IndexPath) {
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .left)
+        self.viewModel.dices!.remove(at: indexPath.row)
+        tableView.endUpdates()
+    }
 
     @objc func rollDices() {
         var resultsString: String = ""
@@ -153,22 +159,10 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         cell.backgroundColor = UIColor(named: "Background")
         return self.viewModel.cellForRowAt(cell: cell, indexPath: indexPath)
-
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        if indexPath.section == 1 {
-            let delete = UIContextualAction(style: .destructive, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
-                tableView.beginUpdates()
-                tableView.deleteRows(at: [indexPath], with: .left)
-                self.viewModel.dices!.remove(at: indexPath.row)
-                tableView.endUpdates()
-            }
-            delete.image = UIImage(systemName: "trash")
-            return UISwipeActionsConfiguration(actions: [delete])
-        } else {
-            return UISwipeActionsConfiguration(actions: [])
-        }
+        return self.viewModel.trailingSwipeActionsConfigurationForRowAt(indexPath: indexPath)
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
