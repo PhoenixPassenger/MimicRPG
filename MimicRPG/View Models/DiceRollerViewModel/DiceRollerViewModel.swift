@@ -71,7 +71,7 @@ final class DiceRollerViewModel {
 }
 
 extension DiceRollerViewModel: DiceRollerViewModelType {
-    
+
     func rollingDices() -> (resultString: String, resultValue: Int) {
         var resultString: String = ""
         var resultValue: Int = 0
@@ -89,10 +89,10 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
             resultString += " \(bonus!)"
         }
         resultValue += bonus!
-        
+
         return (resultString: resultString, resultValue: resultValue)
     }
-    
+
     func addDice(pickeredRow: Int) {
         selectedRow = pickeredRow
         if !dices!.isEmpty {
