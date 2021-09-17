@@ -68,22 +68,73 @@ final class DiceRollerViewModel {
     var diceSizes: [Int]?
     var selectedRow: Int?
     var bonusStepper: UIStepper?
-    
 }
 
 extension DiceRollerViewModel: DiceRollerViewModelType {
+    
+    func rollingDices() -> (resultString: String, resultValue: Int) {
+        var resultString: String = ""
+        var resultValue: Int = 0
+
+        for dice in dices! {
+            for _ in 1...dice.quantity {
+                let value = Int.random(in: 1...dice.size)
+                resultString += " d\(dice.size)(\(value)) +"
+                resultValue += value
+            }
+        }
+        if bonus == 0 {
+            resultString.removeLast()
+        } else {
+            resultString += " \(bonus!)"
+        }
+        resultValue += bonus!
+        
+        return (resultString: resultString, resultValue: resultValue)
+    }
+    
+    func addDice(pickeredRow: Int) {
+        selectedRow = pickeredRow
+        if !dices!.isEmpty {
+            var isAdditionalDice: Bool = false
+            for dice in dices! {
+                if dice.size == diceSizes![selectedRow!] {
+                    dice.quantity += 1
+                    dice.stepper.value = Double(dice.quantity)
+                    isAdditionalDice = true
+                }
+            }
+            if !isAdditionalDice {
+                dices!.append(Dice(size: diceSizes![selectedRow!], quantity: 1))
+            }
+        } else {
+            dices!.append(Dice(size: diceSizes![selectedRow!], quantity: 1))
+        }
+        self.output?.reloadData()
+    }
+
+    func heightForHeaderInSection(section: Int) -> CGFloat {
+        switch DiceRoller(id: section) {
+        case .result:
+            return 60
+        default:
+            return 44
+        }
+    }
+
     func trailingSwipeActionsConfigurationForRowAt(indexPath: IndexPath) -> UISwipeActionsConfiguration {
-        if indexPath.section == 1 {
+        switch DiceRoller(id: indexPath.section) {
+        case .dices:
             let delete = UIContextualAction(style: .destructive, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
                 self.output?.removeDice(indexPath: indexPath)
             }
             delete.image = UIImage(systemName: "trash")
             return UISwipeActionsConfiguration(actions: [delete])
-        } else {
+        default:
             return UISwipeActionsConfiguration(actions: [])
         }
     }
-    
+
     func cellForRowAt(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
         switch DiceRoller(id: indexPath.section) {
         case .result:
@@ -105,12 +156,11 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
         }
         return cell
     }
-    
 
     func numberOfSections() -> Int {
         return DiceRoller.allCases.count
     }
-    
+
     func numberOfRowsInSection(section: Int) -> Int {
         switch DiceRoller(id: section) {
         case .result:
@@ -123,7 +173,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
             return 0
         }
     }
-//
+
     func viewForHeaderInSection(section: Int) -> UIView {
         let view = UIView()
         view.backgroundColor = UIColor(named: "SecondaryBackground")
@@ -162,16 +212,11 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
         }
         return view
     }
-//
-//
-//    func didSelectRowAt(indexPath: IndexPath) {
-//        //
-//    }
-    
+
     @objc func addDiceViewModel() {
         self.output?.addDices()
     }
-    
+
     @objc func reloadDataViewModel() {
         self.output?.reloadData()
     }

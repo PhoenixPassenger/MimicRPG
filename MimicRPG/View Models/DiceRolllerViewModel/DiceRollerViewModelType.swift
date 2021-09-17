@@ -18,14 +18,14 @@ protocol DiceRollerViewModelType {
     var diceSizes: [Int]? {get set}
     var selectedRow: Int? {get set}
     var bonusStepper: UIStepper? {get set}
-//    func restartApplication()
-//    func changeLanguage(language: Languages)
+
+    func addDice(pickeredRow: Int)
+    func rollingDices() -> (resultString: String, resultValue: Int)
+    
     func numberOfSections() -> Int
     func numberOfRowsInSection(section: Int) -> Int
     func viewForHeaderInSection(section: Int) -> UIView
     func cellForRowAt(cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell
     func trailingSwipeActionsConfigurationForRowAt (indexPath: IndexPath) -> UISwipeActionsConfiguration
-//    func didSelectRowAt(indexPath: IndexPath)
+    func heightForHeaderInSection (section: Int) -> CGFloat
 }
-
-

@@ -7,8 +7,7 @@
 
 import Foundation
 protocol DiceRollerViewModelOutput: AnyObject {
-//    func showAlert()
-//    func openSettingsAlert()
+
     func addDices()
     func removeDice(indexPath: IndexPath)
     func reloadData()

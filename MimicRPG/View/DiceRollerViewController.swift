@@ -61,7 +61,7 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
 
     func addDices() {
         let vc = UIViewController()
-        vc.preferredContentSize = CGSize(width: viewModel.screenWidth!, height: viewModel.screenHeight!)
+        vc.preferredContentSize = CGSize(width: viewModel.screenWidth!, height: viewModel.screenHeight!/2)
         
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: viewModel.screenWidth!, height: viewModel.screenHeight!))
         pickerView.delegate = self
@@ -70,29 +70,17 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         pickerView.selectRow(viewModel.selectedRow!, inComponent: 0, animated: true)
         
         vc.view.addSubview(pickerView)
-        pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
-        pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+        
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor),
+            pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor)
+        ])
         
         let alert = UIAlertController(title: "Escolha o dado", message: "", preferredStyle: .actionSheet)
         alert.setValue(vc, forKey: "contentViewController")
-        alert.addAction(UIAlertAction(title: "Confirmar", style: .default, handler: { [self] (UIAlertAction) in
-            viewModel.selectedRow = pickerView.selectedRow(inComponent: 0)
-            if self.viewModel.dices!.count > 0 {
-                var isAdditionalDice: Bool = false
-                for dice in self.viewModel.dices! {
-                    if dice.size == viewModel.diceSizes![viewModel.selectedRow!] {
-                        dice.quantity = dice.quantity + 1
-                        dice.stepper.value = Double(dice.quantity)
-                        isAdditionalDice = true
-                    }
-                }
-                if !isAdditionalDice {
-                    self.viewModel.dices!.append(Dice(size: viewModel.diceSizes![viewModel.selectedRow!], quantity: 1))
-                }
-            } else {
-                self.viewModel.dices!.append(Dice(size: viewModel.diceSizes![viewModel.selectedRow!], quantity: 1))
-            }
-            self.reloadData()
+        alert.addAction(UIAlertAction(title: "Confirmar", style: .default, handler: { (UIAlertAction) in
+            self.viewModel.addDice(pickeredRow: pickerView.selectedRow(inComponent: 0))
         }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: { (UIAlertAction) in
         }))
@@ -108,25 +96,11 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
     }
 
     @objc func rollDices() {
-        var resultsString: String = ""
-        var resultValue: Int = 0
+        
+        let results = viewModel.rollingDices()
 
-        for dice in viewModel.dices! {
-            for _ in 1...dice.quantity {
-                let value = Int.random(in: 1...dice.size)
-                resultsString += " d\(dice.size)(\(value)) +"
-                resultValue += value
-            }
-        }
-        if viewModel.bonus == 0 {
-            resultsString.removeLast()
-        } else {
-            resultsString += " \(viewModel.bonus!)"
-        }
-        resultValue += viewModel.bonus!
-
-        let alert = UIAlertController(title: "Resultado: \(resultValue)",
-                                      message: resultsString,
+        let alert = UIAlertController(title: "Resultado: \(results.resultValue)",
+                                      message: results.resultString,
                                       preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Confirmar", style: UIAlertAction.Style.default, handler: { _ in
             }))
@@ -166,11 +140,7 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 60
-        } else {
-            return 44
-        }
+        return self.viewModel.heightForHeaderInSection(section: section)
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
