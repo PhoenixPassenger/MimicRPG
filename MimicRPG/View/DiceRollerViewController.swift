@@ -9,20 +9,11 @@
 import Foundation
 import UIKit
 
-class Dice {
-    var size: Int = 10
-    var quantity: Int = 1
-    var stepper: UIStepper = UIStepper()
-
-    init(size: Int, quantity: Int) {
-        self.size = size
-        self.quantity = quantity
-        stepper.value = 1
-        stepper.minimumValue = 1
-    }
-}
-
 class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
+
+    func reloadData() {
+        self.tableView.reloadData()
+    }
 
     var viewModel: DiceRollerViewModelType!
     
@@ -36,14 +27,6 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
     var diceSizes: [Int] = [2, 4, 6, 8, 10, 12, 20, 100]
     var selectedRow = 0
     
-    var dices: [Dice] = [Dice(size: 10, quantity: 1)] {
-        didSet {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.tableView.reloadData()
-            }
-        }
-    }
-
     var bonus: Int = 0
     var bonusStepper: UIStepper = UIStepper()
 
@@ -68,6 +51,10 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
 
         configureConstraints()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.dices = [Dice(size: 20, quantity: 1)]
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -95,9 +82,9 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         alert.setValue(vc, forKey: "contentViewController")
         alert.addAction(UIAlertAction(title: "Confirmar", style: .default, handler: { (UIAlertAction) in
             self.selectedRow = pickerView.selectedRow(inComponent: 0)
-            if self.dices.count > 0 {
+            if self.viewModel.dices!.count > 0 {
                 var isAdditionalDice: Bool = false
-                for dice in self.dices {
+                for dice in self.viewModel.dices! {
                     if dice.size == self.diceSizes[self.selectedRow] {
                         dice.quantity = dice.quantity + 1
                         dice.stepper.value = Double(dice.quantity)
@@ -105,10 +92,10 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
                     }
                 }
                 if !isAdditionalDice {
-                    self.dices.append(Dice(size: self.diceSizes[self.selectedRow], quantity: 1))
+                    self.viewModel.dices!.append(Dice(size: self.diceSizes[self.selectedRow], quantity: 1))
                 }
             } else {
-                self.dices.append(Dice(size: self.diceSizes[self.selectedRow], quantity: 1))
+                self.viewModel.dices!.append(Dice(size: self.diceSizes[self.selectedRow], quantity: 1))
             }
             
             self.reloadData()
@@ -119,7 +106,7 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         self.present(alert, animated: true, completion: nil)
     }
 
-    @objc func reloadData() {
+    @objc func reloadDatas() {
         tableView.reloadData()
     }
 
@@ -127,7 +114,7 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         var resultsString: String = ""
         var resultValue: Int = 0
 
-        for dice in dices {
+        for dice in viewModel.dices! {
             for _ in 1...dice.quantity {
                 let value = Int.random(in: 1...dice.size)
                 resultsString += " d\(dice.size)(\(value)) +"
@@ -168,27 +155,28 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 0
-        } else if section == 1 {
-            return dices.count
-        } else {
-            return 1
-        }
+        return self.viewModel.numberOfRowsInSection(section: section)
+//        if section == 0 {
+//            return 0
+//        } else if section == 1 {
+//            return dices.count
+//        } else {
+//            return 1
+//        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath as IndexPath)
         cell.backgroundColor = UIColor(named: "Background")
         if indexPath.section == 1 {
-            cell.accessoryView = dices[indexPath.row].stepper
-            dices[indexPath.row].stepper.addTarget(self, action: #selector(reloadData), for: .valueChanged)
-            dices[indexPath.row].quantity = Int(dices[indexPath.row].stepper.value)
-            cell.textLabel?.text = "d\(dices[indexPath.row].size) (x\(dices[indexPath.row].quantity))"
+            cell.accessoryView = viewModel.dices![indexPath.row].stepper
+            viewModel.dices![indexPath.row].stepper.addTarget(self, action: #selector(reloadDatas), for: .valueChanged)
+            viewModel.dices![indexPath.row].quantity = Int(viewModel.dices![indexPath.row].stepper.value)
+            cell.textLabel?.text = "d\(viewModel.dices![indexPath.row].size) (x\(viewModel.dices![indexPath.row].quantity))"
             cell.textLabel?.font = UIFont.josefinSansRegular()
         } else if indexPath.section == 2 {
             cell.accessoryView = bonusStepper
-            bonusStepper.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+            bonusStepper.addTarget(self, action: #selector(reloadDatas), for: .valueChanged)
             bonus = Int(bonusStepper.value)
             cell.textLabel?.text = "\(bonus)"
         }
@@ -202,7 +190,7 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
             let delete = UIContextualAction(style: .destructive, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
                 tableView.beginUpdates()
                 tableView.deleteRows(at: [indexPath], with: .left)
-                self.dices.remove(at: indexPath.row)
+                self.viewModel.dices!.remove(at: indexPath.row)
                 tableView.endUpdates()
             }
             delete.image = UIImage(systemName: "trash")
@@ -227,7 +215,7 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
             view.backgroundColor = UIColor(named: "Background")
             let label = UILabel()
             var rollValue: String = ""
-            for dice in dices {
+            for dice in viewModel.dices! {
                 rollValue += " \(dice.quantity)d\(dice.size) +"
             }
             if bonus == 0 && rollValue.count > 0 {

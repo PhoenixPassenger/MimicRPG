@@ -9,5 +9,5 @@ import Foundation
 protocol DiceRollerViewModelOutput: AnyObject {
 //    func showAlert()
 //    func openSettingsAlert()
-//    func reloadData()
+    func reloadData()
 }
