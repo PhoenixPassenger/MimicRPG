@@ -27,7 +27,6 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
     var diceSizes: [Int] = [2, 4, 6, 8, 10, 12, 20, 100]
     var selectedRow = 0
     
-    var bonus: Int = 0
     var bonusStepper: UIStepper = UIStepper()
 
     var tableView = UITableView()
@@ -55,6 +54,7 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.dices = [Dice(size: 20, quantity: 1)]
+        viewModel.bonus = 0
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -121,12 +121,12 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
                 resultValue += value
             }
         }
-        if bonus == 0 {
+        if viewModel.bonus == 0 {
             resultsString.removeLast()
         } else {
-            resultsString += " \(bonus)"
+            resultsString += " \(viewModel.bonus!)"
         }
-        resultValue += bonus
+        resultValue += viewModel.bonus!
 
         let alert = UIAlertController(title: "Resultado: \(resultValue)",
                                       message: resultsString,
@@ -156,13 +156,6 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.numberOfRowsInSection(section: section)
-//        if section == 0 {
-//            return 0
-//        } else if section == 1 {
-//            return dices.count
-//        } else {
-//            return 1
-//        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -177,8 +170,8 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 2 {
             cell.accessoryView = bonusStepper
             bonusStepper.addTarget(self, action: #selector(reloadDatas), for: .valueChanged)
-            bonus = Int(bonusStepper.value)
-            cell.textLabel?.text = "\(bonus)"
+            viewModel.bonus! = Int(bonusStepper.value)
+            cell.textLabel?.text = "\(viewModel.bonus!)"
         }
         cell.textLabel?.font = UIFont.josefinSansRegular()
         return cell
@@ -209,39 +202,7 @@ extension DiceRollerViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = UIColor(named: "SecondaryBackground")
-        if section == 0 {
-            view.backgroundColor = UIColor(named: "Background")
-            let label = UILabel()
-            var rollValue: String = ""
-            for dice in viewModel.dices! {
-                rollValue += " \(dice.quantity)d\(dice.size) +"
-            }
-            if bonus == 0 && rollValue.count > 0 {
-                rollValue.removeLast()
-            } else {
-                rollValue += " \(bonus)"
-            }
-            label.text = rollValue
-            label.font = UIFont.josefinSansBold30()
-            label.frame = CGRect(x: 10, y: 10, width: UIScreen.main.bounds.width - 10, height: 44)
-            view.addSubview(label)
-        } else if section == 1 {
-            let button = UIButton(type: .custom)
-            button.setImage(UIImage(systemName: "plus"), for: .normal)
-            button.frame = CGRect(x: UIScreen.main.bounds.width - 50, y: 0, width: 44, height: 44)
-            button.tintColor = UIColor(named: "Azure")
-            button.addTarget(self, action: #selector(addDices), for: .touchUpInside)
-            view.addSubview(button)
-        } else {
-            let label = UILabel()
-            label.text = "BÔNUS"
-            label.font = UIFont.josefinSansSkillDesc()
-            label.frame = CGRect(x: 10, y: 10, width: 130, height: 44)
-            view.addSubview(label)
-        }
-        return view
+        return self.viewModel.viewForHeaderInSection(section: section)
     }
 }
 

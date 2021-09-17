@@ -53,7 +53,7 @@ enum DiceRoller: CaseIterable {
 
 final class DiceRollerViewModel {
     public weak var output: DiceRollerViewModelOutput?
-    
+
     public var dices: [Dice]? {
         didSet {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -62,14 +62,7 @@ final class DiceRollerViewModel {
         }
     }
     
-//    var dices: [Dice] = [Dice(size: 20, quantity: 1)] {
-//        didSet {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                self.output?.reloadData()
-//            }
-//        }
-//    }
-
+    public var bonus: Int?
 }
 
 extension DiceRollerViewModel: DiceRollerViewModelType {
@@ -91,15 +84,51 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
         }
     }
 //
-//    func viewForHeaderInSection(section: Int) -> UIView {
-//        let view = UIView()
-//        return view
-//    }
+    func viewForHeaderInSection(section: Int) -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "SecondaryBackground")
+        switch DiceRoller(id: section) {
+        case .result:
+            view.backgroundColor = UIColor(named: "Background")
+            let label = UILabel()
+            var rollValue: String = ""
+            for dice in dices! {
+                rollValue += " \(dice.quantity)d\(dice.size) +"
+            }
+            if bonus == 0 && !rollValue.isEmpty {
+                rollValue.removeLast()
+            } else {
+                rollValue += " \(bonus!)"
+            }
+            label.text = rollValue
+            label.font = UIFont.josefinSansBold30()
+            label.frame = CGRect(x: 10, y: 10, width: UIScreen.main.bounds.width - 10, height: 44)
+            view.addSubview(label)
+        case .dices:
+            let button = UIButton(type: .custom)
+            button.setImage(UIImage(systemName: "plus"), for: .normal)
+            button.frame = CGRect(x: UIScreen.main.bounds.width - 50, y: 0, width: 44, height: 44)
+            button.tintColor = UIColor(named: "Azure")
+            button.addTarget(self, action: #selector(placeholder), for: .touchUpInside)
+            view.addSubview(button)
+        case .bonus:
+            let label = UILabel()
+            label.text = "BÔNUS"
+            label.font = UIFont.josefinSansSkillDesc()
+            label.frame = CGRect(x: 10, y: 10, width: 130, height: 44)
+            view.addSubview(label)
+        case .none:
+            break
+        }
+        return view
+    }
 //
 //
 //    func didSelectRowAt(indexPath: IndexPath) {
 //        //
 //    }
     
-    
+    @objc func placeholder() {
+        // aaa
+    }
 }
