@@ -42,14 +42,7 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.dices = [Dice(size: 20, quantity: 1)]
-        viewModel.bonus = 0
-        viewModel.cellReuseIdentifier = "cell"
-        viewModel.screenWidth = UIScreen.main.bounds.width - 10
-        viewModel.screenHeight = UIScreen.main.bounds.height / 2
-        viewModel.diceSizes = [2, 4, 6, 8, 10, 12, 20, 100]
-        viewModel.selectedRow = 0
-        viewModel.bonusStepper = UIStepper()
+        viewModel.settingValues()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -96,16 +89,14 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
     }
 
     @objc func rollDices() {
-        
         let results = viewModel.rollingDices()
-
         let alert = UIAlertController(title: "Resultado: \(results.resultValue)",
                                       message: results.resultString,
                                       preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Confirmar", style: UIAlertAction.Style.default, handler: { _ in
             }))
         self.present(alert, animated: true, completion: nil)
-        }
+    }
 
     func configureConstraints() {
         tableView.contentOffset = CGPoint(x: -18, y: -18)
@@ -153,6 +144,7 @@ extension DiceRollerViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: viewModel.screenWidth!, height: 30))
         label.text = "\(viewModel.diceSizes![row])"
+        label.font = UIFont.josefinSansBold30()
         label.sizeToFit()
         return label
     }

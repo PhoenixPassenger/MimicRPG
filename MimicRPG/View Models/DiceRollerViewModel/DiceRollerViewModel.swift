@@ -25,18 +25,7 @@ enum DiceRoller: CaseIterable {
     case result
     case dices
     case bonus
-//    var description: String {
-//        switch self {
-//        case .language: return "Language".localized()
-//        case .notifications: return "Notifications".localized()
-//        }
-//    }
-//    var configurations: Configurations {
-//        switch self {
-//        case .language: return .language
-//        case .notifications: return .enabled
-//        }
-//    }
+
     init?(id : Int) {
         switch id {
         case 0:
@@ -71,6 +60,17 @@ final class DiceRollerViewModel {
 }
 
 extension DiceRollerViewModel: DiceRollerViewModelType {
+    
+    func settingValues() {
+        dices = [Dice(size: 20, quantity: 1)]
+        bonus = 0
+        cellReuseIdentifier = "cell"
+        screenWidth = UIScreen.main.bounds.width - 10
+        screenHeight = UIScreen.main.bounds.height / 2
+        diceSizes = [2, 4, 6, 8, 10, 12, 20, 100]
+        selectedRow = 0
+        bonusStepper = UIStepper()
+    }
 
     func rollingDices() -> (resultString: String, resultValue: Int) {
         var resultString: String = ""
