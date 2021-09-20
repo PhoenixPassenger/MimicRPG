@@ -10,7 +10,7 @@ import UIKit
 class DisplaySheetViewController: UIViewController, UIScrollViewDelegate {
     
     weak var coordinator: MainCoordinator?
-    
+ 
     var buttons: [UIButton]?
 
     override func viewDidLoad() {
@@ -19,46 +19,57 @@ class DisplaySheetViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = UIColor(named: "Background")
 
-        let textLable = UILabel(frame: CGRect(x: 0, y: 0, width: 1000, height: 100))
-        textLable.text = textData
-
         self.scrollView = UIScrollView()
         self.scrollView.delegate = self
-        self.scrollView.contentSize = CGSize(width: textLable.frame.width, height: textLable.frame.height)
 
         setupButtons()
         view.addSubview(scrollView)
     }
 
+    func tabButton(name: String) -> UIButton {
+        var button = UIButton()
+        button.setTitle(name, for: .normal)
+        button.addTarget(self, action: #selector(tabFunction(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.sizeToFit()
+        button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
+        return button
+    }
+
+    @objc func tabFunction(sender: UIButton) {
+        print(sender.currentTitle)
+    }
+
     func setupButtons() {
-        let bioButton = UIButton()
-        bioButton.setTitle("Bio", for: .normal)
-        bioButton.translatesAutoresizingMaskIntoConstraints = false
+        let bioButton = tabButton(name: "Bio")
+        let pointsButton = tabButton(name: "Pontos")
+        let attributesButton = tabButton(name: "Atributos")
+        let skillsButton = tabButton(name: "Pericias")
+        let inventoryButton  = tabButton(name: "Inventário")
+        let attacksButton = tabButton(name: "Ataques")
+        let notesButton = tabButton(name: "Notas")
 
-        let pointsButton = UIButton()
-        pointsButton.setTitle("Pontos", for: .normal)
-        pointsButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        let attributesButton = UIButton()
-        attributesButton.setTitle("Atributos", for: .normal)
-        attributesButton.translatesAutoresizingMaskIntoConstraints = false
-
-        let stackView = UIStackView(frame: CGRect(x: 40, y: 100, width: 1000, height: 100))
+        let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 700, height: 40))
         stackView.axis = NSLayoutConstraint.Axis.horizontal
         stackView.alignment = .leading
-        stackView.distribution = .fillEqually
-        stackView.spacing = 8.0
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 15.0
 
         stackView.addArrangedSubview(bioButton)
         stackView.addArrangedSubview(pointsButton)
         stackView.addArrangedSubview(attributesButton)
+        stackView.addArrangedSubview(skillsButton)
+        stackView.addArrangedSubview(inventoryButton)
+        stackView.addArrangedSubview(attacksButton)
+        stackView.addArrangedSubview(notesButton)
 
+        self.scrollView.contentSize = CGSize(width: 700, height: 40)
+        scrollView.backgroundColor = .red
+        
         scrollView.addSubview(stackView)
     }
 
     var scrollView: UIScrollView!
-
-    var textData: String = "Just to add onto the already great answers, you might want to add multiple labels in your project"
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
