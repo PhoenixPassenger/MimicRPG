@@ -9,11 +9,7 @@
 import Foundation
 import UIKit
 
-class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
-
-    func reloadData() {
-        self.tableView.reloadData()
-    }
+class DiceRollerViewController: UIViewController {
 
     var viewModel: DiceRollerViewModelType!
     
@@ -52,6 +48,29 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         tableView.layer.backgroundColor = UIColor(named: "Background")?.cgColor
     }
 
+    @objc func rollDices() {
+        let results = viewModel.rollingDices()
+        let alert = UIAlertController(title: "Resultado: \(results.resultValue)",
+                                      message: results.resultString,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Confirmar", style: UIAlertAction.Style.default, handler: { _ in
+            }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func configureConstraints() {
+        tableView.contentOffset = CGPoint(x: -18, y: -18)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+}
+
+extension DiceRollerViewController: DiceRollerViewModelOutput {
     func addDices() {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: viewModel.screenWidth!, height: viewModel.screenHeight!/2)
@@ -87,26 +106,9 @@ class DiceRollerViewController: UIViewController, DiceRollerViewModelOutput {
         self.viewModel.dices!.remove(at: indexPath.row)
         tableView.endUpdates()
     }
-
-    @objc func rollDices() {
-        let results = viewModel.rollingDices()
-        let alert = UIAlertController(title: "Resultado: \(results.resultValue)",
-                                      message: results.resultString,
-                                      preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Confirmar", style: UIAlertAction.Style.default, handler: { _ in
-            }))
-        self.present(alert, animated: true, completion: nil)
-    }
-
-    func configureConstraints() {
-        tableView.contentOffset = CGPoint(x: -18, y: -18)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+    
+    func reloadData() {
+        self.tableView.reloadData()
     }
 }
 
