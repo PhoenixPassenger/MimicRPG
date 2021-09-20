@@ -21,6 +21,17 @@ enum Languages: String, CaseIterable {
             return "Portuguese".localized()
         }
     }
+
+    init?(id : Int) {
+        switch id {
+        case 0:
+            self = .english
+        case 1:
+            self = .ptbr
+        default:
+            return nil
+        }
+    }
 }
 
 enum Configurations: CaseIterable {
@@ -29,7 +40,6 @@ enum Configurations: CaseIterable {
 
     var language: String {
         return UserDefaults.standard.stringArray(forKey: "AppleLanguages")?.first ?? "en"
-
     }
 
     var description: String? {
@@ -68,8 +78,12 @@ enum Settings: CaseIterable {
 }
 
 final class SettingsViewModel {
+    func initSelectedRow() {
+        let language = UserDefaults.standard.stringArray(forKey: "AppleLanguages")?.first ?? "en"
+        self.selectedRow = Languages.allCases.firstIndex(of: Languages(rawValue: language)!)
+    }
     public weak var output: SettingsViewModelOutput?
-
+    var selectedRow: Int? = 0
     func switchButton() -> UIView {
         let switchButton = UISwitch()
         switchButton.isOn = false
@@ -95,9 +109,10 @@ final class SettingsViewModel {
 }
 extension SettingsViewModel: SettingsViewModelType {
     func didSelectRowAt(indexPath: IndexPath) {
+        self.initSelectedRow()
         switch Settings(id:indexPath.section) {
         case .language:
-            self.changeLanguage(language: .english)
+            self.output?.showLanguagePicker()
         case .notifications:
             let center = UNUserNotificationCenter.current()
             center.getNotificationSettings(completionHandler: { settings in
@@ -140,14 +155,16 @@ extension SettingsViewModel: SettingsViewModelType {
         let label = UILabel()
         label.text = Settings(id: section)?.description
         label.font = UIFont.systemFont(ofSize: 13)
-        label.textColor = UIColor(hex: "#3C3C4399")
+        label.textColor = UIColor(named: "SettingsText")
         label.frame = CGRect(x: 10, y: 10, width: 130, height: 44)
         view.addSubview(label)
         return view
     }
 
-    func changeLanguage(language: Languages) {
-        UserDefaults.standard.set([language.rawValue], forKey: "AppleLanguages")
+    func changeLanguage(pickeredRow: Int) {
+        let language = Languages(id: pickeredRow)
+        guard let finalLanguage = language else { return }
+        UserDefaults.standard.set([finalLanguage.rawValue], forKey: "AppleLanguages")
         UserDefaults.standard.synchronize()
         self.output?.showAlert()
     }
@@ -157,18 +174,7 @@ extension SettingsViewModel: SettingsViewModelType {
     }
 
     func restartApplication() {
-        var localUserInfo: [AnyHashable : Any] = [:]
-        localUserInfo["pushType"] = "restart"
-        let content = UNMutableNotificationContent()
-        content.title = "Configuration Update Complete"
-        content.body = "Tap to reopen the application"
-        content.sound = UNNotificationSound.default
-        content.userInfo = localUserInfo
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
-        let identifier = "com.domain.restart"
-        let request = UNNotificationRequest.init(identifier: identifier, content: content, trigger: trigger)
-        let center = UNUserNotificationCenter.current()
-        center.add(request)
+        NotificationService.shared.generateRestartNotification(title: "sim.", body: "test", timeInterval: 0.5)
         fatalError()
     }
 }

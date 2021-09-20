@@ -10,4 +10,5 @@ protocol SettingsViewModelOutput: AnyObject {
     func showAlert()
     func openSettingsAlert()
     func reloadData()
+    func showLanguagePicker()
 }

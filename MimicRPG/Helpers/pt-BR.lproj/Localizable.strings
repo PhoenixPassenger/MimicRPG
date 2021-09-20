@@ -11,3 +11,12 @@ Portuguese = "Português";
 Enabled = "Habilitado";
 Language = "Linguagem";
 Notifications = "Notificações";
+titleAlert = "Escolha a linguagem";
+Confirm = "Confirmar";
+Cancel = "Cancelar";
+AlertSettingsChanged = "Linguagem alterada";
+MessageAlertSettingsChanged = "Suas alterações serão aplicadas depois de reinicar o app";
+Reboot = "Reiniciar agora";
+ContinueUsing = "Continuar usando";
+Options = "Opções";
+

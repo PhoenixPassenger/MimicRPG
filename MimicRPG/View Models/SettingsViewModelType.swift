@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 protocol SettingsViewModelType {
     var output: SettingsViewModelOutput? {get set}
+    var selectedRow: Int? { get set }
     func restartApplication()
-    func changeLanguage(language: Languages)
+    func changeLanguage(pickeredRow: Int)
     func numberOfSections() -> Int
     func viewForHeaderInSection(section: Int) -> UIView
     func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell

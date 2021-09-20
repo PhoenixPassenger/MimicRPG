@@ -8,34 +8,10 @@
 import UIKit
 import UserNotifications
 
-class SettingsViewController: UITableViewController, SettingsViewModelOutput {
-    func reloadData() {
-        self.tableView.reloadData()
-    }
-    
-    func openSettingsAlert() {
-        let alertController = UIAlertController(title: "Title", message: "Go to Settings?", preferredStyle: .alert)
-
-        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
-
-            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                return
-            }
-
-            if UIApplication.shared.canOpenURL(settingsUrl) {
-                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                    print("Settings opened: \(success)") // Prints true
-                })
-            }
-        }
-        alertController.addAction(settingsAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        alertController.addAction(cancelAction)
-
-        present(alertController, animated: true, completion: nil)
-    }
+class SettingsViewController: UITableViewController {
     weak var coordinator: MainCoordinator?
     var viewModel: SettingsViewModelType!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "Background")
@@ -76,13 +52,97 @@ class SettingsViewController: UITableViewController, SettingsViewModelOutput {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
+}
+
+extension SettingsViewController: SettingsViewModelOutput {
+    func showLanguagePicker() {
+        let viewController = UIViewController()
+        let screenWidth = UIScreen.main.bounds.width - 10
+        let screenHeight = UIScreen.main.bounds.height / 2
+        viewController.preferredContentSize = CGSize(width: screenWidth, height: screenHeight/2)
+
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        pickerView.delegate = self
+        pickerView.dataSource = self
+
+        pickerView.selectRow(viewModel.selectedRow!, inComponent: 0, animated: true)
+
+        viewController.view.addSubview(pickerView)
+
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pickerView.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor),
+            pickerView.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor)
+        ])
+
+        let alert = UIAlertController(title: "titleAlert".localized(), message: "", preferredStyle: .actionSheet)
+        alert.setValue(viewController, forKey: "contentViewController")
+        alert.addAction(UIAlertAction(title: "Confirm".localized(), style: .default, handler: { _ in
+            self.viewModel.changeLanguage(pickeredRow: pickerView.selectedRow(inComponent: 0))
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .destructive, handler: { _ in
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func reloadData() {
+        self.tableView.reloadData()
+    }
+
+    func openSettingsAlert() {
+        let alertController = UIAlertController(title: "Title", message: "Settings?", preferredStyle: .alert)
+
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                    print("Settings opened: \(success)") // Prints true
+                })
+            }
+        }
+        alertController.addAction(settingsAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
 
     func showAlert() {
-        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
+        let alert = UIAlertController(title: "AlertSettingsChanged".localized(), message: "MessageAlertSettingsChanged".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Reboot".localized(), style: UIAlertAction.Style.default, handler: { _ in
             self.viewModel.restartApplication()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "ContinueUsing".localized(), style: UIAlertAction.Style.cancel, handler: { _ in
+            self.reloadData()
+        }))
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let screenWidth = UIScreen.main.bounds.width - 10
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
+        label.text = Languages(id: row)?.description
+        label.font = .systemFont(ofSize: 17)
+        label.sizeToFit()
+        return label
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 2
+    }
+
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 60
     }
 }

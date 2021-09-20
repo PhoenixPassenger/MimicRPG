@@ -17,7 +17,7 @@
 		5B0DC58B26EA2B6A008C8578 /* MimicRPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC58A26EA2B6A008C8578 /* MimicRPGTests.swift */; };
 		5B0DC59626EA2B6A008C8578 /* MimicRPGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */; };
 		5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5AF26EA3462008C8578 /* Coordinator.swift */; };
-		5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B126EA34F8008C8578 /* Service.swift */; };
+		5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B126EA34F8008C8578 /* NotificationService.swift */; };
 		5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */; };
 		5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */; };
 		5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */; };
@@ -90,7 +90,7 @@
 		5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimicRPGUITests.swift; sourceTree = "<group>"; };
 		5B0DC59726EA2B6A008C8578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B0DC5AF26EA3462008C8578 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		5B0DC5B126EA34F8008C8578 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		5B0DC5B126EA34F8008C8578 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		5B0DC5B926EA352F008C8578 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		5B0DC5A926EA2D03008C8578 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5B0DC5B126EA34F8008C8578 /* Service.swift */,
+				5B0DC5B126EA34F8008C8578 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -516,7 +516,7 @@
 				5B7C971426F0C09F00E01EBA /* Attributes+CoreDataClass.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
 				9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */,
-				5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */,
+				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */,
 			);
