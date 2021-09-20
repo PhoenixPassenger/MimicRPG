@@ -60,7 +60,7 @@ final class DiceRollerViewModel {
 }
 
 extension DiceRollerViewModel: DiceRollerViewModelType {
-    
+
     func settingValues() {
         dices = [Dice(size: 20, quantity: 1)]
         bonus = 0
