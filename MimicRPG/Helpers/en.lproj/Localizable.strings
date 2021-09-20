@@ -6,3 +6,16 @@
   
 */
 hello = "hello";
+English = "English";
+Portuguese = "Portuguese";
+Enabled = "Enabled";
+Language = "Language";
+Notifications = "Notifications";
+titleAlert = "Choose the language";
+Confirm = "Confirm";
+Cancel = "Cancel";
+AlertSettingsChanged = "Language changed";
+MessageAlertSettingsChanged = "Changes will be applied after rebooting the app";
+Reboot = "Reboot now";
+ContinueUsing = "Continue using";
+Options = "Options";

@@ -10,11 +10,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var coordinator: MainCoordinator?
+    // swiftlint:disable all
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        let rootNavigationController = UINavigationController(rootViewController: ViewController())
+
+        let rootNavigationController = UINavigationController()
+        coordinator = MainCoordinator(navigationController: rootNavigationController)
+        coordinator?.start()
+
         self.window?.rootViewController = rootNavigationController
         self.window?.makeKeyAndVisible()
     }
