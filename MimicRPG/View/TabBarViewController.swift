@@ -14,8 +14,8 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tabBar.isTranslucent = false
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.tabBar.isTranslucent = false
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
 }
