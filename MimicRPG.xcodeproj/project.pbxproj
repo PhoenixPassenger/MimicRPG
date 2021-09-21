@@ -25,6 +25,9 @@
 		2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCCF26F4061100500E44 /* DiceRollerViewModel.swift */; };
 		2E16CCD326F4068400500E44 /* DiceRollerViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCD226F4068400500E44 /* DiceRollerViewModelOutput.swift */; };
 		2E16CCD526F406A200500E44 /* DiceRollerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCD426F406A200500E44 /* DiceRollerViewModelType.swift */; };
+		2E24F77826FA07F400DE6BE9 /* DisplaySheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E24F77726FA07F400DE6BE9 /* DisplaySheetViewModel.swift */; };
+		2E24F77A26FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E24F77926FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift */; };
+		2E24F77C26FA085100DE6BE9 /* DisplaySheetViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E24F77B26FA085100DE6BE9 /* DisplaySheetViewModelType.swift */; };
 		2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74A526EA368E00D9487F /* CustomColors.swift */; };
 		2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74B526EA51FA00D9487F /* CustomFonts.swift */; };
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
@@ -97,6 +100,9 @@
 		2E16CCCF26F4061100500E44 /* DiceRollerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModel.swift; sourceTree = "<group>"; };
 		2E16CCD226F4068400500E44 /* DiceRollerViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModelOutput.swift; sourceTree = "<group>"; };
 		2E16CCD426F406A200500E44 /* DiceRollerViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModelType.swift; sourceTree = "<group>"; };
+		2E24F77726FA07F400DE6BE9 /* DisplaySheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModel.swift; sourceTree = "<group>"; };
+		2E24F77926FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModelOutput.swift; sourceTree = "<group>"; };
+		2E24F77B26FA085100DE6BE9 /* DisplaySheetViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModelType.swift; sourceTree = "<group>"; };
 		2EFC74A526EA368E00D9487F /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2EFC74B526EA51FA00D9487F /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		5B0DC56D26EA2B68008C8578 /* MimicRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MimicRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +210,16 @@
 				2E16CCD426F406A200500E44 /* DiceRollerViewModelType.swift */,
 			);
 			path = DiceRollerViewModel;
+			sourceTree = "<group>";
+		};
+		2E24F77626FA071700DE6BE9 /* DisplaySheetViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E24F77726FA07F400DE6BE9 /* DisplaySheetViewModel.swift */,
+				2E24F77926FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift */,
+				2E24F77B26FA085100DE6BE9 /* DisplaySheetViewModelType.swift */,
+			);
+			path = DisplaySheetViewModel;
 			sourceTree = "<group>";
 		};
 		5B0DC56426EA2B67008C8578 = {
@@ -327,6 +343,7 @@
 		5B0DC5AB26EA2D1F008C8578 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E24F77626FA071700DE6BE9 /* DisplaySheetViewModel */,
 				2E16CCD126F4066200500E44 /* DiceRollerViewModel */,
 				5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */,
 				5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */,
@@ -536,6 +553,7 @@
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
 				2E16CCD326F4068400500E44 /* DiceRollerViewModelOutput.swift in Sources */,
+				2E24F77C26FA085100DE6BE9 /* DisplaySheetViewModelType.swift in Sources */,
 				2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */,
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
 				5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */,
@@ -544,6 +562,7 @@
 				9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
 				2E16CCD526F406A200500E44 /* DiceRollerViewModelType.swift in Sources */,
+				2E24F77826FA07F400DE6BE9 /* DisplaySheetViewModel.swift in Sources */,
 				5BC9C7CC26F37FEA006F6BC1 /* SettingsViewModelOutput.swift in Sources */,
 				5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */,
 				2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */,
@@ -554,6 +573,7 @@
 				5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */,
 				5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */,
 				5B7C971426F0C09F00E01EBA /* Attributes+CoreDataClass.swift in Sources */,
+				2E24F77A26FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
 				9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */,
 				96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */,
