@@ -16,4 +16,6 @@ protocol SettingsViewModelType {
     func viewForHeaderInSection(section: Int) -> UIView
     func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell
     func didSelectRowAt(indexPath: IndexPath)
+    func getLanguageDescriptionById(row: Int) -> String
+    func getNumberOfLanguages() -> Int
 }

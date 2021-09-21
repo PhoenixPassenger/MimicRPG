@@ -108,6 +108,16 @@ final class SettingsViewModel {
 
 }
 extension SettingsViewModel: SettingsViewModelType {
+    func getLanguageDescriptionById(row: Int) -> String {
+        let description = Languages(id: row)?.description
+        guard let desc = description else { return Languages.english.description }
+        return desc
+    }
+
+    func getNumberOfLanguages() -> Int {
+        return Languages.allCases.count
+    }
+
     func didSelectRowAt(indexPath: IndexPath) {
         self.initSelectedRow()
         switch Settings(id:indexPath.section) {

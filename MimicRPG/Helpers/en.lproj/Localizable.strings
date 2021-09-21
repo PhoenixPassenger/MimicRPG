@@ -19,3 +19,6 @@ MessageAlertSettingsChanged = "Changes will be applied after rebooting the app";
 Reboot = "Reboot now";
 ContinueUsing = "Continue using";
 Options = "Options";
+TitleSettingsAlert = "Allow notifications";
+GoToSettingsMessage = "To enable notifications turn on the notifications permisson on Settings";
+GoToSettingsButton = "Settings";
