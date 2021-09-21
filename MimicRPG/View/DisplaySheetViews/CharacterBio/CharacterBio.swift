@@ -19,35 +19,26 @@ class CharacterBio: UITableViewController {
         self.tableView.register(CharacterBioCell.self, forCellReuseIdentifier: "MyCell")
         self.tableView.dataSource = self
         self.tableView.delegate = self
+//        self.tableView.separatorStyle = .none
         self.tableView.tableFooterView = UIView()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as? CharacterBioCell
+        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterBioCell
         guard let cell = cellWrap else { fatalError() }
-        cell.set(titleItem: "Name", valueItem: "Arnaldo")
+        cell.set(titleItem: "Name", valueItem: "Arnaldo Arnaldo Arnaldo Arnaldo Arnaldo Arnaldo Arnaldo Arnaldo")
         return cell
     }
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return self.viewModel.numberOfSections()
-//    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
     }
 
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.viewModel.didSelectRowAt(indexPath: indexPath)
-//        self.tableView.deselectRow(at: indexPath, animated: true)
-//    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view  = self.viewModel.viewForHeaderInSection(section: section)
-//        return view
-//    }
-
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 44
-//    }
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }

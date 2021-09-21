@@ -7,15 +7,15 @@
 
 import UIKit
 
-class DisplaySheetViewController: UIViewController {
+class DisplaySheetViewController: CharacterBio {
     weak var coordinator: MainCoordinator?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.view.backgroundColor = UIColor(named: "Background")
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.view.backgroundColor = UIColor(named: "Background")
+//    }
 
     /*
     // MARK: - Navigation
