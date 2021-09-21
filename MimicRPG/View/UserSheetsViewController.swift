@@ -34,6 +34,10 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         MockSheet(image: "llanowar", charName: "Llanowar", desc: "Guerra da Centelha", system: "T20"),
         MockSheet(image: "llanowar", charName: "Ral", desc: "O Trono de Eldraine", system: "T20"),
         MockSheet(image: "llanowar", charName: "Nahiri", desc: "Retorno de Zendikar", system: "T20"),
+        MockSheet(image: "llanowar", charName: "Cleiton Rasta", desc: "O mistério do Sabiá", system: "CT7"),
+        MockSheet(image: "llanowar", charName: "Llanowar", desc: "Guerra da Centelha", system: "T20"),
+        MockSheet(image: "llanowar", charName: "Ral", desc: "O Trono de Eldraine", system: "T20"),
+        MockSheet(image: "llanowar", charName: "Nahiri", desc: "Retorno de Zendikar", system: "T20"),
         MockSheet(image: "llanowar", charName: "Cleiton Rasta", desc: "O mistério do Sabiá", system: "CT7")
     ]
 

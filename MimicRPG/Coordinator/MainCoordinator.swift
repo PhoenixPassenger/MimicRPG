@@ -53,4 +53,8 @@ class MainCoordinator : Coordinator {
 
         navigationController.pushViewController(startingViewController, animated: false)
     }
+
+    override func finish() {
+
+    }
 }

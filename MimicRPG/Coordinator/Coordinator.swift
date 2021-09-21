@@ -11,18 +11,18 @@ class Coordinator {
     private(set) var childCoordinators: [Coordinator] = []
 
     func start() {
-
+        preconditionFailure("This method needs to be overriden by concrete subclass.")
     }
 
     func finish() {
-
+        preconditionFailure("This method needs to be overriden by concrete subclass.")
     }
 
-    public func addChildCoordinator(_ coordinator: Coordinator) {
+    func addChildCoordinator(_ coordinator: Coordinator) {
         childCoordinators.append(coordinator)
     }
 
-    public func removeChildCoordinator(_ coordinator: Coordinator) {
+    func removeChildCoordinator(_ coordinator: Coordinator) {
         if let index = childCoordinators.firstIndex(of: coordinator) {
             childCoordinators.remove(at: index)
         } else {

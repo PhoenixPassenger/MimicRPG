@@ -26,6 +26,7 @@ class DisplaySheetCoordinator : Coordinator {
 
     override func finish() {
         parentCoordinator.removeChildCoordinator(self)
+        //delegate?.didFinish(from: self)
     }
 
 }
