@@ -25,7 +25,7 @@ class DisplaySheetViewController: UIViewController {
         let bioButton = tabButton(name: "Bio")
         let pointsButton = tabButton(name: "Pontos")
         let attributesButton = tabButton(name: "Atributos")
-        let skillsButton = tabButton(name: "Pericias")
+        let skillsButton = tabButton(name: "Perícias")
         let inventoryButton  = tabButton(name: "Inventário")
         let attacksButton = tabButton(name: "Ataques")
         let notesButton = tabButton(name: "Notas")
@@ -52,6 +52,7 @@ class DisplaySheetViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.contentSize = CGSize(width: .zero, height: 50)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsHorizontalScrollIndicator = false
         scrollView.addSubview(stackView)
         view.addSubview(scrollView)
 
@@ -66,6 +67,8 @@ class DisplaySheetViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -32),
             stackView.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
+        changeSelectedButton(name: "Bio")
     }
 
     func tabButton(name: String) -> UIButton {
@@ -79,8 +82,21 @@ class DisplaySheetViewController: UIViewController {
         return button
     }
 
+    func changeSelectedButton(name: String) {
+        for button in buttons {
+            if button.titleLabel?.text == name {
+                button.setTitleColor(UIColor(named: "Azure"), for: .normal)
+                button.titleLabel?.font = UIFont.josefinSansBold17()
+            } else {
+                button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
+                button.titleLabel?.font =  UIFont.josefinSansButton()
+            }
+        }
+    }
+    
     @objc func tabFunction(sender: UIButton) {
         print(sender.currentTitle!)
+        changeSelectedButton(name: sender.currentTitle!)
     }
 
     var scrollView: UIScrollView!
