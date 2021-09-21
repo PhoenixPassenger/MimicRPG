@@ -20,7 +20,7 @@ force_cast: warning
 force_try:
   severity: warning 
 
-line_length: 110
+line_length: 160
 
 type_body_length:
   - 300 
@@ -31,7 +31,7 @@ file_length:
   error: 1200
 
 type_name:
-  min_length: 4 
+  min_length: 3 
   max_length:
     warning: 40
     error: 50
@@ -39,7 +39,7 @@ type_name:
   allowed_symbols: ["_"] 
 identifier_name:
   min_length: 
-    error: 4 
+    error: 2 
   excluded: 
     - id
     - URL

@@ -8,7 +8,6 @@
 import UIKit
 
 class DisplaySheetViewController: UIViewController {
-    
     weak var coordinator: MainCoordinator?
  
     var buttons: [UIButton] = []

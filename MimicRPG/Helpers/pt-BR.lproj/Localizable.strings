@@ -6,3 +6,19 @@
   
 */
 hello = "oi";
+English = "Inglês";
+Portuguese = "Português";
+Enabled = "Habilitado";
+Language = "Linguagem";
+Notifications = "Notificações";
+titleAlert = "Escolha a linguagem";
+Confirm = "Confirmar";
+Cancel = "Cancelar";
+AlertSettingsChanged = "Linguagem alterada";
+MessageAlertSettingsChanged = "Suas alterações serão aplicadas depois de reinicar o app";
+Reboot = "Reiniciar agora";
+ContinueUsing = "Continuar usando";
+Options = "Opções";
+TitleSettingsAlert = "Permitir notificações";
+GoToSettingsMessage = "Para permitir notificações, permita notificações para este app nas configurações do dispositivo";
+GoToSettingsButton = "Configurações";
