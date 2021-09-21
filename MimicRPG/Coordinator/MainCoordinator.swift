@@ -9,19 +9,18 @@ import Foundation
 import UIKit
 
 class MainCoordinator : Coordinator {
-    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.navigationController.navigationBar.isHidden = true
     }
 
-    func start() {
+    override func start() {
         let startingViewController = TabBarViewController()
         startingViewController.coordinator = self
 
         let sheetsViewController = UserSheetsViewController()
-        sheetsViewController.coordinator = self
         sheetsViewController.title = "Fichas"
         sheetsViewController.tabBarItem = UITabBarItem(title: "Fichas", image: UIImage(named: "pencil"),
                                        selectedImage: UIImage(named: "pencil"))
@@ -44,13 +43,12 @@ class MainCoordinator : Coordinator {
         let diceNavigationController = UINavigationController(rootViewController: diceRollerViewController)
         let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
 
+        let sheetsCoord = UserSheetsCoordinator(with: self, navController: sheetsNavigationController)
+        sheetsViewController.coordinator = sheetsCoord
+
         startingViewController.viewControllers = [sheetsNavigationController, diceNavigationController,
                                                   settingsNavigationController]
 
         navigationController.pushViewController(startingViewController, animated: false)
-    }
-
-    func goToSelectedSheet(from controller: UIViewController) {
-        _ = DisplaySheetViewController()
     }
 }

@@ -53,6 +53,8 @@
 		9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024026EF7447009AF620 /* SettingsViewController.swift */; };
 		9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024226EF7486009AF620 /* UserSheetsViewController.swift */; };
 		9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */; };
+		96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F09C9826F9FAA3008F5554 /* DisplaySheetCoordinator.swift */; };
+		96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F09C9A26FA11B3008F5554 /* UserSheetsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,8 @@
 		9684024026EF7447009AF620 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9684024226EF7486009AF620 /* UserSheetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewController.swift; sourceTree = "<group>"; };
 		9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewController.swift; sourceTree = "<group>"; };
+		96F09C9826F9FAA3008F5554 /* DisplaySheetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetCoordinator.swift; sourceTree = "<group>"; };
+		96F09C9A26FA11B3008F5554 /* UserSheetsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */,
+				96F09C9826F9FAA3008F5554 /* DisplaySheetCoordinator.swift */,
+				96F09C9A26FA11B3008F5554 /* UserSheetsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 				5BC9C7D026F3A954006F6BC1 /* String+Localized.swift in Sources */,
 				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
+				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
@@ -516,6 +523,7 @@
 				5B7C971426F0C09F00E01EBA /* Attributes+CoreDataClass.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
 				9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */,
+				96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */,

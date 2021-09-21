@@ -9,7 +9,7 @@ import UIKit
 
 class UserSheetsViewController: UIViewController {
 
-    weak var coordinator: MainCoordinator?
+    var coordinator: UserSheetsCoordinator?
 
     lazy var nextButton: UIButton = {
         let button = UIButton()
@@ -35,17 +35,6 @@ class UserSheetsViewController: UIViewController {
     }
 
     @objc func toSheet() {
-        coordinator?.goToSelectedSheet(from: self)
+        coordinator?.goToSelectedSheet()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

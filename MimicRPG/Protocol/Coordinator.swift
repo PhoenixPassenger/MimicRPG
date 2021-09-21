@@ -7,9 +7,34 @@
 
 import UIKit
 
-protocol Coordinator {
-    var childCoordinators: [Coordinator] { get set }
-    var navigationController: UINavigationController { get set }
+class Coordinator {
+    private(set) var childCoordinators: [Coordinator] = []
 
-    func start()
+    func start() {
+
+    }
+
+    func finish() {
+
+    }
+
+    public func addChildCoordinator(_ coordinator: Coordinator) {
+        childCoordinators.append(coordinator)
+    }
+
+    public func removeChildCoordinator(_ coordinator: Coordinator) {
+        if let index = childCoordinators.firstIndex(of: coordinator) {
+            childCoordinators.remove(at: index)
+        } else {
+            print("Couldn't remove coordinator: \(coordinator). It's not a child coordinator.")
+        }
+    }
+}
+
+extension Coordinator: Equatable {
+
+    static func == (lhs: Coordinator, rhs: Coordinator) -> Bool {
+        return lhs === rhs
+    }
+
 }
