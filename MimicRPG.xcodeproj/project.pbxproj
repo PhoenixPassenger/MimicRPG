@@ -316,6 +316,7 @@
 		5B0DC5AA26EA2D12008C8578 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				5B0DC5AF26EA3462008C8578 /* Coordinator.swift */,
 				5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */,
 				96F09C9826F9FAA3008F5554 /* DisplaySheetCoordinator.swift */,
 				96F09C9A26FA11B3008F5554 /* UserSheetsCoordinator.swift */,
@@ -327,7 +328,6 @@
 			isa = PBXGroup;
 			children = (
 				2E16CCD126F4066200500E44 /* DiceRollerViewModel */,
-				5B0DC5B426EA3509008C8578 /* ViewModel.swift */,
 				5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */,
 				5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */,
 				5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */,
@@ -356,30 +356,8 @@
 		5B0DC5AE26EA3450008C8578 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				5B0DC5AF26EA3462008C8578 /* Coordinator.swift */,
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		5BC9C7AD26F37525006F6BC1 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				5BC9C7BA26F37533006F6BC1 /* JosefinSans-Bold.ttf */,
-				5BC9C7B226F37532006F6BC1 /* JosefinSans-BoldItalic.ttf */,
-				5BC9C7BB26F37533006F6BC1 /* JosefinSans-ExtraLight.ttf */,
-				5BC9C7B026F37532006F6BC1 /* JosefinSans-ExtraLightItalic.ttf */,
-				5BC9C7AF26F37532006F6BC1 /* JosefinSans-Italic.ttf */,
-				5BC9C7B926F37533006F6BC1 /* JosefinSans-Light.ttf */,
-				5BC9C7B326F37532006F6BC1 /* JosefinSans-LightItalic.ttf */,
-				5BC9C7B826F37533006F6BC1 /* JosefinSans-Medium.ttf */,
-				5BC9C7B726F37533006F6BC1 /* JosefinSans-MediumItalic.ttf */,
-				5BC9C7B626F37532006F6BC1 /* JosefinSans-Regular.ttf */,
-				5BC9C7B426F37532006F6BC1 /* JosefinSans-SemiBold.ttf */,
-				5BC9C7B526F37532006F6BC1 /* JosefinSans-SemiBoldItalic.ttf */,
-				5BC9C7AE26F37532006F6BC1 /* JosefinSans-Thin.ttf */,
-				5BC9C7B126F37532006F6BC1 /* JosefinSans-ThinItalic.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,12 +468,7 @@
 				2E16CCC626F36A9800500E44 /* JosefinSans-Light.ttf in Resources */,
 				2E16CCC926F36A9800500E44 /* JosefinSans-BoldItalic.ttf in Resources */,
 				2E16CCCE26F36A9800500E44 /* JosefinSans-Regular.ttf in Resources */,
-				2EFC74B126EA51DD00D9487F /* Fonts in Resources */,
 				5B7C971F26F0D0F700E01EBA /* Localizable.strings in Resources */,
-				5BC9C7C326F37533006F6BC1 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
-				5BC9C7BD26F37533006F6BC1 /* JosefinSans-Italic.ttf in Resources */,
-				5BC9C7C826F37533006F6BC1 /* JosefinSans-Bold.ttf in Resources */,
-				5BC9C7C026F37533006F6BC1 /* JosefinSans-BoldItalic.ttf in Resources */,
 				5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */,
 				5B0DC57D26EA2B6A008C8578 /* Assets.xcassets in Resources */,
 				2E16CCCC26F36A9800500E44 /* JosefinSans-Italic.ttf in Resources */,
@@ -557,12 +530,8 @@
 				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
-				5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
-				5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */,
-				5B0DC5BA26EA352F008C8578 /* Extension+Extended.swift in Sources */,
-				5B0DC5BA26EA352F008C8578 /* String+Localized.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
@@ -588,9 +557,9 @@
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
 				9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */,
 				96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */,
-				5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */,
+				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */,
-				5B0DC5B526EA3509008C8578 /* ViewModel.swift in Sources */,
+				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */,

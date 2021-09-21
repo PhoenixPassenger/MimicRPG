@@ -4,9 +4,6 @@
 //
 //  Created by Pedro Henrique on 13/09/21.
 //
-
-// swiftlint:disable force_cast
-
 import UIKit
 
 private let reuseIdentifier = "Cell"

@@ -22,7 +22,7 @@ protocol DiceRollerViewModelType {
     func addDice(pickeredRow: Int)
     func settingValues()
     func rollingDices() -> (resultString: String, resultValue: Int)
-    
+
     func numberOfSections() -> Int
     func numberOfRowsInSection(section: Int) -> Int
     func viewForHeaderInSection(section: Int) -> UIView
