@@ -13,9 +13,16 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 15.0, *) {
+           let appearance = UITabBarAppearance()
+           appearance.configureWithOpaqueBackground()
+           appearance.backgroundColor = .systemBackground
+           self.tabBar.standardAppearance = appearance
+           self.tabBar.scrollEdgeAppearance = appearance
+        }
 
-        self.tabBar.isTranslucent = false
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.tabBar.isTranslucent = false
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
 }

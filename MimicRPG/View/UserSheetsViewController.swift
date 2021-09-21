@@ -4,9 +4,6 @@
 //
 //  Created by Pedro Henrique on 13/09/21.
 //
-
-// swiftlint:disable force_cast
-
 import UIKit
 
 private let reuseIdentifier = "Cell"
@@ -27,13 +24,17 @@ class MockSheet {
 
 class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
-    weak var coordinator: MainCoordinator?
+    var coordinator: UserSheetsCoordinator?
 
     var collectionView: UICollectionView?
     let searchController = UISearchController()
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(toSheet))
 
     var mockSheets: [MockSheet] = [
+        MockSheet(image: "llanowar", charName: "Llanowar", desc: "Guerra da Centelha", system: "T20"),
+        MockSheet(image: "llanowar", charName: "Ral", desc: "O Trono de Eldraine", system: "T20"),
+        MockSheet(image: "llanowar", charName: "Nahiri", desc: "Retorno de Zendikar", system: "T20"),
+        MockSheet(image: "llanowar", charName: "Cleiton Rasta", desc: "O mistério do Sabiá", system: "CT7"),
         MockSheet(image: "llanowar", charName: "Llanowar", desc: "Guerra da Centelha", system: "T20"),
         MockSheet(image: "llanowar", charName: "Ral", desc: "O Trono de Eldraine", system: "T20"),
         MockSheet(image: "llanowar", charName: "Nahiri", desc: "Retorno de Zendikar", system: "T20"),
@@ -76,8 +77,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
     }
 
     @objc func toSheet() {
-        let viewController = DisplaySheetViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
+        coordinator?.goToSelectedSheet()
     }
 
     func updateSearchResults(for searchController: UISearchController) {

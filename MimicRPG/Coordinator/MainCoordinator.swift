@@ -9,19 +9,16 @@ import Foundation
 import UIKit
 
 class MainCoordinator : Coordinator {
-    var childCoordinators = [Coordinator]()
-    var navigationController: UINavigationController
-
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    var tabBarController: TabBarViewController
+    init(tabBarController: TabBarViewController) {
+        self.tabBarController = tabBarController
     }
 
-    func start() {
-        let startingViewController = TabBarViewController()
-        startingViewController.coordinator = self
+    override func start() {
+
+        tabBarController.coordinator = self
 
         let sheetsViewController = UserSheetsViewController()
-        sheetsViewController.coordinator = self
         sheetsViewController.title = "Fichas"
         sheetsViewController.tabBarItem = UITabBarItem(title: "Fichas", image: UIImage(named: "pencil"),
                                        selectedImage: UIImage(named: "pencil"))
@@ -46,13 +43,15 @@ class MainCoordinator : Coordinator {
         let diceNavigationController = UINavigationController(rootViewController: diceRollerViewController)
         let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
 
-        startingViewController.viewControllers = [sheetsNavigationController, diceNavigationController,
-                                                  settingsNavigationController]
+        let sheetsCoord = UserSheetsCoordinator(with: self, navController: sheetsNavigationController)
+        sheetsViewController.coordinator = sheetsCoord
 
-        navigationController.pushViewController(startingViewController, animated: false)
+        tabBarController.viewControllers = [sheetsNavigationController, diceNavigationController,settingsNavigationController]
+
+//        navigationController.pushViewController(startingViewController, animated: false)
     }
 
-    func goToSelectedSheet(from controller: UIViewController) {
-        _ = DisplaySheetViewController()
+    override func finish() {
+
     }
 }

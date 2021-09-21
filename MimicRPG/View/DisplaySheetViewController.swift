@@ -8,9 +8,10 @@
 import UIKit
 
 class DisplaySheetViewController: UIViewController {
-    weak var coordinator: MainCoordinator?
  
     var buttons: [UIButton] = []
+
+    var coordinator: Coordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +99,6 @@ class DisplaySheetViewController: UIViewController {
         print(sender.currentTitle!)
         changeSelectedButton(name: sender.currentTitle!)
     }
-
     var scrollView: UIScrollView!
 
     override func viewDidLayoutSubviews() {
