@@ -26,6 +26,8 @@ class MainCoordinator : Coordinator {
                                        selectedImage: UIImage(named: "pencil"))
 
         let diceRollerViewController = DiceRollerViewController()
+        diceRollerViewController.viewModel = DiceRollerViewModel()
+        diceRollerViewController.viewModel.output = diceRollerViewController
         diceRollerViewController.coordinator = self
         diceRollerViewController.title = "Dados"
         diceRollerViewController.tabBarItem = UITabBarItem(title: "Dados", image: UIImage(named: "pencil"),

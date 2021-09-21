@@ -91,9 +91,9 @@ extension SettingsViewController: SettingsViewModelOutput {
     }
 
     func openSettingsAlert() {
-        let alertController = UIAlertController(title: "Title", message: "Settings?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "TitleSettingsAlert".localized(), message: "GoToSettingsMessage".localized(), preferredStyle: .alert)
 
-        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+        let settingsAction = UIAlertAction(title: "GoToSettingsButton".localized(), style: .default) { (_) -> Void in
 
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
@@ -101,12 +101,17 @@ extension SettingsViewController: SettingsViewModelOutput {
 
             if UIApplication.shared.canOpenURL(settingsUrl) {
                 UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                    print("Settings opened: \(success)") // Prints true
+                    switch success {
+                    case true:
+                        return
+                    case false:
+                        return
+                    }
                 })
             }
         }
         alertController.addAction(settingsAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .default, handler: nil)
         alertController.addAction(cancelAction)
 
         present(alertController, animated: true, completion: nil)
@@ -128,7 +133,7 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let screenWidth = UIScreen.main.bounds.width - 10
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
-        label.text = Languages(id: row)?.description
+        label.text = self.viewModel.getLanguageDescriptionById(row: row)
         label.font = .systemFont(ofSize: 17)
         label.sizeToFit()
         return label
@@ -139,7 +144,7 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 2
+        return self.viewModel.getNumberOfLanguages()
     }
 
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
