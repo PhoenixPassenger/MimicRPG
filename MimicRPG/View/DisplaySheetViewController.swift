@@ -7,11 +7,11 @@
 
 import UIKit
 
-class DisplaySheetViewController: UIViewController, UIScrollViewDelegate {
+class DisplaySheetViewController: UIViewController {
     
     weak var coordinator: MainCoordinator?
  
-    var buttons: [UIButton]?
+    var buttons: [UIButton] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,25 +19,7 @@ class DisplaySheetViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = UIColor(named: "Background")
 
-        self.scrollView = UIScrollView()
-        self.scrollView.delegate = self
-
         setupButtons()
-        view.addSubview(scrollView)
-    }
-
-    func tabButton(name: String) -> UIButton {
-        var button = UIButton()
-        button.setTitle(name, for: .normal)
-        button.addTarget(self, action: #selector(tabFunction(sender:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.sizeToFit()
-        button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
-        return button
-    }
-
-    @objc func tabFunction(sender: UIButton) {
-        print(sender.currentTitle)
     }
 
     func setupButtons() {
@@ -49,32 +31,63 @@ class DisplaySheetViewController: UIViewController, UIScrollViewDelegate {
         let attacksButton = tabButton(name: "Ataques")
         let notesButton = tabButton(name: "Notas")
 
-        let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 700, height: 40))
-        stackView.axis = NSLayoutConstraint.Axis.horizontal
-        stackView.alignment = .leading
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
-        stackView.spacing = 15.0
 
-        stackView.addArrangedSubview(bioButton)
-        stackView.addArrangedSubview(pointsButton)
-        stackView.addArrangedSubview(attributesButton)
-        stackView.addArrangedSubview(skillsButton)
-        stackView.addArrangedSubview(inventoryButton)
-        stackView.addArrangedSubview(attacksButton)
-        stackView.addArrangedSubview(notesButton)
+        buttons.append(bioButton)
+        buttons.append(pointsButton)
+        buttons.append(attributesButton)
+        buttons.append(skillsButton)
+        buttons.append(inventoryButton)
+        buttons.append(attacksButton)
+        buttons.append(notesButton)
 
-        self.scrollView.contentSize = CGSize(width: 700, height: 40)
-        scrollView.backgroundColor = .red
-        
+        for button in buttons {
+            stackView.addArrangedSubview(button)
+        }
+
+        stackView.spacing = 32
+
+        let scrollView = UIScrollView()
+        scrollView.contentSize = CGSize(width: .zero, height: 50)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(stackView)
+        view.addSubview(scrollView)
+
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.heightAnchor.constraint(equalToConstant: 50),
+   
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -32),
+            stackView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+
+    func tabButton(name: String) -> UIButton {
+        let button = UIButton()
+        button.setTitle(name, for: .normal)
+        button.addTarget(self, action: #selector(tabFunction(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.sizeToFit()
+        button.titleLabel?.font =  UIFont.josefinSansButton()
+        button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
+        return button
+    }
+
+    @objc func tabFunction(sender: UIButton) {
+        print(sender.currentTitle!)
     }
 
     var scrollView: UIScrollView!
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
-        scrollView.frame = view.bounds
     }
 
     override func didReceiveMemoryWarning() {
