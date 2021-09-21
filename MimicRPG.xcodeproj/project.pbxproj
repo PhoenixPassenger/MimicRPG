@@ -29,17 +29,15 @@
 		2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74B526EA51FA00D9487F /* CustomFonts.swift */; };
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
 		5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57226EA2B68008C8578 /* SceneDelegate.swift */; };
-		5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */; };
 		5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */; };
 		5B0DC57D26EA2B6A008C8578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */; };
 		5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */; };
 		5B0DC58B26EA2B6A008C8578 /* MimicRPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC58A26EA2B6A008C8578 /* MimicRPGTests.swift */; };
 		5B0DC59626EA2B6A008C8578 /* MimicRPGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */; };
 		5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5AF26EA3462008C8578 /* Coordinator.swift */; };
-		5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B126EA34F8008C8578 /* Service.swift */; };
-		5B0DC5B526EA3509008C8578 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B426EA3509008C8578 /* ViewModel.swift */; };
+		5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B126EA34F8008C8578 /* NotificationService.swift */; };
+		5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */; };
 		5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */; };
-		5B0DC5BA26EA352F008C8578 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B926EA352F008C8578 /* String+Localized.swift */; };
 		5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */; };
 		5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F626F0C09F00E01EBA /* Notes+CoreDataClass.swift */; };
 		5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F826F0C09F00E01EBA /* Profile+CoreDataClass.swift */; };
@@ -50,11 +48,15 @@
 		5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C970226F0C09F00E01EBA /* Points+CoreDataClass.swift */; };
 		5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C970426F0C09F00E01EBA /* Item+CoreDataClass.swift */; };
 		5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C970626F0C09F00E01EBA /* Skill+CoreDataClass.swift */; };
+		5B7C971F26F0D0F700E01EBA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B7C972126F0D0F700E01EBA /* Localizable.strings */; };
+		5BC9C7CC26F37FEA006F6BC1 /* SettingsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */; };
+		5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */; };
+		5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */; };
+		5BC9C7D026F3A954006F6BC1 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B926EA352F008C8578 /* String+Localized.swift */; };
 		9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684023E26EF7435009AF620 /* DiceRollerViewController.swift */; };
 		9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024026EF7447009AF620 /* SettingsViewController.swift */; };
 		9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024226EF7486009AF620 /* UserSheetsViewController.swift */; };
 		9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */; };
-		5B7C971F26F0D0F700E01EBA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B7C972126F0D0F700E01EBA /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,8 +112,8 @@
 		5B0DC59526EA2B6A008C8578 /* MimicRPGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimicRPGUITests.swift; sourceTree = "<group>"; };
 		5B0DC59726EA2B6A008C8578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B0DC5AF26EA3462008C8578 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		5B0DC5B126EA34F8008C8578 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		5B0DC5B426EA3509008C8578 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		5B0DC5B126EA34F8008C8578 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		5B0DC5B926EA352F008C8578 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attack+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -124,13 +126,16 @@
 		5B7C970226F0C09F00E01EBA /* Points+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Points+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B7C970426F0C09F00E01EBA /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B7C970626F0C09F00E01EBA /* Skill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skill+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B7C972026F0D0F700E01EBA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5B7C972226F0D10D00E01EBA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5B7C972326F0D10D00E01EBA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5BC9C7AC26F364EE006F6BC1 /* MimicRPG.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MimicRPG.entitlements; sourceTree = "<group>"; };
+		5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelOutput.swift; sourceTree = "<group>"; };
+		5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelType.swift; sourceTree = "<group>"; };
 		9684023E26EF7435009AF620 /* DiceRollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewController.swift; sourceTree = "<group>"; };
 		9684024026EF7447009AF620 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9684024226EF7486009AF620 /* UserSheetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewController.swift; sourceTree = "<group>"; };
 		9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewController.swift; sourceTree = "<group>"; };
-		5B7C972026F0D0F700E01EBA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5B7C972226F0D10D00E01EBA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		5B7C972326F0D10D00E01EBA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +225,7 @@
 		5B0DC56F26EA2B68008C8578 /* MimicRPG */ = {
 			isa = PBXGroup;
 			children = (
+				5BC9C7AC26F364EE006F6BC1 /* MimicRPG.entitlements */,
 				5B0DC5AE26EA3450008C8578 /* Protocol */,
 				5B0DC5AC26EA2D31008C8578 /* Model */,
 				5B0DC5AB26EA2D1F008C8578 /* View Models */,
@@ -298,7 +304,7 @@
 		5B0DC5A926EA2D03008C8578 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5B0DC5B126EA34F8008C8578 /* Service.swift */,
+				5B0DC5B126EA34F8008C8578 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -316,6 +322,9 @@
 			children = (
 				2E16CCD126F4066200500E44 /* DiceRollerViewModel */,
 				5B0DC5B426EA3509008C8578 /* ViewModel.swift */,
+				5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */,
+				5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */,
+				5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -344,6 +353,27 @@
 				5B0DC5AF26EA3462008C8578 /* Coordinator.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		5BC9C7AD26F37525006F6BC1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5BC9C7BA26F37533006F6BC1 /* JosefinSans-Bold.ttf */,
+				5BC9C7B226F37532006F6BC1 /* JosefinSans-BoldItalic.ttf */,
+				5BC9C7BB26F37533006F6BC1 /* JosefinSans-ExtraLight.ttf */,
+				5BC9C7B026F37532006F6BC1 /* JosefinSans-ExtraLightItalic.ttf */,
+				5BC9C7AF26F37532006F6BC1 /* JosefinSans-Italic.ttf */,
+				5BC9C7B926F37533006F6BC1 /* JosefinSans-Light.ttf */,
+				5BC9C7B326F37532006F6BC1 /* JosefinSans-LightItalic.ttf */,
+				5BC9C7B826F37533006F6BC1 /* JosefinSans-Medium.ttf */,
+				5BC9C7B726F37533006F6BC1 /* JosefinSans-MediumItalic.ttf */,
+				5BC9C7B626F37532006F6BC1 /* JosefinSans-Regular.ttf */,
+				5BC9C7B426F37532006F6BC1 /* JosefinSans-SemiBold.ttf */,
+				5BC9C7B526F37532006F6BC1 /* JosefinSans-SemiBoldItalic.ttf */,
+				5BC9C7AE26F37532006F6BC1 /* JosefinSans-Thin.ttf */,
+				5BC9C7B126F37532006F6BC1 /* JosefinSans-ThinItalic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,6 +486,10 @@
 				2E16CCCE26F36A9800500E44 /* JosefinSans-Regular.ttf in Resources */,
 				2EFC74B126EA51DD00D9487F /* Fonts in Resources */,
 				5B7C971F26F0D0F700E01EBA /* Localizable.strings in Resources */,
+				5BC9C7C326F37533006F6BC1 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
+				5BC9C7BD26F37533006F6BC1 /* JosefinSans-Italic.ttf in Resources */,
+				5BC9C7C826F37533006F6BC1 /* JosefinSans-Bold.ttf in Resources */,
+				5BC9C7C026F37533006F6BC1 /* JosefinSans-BoldItalic.ttf in Resources */,
 				5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */,
 				5B0DC57D26EA2B6A008C8578 /* Assets.xcassets in Resources */,
 				2E16CCCC26F36A9800500E44 /* JosefinSans-Italic.ttf in Resources */,
@@ -513,6 +547,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC9C7D026F3A954006F6BC1 /* String+Localized.swift in Sources */,
+				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
 				5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
@@ -520,6 +556,8 @@
 				5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */,
 				5B0DC5BA26EA352F008C8578 /* Extension+Extended.swift in Sources */,
 				5B0DC5BA26EA352F008C8578 /* String+Localized.swift in Sources */,
+				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
+				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
 				2E16CCD326F4068400500E44 /* DiceRollerViewModelOutput.swift in Sources */,
 				2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */,
@@ -530,6 +568,8 @@
 				9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
 				2E16CCD526F406A200500E44 /* DiceRollerViewModelType.swift in Sources */,
+				5BC9C7CC26F37FEA006F6BC1 /* SettingsViewModelOutput.swift in Sources */,
+				5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */,
 				2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */,
 				5B7C970E26F0C09F00E01EBA /* Sheet+CoreDataClass.swift in Sources */,
 				5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */,
@@ -543,6 +583,8 @@
 				5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */,
 				2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* ViewModel.swift in Sources */,
+				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
+				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +765,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MimicRPG/MimicRPG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3PDP2RPN7;
 				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;
@@ -742,6 +785,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MimicRPG/MimicRPG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 795A25396T;
 				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;

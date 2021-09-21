@@ -35,9 +35,11 @@ class MainCoordinator : Coordinator {
                                                            selectedImage: UIImage(named: "pencil"))
 
         let settingsViewController = SettingsViewController()
+        settingsViewController.viewModel = SettingsViewModel()
+        settingsViewController.viewModel.output = settingsViewController
         settingsViewController.coordinator = self
-        settingsViewController.title = "Opções"
-        settingsViewController.tabBarItem = UITabBarItem(title: "Opções", image: UIImage(named: "gearshape"),
+        settingsViewController.title = "Options".localized()
+        settingsViewController.tabBarItem = UITabBarItem(title: "Options".localized(), image: UIImage(named: "gearshape"),
                                                          selectedImage: UIImage(named: "gearshape.fill"))
 
         let sheetsNavigationController = UINavigationController(rootViewController: sheetsViewController)
@@ -51,7 +53,6 @@ class MainCoordinator : Coordinator {
     }
 
     func goToSelectedSheet(from controller: UIViewController) {
-        let viewController = DisplaySheetViewController()
-        
+        _ = DisplaySheetViewController()
     }
 }
