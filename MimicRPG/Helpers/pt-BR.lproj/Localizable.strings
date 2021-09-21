@@ -19,4 +19,6 @@ MessageAlertSettingsChanged = "Suas alterações serão aplicadas depois de rein
 Reboot = "Reiniciar agora";
 ContinueUsing = "Continuar usando";
 Options = "Opções";
-
+TitleSettingsAlert = "Permitir notificações";
+GoToSettingsMessage = "Para permitir notificações, permita notificações para este app nas configurações do dispositivo";
+GoToSettingsButton = "Configurações";
