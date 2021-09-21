@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCB026F36A4B00500E44 /* UserSheet.swift */; };
+		2E16CCC126F36A9800500E44 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */; };
+		2E16CCC226F36A9800500E44 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */; };
+		2E16CCC326F36A9800500E44 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB526F36A9800500E44 /* JosefinSans-ThinItalic.ttf */; };
+		2E16CCC426F36A9800500E44 /* JosefinSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB626F36A9800500E44 /* JosefinSans-Medium.ttf */; };
+		2E16CCC526F36A9800500E44 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB726F36A9800500E44 /* JosefinSans-SemiBold.ttf */; };
+		2E16CCC626F36A9800500E44 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB826F36A9800500E44 /* JosefinSans-Light.ttf */; };
+		2E16CCC726F36A9800500E44 /* JosefinSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB926F36A9800500E44 /* JosefinSans-ExtraLight.ttf */; };
+		2E16CCC826F36A9800500E44 /* JosefinSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCBA26F36A9800500E44 /* JosefinSans-MediumItalic.ttf */; };
+		2E16CCC926F36A9800500E44 /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCBB26F36A9800500E44 /* JosefinSans-BoldItalic.ttf */; };
+		2E16CCCA26F36A9800500E44 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCBC26F36A9800500E44 /* JosefinSans-Bold.ttf */; };
+		2E16CCCB26F36A9800500E44 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCBD26F36A9800500E44 /* JosefinSans-LightItalic.ttf */; };
+		2E16CCCC26F36A9800500E44 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCBE26F36A9800500E44 /* JosefinSans-Italic.ttf */; };
+		2E16CCCD26F36A9800500E44 /* JosefinSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCBF26F36A9800500E44 /* JosefinSans-ExtraLightItalic.ttf */; };
+		2E16CCCE26F36A9800500E44 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCC026F36A9800500E44 /* JosefinSans-Regular.ttf */; };
+		2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCCF26F4061100500E44 /* DiceRollerViewModel.swift */; };
+		2E16CCD326F4068400500E44 /* DiceRollerViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCD226F4068400500E44 /* DiceRollerViewModelOutput.swift */; };
+		2E16CCD526F406A200500E44 /* DiceRollerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCD426F406A200500E44 /* DiceRollerViewModelType.swift */; };
 		2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74A526EA368E00D9487F /* CustomColors.swift */; };
 		2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74B526EA51FA00D9487F /* CustomFonts.swift */; };
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
@@ -31,20 +49,6 @@
 		5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C970426F0C09F00E01EBA /* Item+CoreDataClass.swift */; };
 		5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C970626F0C09F00E01EBA /* Skill+CoreDataClass.swift */; };
 		5B7C971F26F0D0F700E01EBA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B7C972126F0D0F700E01EBA /* Localizable.strings */; };
-		5BC9C7BC26F37533006F6BC1 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7AE26F37532006F6BC1 /* JosefinSans-Thin.ttf */; };
-		5BC9C7BD26F37533006F6BC1 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7AF26F37532006F6BC1 /* JosefinSans-Italic.ttf */; };
-		5BC9C7BE26F37533006F6BC1 /* JosefinSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B026F37532006F6BC1 /* JosefinSans-ExtraLightItalic.ttf */; };
-		5BC9C7BF26F37533006F6BC1 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B126F37532006F6BC1 /* JosefinSans-ThinItalic.ttf */; };
-		5BC9C7C026F37533006F6BC1 /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B226F37532006F6BC1 /* JosefinSans-BoldItalic.ttf */; };
-		5BC9C7C126F37533006F6BC1 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B326F37532006F6BC1 /* JosefinSans-LightItalic.ttf */; };
-		5BC9C7C226F37533006F6BC1 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B426F37532006F6BC1 /* JosefinSans-SemiBold.ttf */; };
-		5BC9C7C326F37533006F6BC1 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B526F37532006F6BC1 /* JosefinSans-SemiBoldItalic.ttf */; };
-		5BC9C7C426F37533006F6BC1 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B626F37532006F6BC1 /* JosefinSans-Regular.ttf */; };
-		5BC9C7C526F37533006F6BC1 /* JosefinSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B726F37533006F6BC1 /* JosefinSans-MediumItalic.ttf */; };
-		5BC9C7C626F37533006F6BC1 /* JosefinSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B826F37533006F6BC1 /* JosefinSans-Medium.ttf */; };
-		5BC9C7C726F37533006F6BC1 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7B926F37533006F6BC1 /* JosefinSans-Light.ttf */; };
-		5BC9C7C826F37533006F6BC1 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7BA26F37533006F6BC1 /* JosefinSans-Bold.ttf */; };
-		5BC9C7C926F37533006F6BC1 /* JosefinSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC9C7BB26F37533006F6BC1 /* JosefinSans-ExtraLight.ttf */; };
 		5BC9C7CC26F37FEA006F6BC1 /* SettingsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */; };
 		5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */; };
 		5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */; };
@@ -73,6 +77,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E16CCB026F36A4B00500E44 /* UserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheet.swift; sourceTree = "<group>"; };
+		2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
+		2E16CCB526F36A9800500E44 /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		2E16CCB626F36A9800500E44 /* JosefinSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Medium.ttf"; sourceTree = "<group>"; };
+		2E16CCB726F36A9800500E44 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		2E16CCB826F36A9800500E44 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
+		2E16CCB926F36A9800500E44 /* JosefinSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		2E16CCBA26F36A9800500E44 /* JosefinSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		2E16CCBB26F36A9800500E44 /* JosefinSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2E16CCBC26F36A9800500E44 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
+		2E16CCBD26F36A9800500E44 /* JosefinSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		2E16CCBE26F36A9800500E44 /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Italic.ttf"; sourceTree = "<group>"; };
+		2E16CCBF26F36A9800500E44 /* JosefinSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		2E16CCC026F36A9800500E44 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
+		2E16CCCF26F4061100500E44 /* DiceRollerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModel.swift; sourceTree = "<group>"; };
+		2E16CCD226F4068400500E44 /* DiceRollerViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModelOutput.swift; sourceTree = "<group>"; };
+		2E16CCD426F406A200500E44 /* DiceRollerViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModelType.swift; sourceTree = "<group>"; };
 		2EFC74A526EA368E00D9487F /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2EFC74B526EA51FA00D9487F /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		5B0DC56D26EA2B68008C8578 /* MimicRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MimicRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,20 +130,6 @@
 		5B7C972226F0D10D00E01EBA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5B7C972326F0D10D00E01EBA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5BC9C7AC26F364EE006F6BC1 /* MimicRPG.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MimicRPG.entitlements; sourceTree = "<group>"; };
-		5BC9C7AE26F37532006F6BC1 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
-		5BC9C7AF26F37532006F6BC1 /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Italic.ttf"; sourceTree = "<group>"; };
-		5BC9C7B026F37532006F6BC1 /* JosefinSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		5BC9C7B126F37532006F6BC1 /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
-		5BC9C7B226F37532006F6BC1 /* JosefinSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-BoldItalic.ttf"; sourceTree = "<group>"; };
-		5BC9C7B326F37532006F6BC1 /* JosefinSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-LightItalic.ttf"; sourceTree = "<group>"; };
-		5BC9C7B426F37532006F6BC1 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		5BC9C7B526F37532006F6BC1 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		5BC9C7B626F37532006F6BC1 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
-		5BC9C7B726F37533006F6BC1 /* JosefinSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-MediumItalic.ttf"; sourceTree = "<group>"; };
-		5BC9C7B826F37533006F6BC1 /* JosefinSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Medium.ttf"; sourceTree = "<group>"; };
-		5BC9C7B926F37533006F6BC1 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
-		5BC9C7BA26F37533006F6BC1 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
-		5BC9C7BB26F37533006F6BC1 /* JosefinSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ExtraLight.ttf"; sourceTree = "<group>"; };
 		5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelOutput.swift; sourceTree = "<group>"; };
 		5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelType.swift; sourceTree = "<group>"; };
 		9684023E26EF7435009AF620 /* DiceRollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +163,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E16CCAF26F36A3000500E44 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2E16CCB026F36A4B00500E44 /* UserSheet.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2E16CCB226F36A8600500E44 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2E16CCBC26F36A9800500E44 /* JosefinSans-Bold.ttf */,
+				2E16CCBB26F36A9800500E44 /* JosefinSans-BoldItalic.ttf */,
+				2E16CCB926F36A9800500E44 /* JosefinSans-ExtraLight.ttf */,
+				2E16CCBF26F36A9800500E44 /* JosefinSans-ExtraLightItalic.ttf */,
+				2E16CCBE26F36A9800500E44 /* JosefinSans-Italic.ttf */,
+				2E16CCB826F36A9800500E44 /* JosefinSans-Light.ttf */,
+				2E16CCBD26F36A9800500E44 /* JosefinSans-LightItalic.ttf */,
+				2E16CCB626F36A9800500E44 /* JosefinSans-Medium.ttf */,
+				2E16CCBA26F36A9800500E44 /* JosefinSans-MediumItalic.ttf */,
+				2E16CCC026F36A9800500E44 /* JosefinSans-Regular.ttf */,
+				2E16CCB726F36A9800500E44 /* JosefinSans-SemiBold.ttf */,
+				2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */,
+				2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */,
+				2E16CCB526F36A9800500E44 /* JosefinSans-ThinItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2E16CCD126F4066200500E44 /* DiceRollerViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E16CCCF26F4061100500E44 /* DiceRollerViewModel.swift */,
+				2E16CCD226F4068400500E44 /* DiceRollerViewModelOutput.swift */,
+				2E16CCD426F406A200500E44 /* DiceRollerViewModelType.swift */,
+			);
+			path = DiceRollerViewModel;
+			sourceTree = "<group>";
+		};
 		5B0DC56426EA2B67008C8578 = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +271,7 @@
 		5B0DC5A526EA2C46008C8578 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				5BC9C7AD26F37525006F6BC1 /* Fonts */,
+				2E16CCB226F36A8600500E44 /* Fonts */,
 				5B0DC57E26EA2B6A008C8578 /* LaunchScreen.storyboard */,
 				5B0DC57C26EA2B6A008C8578 /* Assets.xcassets */,
 			);
@@ -234,6 +281,7 @@
 		5B0DC5A726EA2CB2008C8578 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E16CCAF26F36A3000500E44 /* Components */,
 				5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */,
 				9684023E26EF7435009AF620 /* DiceRollerViewController.swift */,
 				9684024026EF7447009AF620 /* SettingsViewController.swift */,
@@ -272,6 +320,8 @@
 		5B0DC5AB26EA2D1F008C8578 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E16CCD126F4066200500E44 /* DiceRollerViewModel */,
+				5B0DC5B426EA3509008C8578 /* ViewModel.swift */,
 				5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */,
 				5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */,
 				5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */,
@@ -431,7 +481,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC9C7BE26F37533006F6BC1 /* JosefinSans-ExtraLightItalic.ttf in Resources */,
+				2E16CCC626F36A9800500E44 /* JosefinSans-Light.ttf in Resources */,
+				2E16CCC926F36A9800500E44 /* JosefinSans-BoldItalic.ttf in Resources */,
+				2E16CCCE26F36A9800500E44 /* JosefinSans-Regular.ttf in Resources */,
+				2EFC74B126EA51DD00D9487F /* Fonts in Resources */,
 				5B7C971F26F0D0F700E01EBA /* Localizable.strings in Resources */,
 				5BC9C7C326F37533006F6BC1 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
 				5BC9C7BD26F37533006F6BC1 /* JosefinSans-Italic.ttf in Resources */,
@@ -439,15 +492,17 @@
 				5BC9C7C026F37533006F6BC1 /* JosefinSans-BoldItalic.ttf in Resources */,
 				5B0DC58026EA2B6A008C8578 /* LaunchScreen.storyboard in Resources */,
 				5B0DC57D26EA2B6A008C8578 /* Assets.xcassets in Resources */,
-				5BC9C7C626F37533006F6BC1 /* JosefinSans-Medium.ttf in Resources */,
-				5BC9C7C926F37533006F6BC1 /* JosefinSans-ExtraLight.ttf in Resources */,
-				5BC9C7C726F37533006F6BC1 /* JosefinSans-Light.ttf in Resources */,
-				5BC9C7C226F37533006F6BC1 /* JosefinSans-SemiBold.ttf in Resources */,
-				5BC9C7BC26F37533006F6BC1 /* JosefinSans-Thin.ttf in Resources */,
-				5BC9C7BF26F37533006F6BC1 /* JosefinSans-ThinItalic.ttf in Resources */,
-				5BC9C7C526F37533006F6BC1 /* JosefinSans-MediumItalic.ttf in Resources */,
-				5BC9C7C126F37533006F6BC1 /* JosefinSans-LightItalic.ttf in Resources */,
-				5BC9C7C426F37533006F6BC1 /* JosefinSans-Regular.ttf in Resources */,
+				2E16CCCC26F36A9800500E44 /* JosefinSans-Italic.ttf in Resources */,
+				2E16CCC526F36A9800500E44 /* JosefinSans-SemiBold.ttf in Resources */,
+				2E16CCC826F36A9800500E44 /* JosefinSans-MediumItalic.ttf in Resources */,
+				2E16CCC126F36A9800500E44 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
+				2E16CCC726F36A9800500E44 /* JosefinSans-ExtraLight.ttf in Resources */,
+				2E16CCCB26F36A9800500E44 /* JosefinSans-LightItalic.ttf in Resources */,
+				2E16CCCA26F36A9800500E44 /* JosefinSans-Bold.ttf in Resources */,
+				2E16CCCD26F36A9800500E44 /* JosefinSans-ExtraLightItalic.ttf in Resources */,
+				2E16CCC426F36A9800500E44 /* JosefinSans-Medium.ttf in Resources */,
+				2E16CCC226F36A9800500E44 /* JosefinSans-Thin.ttf in Resources */,
+				2E16CCC326F36A9800500E44 /* JosefinSans-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,15 +550,24 @@
 				5BC9C7D026F3A954006F6BC1 /* String+Localized.swift in Sources */,
 				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
+				5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */,
+				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
+				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
+				5B0DC57526EA2B68008C8578 /* TabBarViewController.swift in Sources */,
+				5B0DC5BA26EA352F008C8578 /* Extension+Extended.swift in Sources */,
+				5B0DC5BA26EA352F008C8578 /* String+Localized.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
+				2E16CCD326F4068400500E44 /* DiceRollerViewModelOutput.swift in Sources */,
+				2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */,
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
 				5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */,
 				9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */,
 				5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */,
 				9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
+				2E16CCD526F406A200500E44 /* DiceRollerViewModelType.swift in Sources */,
 				5BC9C7CC26F37FEA006F6BC1 /* SettingsViewModelOutput.swift in Sources */,
 				5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */,
 				2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */,
@@ -516,6 +580,9 @@
 				5B7C971426F0C09F00E01EBA /* Attributes+CoreDataClass.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
 				9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */,
+				5B0DC5B226EA34F8008C8578 /* Service.swift in Sources */,
+				2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */,
+				5B0DC5B526EA3509008C8578 /* ViewModel.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */,
@@ -700,7 +767,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MimicRPG/MimicRPG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 795A25396T;
+				DEVELOPMENT_TEAM = P3PDP2RPN7;
 				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
