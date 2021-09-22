@@ -8,10 +8,14 @@
 import UIKit
 
 class DisplaySheetViewController: UIViewController {
- 
+
     var buttons: [UIButton] = []
 
     var coordinator: Coordinator?
+
+    let stackView: UIStackView = UIStackView()
+    let scrollView: UIScrollView = UIScrollView()
+    let barIndicator: UIView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +35,6 @@ class DisplaySheetViewController: UIViewController {
         let attacksButton = tabButton(name: "Ataques")
         let notesButton = tabButton(name: "Notas")
 
-        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
@@ -50,25 +53,37 @@ class DisplaySheetViewController: UIViewController {
 
         stackView.spacing = 32
 
-        let scrollView = UIScrollView()
-        scrollView.contentSize = CGSize(width: .zero, height: 50)
+        barIndicator.translatesAutoresizingMaskIntoConstraints = false
+        barIndicator.backgroundColor = UIColor(named: "Azure")
+        barIndicator.layer.cornerRadius = 2
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = UIColor(named: "SecondaryBackground")
+        scrollView.contentSize = CGSize(width: .zero, height: 50)
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.addSubview(stackView)
+        scrollView.addSubview(barIndicator)
+        scrollView.clipsToBounds = false
         view.addSubview(scrollView)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.heightAnchor.constraint(equalToConstant: 50),
-   
+            scrollView.heightAnchor.constraint(equalToConstant: 38),
+
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -32),
-            stackView.heightAnchor.constraint(equalToConstant: 40)
+            stackView.heightAnchor.constraint(equalToConstant: 40),
+
+            barIndicator.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: -5),
+            barIndicator.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            barIndicator.heightAnchor.constraint(equalToConstant: 5),
+            barIndicator.widthAnchor.constraint(equalToConstant: 80),
+            barIndicator.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
-        
+
         changeSelectedButton(name: "Bio")
     }
 
@@ -99,7 +114,6 @@ class DisplaySheetViewController: UIViewController {
         print(sender.currentTitle!)
         changeSelectedButton(name: sender.currentTitle!)
     }
-    var scrollView: UIScrollView!
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
