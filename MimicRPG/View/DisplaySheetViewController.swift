@@ -16,27 +16,40 @@ class DisplaySheetViewController: UIViewController {
     let stackView: UIStackView = UIStackView()
     let scrollView: UIScrollView = UIScrollView()
     let barIndicator: UIView = UIView()
+    let divisor: UIView = UIView()
+    
+    var selectedTag: Int = 0
 
     fileprivate var widthAnchor: NSLayoutConstraint!
-    fileprivate var leadingAnchor: NSLayoutConstraint!
+    fileprivate var centerXAnchor: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = UIColor(named: "Background")
-
+        updateButtons()
+        
         setupButtons()
     }
 
     func setupButtons() {
         let bioButton = tabButton(name: "Bio")
+        bioButton.tag  = 0
         let pointsButton = tabButton(name: "Pontos")
+        pointsButton.tag  = 1
         let attributesButton = tabButton(name: "Atributos")
+        attributesButton.tag = 2
         let skillsButton = tabButton(name: "Perícias")
+        skillsButton.tag = 3
         let inventoryButton  = tabButton(name: "Inventário")
+        inventoryButton.tag = 4
         let attacksButton = tabButton(name: "Ataques")
+        attacksButton.tag = 5
         let notesButton = tabButton(name: "Notas")
+        notesButton.tag = 6
+        
+        updateButtons()
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -57,21 +70,31 @@ class DisplaySheetViewController: UIViewController {
         stackView.spacing = 32
 
         barIndicator.translatesAutoresizingMaskIntoConstraints = false
-        barIndicator.backgroundColor = UIColor(named: "Azure")
         barIndicator.layer.cornerRadius = 2
-        
-        
+        barIndicator.backgroundColor = UIColor(named: "Azure")
 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.contentSize = CGSize(width: .zero, height: 38)
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.backgroundColor = UIColor(named: "SecondaryBackground")
+        scrollView.layer.zPosition = 1
+
+        divisor.translatesAutoresizingMaskIntoConstraints = false
+        divisor.backgroundColor = UIColor(named: "FontColor")
+        divisor.layer.zPosition = 0
 
         scrollView.addSubview(stackView)
         scrollView.addSubview(barIndicator)
         scrollView.clipsToBounds = false
         view.addSubview(scrollView)
+        view.addSubview(divisor)
 
+        configureConstraints()
+
+        changeSelectedButton(tag: 0)
+    }
+
+    func configureConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -81,16 +104,32 @@ class DisplaySheetViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -32),
-            stackView.heightAnchor.constraint(equalToConstant: 40)
+            stackView.heightAnchor.constraint(equalToConstant: 40),
+            
+            divisor.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            divisor.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            divisor.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            divisor.heightAnchor.constraint(equalToConstant: 1)
         ])
-        barIndicator.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: -5).isActive = true
-        leadingAnchor = barIndicator.leadingAnchor.constraint(equalTo: stackView.leadingAnchor)
-        leadingAnchor.isActive = true
+
+        barIndicator.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: -4).isActive = true
+        centerXAnchor = barIndicator.centerXAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -12)
+        centerXAnchor.isActive = true
         barIndicator.heightAnchor.constraint(equalToConstant: 5).isActive = true
         widthAnchor = barIndicator.widthAnchor.constraint(equalToConstant: 30)
         widthAnchor.isActive = true
+    }
 
-        changeSelectedButton(name: "Bio")
+    func updateButtons() {
+        for button in buttons {
+            if button.tag == selectedTag {
+                button.setTitleColor(UIColor(named: "Azure"), for: .normal)
+                button.titleLabel?.font = UIFont.josefinSansBold17()
+            } else {
+                button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
+                button.titleLabel?.font =  UIFont.josefinSansButton()
+            }
+        }
     }
 
     func tabButton(name: String) -> UIButton {
@@ -100,30 +139,26 @@ class DisplaySheetViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.sizeToFit()
         button.titleLabel?.font =  UIFont.josefinSansButton()
-        button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
         return button
     }
 
-    func changeSelectedButton(name: String) {
+    func changeSelectedButton(tag: Int) {
+        selectedTag = tag
+        updateButtons()
         for button in buttons {
-            if button.titleLabel?.text == name {
-                button.setTitleColor(UIColor(named: "Azure"), for: .normal)
-                button.titleLabel?.font = UIFont.josefinSansBold17()
+            if button.tag == tag {
                 widthAnchor.constant = button.frame.width
-                leadingAnchor.constant = button.frame.minX
+                centerXAnchor.constant = button.frame.midX
                 UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
                     self.view.layoutIfNeeded()
                 })
-            } else {
-                button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
-                button.titleLabel?.font =  UIFont.josefinSansButton()
             }
         }
     }
 
     @objc func tabFunction(sender: UIButton) {
         print(sender.currentTitle!)
-        changeSelectedButton(name: sender.currentTitle!)
+        changeSelectedButton(tag: sender.tag)
     }
 
     override func viewDidLayoutSubviews() {
