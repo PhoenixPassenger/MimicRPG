@@ -17,6 +17,9 @@ class DisplaySheetViewController: UIViewController {
     let scrollView: UIScrollView = UIScrollView()
     let barIndicator: UIView = UIView()
 
+    fileprivate var widthAnchor: NSLayoutConstraint!
+    fileprivate var leadingAnchor: NSLayoutConstraint!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,10 +60,13 @@ class DisplaySheetViewController: UIViewController {
         barIndicator.backgroundColor = UIColor(named: "Azure")
         barIndicator.layer.cornerRadius = 2
         
+        
+
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = UIColor(named: "SecondaryBackground")
-        scrollView.contentSize = CGSize(width: .zero, height: 50)
+        scrollView.contentSize = CGSize(width: .zero, height: 38)
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = UIColor(named: "SecondaryBackground")
+
         scrollView.addSubview(stackView)
         scrollView.addSubview(barIndicator)
         scrollView.clipsToBounds = false
@@ -75,14 +81,14 @@ class DisplaySheetViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -32),
-            stackView.heightAnchor.constraint(equalToConstant: 40),
-
-            barIndicator.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: -5),
-            barIndicator.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            barIndicator.heightAnchor.constraint(equalToConstant: 5),
-            barIndicator.widthAnchor.constraint(equalToConstant: 80),
-            barIndicator.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            stackView.heightAnchor.constraint(equalToConstant: 40)
         ])
+        barIndicator.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: -5).isActive = true
+        leadingAnchor = barIndicator.leadingAnchor.constraint(equalTo: stackView.leadingAnchor)
+        leadingAnchor.isActive = true
+        barIndicator.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        widthAnchor = barIndicator.widthAnchor.constraint(equalToConstant: 30)
+        widthAnchor.isActive = true
 
         changeSelectedButton(name: "Bio")
     }
@@ -103,13 +109,18 @@ class DisplaySheetViewController: UIViewController {
             if button.titleLabel?.text == name {
                 button.setTitleColor(UIColor(named: "Azure"), for: .normal)
                 button.titleLabel?.font = UIFont.josefinSansBold17()
+                widthAnchor.constant = button.frame.width
+                leadingAnchor.constant = button.frame.minX
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
+                    self.view.layoutIfNeeded()
+                })
             } else {
                 button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
                 button.titleLabel?.font =  UIFont.josefinSansButton()
             }
         }
     }
-    
+
     @objc func tabFunction(sender: UIButton) {
         print(sender.currentTitle!)
         changeSelectedButton(name: sender.currentTitle!)
