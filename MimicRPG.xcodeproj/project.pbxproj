@@ -28,6 +28,7 @@
 		2E24F77826FA07F400DE6BE9 /* DisplaySheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E24F77726FA07F400DE6BE9 /* DisplaySheetViewModel.swift */; };
 		2E24F77A26FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E24F77926FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift */; };
 		2E24F77C26FA085100DE6BE9 /* DisplaySheetViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E24F77B26FA085100DE6BE9 /* DisplaySheetViewModelType.swift */; };
+		2EAE08EE26FCA6B7000630A5 /* NewSheetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE08ED26FCA6B7000630A5 /* NewSheetModal.swift */; };
 		2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74A526EA368E00D9487F /* CustomColors.swift */; };
 		2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74B526EA51FA00D9487F /* CustomFonts.swift */; };
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
@@ -103,6 +104,7 @@
 		2E24F77726FA07F400DE6BE9 /* DisplaySheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModel.swift; sourceTree = "<group>"; };
 		2E24F77926FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModelOutput.swift; sourceTree = "<group>"; };
 		2E24F77B26FA085100DE6BE9 /* DisplaySheetViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModelType.swift; sourceTree = "<group>"; };
+		2EAE08ED26FCA6B7000630A5 /* NewSheetModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSheetModal.swift; sourceTree = "<group>"; };
 		2EFC74A526EA368E00D9487F /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2EFC74B526EA51FA00D9487F /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		5B0DC56D26EA2B68008C8578 /* MimicRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MimicRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,14 @@
 			path = DisplaySheetViewModel;
 			sourceTree = "<group>";
 		};
+		2EAE08EC26FCA699000630A5 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				2EAE08ED26FCA6B7000630A5 /* NewSheetModal.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		5B0DC56426EA2B67008C8578 = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +311,7 @@
 		5B0DC5A726EA2CB2008C8578 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EAE08EC26FCA699000630A5 /* Modal */,
 				2E16CCAF26F36A3000500E44 /* Components */,
 				5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */,
 				9684023E26EF7435009AF620 /* DiceRollerViewController.swift */,
@@ -544,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC9C7D026F3A954006F6BC1 /* String+Localized.swift in Sources */,
+				2EAE08EE26FCA6B7000630A5 /* NewSheetModal.swift in Sources */,
 				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,

@@ -28,7 +28,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
     var collectionView: UICollectionView?
     let searchController = UISearchController()
-    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(toSheet))
+    lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(triggerNewSheetModal))
 
     var mockSheets: [MockSheet] = [
         MockSheet(image: "llanowar", charName: "Llanowar", desc: "Guerra da Centelha", system: "T20"),
@@ -50,6 +50,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        addButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.josefinSansButton()], for: .normal)
         navigationItem.rightBarButtonItem = addButton
 
         searchController.searchResultsUpdater = self
@@ -78,6 +79,11 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
     @objc func toSheet() {
         coordinator?.goToSelectedSheet()
+    }
+    
+    @objc func triggerNewSheetModal() {
+        let newSheetModal = NewSheetModal(action: {self.fetchData()})
+        present(newSheetModal, animated: true, completion: nil)
     }
 
     func updateSearchResults(for searchController: UISearchController) {

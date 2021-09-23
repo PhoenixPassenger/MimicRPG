@@ -19,7 +19,6 @@ class DiceRollerViewController: UIViewController {
     lazy var rollButton = UIBarButtonItem(title: "Rolar", style: .plain, target: self, action: #selector(rollDices))
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
@@ -34,7 +33,6 @@ class DiceRollerViewController: UIViewController {
         self.tableView.tableFooterView = UIView()
 
         configureConstraints()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
