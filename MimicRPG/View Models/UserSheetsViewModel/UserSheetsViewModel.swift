@@ -1,4 +1,3 @@
-
 //
 //  NewSheetModalViewModel.swift
 //  MimicRPG
@@ -11,7 +10,7 @@ import Foundation
 import UIKit
 
 final class UserSheetsViewModel {
-    
+
     var sheets: [Sheet]? = []
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -20,7 +19,7 @@ final class UserSheetsViewModel {
 }
 
 extension UserSheetsViewModel: UserSheetsViewModelType {
-    
+
     func fetchSheets() -> [Sheet] {
         do {
             self.sheets = try context.fetch(Sheet.fetchRequest())

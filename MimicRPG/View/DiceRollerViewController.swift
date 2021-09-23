@@ -16,7 +16,7 @@ class DiceRollerViewController: UIViewController {
     weak var coordinator: MainCoordinator?
 
     var tableView = UITableView()
-    lazy var rollButton = UIBarButtonItem(title: "Rolar", style: .plain, target: self, action: #selector(rollDices))
+    lazy var rollButton = UIBarButtonItem(title: "Roll".localized(), style: .plain, target: self, action: #selector(rollDices))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +48,10 @@ class DiceRollerViewController: UIViewController {
 
     @objc func rollDices() {
         let results = viewModel.rollingDices()
-        let alert = UIAlertController(title: "Resultado: \(results.resultValue)",
+        let alert = UIAlertController(title: "Result".localized() + ": \(results.resultValue)",
                                       message: results.resultString,
                                       preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Confirmar", style: UIAlertAction.Style.default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Confirm".localized(), style: UIAlertAction.Style.default, handler: { _ in
             }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -87,12 +87,12 @@ extension DiceRollerViewController: DiceRollerViewModelOutput {
             pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor)
         ])
         
-        let alert = UIAlertController(title: "Escolha o dado", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "ChooseTheDice".localized(), message: "", preferredStyle: .actionSheet)
         alert.setValue(vc, forKey: "contentViewController")
-        alert.addAction(UIAlertAction(title: "Confirmar", style: .default, handler: { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (UIAlertAction) in
             self.viewModel.addDice(pickeredRow: pickerView.selectedRow(inComponent: 0))
         }))
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .destructive, handler: { (UIAlertAction) in
         }))
         
         self.present(alert, animated: true, completion: nil)

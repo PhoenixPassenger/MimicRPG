@@ -22,4 +22,3 @@ protocol UserSheetsViewModelType {
 //    func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell
 //    func didSelectRowAt(indexPath: IndexPath)
 }
-

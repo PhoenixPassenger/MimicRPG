@@ -69,7 +69,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         collectionView?.delegate = self
 
         view.addSubview(collectionView ?? UICollectionView())
-        
+
         self.fetchData()
     }
 
@@ -83,7 +83,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
     @objc func toSheet() {
         coordinator?.goToSelectedSheet()
     }
-    
+
     @objc func triggerNewSheetModal() {
         let newSheetModal = NewSheetModal(action: {self.fetchData()})
         newSheetModal.viewModel = NewSheetModalViewModel()
@@ -130,7 +130,7 @@ extension UserSheetsViewController: UICollectionViewDataSource {
 
 
 extension UserSheetsViewController: UserSheetsViewModelOutput {
-    
+
 }
 
 extension UserSheetsViewController: UICollectionViewDelegate {

@@ -39,8 +39,8 @@ enum NewSheetModalSettings: CaseIterable {
 
     var description: String {
         switch self {
-        case .name: return "Nome do personagem"
-        case .systems: return "Sistema"
+        case .name: return "CharacterName".localized()
+        case .systems: return "System".localized()
         }
     }
 
@@ -59,14 +59,14 @@ enum NewSheetModalSettings: CaseIterable {
 final class NewSheetModalViewModel {
     var selectedRow: Int? = 0
     var charNameTextField: UITextField?
-    
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     public weak var output: NewSheetModalViewModelOutput?
 }
 
 extension NewSheetModalViewModel: NewSheetModalViewModelType {
-    
+
     func createNewSheet(name: String, occupation: String) {
         let newSheet = Sheet(context: self.context)
         newSheet.name = name

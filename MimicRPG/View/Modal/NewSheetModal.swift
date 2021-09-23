@@ -66,7 +66,7 @@ class NewSheetModal: UIViewController {
 
         titleModal.translatesAutoresizingMaskIntoConstraints = false
         titleModal.textColor = UIColor(named: "FontColor")
-        titleModal.text = "Nova Ficha"
+        titleModal.text = "NewSheet".localized()
         titleModal.font = UIFont.josefinSansButton()
         self.view.addSubview(titleModal)
 
