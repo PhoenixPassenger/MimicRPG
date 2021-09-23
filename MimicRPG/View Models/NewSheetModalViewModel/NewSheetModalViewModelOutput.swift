@@ -9,6 +9,6 @@ import Foundation
 protocol NewSheetModalViewModelOutput: AnyObject {
 //    func showAlert()
 //    func openSettingsAlert()
-//    func reloadData()
+    func reloadData()
     func showSystemsPicker()
 }

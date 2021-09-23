@@ -36,7 +36,7 @@ enum Systems: String, CaseIterable {
 enum NewSheetModalSettings: CaseIterable {
     case name
     case systems
-    
+
     var description: String {
         switch self {
         case .name: return "Nome do personagem"
@@ -58,15 +58,20 @@ enum NewSheetModalSettings: CaseIterable {
 
 final class NewSheetModalViewModel {
     var selectedRow: Int? = 0
-    
-    func initSelectedRow() {
-        self.selectedRow = Systems.allCases.firstIndex(of: Systems(rawValue: "CT7")!)
-    }
-    
+
     public weak var output: NewSheetModalViewModelOutput?
 }
 
 extension NewSheetModalViewModel: NewSheetModalViewModelType {
+
+    func initSelectedRow() {
+        self.selectedRow = Systems.allCases.firstIndex(of: Systems(rawValue: "CT7")!)
+    }
+    
+    func changeSystem(pickeredRow: Int) {
+        selectedRow = pickeredRow
+        self.output?.reloadData()
+    }
 
     func getSystemsDescriptionById(row: Int) -> String {
         let description = Systems(id: row)?.description
@@ -77,9 +82,8 @@ extension NewSheetModalViewModel: NewSheetModalViewModelType {
     func getNumberOfSystems() -> Int {
         return Systems.allCases.count
     }
-    
+
     func didSelectRowAt(indexPath: IndexPath) {
-        self.initSelectedRow()
         switch NewSheetModalSettings(id:indexPath.section) {
         case .name: break
         case .systems:
@@ -90,12 +94,15 @@ extension NewSheetModalViewModel: NewSheetModalViewModelType {
 
     func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell {
         cell.textLabel?.font = .systemFont(ofSize: 17)
+        cell.textLabel?.text = ""
+        cell.accessoryType = .none
+        print(section)
         switch NewSheetModalSettings(id:section) {
         case .name:
-            cell.textLabel?.text = "aaaaaa"
+            cell.textLabel?.text = ""
         case .systems:
             cell.accessoryType = .disclosureIndicator
-            cell.textLabel?.text = "aaaaaa"
+            cell.textLabel?.text = Systems(id: selectedRow ?? 0)?.description
         case .none:
             break
         }

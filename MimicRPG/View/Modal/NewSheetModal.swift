@@ -42,6 +42,7 @@ class NewSheetModal: UIViewController {
 
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
+        viewModel.initSelectedRow()
     }
 
     @objc func leftButtonBehavior() {
@@ -130,7 +131,7 @@ extension NewSheetModal: NewSheetModalViewModelOutput {
         let alert = UIAlertController(title: "titleAlert".localized(), message: "", preferredStyle: .actionSheet)
         alert.setValue(viewController, forKey: "contentViewController")
         alert.addAction(UIAlertAction(title: "Confirm".localized(), style: .default, handler: { _ in
-//            self.viewModel.changeLanguage(pickeredRow: pickerView.selectedRow(inComponent: 0))
+            self.viewModel.changeSystem(pickeredRow: pickerView.selectedRow(inComponent: 0))
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .destructive, handler: { _ in
         }))
@@ -138,6 +139,9 @@ extension NewSheetModal: NewSheetModalViewModelOutput {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func reloadData() {
+        self.tableView.reloadData()
+    }
 }
 
 extension NewSheetModal: UIPickerViewDelegate, UIPickerViewDataSource {

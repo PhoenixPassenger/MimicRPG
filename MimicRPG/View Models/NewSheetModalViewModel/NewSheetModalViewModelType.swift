@@ -11,6 +11,8 @@ protocol NewSheetModalViewModelType {
     var output: NewSheetModalViewModelOutput? {get set}
     var selectedRow: Int? { get set }
 
+    func initSelectedRow()
+    func changeSystem(pickeredRow: Int)
     func getSystemsDescriptionById(row: Int) -> String
     func getNumberOfSystems() -> Int
     func numberOfSections() -> Int
