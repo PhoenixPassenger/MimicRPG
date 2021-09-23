@@ -17,8 +17,20 @@ class DisplaySheetViewController: UIViewController {
     let scrollView: UIScrollView = UIScrollView()
     let barIndicator: UIView = UIView()
     let divisor: UIView = UIView()
-    
-    var selectedTag: Int = 0
+    var sheetView: UIView = UIView()
+
+    var selectedTag: Int = 0 {
+        didSet {
+            sheetView.removeFromSuperview()
+            if selectedTag == 0 {
+                let view = CharacterBio()
+                sheetView = view
+                self.setupSheetView {
+                    view.setupTableView()
+                }
+            }
+        }
+    }
 
     fileprivate var widthAnchor: NSLayoutConstraint!
     fileprivate var centerXAnchor: NSLayoutConstraint!
@@ -29,8 +41,13 @@ class DisplaySheetViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = UIColor(named: "Background")
         updateButtons()
-        
+
         setupButtons()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        changeSelectedButton(tag: 0)
     }
 
     func setupButtons() {
@@ -48,9 +65,7 @@ class DisplaySheetViewController: UIViewController {
         attacksButton.tag = 5
         let notesButton = tabButton(name: "Notas")
         notesButton.tag = 6
-        
         updateButtons()
-
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
@@ -62,23 +77,18 @@ class DisplaySheetViewController: UIViewController {
         buttons.append(inventoryButton)
         buttons.append(attacksButton)
         buttons.append(notesButton)
-
         for button in buttons {
             stackView.addArrangedSubview(button)
         }
-
         stackView.spacing = 32
-
         barIndicator.translatesAutoresizingMaskIntoConstraints = false
         barIndicator.layer.cornerRadius = 2
         barIndicator.backgroundColor = UIColor(named: "Azure")
-
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.contentSize = CGSize(width: .zero, height: 38)
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.backgroundColor = UIColor(named: "SecondaryBackground")
         scrollView.layer.zPosition = 1
-
         divisor.translatesAutoresizingMaskIntoConstraints = false
         divisor.backgroundColor = UIColor(named: "FontColor")
         divisor.layer.zPosition = 0
@@ -88,10 +98,7 @@ class DisplaySheetViewController: UIViewController {
         scrollView.clipsToBounds = false
         view.addSubview(scrollView)
         view.addSubview(divisor)
-
         configureConstraints()
-
-        changeSelectedButton(tag: 0)
     }
 
     func configureConstraints() {
@@ -105,7 +112,7 @@ class DisplaySheetViewController: UIViewController {
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -32),
             stackView.heightAnchor.constraint(equalToConstant: 40),
-            
+
             divisor.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
             divisor.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             divisor.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -118,6 +125,18 @@ class DisplaySheetViewController: UIViewController {
         barIndicator.heightAnchor.constraint(equalToConstant: 5).isActive = true
         widthAnchor = barIndicator.widthAnchor.constraint(equalToConstant: 30)
         widthAnchor.isActive = true
+    }
+
+    func setupSheetView(completionHandler: () -> Void) {
+        sheetView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(sheetView)
+        NSLayoutConstraint.activate([
+        sheetView.topAnchor.constraint(equalTo: divisor.bottomAnchor),
+        sheetView.leadingAnchor.constraint(equalTo: divisor.leadingAnchor),
+        sheetView.trailingAnchor.constraint(equalTo: divisor.trailingAnchor),
+        sheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        completionHandler()
     }
 
     func updateButtons() {
@@ -154,7 +173,6 @@ class DisplaySheetViewController: UIViewController {
         }
     }
     @objc func tabFunction(sender: UIButton) {
-        print(sender.currentTitle!)
         changeSelectedButton(tag: sender.tag)
     }
 

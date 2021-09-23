@@ -7,38 +7,31 @@
 
 import Foundation
 import UIKit
-class CharacterBio: UITableViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = UIColor(named: "Background")
-        self.setupTableView()
-        print(LocalizedStrings.hello.localized)
-    }
-
+class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
     func setupTableView() {
-        self.tableView.register(CharacterBioCell.self, forCellReuseIdentifier: "MyCell")
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        self.register(CharacterBioCell.self, forCellReuseIdentifier: "MyCell")
+        self.dataSource = self
+        self.delegate = self
 //        self.tableView.separatorStyle = .none
-        self.tableView.tableFooterView = UIView()
+        self.tableFooterView = UIView()
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterBioCell
         guard let cell = cellWrap else { fatalError() }
-        cell.set(titleItem: "Name", valueItem: "Arnaldo Arnaldo Arnaldo Arnaldo Arnaldo Arnaldo Arnaldo Arnaldo")
+        cell.set(titleItem: "Name", valueItem: "Bolsonaro 6 dedo Bolsonaro 6 dedo Bolsonaro 6 dedo Bolsonaro 6 dedo Bolsonaro 6 dedo Bolsonaro 6 dedo")
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }
