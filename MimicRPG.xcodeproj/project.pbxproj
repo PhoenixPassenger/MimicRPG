@@ -250,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				5BC9C7AC26F364EE006F6BC1 /* MimicRPG.entitlements */,
-				5B0DC5AE26EA3450008C8578 /* Protocol */,
 				5B0DC5AC26EA2D31008C8578 /* Model */,
 				5B0DC5AB26EA2D1F008C8578 /* View Models */,
 				5B0DC5AA26EA2D12008C8578 /* Coordinator */,
@@ -375,13 +374,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5B0DC5AE26EA3450008C8578 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		5B1659F926F9FF49004CD628 /* DisplaySheetViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,27 +389,6 @@
 				5B1659FD26FA0AA9004CD628 /* CharacterBio.swift */,
 			);
 			path = CharacterBio;
-			sourceTree = "<group>";
-		};
-		5BC9C7AD26F37525006F6BC1 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				5BC9C7BA26F37533006F6BC1 /* JosefinSans-Bold.ttf */,
-				5BC9C7B226F37532006F6BC1 /* JosefinSans-BoldItalic.ttf */,
-				5BC9C7BB26F37533006F6BC1 /* JosefinSans-ExtraLight.ttf */,
-				5BC9C7B026F37532006F6BC1 /* JosefinSans-ExtraLightItalic.ttf */,
-				5BC9C7AF26F37532006F6BC1 /* JosefinSans-Italic.ttf */,
-				5BC9C7B926F37533006F6BC1 /* JosefinSans-Light.ttf */,
-				5BC9C7B326F37532006F6BC1 /* JosefinSans-LightItalic.ttf */,
-				5BC9C7B826F37533006F6BC1 /* JosefinSans-Medium.ttf */,
-				5BC9C7B726F37533006F6BC1 /* JosefinSans-MediumItalic.ttf */,
-				5BC9C7B626F37532006F6BC1 /* JosefinSans-Regular.ttf */,
-				5BC9C7B426F37532006F6BC1 /* JosefinSans-SemiBold.ttf */,
-				5BC9C7B526F37532006F6BC1 /* JosefinSans-SemiBoldItalic.ttf */,
-				5BC9C7AE26F37532006F6BC1 /* JosefinSans-Thin.ttf */,
-				5BC9C7B126F37532006F6BC1 /* JosefinSans-ThinItalic.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
