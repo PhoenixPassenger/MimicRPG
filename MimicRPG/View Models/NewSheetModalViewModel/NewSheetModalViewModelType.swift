@@ -10,8 +10,9 @@ import UIKit
 protocol NewSheetModalViewModelType {
     var output: NewSheetModalViewModelOutput? {get set}
     var selectedRow: Int? { get set }
+    var charNameTextField: UITextField? { get set }
 
-    func initSelectedRow()
+    func initVariables()
     func changeSystem(pickeredRow: Int)
     func getSystemsDescriptionById(row: Int) -> String
     func getNumberOfSystems() -> Int

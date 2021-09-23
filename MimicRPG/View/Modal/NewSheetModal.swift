@@ -17,6 +17,8 @@ class NewSheetModal: UIViewController {
     var leftButton: UIButton = UIButton()
     var rightButton: UIButton = UIButton()
 
+    var textField: UITextField = UITextField(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
+
     init(action: @escaping () -> ()) {
         super.init(nibName: nil, bundle: nil)
         editionAction = action
@@ -35,6 +37,9 @@ class NewSheetModal: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.tableFooterView = UIView()
 
+        textField.delegate = self
+        viewModel.charNameTextField = textField
+
         self.view.addSubview(tableView)
 
         setupButtons()
@@ -42,7 +47,7 @@ class NewSheetModal: UIViewController {
 
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
-        viewModel.initSelectedRow()
+        viewModel.initVariables()
     }
 
     @objc func leftButtonBehavior() {
@@ -172,7 +177,7 @@ extension NewSheetModal: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRowAt(indexPath: indexPath)
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         cell.backgroundColor = UIColor(named: "Background")
@@ -193,5 +198,14 @@ extension NewSheetModal: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+}
+
+extension NewSheetModal: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        textField.endEditing(true)
+        return true
     }
 }

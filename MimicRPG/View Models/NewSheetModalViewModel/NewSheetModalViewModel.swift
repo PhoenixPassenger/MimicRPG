@@ -58,16 +58,17 @@ enum NewSheetModalSettings: CaseIterable {
 
 final class NewSheetModalViewModel {
     var selectedRow: Int? = 0
+    var charNameTextField: UITextField?
 
     public weak var output: NewSheetModalViewModelOutput?
 }
 
 extension NewSheetModalViewModel: NewSheetModalViewModelType {
 
-    func initSelectedRow() {
+    func initVariables() {
         self.selectedRow = Systems.allCases.firstIndex(of: Systems(rawValue: "CT7")!)
     }
-    
+
     func changeSystem(pickeredRow: Int) {
         selectedRow = pickeredRow
         self.output?.reloadData()
@@ -99,7 +100,7 @@ extension NewSheetModalViewModel: NewSheetModalViewModelType {
         print(section)
         switch NewSheetModalSettings(id:section) {
         case .name:
-            cell.textLabel?.text = ""
+            cell.addSubview(charNameTextField!)
         case .systems:
             cell.accessoryType = .disclosureIndicator
             cell.textLabel?.text = Systems(id: selectedRow ?? 0)?.description
