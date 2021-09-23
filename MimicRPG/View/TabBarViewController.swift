@@ -18,7 +18,7 @@ class TabBarViewController: UITabBarController {
            appearance.configureWithOpaqueBackground()
            appearance.backgroundColor = .systemBackground
            self.tabBar.standardAppearance = appearance
-//           self.tabBar.scrollEdgeAppearance = appearance
+           self.tabBar.scrollEdgeAppearance = appearance
         }
 
 //        self.tabBar.isTranslucent = false

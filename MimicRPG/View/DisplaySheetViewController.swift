@@ -122,7 +122,6 @@ class DisplaySheetViewController: UIViewController {
 
     func updateButtons() {
         for button in buttons {
-            button.titleLabel?.font = UIFont.josefinSansBold17()
             if button.tag == selectedTag {
                 button.setTitleColor(UIColor(named: "Azure"), for: .normal)
             } else {
@@ -137,7 +136,7 @@ class DisplaySheetViewController: UIViewController {
         button.addTarget(self, action: #selector(tabFunction(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.sizeToFit()
-        button.titleLabel?.font =  UIFont.josefinSansButton()
+        button.titleLabel?.font = UIFont.josefinSansBold17()
         return button
     }
 
