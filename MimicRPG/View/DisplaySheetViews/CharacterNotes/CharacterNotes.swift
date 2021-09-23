@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
     func setupTableView() {
-        self.register(CharacterBioCell.self, forCellReuseIdentifier: "MyCell")
+        self.register(CharacterNotesCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
 //        self.tableView.separatorStyle = .none
@@ -17,7 +17,7 @@ class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterBioCell
+        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterNotesCell
         guard let cell = cellWrap else { fatalError() }
         cell.set(titleItem: "Nota", valueItem: "Isso é uma nota curta")
         return cell
