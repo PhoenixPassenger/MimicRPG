@@ -4,7 +4,7 @@
 //
 //  Created by Eduardo Oliveira on 23/09/21.
 //
-
+// swiftlint:disable force_cast
 import Foundation
 import UIKit
 
@@ -59,11 +59,24 @@ enum NewSheetModalSettings: CaseIterable {
 final class NewSheetModalViewModel {
     var selectedRow: Int? = 0
     var charNameTextField: UITextField?
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     public weak var output: NewSheetModalViewModelOutput?
 }
 
 extension NewSheetModalViewModel: NewSheetModalViewModelType {
+    
+    func createNewSheet(name: String, occupation: String) {
+        let newSheet = Sheet(context: self.context)
+        newSheet.name = name
+        newSheet.occupation = occupation
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
 
     func initVariables() {
         self.selectedRow = Systems.allCases.firstIndex(of: Systems(rawValue: "CT7")!)
@@ -97,7 +110,6 @@ extension NewSheetModalViewModel: NewSheetModalViewModelType {
         cell.textLabel?.font = .systemFont(ofSize: 17)
         cell.textLabel?.text = ""
         cell.accessoryType = .none
-        print(section)
         switch NewSheetModalSettings(id:section) {
         case .name:
             cell.addSubview(charNameTextField!)

@@ -55,7 +55,7 @@ class NewSheetModal: UIViewController {
     }
 
     @objc func rightButtonBehavior() {
-//        createNewInvestigator()
+        viewModel.createNewSheet(name: viewModel.charNameTextField?.text ?? "teste", occupation: "teste")
         dismiss(animated: true, completion: editionAction)
     }
 
@@ -71,13 +71,13 @@ class NewSheetModal: UIViewController {
         self.view.addSubview(titleModal)
 
         leftButton.translatesAutoresizingMaskIntoConstraints = false
-        leftButton.setTitle("Cancelar", for: .normal)
+        leftButton.setTitle("Cancel".localized(), for: .normal)
         leftButton.setTitleColor(UIColor(named: "Azure"), for: .normal)
         leftButton.titleLabel?.font = UIFont.josefinSansButton()
         self.view.addSubview(leftButton)
 
         rightButton.translatesAutoresizingMaskIntoConstraints = false
-        rightButton.setTitle("Confirmar", for: .normal)
+        rightButton.setTitle("Confirm".localized(), for: .normal)
         rightButton.setTitleColor(UIColor(named: "Azure"), for: .normal)
         rightButton.titleLabel?.font = UIFont.josefinSansButton()
         self.view.addSubview(rightButton)

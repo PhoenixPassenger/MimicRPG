@@ -24,7 +24,8 @@ class MockSheet {
 
 class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
-    var coordinator: UserSheetsCoordinator?
+    weak var coordinator: UserSheetsCoordinator?
+    var viewModel: UserSheetsViewModelType!
 
     var collectionView: UICollectionView?
     let searchController = UISearchController()
@@ -68,6 +69,8 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         collectionView?.delegate = self
 
         view.addSubview(collectionView ?? UICollectionView())
+        
+        self.fetchData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -120,7 +123,14 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         return 1
     }
 
-    func fetchData() {}
+    func fetchData() {
+        print(viewModel.fetchSheets().count)
+    }
+}
+
+
+extension UserSheetsViewController: UserSheetsViewModelOutput {
+    
 }
 
 extension UserSheetsViewController: UICollectionViewDelegate {
