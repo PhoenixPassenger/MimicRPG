@@ -20,9 +20,6 @@ class TabBarViewController: UITabBarController {
            self.tabBar.standardAppearance = appearance
            self.tabBar.scrollEdgeAppearance = appearance
         }
-
-//        self.tabBar.isTranslucent = false
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
 }
