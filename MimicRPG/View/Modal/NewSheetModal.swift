@@ -9,6 +9,7 @@ import UIKit
 
 class NewSheetModal: UIViewController {
     var editionAction: (() -> ())?
+    var viewModel: NewSheetModalViewModelType!
 
     var tableView = UITableView()
     var navigationBar: UIView = UIView()
@@ -32,9 +33,9 @@ class NewSheetModal: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.tableFooterView = UIView()
 
         self.view.addSubview(tableView)
-        self.tableView.tableFooterView = UIView()
 
         setupButtons()
         configureConstraints()
@@ -77,8 +78,11 @@ class NewSheetModal: UIViewController {
     }
 
     func configureConstraints() {
+
         tableView.contentOffset = CGPoint(x: -18, y: -18)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.tableView.backgroundColor = UIColor(named: "Background")
+
         NSLayoutConstraint.activate([
             navigationBar.topAnchor.constraint(equalTo: self.view.topAnchor),
             navigationBar.heightAnchor.constraint(equalToConstant: 55),
@@ -94,7 +98,7 @@ class NewSheetModal: UIViewController {
             rightButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             rightButton.centerYAnchor.constraint(equalTo: navigationBar.centerYAnchor),
 
-            tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
+            tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -102,13 +106,88 @@ class NewSheetModal: UIViewController {
     }
 }
 
-extension NewSheetModal: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension NewSheetModal: NewSheetModalViewModelOutput {
+    func showSystemsPicker() {
+        let viewController = UIViewController()
+        let screenWidth = UIScreen.main.bounds.width - 10
+        let screenHeight = UIScreen.main.bounds.height / 2
+        viewController.preferredContentSize = CGSize(width: screenWidth, height: screenHeight/2)
+
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        pickerView.delegate = self
+        pickerView.dataSource = self
+
+        pickerView.selectRow(viewModel.selectedRow!, inComponent: 0, animated: true)
+
+        viewController.view.addSubview(pickerView)
+
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pickerView.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor),
+            pickerView.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor)
+        ])
+
+        let alert = UIAlertController(title: "titleAlert".localized(), message: "", preferredStyle: .actionSheet)
+        alert.setValue(viewController, forKey: "contentViewController")
+        alert.addAction(UIAlertAction(title: "Confirm".localized(), style: .default, handler: { _ in
+//            self.viewModel.changeLanguage(pickeredRow: pickerView.selectedRow(inComponent: 0))
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .destructive, handler: { _ in
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+
+}
+
+extension NewSheetModal: UIPickerViewDelegate, UIPickerViewDataSource {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let screenWidth = UIScreen.main.bounds.width - 10
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
+        label.text = self.viewModel.getSystemsDescriptionById(row: row)
+        label.font = .systemFont(ofSize: 17)
+        label.sizeToFit()
+        return label
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
 
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.viewModel.getNumberOfSystems()
+    }
+
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 60
+    }
+}
+
+extension NewSheetModal: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRowAt(indexPath: indexPath)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-        return cell
+        cell.backgroundColor = UIColor(named: "Background")
+        return self.viewModel.cellForRowAt(cell: cell, section: indexPath.section)
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        viewModel.viewForHeaderInSection(section: section)
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel.numberOfSections()
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
 }
