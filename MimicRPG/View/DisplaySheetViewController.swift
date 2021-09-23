@@ -22,13 +22,19 @@ class DisplaySheetViewController: UIViewController {
     var selectedTag: Int = 0 {
         didSet {
             sheetView.removeFromSuperview()
-            if selectedTag == 0 {
+            switch selectedTag {
+            case 0:
                 let view = CharacterBio()
                 sheetView = view
-                self.setupSheetView {
-                    view.setupTableView()
-                }
+                view.setupTableView()
+            case 6:
+                let view = CharacterNotes()
+                sheetView = view
+                view.setupTableView()
+            default:
+                break
             }
+            self.setupSheetView()
         }
     }
 
@@ -127,7 +133,7 @@ class DisplaySheetViewController: UIViewController {
         widthAnchor.isActive = true
     }
 
-    func setupSheetView(completionHandler: () -> Void) {
+    func setupSheetView() {
         sheetView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(sheetView)
         NSLayoutConstraint.activate([
@@ -136,7 +142,6 @@ class DisplaySheetViewController: UIViewController {
         sheetView.trailingAnchor.constraint(equalTo: divisor.trailingAnchor),
         sheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        completionHandler()
     }
 
     func updateButtons() {
