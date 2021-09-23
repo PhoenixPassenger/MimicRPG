@@ -41,6 +41,10 @@
 		5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B126EA34F8008C8578 /* NotificationService.swift */; };
 		5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */; };
 		5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */; };
+		5B1659FC26F9FF6E004CD628 /* CharacterBioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1659FB26F9FF6E004CD628 /* CharacterBioCell.swift */; };
+		5B1659FE26FA0AA9004CD628 /* CharacterBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1659FD26FA0AA9004CD628 /* CharacterBio.swift */; };
+		5B1B05F826FCEFDC003537EA /* CharacterNotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B05F726FCEFDC003537EA /* CharacterNotesCell.swift */; };
+		5B1B05FA26FCF000003537EA /* CharacterNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B05F926FCF000003537EA /* CharacterNotes.swift */; };
 		5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */; };
 		5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F626F0C09F00E01EBA /* Notes+CoreDataClass.swift */; };
 		5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F826F0C09F00E01EBA /* Profile+CoreDataClass.swift */; };
@@ -124,6 +128,10 @@
 		5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		5B0DC5B926EA352F008C8578 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		5B1659FB26F9FF6E004CD628 /* CharacterBioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBioCell.swift; sourceTree = "<group>"; };
+		5B1659FD26FA0AA9004CD628 /* CharacterBio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBio.swift; sourceTree = "<group>"; };
+		5B1B05F726FCEFDC003537EA /* CharacterNotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNotesCell.swift; sourceTree = "<group>"; };
+		5B1B05F926FCF000003537EA /* CharacterNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNotes.swift; sourceTree = "<group>"; };
 		5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attack+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B7C96F626F0C09F00E01EBA /* Notes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B7C96F826F0C09F00E01EBA /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -246,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				5BC9C7AC26F364EE006F6BC1 /* MimicRPG.entitlements */,
-				5B0DC5AE26EA3450008C8578 /* Protocol */,
 				5B0DC5AC26EA2D31008C8578 /* Model */,
 				5B0DC5AB26EA2D1F008C8578 /* View Models */,
 				5B0DC5AA26EA2D12008C8578 /* Coordinator */,
@@ -301,6 +308,7 @@
 		5B0DC5A726EA2CB2008C8578 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B1659F926F9FF49004CD628 /* DisplaySheetViews */,
 				2E16CCAF26F36A3000500E44 /* Components */,
 				5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */,
 				9684023E26EF7435009AF620 /* DiceRollerViewController.swift */,
@@ -343,11 +351,9 @@
 		5B0DC5AB26EA2D1F008C8578 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B7BBE1526FCF3BD008260D9 /* SettingsViewModel */,
 				2E24F77626FA071700DE6BE9 /* DisplaySheetViewModel */,
 				2E16CCD126F4066200500E44 /* DiceRollerViewModel */,
-				5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */,
-				5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */,
-				5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -370,11 +376,41 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5B0DC5AE26EA3450008C8578 /* Protocol */ = {
+		5B1659F926F9FF49004CD628 /* DisplaySheetViews */ = {
 			isa = PBXGroup;
 			children = (
+				5B1B05F626FCEFCA003537EA /* CharacterNotes */,
+				5B1659FA26F9FF53004CD628 /* CharacterBio */,
 			);
-			path = Protocol;
+			path = DisplaySheetViews;
+			sourceTree = "<group>";
+		};
+		5B1659FA26F9FF53004CD628 /* CharacterBio */ = {
+			isa = PBXGroup;
+			children = (
+				5B1659FB26F9FF6E004CD628 /* CharacterBioCell.swift */,
+				5B1659FD26FA0AA9004CD628 /* CharacterBio.swift */,
+			);
+			path = CharacterBio;
+			sourceTree = "<group>";
+		};
+		5B1B05F626FCEFCA003537EA /* CharacterNotes */ = {
+			isa = PBXGroup;
+			children = (
+				5B1B05F726FCEFDC003537EA /* CharacterNotesCell.swift */,
+				5B1B05F926FCF000003537EA /* CharacterNotes.swift */,
+			);
+			path = CharacterNotes;
+			sourceTree = "<group>";
+		};
+		5B7BBE1526FCF3BD008260D9 /* SettingsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DC5B426EA3509008C8578 /* SettingsViewModel.swift */,
+				5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */,
+				5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */,
+			);
+			path = SettingsViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,15 +593,19 @@
 				2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */,
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
 				5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */,
+				5B1659FC26F9FF6E004CD628 /* CharacterBioCell.swift in Sources */,
 				9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */,
 				5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */,
 				9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
 				2E16CCD526F406A200500E44 /* DiceRollerViewModelType.swift in Sources */,
 				2E24F77826FA07F400DE6BE9 /* DisplaySheetViewModel.swift in Sources */,
+				5B1B05FA26FCF000003537EA /* CharacterNotes.swift in Sources */,
+				5B1B05F826FCEFDC003537EA /* CharacterNotesCell.swift in Sources */,
 				5BC9C7CC26F37FEA006F6BC1 /* SettingsViewModelOutput.swift in Sources */,
 				5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */,
 				2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */,
+				5B1659FE26FA0AA9004CD628 /* CharacterBio.swift in Sources */,
 				5B7C970E26F0C09F00E01EBA /* Sheet+CoreDataClass.swift in Sources */,
 				5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */,
 				5B7C971026F0C09F00E01EBA /* User+CoreDataClass.swift in Sources */,
