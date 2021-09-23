@@ -122,12 +122,11 @@ class DisplaySheetViewController: UIViewController {
 
     func updateButtons() {
         for button in buttons {
+            button.titleLabel?.font = UIFont.josefinSansBold17()
             if button.tag == selectedTag {
                 button.setTitleColor(UIColor(named: "Azure"), for: .normal)
-                button.titleLabel?.font = UIFont.josefinSansBold17()
             } else {
                 button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
-                button.titleLabel?.font =  UIFont.josefinSansButton()
             }
         }
     }
