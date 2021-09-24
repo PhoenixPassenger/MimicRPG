@@ -52,9 +52,6 @@
 		5B1659FE26FA0AA9004CD628 /* CharacterBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1659FD26FA0AA9004CD628 /* CharacterBio.swift */; };
 		5B1B05F826FCEFDC003537EA /* CharacterNotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B05F726FCEFDC003537EA /* CharacterNotesCell.swift */; };
 		5B1B05FA26FCF000003537EA /* CharacterNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B05F926FCF000003537EA /* CharacterNotes.swift */; };
-		5B7BBE1926FCF9BE008260D9 /* CharacterItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BBE1826FCF9BE008260D9 /* CharacterItemsCell.swift */; };
-		5B7BBE1B26FCFA18008260D9 /* Image+SolidColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BBE1A26FCFA18008260D9 /* Image+SolidColor.swift */; };
-		5B7BBE1D26FCFAEF008260D9 /* CharacterItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BBE1C26FCFAEF008260D9 /* CharacterItems.swift */; };
 		5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */; };
 		5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F626F0C09F00E01EBA /* Notes+CoreDataClass.swift */; };
 		5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C96F826F0C09F00E01EBA /* Profile+CoreDataClass.swift */; };
@@ -149,9 +146,6 @@
 		5B1659FD26FA0AA9004CD628 /* CharacterBio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBio.swift; sourceTree = "<group>"; };
 		5B1B05F726FCEFDC003537EA /* CharacterNotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNotesCell.swift; sourceTree = "<group>"; };
 		5B1B05F926FCF000003537EA /* CharacterNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNotes.swift; sourceTree = "<group>"; };
-		5B7BBE1826FCF9BE008260D9 /* CharacterItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterItemsCell.swift; sourceTree = "<group>"; };
-		5B7BBE1A26FCFA18008260D9 /* Image+SolidColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+SolidColor.swift"; sourceTree = "<group>"; };
-		5B7BBE1C26FCFAEF008260D9 /* CharacterItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterItems.swift; sourceTree = "<group>"; };
 		5B7C96F426F0C09F00E01EBA /* Attack+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attack+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B7C96F626F0C09F00E01EBA /* Notes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B7C96F826F0C09F00E01EBA /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -356,11 +350,8 @@
 		5B0DC5A726EA2CB2008C8578 /* View */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				2EAE08EC26FCA699000630A5 /* Modal */,
-=======
 				5B1659F926F9FF49004CD628 /* DisplaySheetViews */,
->>>>>>> main
 				2E16CCAF26F36A3000500E44 /* Components */,
 				5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */,
 				9684023E26EF7435009AF620 /* DiceRollerViewController.swift */,
@@ -377,7 +368,6 @@
 				5B0DC5B926EA352F008C8578 /* String+Localized.swift */,
 				2EFC74A526EA368E00D9487F /* CustomColors.swift */,
 				2EFC74B526EA51FA00D9487F /* CustomFonts.swift */,
-				5B7BBE1A26FCFA18008260D9 /* Image+SolidColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -404,12 +394,9 @@
 		5B0DC5AB26EA2D1F008C8578 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				2EA6F15A26FD3C9E00027E41 /* UserSheetsViewModel */,
 				2EAE08EF26FCC05E000630A5 /* NewSheetModalViewModel */,
-=======
 				5B7BBE1526FCF3BD008260D9 /* SettingsViewModel */,
->>>>>>> main
 				2E24F77626FA071700DE6BE9 /* DisplaySheetViewModel */,
 				2E16CCD126F4066200500E44 /* DiceRollerViewModel */,
 			);
@@ -437,7 +424,6 @@
 		5B1659F926F9FF49004CD628 /* DisplaySheetViews */ = {
 			isa = PBXGroup;
 			children = (
-				5B7BBE1726FCF9A7008260D9 /* CharacterItems */,
 				5B1B05F626FCEFCA003537EA /* CharacterNotes */,
 				5B1659FA26F9FF53004CD628 /* CharacterBio */,
 			);
@@ -470,15 +456,6 @@
 				5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */,
 			);
 			path = SettingsViewModel;
-			sourceTree = "<group>";
-		};
-		5B7BBE1726FCF9A7008260D9 /* CharacterItems */ = {
-			isa = PBXGroup;
-			children = (
-				5B7BBE1826FCF9BE008260D9 /* CharacterItemsCell.swift */,
-				5B7BBE1C26FCFAEF008260D9 /* CharacterItems.swift */,
-			);
-			path = CharacterItems;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,7 +657,6 @@
 				5B1659FE26FA0AA9004CD628 /* CharacterBio.swift in Sources */,
 				5B7C970E26F0C09F00E01EBA /* Sheet+CoreDataClass.swift in Sources */,
 				5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */,
-				5B7BBE1B26FCFA18008260D9 /* Image+SolidColor.swift in Sources */,
 				5B7C971026F0C09F00E01EBA /* User+CoreDataClass.swift in Sources */,
 				5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */,
 				5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */,
@@ -692,15 +668,10 @@
 				9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */,
 				96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
-<<<<<<< HEAD
 				2EAE08F526FCC0DD000630A5 /* NewSheetModalViewModelType.swift in Sources */,
-=======
-				5B7BBE1D26FCFAEF008260D9 /* CharacterItems.swift in Sources */,
->>>>>>> main
 				2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */,
 				2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
-				5B7BBE1926FCF9BE008260D9 /* CharacterItemsCell.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */,
