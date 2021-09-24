@@ -28,10 +28,9 @@ class DisplaySheetViewController: UIViewController {
                 sheetView = view
                 view.setupTableView()
             case 4:
-//                let view = CharacterItems()
-//                sheetView = view
-//                view.setupTableView()
-                break
+                let view = CharacterItems()
+                sheetView = view
+                view.setupTableView()
             case 6:
                 let view = CharacterNotes()
                 sheetView = view
