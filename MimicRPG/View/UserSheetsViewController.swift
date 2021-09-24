@@ -24,7 +24,7 @@ class MockSheet {
 
 class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
-    weak var coordinator: UserSheetsCoordinator?
+    var coordinator: UserSheetsCoordinator?
     var viewModel: UserSheetsViewModelType!
 
     var collectionView: UICollectionView?
@@ -79,7 +79,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         addButton.tintColor = UIColor(named: "Azure")
         collectionView?.layer.backgroundColor = UIColor(named: "Background")?.cgColor
     }
-
+    
     @objc func toSheet() {
         coordinator?.goToSelectedSheet()
     }
