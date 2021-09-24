@@ -28,3 +28,4 @@ NewSheet = "Nova Ficha";
 ChooseTheDice = "Escolha o Dado";
 Roll = "Rolar";
 Result = "Resultado";
+Uses = "Usos.: ";

@@ -28,3 +28,4 @@ NewSheet = "New Sheet";
 ChooseTheDice = "Choose the Dice";
 Roll = "Roll";
 Result = "Result";
+Uses = "Uses.: ";
