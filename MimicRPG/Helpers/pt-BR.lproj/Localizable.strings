@@ -22,3 +22,4 @@ Options = "Opções";
 TitleSettingsAlert = "Permitir notificações";
 GoToSettingsMessage = "Para permitir notificações, permita notificações para este app nas configurações do dispositivo";
 GoToSettingsButton = "Configurações";
+Uses = "Usos.: ";

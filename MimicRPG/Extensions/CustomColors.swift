@@ -61,4 +61,8 @@ extension UIColor {
     static var ivory: UIColor { return UIColor(hex: "#F7FBEF")! }
     
     static var cultured: UIColor { return UIColor(hex: "#F2F2F2")! }
+    
+    static var auburnT20: UIColor { return UIColor(hex: "#853B3B")!}
+    
+    static var pinkT20: UIColor { return UIColor(hex: "#FFD8D9")!}
 }
