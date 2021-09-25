@@ -11,6 +11,10 @@ class CharacterSkillsCell: UITableViewCell {
 
     var isChecked: Bool = false
     var total: Int = 0
+    var other: Int = 0
+    var modAttribute: Int = 0
+    var attribute: String = "CON"
+    var levelby2: Int = 0
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -97,6 +101,90 @@ class CharacterSkillsCell: UITableViewCell {
         return view
     }()
 
+    lazy var otherLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = UIFont.josefinSansSemiBold24()
+        label.text = "\(other)"
+        label.sizeToFit()
+        self.addSubview(label)
+        return label
+    }()
+
+    lazy var otherLeftBar: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .black
+        self.addSubview(view)
+        return view
+    }()
+
+    lazy var modAttributeBox: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(named: "LightBrandy")
+        self.addSubview(view)
+        return view
+    }()
+
+    lazy var modAttributeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = UIFont.josefinSansSemiBold24()
+        label.text = "\(modAttribute)"
+        label.sizeToFit()
+        self.addSubview(label)
+        return label
+    }()
+
+    lazy var modAttributeDesc: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = UIFont.josefinSansDetail9()
+        label.text = "\(attribute)"
+        label.sizeToFit()
+        self.addSubview(label)
+        return label
+    }()
+
+    lazy var modAttributeLeftBar: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .black
+        self.addSubview(view)
+        return view
+    }()
+    
+    lazy var levelby2Box: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(named: "LightBrandy")
+        self.addSubview(view)
+        return view
+    }()
+
+    lazy var levelby2Label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = UIFont.josefinSansSemiBold24()
+        label.text = "\(levelby2)"
+        label.sizeToFit()
+        self.addSubview(label)
+        return label
+    }()
+
+    lazy var levelby2LeftBar: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .black
+        self.addSubview(view)
+        return view
+    }()
+
     lazy var topBar: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -155,6 +243,47 @@ extension CharacterSkillsCell {
             totalLeftBar.centerYAnchor.constraint(equalTo: totalBox.centerYAnchor),
             totalLeftBar.heightAnchor.constraint(equalToConstant: 55),
             totalLeftBar.widthAnchor.constraint(equalToConstant: 1),
+
+            otherBox.trailingAnchor.constraint(equalTo: totalLeftBar.leadingAnchor),
+            otherBox.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            otherBox.widthAnchor.constraint(equalToConstant: 40),
+            otherBox.heightAnchor.constraint(equalToConstant: 55),
+
+            otherLabel.centerXAnchor.constraint(equalTo: otherBox.centerXAnchor),
+            otherLabel.centerYAnchor.constraint(equalTo: otherBox.centerYAnchor),
+
+            otherLeftBar.trailingAnchor.constraint(equalTo: otherBox.leadingAnchor),
+            otherLeftBar.centerYAnchor.constraint(equalTo: otherBox.centerYAnchor),
+            otherLeftBar.heightAnchor.constraint(equalToConstant: 55),
+            otherLeftBar.widthAnchor.constraint(equalToConstant: 1),
+
+            modAttributeBox.trailingAnchor.constraint(equalTo: otherLeftBar.leadingAnchor),
+            modAttributeBox.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            modAttributeBox.widthAnchor.constraint(equalToConstant: 40),
+            modAttributeBox.heightAnchor.constraint(equalToConstant: 55),
+
+            modAttributeLabel.centerXAnchor.constraint(equalTo: modAttributeBox.centerXAnchor),
+            modAttributeLabel.centerYAnchor.constraint(equalTo: modAttributeBox.centerYAnchor),
+            modAttributeDesc.centerXAnchor.constraint(equalTo: modAttributeBox.centerXAnchor),
+            modAttributeDesc.bottomAnchor.constraint(equalTo: modAttributeBox.bottomAnchor, constant: -5),
+
+            modAttributeLeftBar.trailingAnchor.constraint(equalTo: modAttributeBox.leadingAnchor),
+            modAttributeLeftBar.centerYAnchor.constraint(equalTo: modAttributeBox.centerYAnchor),
+            modAttributeLeftBar.heightAnchor.constraint(equalToConstant: 55),
+            modAttributeLeftBar.widthAnchor.constraint(equalToConstant: 1),
+
+            levelby2Box.trailingAnchor.constraint(equalTo: modAttributeLeftBar.leadingAnchor),
+            levelby2Box.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            levelby2Box.widthAnchor.constraint(equalToConstant: 40),
+            levelby2Box.heightAnchor.constraint(equalToConstant: 55),
+
+            levelby2Label.centerXAnchor.constraint(equalTo: levelby2Box.centerXAnchor),
+            levelby2Label.centerYAnchor.constraint(equalTo: levelby2Box.centerYAnchor),
+
+            levelby2LeftBar.trailingAnchor.constraint(equalTo: levelby2Box.leadingAnchor),
+            levelby2LeftBar.centerYAnchor.constraint(equalTo: levelby2Box.centerYAnchor),
+            levelby2LeftBar.heightAnchor.constraint(equalToConstant: 55),
+            levelby2LeftBar.widthAnchor.constraint(equalToConstant: 1),
 
             topBar.topAnchor.constraint(equalTo: self.topAnchor),
             topBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
