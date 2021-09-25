@@ -13,6 +13,7 @@ class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.dataSource = self
         self.delegate = self
 //        self.tableView.separatorStyle = .none
+        self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
     }
     

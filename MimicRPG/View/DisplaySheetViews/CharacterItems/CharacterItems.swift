@@ -14,6 +14,7 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.delegate = self
         self.rowHeight = 125
 //        self.tableView.separatorStyle = .none
+        self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
     }
 

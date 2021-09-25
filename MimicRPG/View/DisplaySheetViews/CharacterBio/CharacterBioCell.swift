@@ -10,9 +10,9 @@ import UIKit
 class CharacterBioCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = UIColor(named: "Background")
         self.selectionStyle = .none
-        self.tintColor = .blue
+        self.tintColor = UIColor(named: "Azure")
         setupUI()
     }
 
@@ -24,7 +24,7 @@ class CharacterBioCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .blue
+        label.textColor = UIColor(named: "Azure")
         label.font = UIFont.josefinSansBold17()
         label.sizeToFit()
         self.addSubview(label)
@@ -34,7 +34,7 @@ class CharacterBioCell: UITableViewCell {
     lazy var valueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkText
+        label.textColor = UIColor(named: "FontColor")
         label.font = UIFont.josefinSansBold14()
         label.numberOfLines = 0
         label.sizeToFit()
