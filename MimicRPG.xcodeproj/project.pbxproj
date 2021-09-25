@@ -37,6 +37,7 @@
 		2EAE08F526FCC0DD000630A5 /* NewSheetModalViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE08F426FCC0DD000630A5 /* NewSheetModalViewModelType.swift */; };
 		2EF7724426FE41A700A88EC8 /* CharacterSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724326FE41A700A88EC8 /* CharacterSkills.swift */; };
 		2EF7724626FE41E500A88EC8 /* CharacterSkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */; };
+		2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */; };
 		2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74A526EA368E00D9487F /* CustomColors.swift */; };
 		2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74B526EA51FA00D9487F /* CustomFonts.swift */; };
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
@@ -128,6 +129,7 @@
 		2EAE08F426FCC0DD000630A5 /* NewSheetModalViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSheetModalViewModelType.swift; sourceTree = "<group>"; };
 		2EF7724326FE41A700A88EC8 /* CharacterSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkills.swift; sourceTree = "<group>"; };
 		2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCell.swift; sourceTree = "<group>"; };
+		2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeader.swift; sourceTree = "<group>"; };
 		2EFC74A526EA368E00D9487F /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2EFC74B526EA51FA00D9487F /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		5B0DC56D26EA2B68008C8578 /* MimicRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MimicRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +289,7 @@
 			children = (
 				2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */,
 				2EF7724326FE41A700A88EC8 /* CharacterSkills.swift */,
+				2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */,
 			);
 			path = CharacterSkills;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				5B7BBE1D26FCFAEF008260D9 /* CharacterItems.swift in Sources */,
 				2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */,
 				2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */,
+				2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeader.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				2EF7724626FE41E500A88EC8 /* CharacterSkillsCell.swift in Sources */,
 				5B7BBE1926FCF9BE008260D9 /* CharacterItemsCell.swift in Sources */,

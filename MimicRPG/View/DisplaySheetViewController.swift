@@ -55,7 +55,6 @@ class DisplaySheetViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = UIColor(named: "Background")
         updateButtons()
-
         setupButtons()
     }
 

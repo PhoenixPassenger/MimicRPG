@@ -22,7 +22,7 @@ class CharacterSkillsCell: UITableViewCell {
         self.selectionStyle = .none
         self.tintColor = UIColor(named: "Azure")
         contentView.isUserInteractionEnabled = true
-        setupUI()
+        configureLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -216,7 +216,7 @@ class CharacterSkillsCell: UITableViewCell {
 }
 
 extension CharacterSkillsCell {
-    private func setupUI() {
+    private func configureLayout() {
         NSLayoutConstraint.activate([
             checkbox.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             checkbox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
@@ -296,8 +296,7 @@ extension CharacterSkillsCell {
             bottomBar.heightAnchor.constraint(equalToConstant: 1),
 
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 12),
-//            valueLabel.heightAnchor.constraint(equalToConstant: 30)
+            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 12)
         ])
     }
 }

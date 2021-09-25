@@ -11,19 +11,18 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 55)
+        searchBar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 38)
         searchBar.delegate = self
-//        searchBar.showsCancelButton = true
+        searchBar.barTintColor = UIColor(named: "Background")
         searchBar.searchBarStyle = UISearchBar.Style.default
         searchBar.placeholder = " Search Here....."
         searchBar.sizeToFit()
         return searchBar
     }()
 
-    lazy var infoView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 55, width: UIScreen.main.bounds.width, height: 41)
-        view.backgroundColor = .red
+    lazy var infoView: CharacterSkillsHeader = {
+        let view = CharacterSkillsHeader()
+        view.frame = CGRect(x: 0, y: 54, width: UIScreen.main.bounds.width, height: 38)
         return view
     }()
 
