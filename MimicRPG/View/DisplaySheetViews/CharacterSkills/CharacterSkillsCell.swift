@@ -14,7 +14,7 @@ class CharacterSkillsCell: UITableViewCell {
     var other: Int = 0
     var modAttribute: Int = 0
     var attribute: String = "CON"
-    var levelby2: Int = 0
+    var levelBy2: Int = 0
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -158,7 +158,7 @@ class CharacterSkillsCell: UITableViewCell {
         return view
     }()
     
-    lazy var levelby2Box: UIView = {
+    lazy var levelBy2Box: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(named: "LightBrandy")
@@ -166,18 +166,18 @@ class CharacterSkillsCell: UITableViewCell {
         return view
     }()
 
-    lazy var levelby2Label: UILabel = {
+    lazy var levelBy2Label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.josefinSansSemiBold24()
-        label.text = "\(levelby2)"
+        label.text = "\(levelBy2)"
         label.sizeToFit()
         self.addSubview(label)
         return label
     }()
 
-    lazy var levelby2LeftBar: UIView = {
+    lazy var levelBy2LeftBar: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .black
@@ -203,15 +203,28 @@ class CharacterSkillsCell: UITableViewCell {
         return view
     }()
 
-    func set( titleItem: String, active: Bool) {
+    func set( titleItem: String, active: Bool, other: Int, modAttribute: Int, attribute: String, levelBy2: Int) {
         titleLabel.text = titleItem
         isChecked = !active
+        checkmark.isHidden = !isChecked
+        self.other = other
+        self.modAttribute = modAttribute
+        self.levelBy2 = levelBy2
+        self.attribute = attribute
+        self.total = other + modAttribute + levelBy2 + (isChecked ? 2 : 0)
+        otherLabel.text = "\(self.other)"
+        modAttributeLabel.text = "\(self.modAttribute)"
+        modAttributeDesc.text = "\(self.attribute)"
+        levelBy2Label.text = "\(self.levelBy2)"
+        totalLabel.text = "\(self.total)"
         checkbox.addTarget(self, action: #selector(didTapCheckbox), for: .touchUpInside)
     }
 
     @objc func didTapCheckbox () {
         self.isChecked = !isChecked
         checkmark.isHidden = !isChecked
+        total = other + modAttribute + levelBy2 + (isChecked ? 2 : 0)
+        totalLabel.text = "\(total)"
     }
 }
 
@@ -272,18 +285,18 @@ extension CharacterSkillsCell {
             modAttributeLeftBar.heightAnchor.constraint(equalToConstant: 55),
             modAttributeLeftBar.widthAnchor.constraint(equalToConstant: 1),
 
-            levelby2Box.trailingAnchor.constraint(equalTo: modAttributeLeftBar.leadingAnchor),
-            levelby2Box.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            levelby2Box.widthAnchor.constraint(equalToConstant: 40),
-            levelby2Box.heightAnchor.constraint(equalToConstant: 55),
+            levelBy2Box.trailingAnchor.constraint(equalTo: modAttributeLeftBar.leadingAnchor),
+            levelBy2Box.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            levelBy2Box.widthAnchor.constraint(equalToConstant: 40),
+            levelBy2Box.heightAnchor.constraint(equalToConstant: 55),
 
-            levelby2Label.centerXAnchor.constraint(equalTo: levelby2Box.centerXAnchor),
-            levelby2Label.centerYAnchor.constraint(equalTo: levelby2Box.centerYAnchor),
+            levelBy2Label.centerXAnchor.constraint(equalTo: levelBy2Box.centerXAnchor),
+            levelBy2Label.centerYAnchor.constraint(equalTo: levelBy2Box.centerYAnchor),
 
-            levelby2LeftBar.trailingAnchor.constraint(equalTo: levelby2Box.leadingAnchor),
-            levelby2LeftBar.centerYAnchor.constraint(equalTo: levelby2Box.centerYAnchor),
-            levelby2LeftBar.heightAnchor.constraint(equalToConstant: 55),
-            levelby2LeftBar.widthAnchor.constraint(equalToConstant: 1),
+            levelBy2LeftBar.trailingAnchor.constraint(equalTo: levelBy2Box.leadingAnchor),
+            levelBy2LeftBar.centerYAnchor.constraint(equalTo: levelBy2Box.centerYAnchor),
+            levelBy2LeftBar.heightAnchor.constraint(equalToConstant: 55),
+            levelBy2LeftBar.widthAnchor.constraint(equalToConstant: 1),
 
             topBar.topAnchor.constraint(equalTo: self.topAnchor),
             topBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),

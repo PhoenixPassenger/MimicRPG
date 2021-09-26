@@ -7,7 +7,38 @@
 
 import Foundation
 import UIKit
+
+class MockSkill {
+    var name: String = ""
+    var active: Bool = false
+    var other: Int = 0
+    var modAttribute: Int = 0
+    var attribute: String = "CON"
+    var levelBy2: Int = 0
+
+    init(name: String, active: Bool, other: Int, modAttribute: Int, attribute: String, levelBy2: Int) {
+        self.name = name
+        self.active = active
+        self.other = other
+        self.modAttribute = modAttribute
+        self.attribute = attribute
+        self.levelBy2 = levelBy2
+    }
+}
+
 class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
+
+    let mockSkills: [MockSkill] = [
+        MockSkill(name: "Acrobacia", active: false, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
+        MockSkill(name: "Adestramento", active: true, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
+        MockSkill(name: "Atletismo", active: false, other: 2, modAttribute: 1, attribute: "FOR", levelBy2: 2),
+        MockSkill(name: "Atuação", active: false, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
+        MockSkill(name: "Cavalgar", active: true, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
+        MockSkill(name: "Conhecimento", active: false, other: 0, modAttribute: 1, attribute: "INT", levelBy2: 2),
+        MockSkill(name: "Cura", active: false, other: 0, modAttribute: 1, attribute: "SAB", levelBy2: 2),
+    ]
+
+    var filteredSkills: [MockSkill] = []
 
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -33,17 +64,27 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
 //        self.tableView.separatorStyle = .none
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
+        filteredSkills = mockSkills
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        self.addGestureRecognizer(tap)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCell
         guard let cell = cellWrap else { fatalError() }
-        cell.set(titleItem: "Nota", active: true)
+        cell.set(
+            titleItem: filteredSkills[indexPath.row].name,
+            active: filteredSkills[indexPath.row].active,
+            other: filteredSkills[indexPath.row].other,
+            modAttribute: filteredSkills[indexPath.row].modAttribute,
+            attribute: filteredSkills[indexPath.row].attribute,
+            levelBy2: filteredSkills[indexPath.row].levelBy2)
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return filteredSkills.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -62,8 +103,27 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 96
     }
+    
+    @objc func dismissKeyboard() {
+        searchBar.resignFirstResponder()
+        searchBar.endEditing(true)
+    }
 }
 
 extension CharacterSkills: UISearchBarDelegate {
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            filteredSkills = mockSkills
+        } else {
+            filteredSkills = mockSkills.filter { item in
+                return item.name.lowercased().contains(searchText.lowercased())
+            }
+        }
+        self.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+        searchBar.resignFirstResponder()
+        searchBar.endEditing(true)
+    }
 }
