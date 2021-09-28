@@ -46,7 +46,7 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
         searchBar.delegate = self
         searchBar.barTintColor = UIColor(named: "Background")
         searchBar.searchBarStyle = UISearchBar.Style.default
-        searchBar.placeholder = " Search Here....."
+        searchBar.placeholder = "SearchHere".localized()
         searchBar.sizeToFit()
         return searchBar
     }()

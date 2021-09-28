@@ -25,7 +25,7 @@ class CharacterSkillsHeader: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
         label.font = UIFont.josefinSansSkillDesc()
-        label.text = "Nome"
+        label.text = "Name".localized()
         label.sizeToFit()
         self.addSubview(label)
         return label
@@ -63,7 +63,7 @@ class CharacterSkillsHeader: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
         label.font = UIFont.josefinSansSkillDesc()
-        label.text = "Outros"
+        label.text = "Others".localized()
         label.sizeToFit()
         self.addSubview(label)
         return label
@@ -84,12 +84,12 @@ class CharacterSkillsHeader: UIView {
         label.textAlignment = .center
         label.textColor = UIColor(named: "FontColor")
         label.font = UIFont.josefinSansSkillDesc()
-        label.text = "Mod.\nAtrib."
+        label.text = "AttribMod".localized()
         label.sizeToFit()
         self.addSubview(label)
         return label
     }()
-    
+
     lazy var levelby2Box: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -105,7 +105,7 @@ class CharacterSkillsHeader: UIView {
         label.textAlignment = .center
         label.textColor = UIColor(named: "FontColor")
         label.font = UIFont.josefinSansSkillDesc()
-        label.text = "Level\n/2"
+        label.text = "LevelBy2".localized()
         label.sizeToFit()
         self.addSubview(label)
         return label
@@ -144,7 +144,7 @@ class CharacterSkillsHeader: UIView {
 
             levelby2Label.centerXAnchor.constraint(equalTo: levelby2Box.centerXAnchor),
             levelby2Label.centerYAnchor.constraint(equalTo: levelby2Box.centerYAnchor),
-            
+
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12)
         ])
