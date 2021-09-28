@@ -103,7 +103,16 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 96
     }
-    
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editSwipe = UIContextualAction(style: .normal, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
+            print("editar")
+        }
+        editSwipe.backgroundColor = UIColor(named: "Azure")
+        editSwipe.image = UIImage(systemName: "pencil")
+        return UISwipeActionsConfiguration(actions: [editSwipe])
+    }
+
     @objc func dismissKeyboard() {
         searchBar.resignFirstResponder()
         searchBar.endEditing(true)
