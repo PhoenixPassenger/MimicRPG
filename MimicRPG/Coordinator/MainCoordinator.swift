@@ -19,10 +19,12 @@ class MainCoordinator : Coordinator {
         tabBarController.coordinator = self
 
         let sheetsViewController = UserSheetsViewController()
+        sheetsViewController.viewModel = UserSheetsViewModel()
+        sheetsViewController.viewModel.output = sheetsViewController
         sheetsViewController.title = "Fichas"
         sheetsViewController.tabBarItem = UITabBarItem(title: "Fichas", image: UIImage(named: "pencil"),
                                        selectedImage: UIImage(named: "pencil"))
-
+        
         let diceRollerViewController = DiceRollerViewController()
         diceRollerViewController.viewModel = DiceRollerViewModel()
         diceRollerViewController.viewModel.output = diceRollerViewController

@@ -25,10 +25,11 @@ class MockSheet {
 class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
     var coordinator: UserSheetsCoordinator?
+    var viewModel: UserSheetsViewModelType!
 
     var collectionView: UICollectionView?
     let searchController = UISearchController()
-    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(toSheet))
+    lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(triggerNewSheetModal))
 
     var mockSheets: [MockSheet] = [
         MockSheet(image: "llanowar", charName: "Llanowar", desc: "Guerra da Centelha", system: "T20"),
@@ -50,6 +51,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        addButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.josefinSansButton()], for: .normal)
         navigationItem.rightBarButtonItem = addButton
 
         searchController.searchResultsUpdater = self
@@ -67,6 +69,8 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         collectionView?.delegate = self
 
         view.addSubview(collectionView ?? UICollectionView())
+
+        self.fetchData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -75,9 +79,16 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         addButton.tintColor = UIColor(named: "Azure")
         collectionView?.layer.backgroundColor = UIColor(named: "Background")?.cgColor
     }
-
+    
     @objc func toSheet() {
         coordinator?.goToSelectedSheet()
+    }
+
+    @objc func triggerNewSheetModal() {
+        let newSheetModal = NewSheetModal(action: {self.fetchData()})
+        newSheetModal.viewModel = NewSheetModalViewModel()
+        newSheetModal.viewModel.output = newSheetModal
+        present(newSheetModal, animated: true, completion: nil)
     }
 
     func updateSearchResults(for searchController: UISearchController) {
@@ -112,7 +123,14 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         return 1
     }
 
-    func fetchData() {}
+    func fetchData() {
+        print(viewModel.fetchSheets().count)
+    }
+}
+
+
+extension UserSheetsViewController: UserSheetsViewModelOutput {
+
 }
 
 extension UserSheetsViewController: UICollectionViewDelegate {
