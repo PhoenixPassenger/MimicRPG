@@ -35,6 +35,10 @@ class DisplaySheetViewController: UIViewController {
                 let view = CharacterBio()
                 sheetView = view
                 view.setupTableView()
+            case 1:
+                let view = CharacterPoints()
+                sheetView = view
+                view.setupView(attributeName: "DES", attribute: 1, temporary: 0, armorBonus: 2, shieldBonus: 2, others: 0)
             case 3:
                 let view = CharacterSkills()
                 sheetView = view

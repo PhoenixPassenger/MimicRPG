@@ -34,3 +34,7 @@ Others = "Outros";
 AttribMod = "Mod.\nAtrib.";
 LevelBy2 = "Nivel/n\2";
 SearchHere = "Procure aqui...";
+Temporary = "Temporário";
+ArmorBonus = "Bônus armadura";
+ShieldBonus = "Bônus escudo";
+Defense = "Defesa";

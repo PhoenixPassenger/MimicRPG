@@ -39,6 +39,7 @@
 		2EF7724626FE41E500A88EC8 /* CharacterSkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */; };
 		2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */; };
 		2EF7724E2700EC5000A88EC8 /* SheetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724D2700EC5000A88EC8 /* SheetHeader.swift */; };
+		2EF772512703E18E00A88EC8 /* CharacterPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF772502703E18E00A88EC8 /* CharacterPoints.swift */; };
 		2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74A526EA368E00D9487F /* CustomColors.swift */; };
 		2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74B526EA51FA00D9487F /* CustomFonts.swift */; };
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
@@ -132,6 +133,7 @@
 		2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCell.swift; sourceTree = "<group>"; };
 		2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeader.swift; sourceTree = "<group>"; };
 		2EF7724D2700EC5000A88EC8 /* SheetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeader.swift; sourceTree = "<group>"; };
+		2EF772502703E18E00A88EC8 /* CharacterPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPoints.swift; sourceTree = "<group>"; };
 		2EFC74A526EA368E00D9487F /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2EFC74B526EA51FA00D9487F /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		5B0DC56D26EA2B68008C8578 /* MimicRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MimicRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,6 +299,14 @@
 			path = CharacterSkills;
 			sourceTree = "<group>";
 		};
+		2EF7724F2703E12800A88EC8 /* CharacterPoints */ = {
+			isa = PBXGroup;
+			children = (
+				2EF772502703E18E00A88EC8 /* CharacterPoints.swift */,
+			);
+			path = CharacterPoints;
+			sourceTree = "<group>";
+		};
 		5B0DC56426EA2B67008C8578 = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +460,7 @@
 		5B1659F926F9FF49004CD628 /* DisplaySheetViews */ = {
 			isa = PBXGroup;
 			children = (
+				2EF7724F2703E12800A88EC8 /* CharacterPoints */,
 				2EF7724226FE417D00A88EC8 /* CharacterSkills */,
 				5B7BBE1726FCF9A7008260D9 /* CharacterItems */,
 				5B1B05F626FCEFCA003537EA /* CharacterNotes */,
@@ -667,6 +678,7 @@
 				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
+				2EF772512703E18E00A88EC8 /* CharacterPoints.swift in Sources */,
 				2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */,
 				2EAE08F126FCC0C0000630A5 /* NewSheetModalViewModel.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
