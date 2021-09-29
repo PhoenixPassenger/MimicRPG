@@ -18,6 +18,7 @@ class DisplaySheetViewController: UIViewController {
     let barIndicator: UIView = UIView()
     let divisor: UIView = UIView()
     var sheetView: UIView = UIView()
+    var sheetHeader: SheetHeader?
 
 //    lazy var sheetHeader: SheetHeader = {
 //        let sheetHeader = SheetHeader()
@@ -79,11 +80,10 @@ class DisplaySheetViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        let sheetHeader = SheetHeader()
-        sheetHeader.frame = CGRect(x: 0, y: (navigationController?.navigationBar.subviews[0].bounds.height)! - 55, width: (navigationController?.navigationBar.subviews[0].bounds.width)!, height: 114)
-        sheetHeader.translatesAutoresizingMaskIntoConstraints = true
-        sheetHeader.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        navigationController?.navigationBar.subviews[0].insertSubview(sheetHeader, at: 0)
+        sheetHeader = SheetHeader()
+        sheetHeader!.frame = CGRect(x: 0, y: (navigationController?.navigationBar.subviews[0].bounds.height)! - 55, width: (navigationController?.navigationBar.subviews[0].bounds.width)!, height: 114)
+        sheetHeader!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        navigationController?.navigationBar.subviews[0].insertSubview(sheetHeader!, at: 0)
         self.view.backgroundColor = UIColor(named: "Background")
         updateButtons()
         setupButtons()
@@ -215,6 +215,14 @@ class DisplaySheetViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        for subview in navigationController!.navigationBar.subviews {
+//            subview.removeFromSuperview()
+//        }
+        sheetHeader?.removeFromSuperview()
+    }
+    
     @objc func tabFunction(sender: UIButton) {
         changeSelectedButton(tag: sender.tag)
     }
