@@ -20,14 +20,6 @@ class DisplaySheetViewController: UIViewController {
     var sheetView: UIView = UIView()
     var sheetHeader: SheetHeader?
 
-//    lazy var sheetHeader: SheetHeader = {
-//        let sheetHeader = SheetHeader()
-//        sheetHeader.translatesAutoresizingMaskIntoConstraints = false
-//        sheetHeader.layer.zPosition = 1
-//        view.addSubview(sheetHeader)
-//        return sheetHeader
-//    }()
-
     var selectedTag: Int = 0 {
         didSet {
             sheetView.removeFromSuperview()
@@ -64,8 +56,6 @@ class DisplaySheetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        edgesForExtendedLayout = []
 
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -73,7 +63,6 @@ class DisplaySheetViewController: UIViewController {
         appearance.titleTextAttributes = [.font:
         UIFont.boldSystemFont(ofSize: 20.0),
                                       .foregroundColor: UIColor.white]
-
         // Customizing our navigation bar
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.standardAppearance = appearance
@@ -97,17 +86,17 @@ class DisplaySheetViewController: UIViewController {
     func setupButtons() {
         let bioButton = tabButton(name: "Bio")
         bioButton.tag  = 0
-        let pointsButton = tabButton(name: "Pontos")
+        let pointsButton = tabButton(name: "Points".localized())
         pointsButton.tag  = 1
-        let attributesButton = tabButton(name: "Atributos")
+        let attributesButton = tabButton(name: "Attributes".localized())
         attributesButton.tag = 2
-        let skillsButton = tabButton(name: "Perícias")
+        let skillsButton = tabButton(name: "Skills".localized())
         skillsButton.tag = 3
-        let inventoryButton  = tabButton(name: "Inventário")
+        let inventoryButton  = tabButton(name: "Inventory".localized())
         inventoryButton.tag = 4
-        let attacksButton = tabButton(name: "Ataques")
+        let attacksButton = tabButton(name: "Attacks".localized())
         attacksButton.tag = 5
-        let notesButton = tabButton(name: "Notas")
+        let notesButton = tabButton(name: "Notes".localized())
         notesButton.tag = 6
         updateButtons()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -217,9 +206,6 @@ class DisplaySheetViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        for subview in navigationController!.navigationBar.subviews {
-//            subview.removeFromSuperview()
-//        }
         sheetHeader?.removeFromSuperview()
     }
     
@@ -233,7 +219,6 @@ class DisplaySheetViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }

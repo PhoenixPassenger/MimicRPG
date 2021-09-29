@@ -72,7 +72,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
         self.fetchData()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -139,7 +139,6 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         print(viewModel.fetchSheets().count)
     }
 }
-
 
 extension UserSheetsViewController: UserSheetsViewModelOutput {
 
