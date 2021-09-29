@@ -231,7 +231,7 @@ class CharacterPoints: UIView {
     lazy var totalBox: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "LightBrandy")
+        view.backgroundColor = .clear
         view.alpha = 0.2
         self.addSubview(view)
         return view

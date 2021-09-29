@@ -19,13 +19,13 @@ class DisplaySheetViewController: UIViewController {
     let divisor: UIView = UIView()
     var sheetView: UIView = UIView()
 
-    lazy var sheetHeader: SheetHeader = {
-        let sheetHeader = SheetHeader()
-        sheetHeader.translatesAutoresizingMaskIntoConstraints = false
-        sheetHeader.layer.zPosition = 1
-        view.addSubview(sheetHeader)
-        return sheetHeader
-    }()
+//    lazy var sheetHeader: SheetHeader = {
+//        let sheetHeader = SheetHeader()
+//        sheetHeader.translatesAutoresizingMaskIntoConstraints = false
+//        sheetHeader.layer.zPosition = 1
+//        view.addSubview(sheetHeader)
+//        return sheetHeader
+//    }()
 
     var selectedTag: Int = 0 {
         didSet {
@@ -63,9 +63,27 @@ class DisplaySheetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "banner"), for: .default)
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: "LightBrandy")
+        
+//        edgesForExtendedLayout = []
+
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundImage = UIImage(named: "banner")
+        appearance.titleTextAttributes = [.font:
+        UIFont.boldSystemFont(ofSize: 20.0),
+                                      .foregroundColor: UIColor.white]
+
+        // Customizing our navigation bar
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        let sheetHeader = SheetHeader()
+        sheetHeader.frame = CGRect(x: 0, y: (navigationController?.navigationBar.subviews[0].bounds.height)! - 55, width: (navigationController?.navigationBar.subviews[0].bounds.width)!, height: 114)
+        sheetHeader.translatesAutoresizingMaskIntoConstraints = true
+        sheetHeader.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        navigationController?.navigationBar.subviews[0].insertSubview(sheetHeader, at: 0)
         self.view.backgroundColor = UIColor(named: "Background")
         updateButtons()
         setupButtons()
@@ -129,11 +147,7 @@ class DisplaySheetViewController: UIViewController {
 
     func configureConstraints() {
         NSLayoutConstraint.activate([
-            sheetHeader.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            sheetHeader.leftAnchor.constraint(equalTo: view.leftAnchor),
-            sheetHeader.rightAnchor.constraint(equalTo: view.rightAnchor),
-            
-            scrollView.topAnchor.constraint(equalTo: sheetHeader.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 58),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: 38),
