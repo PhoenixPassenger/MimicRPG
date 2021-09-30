@@ -281,6 +281,9 @@ class CharacterPoints: UIView {
          stepper.addTarget(self, action: #selector(lifeChanged(sender:)), for: .valueChanged)
          stepper.layer.borderWidth = 1
          stepper.layer.zPosition = 2
+         stepper.setDecrementImage(stepper.decrementImage(for: .normal), for: .normal)
+         stepper.setIncrementImage(stepper.incrementImage(for: .normal), for: .normal)
+         stepper.tintColor = .black
          self.addSubview(stepper)
          return stepper
      }()
@@ -326,6 +329,9 @@ class CharacterPoints: UIView {
          stepper.addTarget(self, action: #selector(manaChanged(sender:)), for: .valueChanged)
          stepper.layer.borderWidth = 1
          stepper.layer.zPosition = 2
+         stepper.setDecrementImage(stepper.decrementImage(for: .normal), for: .normal)
+         stepper.setIncrementImage(stepper.incrementImage(for: .normal), for: .normal)
+         stepper.tintColor = .black
          self.addSubview(stepper)
          return stepper
      }()
