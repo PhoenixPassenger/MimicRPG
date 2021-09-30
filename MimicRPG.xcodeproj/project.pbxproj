@@ -570,7 +570,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					5B0DC56C26EA2B68008C8578 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -683,8 +683,6 @@
 				2EAE08F126FCC0C0000630A5 /* NewSheetModalViewModel.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
-				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
-				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
 				2E16CCD326F4068400500E44 /* DiceRollerViewModelOutput.swift in Sources */,
 				2E24F77C26FA085100DE6BE9 /* DisplaySheetViewModelType.swift in Sources */,
@@ -728,8 +726,6 @@
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				2EF7724626FE41E500A88EC8 /* CharacterSkillsCell.swift in Sources */,
 				5B7BBE1926FCF9BE008260D9 /* CharacterItemsCell.swift in Sources */,
-				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
-				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
