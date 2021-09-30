@@ -4,6 +4,7 @@
 //
 //  Created by Eduardo Oliveira on 30/09/21.
 //
+// swiftlint:disable force_cast
 
 import UIKit
 
@@ -39,6 +40,7 @@ class CreateSheetModal: UIViewController {
     }
 
     var selectedRow: Int = 0
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -148,7 +150,7 @@ class CreateSheetModal: UIViewController {
     }
 
     @objc func rightButtonBehavior() {
-        createNewInvestigator()
+        createNewSheet()
         dismiss(animated: true, completion: nil)
     }
 
@@ -188,8 +190,18 @@ class CreateSheetModal: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
-    func createNewInvestigator() {
-//        self.investigatorPresenter.newInvestigator(investigatorNameView.valueText.text, occupationView.valueText.text)
+    // MARK: - CoreData
+    func createNewSheet() {
+        let newSheet = Sheet(context: self.context)
+        guard let name = sheetNameView.valueText.text else {return}
+        newSheet.name = name
+        guard let system = Systems(id: selectedRow)?.description else {return}
+        newSheet.occupation = system
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
     }
 
     private func configureLayout() {
