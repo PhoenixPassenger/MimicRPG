@@ -4,19 +4,22 @@
 //
 //  Created by Eduardo Oliveira on 28/09/21.
 //
+// swiftlint:disable all
 
 import Foundation
 import UIKit
 
 class CharacterPoints: UIView {
-
-    var nameAttribute: String = "DES"
     var valueAttribute: Int = 0
     var valueTemporary: Int = 0
     var valueArmorBonus: Int = 0
     var valueShieldBonus: Int = 0
     var valueOthers: Int = 0
     var valueTotal: Int = 0
+    var actualLife: Int = 0
+    var maxLife: Int = 0
+    var actualMana: Int = 0
+    var maxMana: Int = 0
 
     init() {
         super.init(frame: .zero)
@@ -26,10 +29,8 @@ class CharacterPoints: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupView(attributeName: String, attribute: Int, temporary: Int, armorBonus: Int, shieldBonus: Int, others: Int) {
+    func setupView(attribute: Int, temporary: Int, armorBonus: Int, shieldBonus: Int, others: Int, lifeActual: Int, lifeMax: Int, manaActual: Int, manaMax: Int) {
         self.backgroundColor = UIColor(named: "Background")
-        self.nameAttribute = attributeName
-        self.attributeText.text = self.nameAttribute
         self.valueAttribute = attribute
         self.attributeValue.text = "\(self.valueAttribute)"
         self.valueTemporary = temporary
@@ -42,13 +43,25 @@ class CharacterPoints: UIView {
         self.othersValue.text = "\(self.valueOthers)"
         self.valueTotal = 10 + self.valueAttribute + self.valueTemporary + self.valueArmorBonus + self.valueShieldBonus + self.valueOthers
         self.totalValue.text = "\(self.valueTotal)"
+
         configureLayout()
+
+        self.actualLife = lifeActual
+        self.maxLife = lifeMax
+        self.lifeStepper.maximumValue = Double(self.maxLife)
+        self.lifeStepper.value = Double(self.actualLife)
+        self.lifeValue.text = "\(self.actualLife)/\(self.maxLife)"
+        self.actualMana = manaActual
+        self.maxMana = manaMax
+        self.manaStepper.maximumValue = Double(maxMana)
+        self.manaStepper.value = Double(self.actualMana)
+        self.manaValue.text = "\(self.actualMana)/\(self.maxMana)"
     }
 
     lazy var defenseBox: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "defense")
+        imageView.image = UIImage(named: "t20_defense")
         self.addSubview(imageView)
         return imageView
     }()
@@ -93,7 +106,7 @@ class CharacterPoints: UIView {
     lazy var attributeText: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "\(nameAttribute)"
+        label.text = "DEX".localized()
         label.font = UIFont.josefinSansClassArmorDesc()
         label.textColor = .black
         label.layer.zPosition = 2
@@ -257,6 +270,107 @@ class CharacterPoints: UIView {
         self.addSubview(label)
         return label
     }()
+    // MARK: - LifeBox
+    lazy var lifeBox: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "t20_point")
+        imageView.layer.zPosition = 1
+        return imageView
+    }()
+
+    lazy var lifeText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Life".localized()
+        label.font = UIFont.josefinSansBold14()
+        label.textColor = .ivory
+        self.addSubview(label)
+        return label
+    }()
+
+    lazy var lifeValue: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "\(actualLife)/\(maxLife)"
+        label.font = UIFont.josefinSansBold30()
+        label.textColor = .ivory
+        self.addSubview(label)
+        label.layer.zPosition = 2
+        return label
+    }()
+    
+    lazy var lifeStepper: UIStepper = {
+        let stepper = UIStepper()
+        stepper.translatesAutoresizingMaskIntoConstraints = false
+        stepper.backgroundColor = UIColor(named: "LightBrandy")
+        stepper.addTarget(self, action: #selector(lifeChanged(sender:)), for: .valueChanged)
+        stepper.layer.borderWidth = 1
+        stepper.layer.zPosition = 2
+        self.addSubview(stepper)
+        return stepper
+    }()
+    
+    @objc func lifeChanged(sender: UIStepper) {
+        actualLife = Int(sender.value)
+        lifeValue.text = ("\(Int(sender.value))/\(Int(sender.maximumValue))")
+    }
+    // MARK: - ManaBox
+    lazy var manaBox: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "t20_point")
+        imageView.layer.zPosition = 1
+        return imageView
+    }()
+
+    lazy var manaText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Mana"
+        label.font = UIFont.josefinSansBold14()
+        label.textColor = .ivory
+        self.addSubview(label)
+        return label
+    }()
+
+    lazy var manaValue: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "\(actualMana)/\(maxMana)"
+        label.font = UIFont.josefinSansBold30()
+        label.textColor = .ivory
+        self.addSubview(label)
+        label.layer.zPosition = 2
+        return label
+    }()
+
+    lazy var manaStepper: UIStepper = {
+        let stepper = UIStepper()
+        stepper.translatesAutoresizingMaskIntoConstraints = false
+        stepper.backgroundColor = UIColor(named: "LightBrandy")
+        stepper.addTarget(self, action: #selector(manaChanged(sender:)), for: .valueChanged)
+        stepper.layer.borderWidth = 1
+        stepper.layer.zPosition = 2
+        self.addSubview(stepper)
+        return stepper
+    }()
+
+    @objc func manaChanged(sender: UIStepper) {
+        actualMana = Int(sender.value)
+        manaValue.text = ("\(Int(sender.value))/\(Int(sender.maximumValue))")
+    }
+
+    lazy var stackPoints: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [lifeBox, manaBox])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 15
+        self.addSubview(stack)
+        return stack
+    }()
 
     private func configureLayout() {
         NSLayoutConstraint.activate([
@@ -333,7 +447,26 @@ class CharacterPoints: UIView {
             totalBox.heightAnchor.constraint(equalToConstant: 91),
 
             totalValue.centerXAnchor.constraint(equalTo: totalBox.centerXAnchor),
-            totalValue.centerYAnchor.constraint(equalTo: totalBox.centerYAnchor, constant: -5)
+            totalValue.centerYAnchor.constraint(equalTo: totalBox.centerYAnchor, constant: -5),
+
+            stackPoints.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            stackPoints.topAnchor.constraint(equalTo: defenseBox.bottomAnchor, constant: 15),
+            stackPoints.leadingAnchor.constraint(equalTo: defenseBox.leadingAnchor),
+            stackPoints.trailingAnchor.constraint(equalTo: defenseBox.trailingAnchor),
+
+            lifeText.centerXAnchor.constraint(equalTo: lifeBox.centerXAnchor),
+            lifeText.topAnchor.constraint(equalTo: lifeBox.topAnchor, constant: 5),
+            lifeValue.centerXAnchor.constraint(equalTo: lifeBox.centerXAnchor),
+            lifeValue.centerYAnchor.constraint(equalTo: lifeBox.centerYAnchor),
+            lifeStepper.centerXAnchor.constraint(equalTo: lifeBox.centerXAnchor),
+            lifeStepper.centerYAnchor.constraint(equalTo: lifeBox.bottomAnchor, constant: -10),
+
+            manaText.centerXAnchor.constraint(equalTo: manaBox.centerXAnchor),
+            manaText.topAnchor.constraint(equalTo: manaBox.topAnchor, constant: 5),
+            manaValue.centerXAnchor.constraint(equalTo: manaBox.centerXAnchor),
+            manaValue.centerYAnchor.constraint(equalTo: manaBox.centerYAnchor),
+            manaStepper.centerXAnchor.constraint(equalTo: manaBox.centerXAnchor),
+            manaStepper.centerYAnchor.constraint(equalTo: manaBox.bottomAnchor, constant: -10),
         ])
     }
 }
