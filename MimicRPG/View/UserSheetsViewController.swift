@@ -79,7 +79,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         addButton.tintColor = UIColor(named: "Azure")
         collectionView?.layer.backgroundColor = UIColor(named: "Background")?.cgColor
     }
-    
+
     @objc func toSheet() {
         coordinator?.goToSelectedSheet()
     }

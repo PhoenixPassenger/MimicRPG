@@ -19,12 +19,24 @@ class DisplaySheetViewController: UIViewController {
     let divisor: UIView = UIView()
     var sheetView: UIView = UIView()
 
+    lazy var sheetHeader: SheetHeader = {
+        let sheetHeader = SheetHeader()
+        sheetHeader.translatesAutoresizingMaskIntoConstraints = false
+        sheetHeader.layer.zPosition = 1
+        view.addSubview(sheetHeader)
+        return sheetHeader
+    }()
+
     var selectedTag: Int = 0 {
         didSet {
             sheetView.removeFromSuperview()
             switch selectedTag {
             case 0:
                 let view = CharacterBio()
+                sheetView = view
+                view.setupTableView()
+            case 3:
+                let view = CharacterSkills()
                 sheetView = view
                 view.setupTableView()
             case 4:
@@ -47,11 +59,11 @@ class DisplaySheetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "banner"), for: .default)
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "LightBrandy")
         self.view.backgroundColor = UIColor(named: "Background")
         updateButtons()
-
         setupButtons()
     }
 
@@ -113,7 +125,11 @@ class DisplaySheetViewController: UIViewController {
 
     func configureConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            sheetHeader.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            sheetHeader.leftAnchor.constraint(equalTo: view.leftAnchor),
+            sheetHeader.rightAnchor.constraint(equalTo: view.rightAnchor),
+            
+            scrollView.topAnchor.constraint(equalTo: sheetHeader.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: 38),
