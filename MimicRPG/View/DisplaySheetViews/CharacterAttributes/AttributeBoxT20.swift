@@ -11,9 +11,10 @@ class AttributeBoxT20: UIView {
 
     lazy var attributeBackgroundT20: UIImageView = {
         let imgView = UIImageView()
+        imgView.image = UIImage(named: "T20AttributeBox")
         imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.clipsToBounds = true
-        imgView.contentMode = .scaleAspectFit
+       //imgView.clipsToBounds = true
+        //imgView.contentMode = .scaleAspectFit
         self.addSubview(imgView)
         return imgView
         
@@ -46,7 +47,6 @@ class AttributeBoxT20: UIView {
     init(attribute: String, value: Int) {
         super.init(frame: .zero)
         configureLayout()
-        attributeBackgroundT20.image = UIImage(named: "T20AttributeBox")
         attributeLabelT20.text = attribute
         attributeValueT20.text = String(value)
         attributeModifierT20.text = String((value-10)/2)
@@ -59,7 +59,11 @@ class AttributeBoxT20: UIView {
         
     }
     private func configureLayout() {
+        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor.green.cgColor
         NSLayoutConstraint.activate([
+            self.heightAnchor.constraint(equalTo: attributeBackgroundT20.heightAnchor),
+            self.widthAnchor.constraint(equalTo: attributeBackgroundT20.widthAnchor),
             attributeBackgroundT20.topAnchor.constraint(equalTo: self.topAnchor),
            
             attributeLabelT20.topAnchor.constraint(equalTo: attributeBackgroundT20.topAnchor, constant: 7),
