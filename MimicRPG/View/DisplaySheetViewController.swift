@@ -31,7 +31,7 @@ class DisplaySheetViewController: UIViewController {
             case 1:
                 let view = CharacterPoints()
                 sheetView = view
-                view.setupView(attribute: 1, temporary: 0, armorBonus: 2, shieldBonus: 2, others: 0, lifeActual: 30, lifeMax: 50, manaActual: 25, manaMax: 30)
+                view.setupView(attributeName: "DES", attribute: 1, temporary: 0, armorBonus: 2, shieldBonus: 2, others: 0)
             case 3:
                 let view = CharacterSkills()
                 sheetView = view
