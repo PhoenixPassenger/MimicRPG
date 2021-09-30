@@ -43,6 +43,10 @@ class DisplaySheetViewController: UIViewController {
                 let view = CharacterItems()
                 sheetView = view
                 view.setupTableView()
+            case 5:
+                let view = CharacterAttacks()
+                sheetView = view
+                view.setupTableView()
             case 6:
                 let view = CharacterNotes()
                 sheetView = view
@@ -128,7 +132,7 @@ class DisplaySheetViewController: UIViewController {
             sheetHeader.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             sheetHeader.leftAnchor.constraint(equalTo: view.leftAnchor),
             sheetHeader.rightAnchor.constraint(equalTo: view.rightAnchor),
-            
+
             scrollView.topAnchor.constraint(equalTo: sheetHeader.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

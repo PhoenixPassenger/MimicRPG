@@ -13,5 +13,4 @@ final class DisplaySheetViewModel {
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
  
-    
 }

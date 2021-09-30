@@ -157,7 +157,7 @@ class CharacterSkillsCell: UITableViewCell {
         self.addSubview(view)
         return view
     }()
-    
+
     lazy var levelBy2Box: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -313,4 +313,3 @@ extension CharacterSkillsCell {
         ])
     }
 }
-

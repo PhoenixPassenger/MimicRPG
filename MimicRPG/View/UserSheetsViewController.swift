@@ -128,7 +128,6 @@ extension UserSheetsViewController: UICollectionViewDataSource {
     }
 }
 
-
 extension UserSheetsViewController: UserSheetsViewModelOutput {
 
 }

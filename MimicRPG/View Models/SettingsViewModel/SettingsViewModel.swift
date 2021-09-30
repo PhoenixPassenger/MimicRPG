@@ -65,7 +65,7 @@ enum Settings: CaseIterable {
         case .notifications: return .enabled
         }
     }
-    
+
     init?(id : Int) {
         switch id {
         case 0:

@@ -35,7 +35,7 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
         MockSkill(name: "Atuação", active: false, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
         MockSkill(name: "Cavalgar", active: true, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
         MockSkill(name: "Conhecimento", active: false, other: 0, modAttribute: 1, attribute: "INT", levelBy2: 2),
-        MockSkill(name: "Cura", active: false, other: 0, modAttribute: 1, attribute: "SAB", levelBy2: 2),
+        MockSkill(name: "Cura", active: false, other: 0, modAttribute: 1, attribute: "SAB", levelBy2: 2)
     ]
 
     var filteredSkills: [MockSkill] = []
