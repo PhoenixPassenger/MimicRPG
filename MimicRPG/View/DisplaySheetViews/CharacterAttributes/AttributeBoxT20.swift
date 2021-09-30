@@ -17,7 +17,6 @@ class AttributeBoxT20: UIView {
         //imgView.contentMode = .scaleAspectFit
         self.addSubview(imgView)
         return imgView
-        
     }()
     lazy var attributeLabelT20: UILabel = {
         let label = UILabel()
@@ -49,43 +48,31 @@ class AttributeBoxT20: UIView {
         configureLayout()
         attributeLabelT20.text = attribute
         attributeValueT20.text = String(value)
-        attributeModifierT20.text = String((value-10)/2)
-        //Adicionar - e + pra o modificador depois
-        
-        //Inspecao
-        print(attributeLabelT20.text)
-        print(attributeValueT20.text)
-        print(attributeModifierT20.text)
-        
+        //Adicionar o sinal do modificador
+        if (value>9) {
+            attributeModifierT20.text = "+" + String((value-10)/2)
+
+        } else {
+            attributeModifierT20.text = String((value-10)/2)
+        }
     }
     private func configureLayout() {
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.green.cgColor
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalTo: attributeBackgroundT20.heightAnchor),
             self.widthAnchor.constraint(equalTo: attributeBackgroundT20.widthAnchor),
             attributeBackgroundT20.topAnchor.constraint(equalTo: self.topAnchor),
-           
+
             attributeLabelT20.topAnchor.constraint(equalTo: attributeBackgroundT20.topAnchor, constant: 7),
             attributeLabelT20.centerXAnchor.constraint(equalTo: attributeBackgroundT20.centerXAnchor),
-            
+
             attributeValueT20.centerYAnchor.constraint(equalTo: attributeBackgroundT20.centerYAnchor,constant: -12),
             attributeValueT20.centerXAnchor.constraint(equalTo: attributeBackgroundT20.centerXAnchor),
-            
+
             attributeModifierT20.bottomAnchor.constraint(equalTo: attributeBackgroundT20.bottomAnchor, constant: -23),
-            attributeModifierT20.centerXAnchor.constraint(equalTo: attributeBackgroundT20.centerXAnchor),
-        
+            attributeModifierT20.centerXAnchor.constraint(equalTo: attributeBackgroundT20.centerXAnchor)
         ])
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }
