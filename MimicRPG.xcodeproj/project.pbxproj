@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A89D91270598A900ED72B2 /* CharacterAttributesT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A89D90270598A900ED72B2 /* CharacterAttributesT20.swift */; };
+		00A89D9327059B9100ED72B2 /* AttributeBoxT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A89D9227059B9100ED72B2 /* AttributeBoxT20.swift */; };
 		2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCB026F36A4B00500E44 /* UserSheet.swift */; };
 		2E16CCC126F36A9800500E44 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */; };
 		2E16CCC226F36A9800500E44 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */; };
@@ -96,6 +98,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00A89D90270598A900ED72B2 /* CharacterAttributesT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttributesT20.swift; sourceTree = "<group>"; };
+		00A89D9227059B9100ED72B2 /* AttributeBoxT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeBoxT20.swift; sourceTree = "<group>"; };
 		2E16CCB026F36A4B00500E44 /* UserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheet.swift; sourceTree = "<group>"; };
 		2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
@@ -201,6 +205,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00A89D872704A07200ED72B2 /* CharacterAttributes */ = {
+			isa = PBXGroup;
+			children = (
+				00A89D90270598A900ED72B2 /* CharacterAttributesT20.swift */,
+				00A89D9227059B9100ED72B2 /* AttributeBoxT20.swift */,
+			);
+			path = CharacterAttributes;
+			sourceTree = "<group>";
+		};
 		2E16CCAF26F36A3000500E44 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +444,7 @@
 		5B1659F926F9FF49004CD628 /* DisplaySheetViews */ = {
 			isa = PBXGroup;
 			children = (
+				00A89D872704A07200ED72B2 /* CharacterAttributes */,
 				5B7BBE1726FCF9A7008260D9 /* CharacterItems */,
 				5B1B05F626FCEFCA003537EA /* CharacterNotes */,
 				5B1659FA26F9FF53004CD628 /* CharacterBio */,
@@ -652,6 +666,7 @@
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
+				00A89D9327059B9100ED72B2 /* AttributeBoxT20.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
 				2E16CCD326F4068400500E44 /* DiceRollerViewModelOutput.swift in Sources */,
@@ -692,6 +707,7 @@
 				2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				5B7BBE1926FCF9BE008260D9 /* CharacterItemsCell.swift in Sources */,
+				00A89D91270598A900ED72B2 /* CharacterAttributesT20.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */,

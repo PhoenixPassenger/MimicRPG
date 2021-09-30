@@ -27,6 +27,10 @@ class DisplaySheetViewController: UIViewController {
                 let view = CharacterBio()
                 sheetView = view
                 view.setupTableView()
+            case 2:
+                let view = CharacterAttributesT20()
+                sheetView = view
+                
             case 4:
                 let view = CharacterItems()
                 sheetView = view
