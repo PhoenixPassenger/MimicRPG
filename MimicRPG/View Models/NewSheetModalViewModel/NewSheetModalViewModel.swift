@@ -44,10 +44,10 @@ final class NewSheetModalViewModel {
 
 extension NewSheetModalViewModel: NewSheetModalViewModelType {
 
-    func createNewSheet(name: String, occupation: String) {
+    func createNewSheet(name: String, system: String) {
         let newSheet = Sheet(context: self.context)
         newSheet.name = name
-        newSheet.occupation = occupation
+        newSheet.system = system
         do {
             try context.save()
         } catch {

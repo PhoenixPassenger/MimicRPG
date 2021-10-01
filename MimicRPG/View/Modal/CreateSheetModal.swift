@@ -196,7 +196,7 @@ class CreateSheetModal: UIViewController {
         guard let name = sheetNameView.valueText.text else {return}
         newSheet.name = name
         guard let system = Systems(id: selectedRow)?.description else {return}
-        newSheet.occupation = system
+        newSheet.system = system
         do {
             try context.save()
         } catch {

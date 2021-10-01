@@ -55,7 +55,7 @@ class NewSheetModal: UIViewController {
     }
 
     @objc func rightButtonBehavior() {
-        viewModel.createNewSheet(name: viewModel.charNameTextField?.text ?? "teste", occupation: "teste")
+        viewModel.createNewSheet(name: viewModel.charNameTextField?.text ?? "teste", system: "teste")
         dismiss(animated: true, completion: editionAction)
     }
 
