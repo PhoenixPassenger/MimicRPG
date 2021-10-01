@@ -37,6 +37,17 @@ class DiceRollerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.settingValues()
+
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "SecondaryBackground")
+        appearance.titleTextAttributes = [.font:
+        UIFont.boldSystemFont(ofSize: 20.0),
+                                      .foregroundColor: UIColor.white]
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 
     override func viewDidAppear(_ animated: Bool) {

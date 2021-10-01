@@ -97,10 +97,12 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
     }
 
     @objc func triggerNewSheetModal() {
-        let newSheetModal = NewSheetModal(action: {self.fetchData()})
-        newSheetModal.viewModel = NewSheetModalViewModel()
-        newSheetModal.viewModel.output = newSheetModal
-        present(newSheetModal, animated: true, completion: nil)
+//        let newSheetModal = NewSheetModal(action: {self.fetchData()})
+//        newSheetModal.viewModel = NewSheetModalViewModel()
+//        newSheetModal.viewModel.output = newSheetModal
+//        present(newSheetModal, animated: true, completion: nil)
+        let createSheetModal = CreateSheetModal()
+        present(createSheetModal, animated: true, completion: nil)
     }
 
     func updateSearchResults(for searchController: UISearchController) {
