@@ -20,7 +20,7 @@ class EditModalComponent: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.josefinSansBold14()
+        label.font = UIFont.josefinSansButton()
         return label
     }()
 

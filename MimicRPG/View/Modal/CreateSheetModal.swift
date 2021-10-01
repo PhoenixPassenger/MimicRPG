@@ -96,7 +96,7 @@ class CreateSheetModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "System".localized()
-        label.font = UIFont.josefinSansBold14()
+        label.font = UIFont.josefinSansButton()
         return label
     }()
 
