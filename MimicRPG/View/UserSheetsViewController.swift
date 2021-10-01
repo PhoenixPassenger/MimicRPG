@@ -101,7 +101,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 //        newSheetModal.viewModel = NewSheetModalViewModel()
 //        newSheetModal.viewModel.output = newSheetModal
 //        present(newSheetModal, animated: true, completion: nil)
-        let createSheetModal = CreateSheetModal()
+        let createSheetModal = CreateItemModal()
         present(createSheetModal, animated: true, completion: nil)
     }
 

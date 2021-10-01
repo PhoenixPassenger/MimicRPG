@@ -46,3 +46,6 @@ Attacks = "Ataques";
 Notes = "Notas";
 Life = "Vida";
 DEX = "DES";
+NewItem = "Novo Item";
+Next = "Próximo";
+Back = "Voltar";

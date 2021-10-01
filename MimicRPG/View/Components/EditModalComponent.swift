@@ -85,7 +85,7 @@ class EditModalComponent: UIView {
     @objc func stepperChanged(sender: UIStepper) {
         titleStepper.text = ("\(Int(sender.value))")
     }
-    
+
     @objc func tapDone(sender: Any) {
         self.endEditing(true)
     }
@@ -129,9 +129,11 @@ class EditModalComponent: UIView {
 
 extension EditModalComponent: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
+        if isMultiline == false {
+            if(text == "\n") {
+                textView.resignFirstResponder()
+                return false
+            }
         }
         return true
     }

@@ -46,3 +46,6 @@ Attacks = "Attacks";
 Notes = "Notes";
 Life = "Life";
 DEX = "DEX";
+NewItem = "New Item";
+Next = "Next";
+Back = "Back";
