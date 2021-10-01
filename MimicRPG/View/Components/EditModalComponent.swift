@@ -85,7 +85,7 @@ class EditModalComponent: UIView {
     @objc func stepperChanged(sender: UIStepper) {
         titleStepper.text = ("\(Int(sender.value))")
     }
-    
+
     @objc func tapDone(sender: Any) {
         self.endEditing(true)
     }

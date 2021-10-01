@@ -9,6 +9,8 @@ import UIKit
 
 class CharacterAttacksCell: UITableViewCell {
 
+    var attackName: String = ""
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
@@ -34,7 +36,7 @@ class CharacterAttacksCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.josefinSansBold17()
-        label.text = "Tacape"
+        label.text = attackName
         self.addSubview(label)
         return label
     }()
@@ -177,7 +179,8 @@ class CharacterAttacksCell: UITableViewCell {
         self.layer.cornerRadius = 5
     }
 
-    func set() {
+    func set(name: String) {
+        attackName = name
         configureLayout()
         self.selectionStyle = .none
         self.layer.backgroundColor = UIColor(named: "Background")?.cgColor

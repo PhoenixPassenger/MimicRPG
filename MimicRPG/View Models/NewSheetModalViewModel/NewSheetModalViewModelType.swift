@@ -13,7 +13,7 @@ protocol NewSheetModalViewModelType {
     var charNameTextField: UITextField? { get set }
 
     func createNewSheet(name: String, system: String)
-    
+
     func initVariables()
     func changeSystem(pickeredRow: Int)
     func getSystemsDescriptionById(row: Int) -> String

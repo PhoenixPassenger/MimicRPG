@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-
-
 enum NewSheetModalSettings: CaseIterable {
     case name
     case systems

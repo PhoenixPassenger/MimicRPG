@@ -208,11 +208,11 @@ class DisplaySheetViewController: UIViewController {
             }
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         sheetHeader?.removeFromSuperview()
     }
-    
+
     @objc func tabFunction(sender: UIButton) {
         changeSelectedButton(tag: sender.tag)
     }
