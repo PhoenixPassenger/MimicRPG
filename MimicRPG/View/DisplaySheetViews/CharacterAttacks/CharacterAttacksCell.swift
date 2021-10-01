@@ -228,14 +228,14 @@ class CharacterAttacksCell: UITableViewCell {
             damageBonusLabel.heightAnchor.constraint(equalTo: damageBonusBackground.heightAnchor),
 
             editButton.trailingAnchor.constraint(equalTo: damageBonusBackground.trailingAnchor),
-            editButton.leadingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -25),
+            editButton.leadingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -30),
             editButton.topAnchor.constraint(equalTo: attackNameLabel.topAnchor),
-            editButton.bottomAnchor.constraint(equalTo: editButton.topAnchor, constant: 25),
+            editButton.bottomAnchor.constraint(equalTo: editButton.topAnchor, constant: 30),
 
             deleteButton.trailingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -30),
-            deleteButton.leadingAnchor.constraint(equalTo: deleteButton.trailingAnchor, constant: -25),
+            deleteButton.leadingAnchor.constraint(equalTo: deleteButton.trailingAnchor, constant: -30),
             deleteButton.topAnchor.constraint(equalTo: attackNameLabel.topAnchor),
-            deleteButton.bottomAnchor.constraint(equalTo: deleteButton.topAnchor, constant: 25),
+            deleteButton.bottomAnchor.constraint(equalTo: deleteButton.topAnchor, constant: 30),
 
             damageTypeBackground.leadingAnchor.constraint(equalTo: damageValueBackground.leadingAnchor),
             damageTypeBackground.trailingAnchor.constraint(equalTo: damageTypeBackground.leadingAnchor, constant: 130),

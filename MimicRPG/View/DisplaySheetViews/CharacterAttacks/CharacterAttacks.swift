@@ -11,20 +11,6 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
 
     var attacksCount = 3
 
-    lazy var addButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-        return button
-    }()
-
-    lazy var headerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(addButton)
-        return view
-    }()
-
     func setupTableView() {
         self.register(CharacterAttacksCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
@@ -60,6 +46,16 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterAttacksCell
         guard let cell = cellWrap else { fatalError() }
         cell.set()
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(self.removeCell), for: .touchUpInside)
+        cell.contentView.isUserInteractionEnabled = false
         return cell
+    }
+
+    @objc func removeCell() {
+        attacksCount -= 1
+        let path = IndexPath(row: 0, section: 0)
+        self.deleteRows(at: [path], with: .fade)
+        self.reloadData()
     }
 }
