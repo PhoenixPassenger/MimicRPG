@@ -15,7 +15,7 @@ class CharacterSkillsCell: UITableViewCell {
     var modAttribute: Int = 0
     var attribute: String = "CON"
     var levelBy2: Int = 0
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor(named: "Brandy")

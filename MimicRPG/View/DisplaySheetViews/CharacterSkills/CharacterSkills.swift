@@ -65,7 +65,7 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
         filteredSkills = mockSkills
-        
+
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.addGestureRecognizer(tap)
     }

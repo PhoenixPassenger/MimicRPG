@@ -28,12 +28,10 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
         self.dataSource = self
         self.delegate = self
         self.tableFooterView = UIView()
-        self.rowHeight = 110
-        self.backgroundColor = .purple
+        self.rowHeight = 120
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
         return headerView
     }
 

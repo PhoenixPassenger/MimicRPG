@@ -76,10 +76,10 @@ class SheetHeader: UIView {
             perfilImage.heightAnchor.constraint(equalToConstant: 100),
             perfilImage.widthAnchor.constraint(equalToConstant: 100),
             perfilImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
-  
+
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
             nameLabel.leadingAnchor.constraint(equalTo: self.perfilImage.trailingAnchor, constant: 12),
-    
+
             descLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
             descLabel.leadingAnchor.constraint(equalTo: self.perfilImage.trailingAnchor, constant: 12)
         ])

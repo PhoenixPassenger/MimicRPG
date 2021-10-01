@@ -11,15 +11,24 @@ class CharacterAttacksCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = UIColor(named: "Background")
         self.selectionStyle = .none
-        self.tintColor = UIColor(named: "Azure")
         // setupUI()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    lazy var cellBackground: UIImageView = {
+        let view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let color = UIImage.imageWithColor(color: .auburnT20)
+        view.image = color
+        view.layer.cornerRadius = 5
+        view.layer.masksToBounds = true
+        self.addSubview(view)
+        return view
+    }()
 
     lazy var attackNameLabel: UILabel = {
         let label = UILabel()
@@ -167,14 +176,13 @@ class CharacterAttacksCell: UITableViewCell {
     override func draw(_ rect: CGRect) {
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 5
-        self.layer.backgroundColor = UIColor.auburnT20.cgColor
-        self.layer.borderColor = UIColor.auburnT20.cgColor
     }
 
     func set() {
         configureLayout()
-        self.backgroundColor = .auburnT20
         self.selectionStyle = .none
+        self.layer.backgroundColor = UIColor(named: "Background")?.cgColor
+        self.layer.borderColor = UIColor(named: "Background")?.cgColor
     }
 
     override func awakeFromNib() {
@@ -183,7 +191,6 @@ class CharacterAttacksCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50))
         self.contentView.layer.cornerRadius = 13
     }
 
@@ -195,13 +202,18 @@ class CharacterAttacksCell: UITableViewCell {
 
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            attackNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            cellBackground.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
+            cellBackground.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
+            cellBackground.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            cellBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            
+            attackNameLabel.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 10),
             attackNameLabel.trailingAnchor.constraint(equalTo: attackNameLabel.leadingAnchor, constant: 250),
-            attackNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            attackNameLabel.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 10),
             attackNameLabel.heightAnchor.constraint(equalToConstant: 28),
 
-            damageValueBackground.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            damageValueBackground.trailingAnchor.constraint(equalTo: damageValueBackground.leadingAnchor, constant: 185),
+            damageValueBackground.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 10),
+            damageValueBackground.trailingAnchor.constraint(equalTo: damageValueBackground.leadingAnchor, constant: 195),
             damageValueBackground.topAnchor.constraint(equalTo: attackNameLabel.bottomAnchor, constant: 5),
             damageValueBackground.heightAnchor.constraint(equalToConstant: 28),
 
