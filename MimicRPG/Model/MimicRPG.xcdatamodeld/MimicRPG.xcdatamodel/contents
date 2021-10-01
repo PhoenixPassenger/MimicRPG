@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Attack" representedClassName="Attack" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="characteristics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="attack" inverseEntity="Characteristics"/>
@@ -42,7 +42,7 @@
     </entity>
     <entity name="Sheet" representedClassName="Sheet" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="occupation" optional="YES" attributeType="String"/>
+        <attribute name="system" optional="YES" attributeType="String"/>
         <relationship name="attack" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attack" inverseName="sheet" inverseEntity="Attack"/>
         <relationship name="attribute" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Attributes" inverseName="sheet" inverseEntity="Attributes"/>
         <relationship name="item" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="sheet" inverseEntity="Item"/>

@@ -18,6 +18,7 @@ class DisplaySheetViewController: UIViewController {
     let barIndicator: UIView = UIView()
     let divisor: UIView = UIView()
     var sheetView: UIView = UIView()
+    var sheetHeader: SheetHeader?
 
     var selectedTag: Int = 0 {
         didSet {
@@ -31,6 +32,14 @@ class DisplaySheetViewController: UIViewController {
                 let view = CharacterAttributesT20()
                 sheetView = view
                 
+            case 1:
+                let view = CharacterPoints()
+                sheetView = view
+                view.setupView(attribute: 1, temporary: 0, armorBonus: 2, shieldBonus: 2, others: 0, lifeActual: 30, lifeMax: 50, manaActual: 25, manaMax: 30)
+            case 3:
+                let view = CharacterSkills()
+                sheetView = view
+                view.setupTableView()
             case 4:
                 let view = CharacterItems()
                 sheetView = view
@@ -52,10 +61,24 @@ class DisplaySheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundImage = UIImage(named: "banner")
+        appearance.titleTextAttributes = [.font:
+        UIFont.boldSystemFont(ofSize: 20.0),
+                                      .foregroundColor: UIColor.white]
+        // Customizing our navigation bar
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        sheetHeader = SheetHeader()
+        sheetHeader!.frame = CGRect(x: 0, y: (navigationController?.navigationBar.subviews[0].bounds.height)! - 55, width: (navigationController?.navigationBar.subviews[0].bounds.width)!, height: 114)
+        sheetHeader!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        navigationController?.navigationBar.subviews[0].insertSubview(sheetHeader!, at: 0)
         self.view.backgroundColor = UIColor(named: "Background")
         updateButtons()
-
         setupButtons()
     }
 
@@ -67,17 +90,17 @@ class DisplaySheetViewController: UIViewController {
     func setupButtons() {
         let bioButton = tabButton(name: "Bio")
         bioButton.tag  = 0
-        let pointsButton = tabButton(name: "Pontos")
+        let pointsButton = tabButton(name: "Points".localized())
         pointsButton.tag  = 1
-        let attributesButton = tabButton(name: "Atributos")
+        let attributesButton = tabButton(name: "Attributes".localized())
         attributesButton.tag = 2
-        let skillsButton = tabButton(name: "Perícias")
+        let skillsButton = tabButton(name: "Skills".localized())
         skillsButton.tag = 3
-        let inventoryButton  = tabButton(name: "Inventário")
+        let inventoryButton  = tabButton(name: "Inventory".localized())
         inventoryButton.tag = 4
-        let attacksButton = tabButton(name: "Ataques")
+        let attacksButton = tabButton(name: "Attacks".localized())
         attacksButton.tag = 5
-        let notesButton = tabButton(name: "Notas")
+        let notesButton = tabButton(name: "Notes".localized())
         notesButton.tag = 6
         updateButtons()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -117,7 +140,7 @@ class DisplaySheetViewController: UIViewController {
 
     func configureConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 58),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: 38),
@@ -185,6 +208,11 @@ class DisplaySheetViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        sheetHeader?.removeFromSuperview()
+    }
+    
     @objc func tabFunction(sender: UIButton) {
         changeSelectedButton(tag: sender.tag)
     }
@@ -195,7 +223,6 @@ class DisplaySheetViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }

@@ -73,22 +73,36 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         self.fetchData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "SecondaryBackground")
+        appearance.titleTextAttributes = [.font:
+        UIFont.boldSystemFont(ofSize: 20.0),
+                                      .foregroundColor: UIColor.white]
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         self.view.backgroundColor = UIColor(named: "Background")
-        self.navigationController?.navigationBar.layer.backgroundColor = UIColor(named: "SecondaryBackground")?.cgColor
         addButton.tintColor = UIColor(named: "Azure")
         collectionView?.layer.backgroundColor = UIColor(named: "Background")?.cgColor
     }
-    
+
     @objc func toSheet() {
         coordinator?.goToSelectedSheet()
     }
 
     @objc func triggerNewSheetModal() {
-        let newSheetModal = NewSheetModal(action: {self.fetchData()})
-        newSheetModal.viewModel = NewSheetModalViewModel()
-        newSheetModal.viewModel.output = newSheetModal
-        present(newSheetModal, animated: true, completion: nil)
+//        let newSheetModal = NewSheetModal(action: {self.fetchData()})
+//        newSheetModal.viewModel = NewSheetModalViewModel()
+//        newSheetModal.viewModel.output = newSheetModal
+//        present(newSheetModal, animated: true, completion: nil)
+        let createSheetModal = CreateSheetModal()
+        present(createSheetModal, animated: true, completion: nil)
     }
 
     func updateSearchResults(for searchController: UISearchController) {
@@ -127,7 +141,6 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         print(viewModel.fetchSheets().count)
     }
 }
-
 
 extension UserSheetsViewController: UserSheetsViewModelOutput {
 

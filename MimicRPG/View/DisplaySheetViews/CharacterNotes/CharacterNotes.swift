@@ -13,9 +13,10 @@ class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.dataSource = self
         self.delegate = self
 //        self.tableView.separatorStyle = .none
+        self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterNotesCell
         guard let cell = cellWrap else { fatalError() }

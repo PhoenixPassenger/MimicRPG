@@ -30,6 +30,9 @@
 		2E24F77826FA07F400DE6BE9 /* DisplaySheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E24F77726FA07F400DE6BE9 /* DisplaySheetViewModel.swift */; };
 		2E24F77A26FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E24F77926FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift */; };
 		2E24F77C26FA085100DE6BE9 /* DisplaySheetViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E24F77B26FA085100DE6BE9 /* DisplaySheetViewModelType.swift */; };
+		2E2C7B512705E5310084CBDE /* CreateSheetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B502705E5310084CBDE /* CreateSheetModal.swift */; };
+		2E2C7B532705E5B80084CBDE /* EditModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B522705E5B80084CBDE /* EditModalComponent.swift */; };
+		2E2C7B552705E7960084CBDE /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B542705E7960084CBDE /* HideKeyboard.swift */; };
 		2EA6F15C26FD3CF000027E41 /* UserSheetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */; };
 		2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */; };
 		2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */; };
@@ -37,6 +40,11 @@
 		2EAE08F126FCC0C0000630A5 /* NewSheetModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE08F026FCC0C0000630A5 /* NewSheetModalViewModel.swift */; };
 		2EAE08F326FCC0D1000630A5 /* NewSheetModalViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE08F226FCC0D1000630A5 /* NewSheetModalViewModelOutput.swift */; };
 		2EAE08F526FCC0DD000630A5 /* NewSheetModalViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE08F426FCC0DD000630A5 /* NewSheetModalViewModelType.swift */; };
+		2EF7724426FE41A700A88EC8 /* CharacterSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724326FE41A700A88EC8 /* CharacterSkills.swift */; };
+		2EF7724626FE41E500A88EC8 /* CharacterSkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */; };
+		2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */; };
+		2EF7724E2700EC5000A88EC8 /* SheetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724D2700EC5000A88EC8 /* SheetHeader.swift */; };
+		2EF772512703E18E00A88EC8 /* CharacterPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF772502703E18E00A88EC8 /* CharacterPoints.swift */; };
 		2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74A526EA368E00D9487F /* CustomColors.swift */; };
 		2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74B526EA51FA00D9487F /* CustomFonts.swift */; };
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
@@ -121,6 +129,9 @@
 		2E24F77726FA07F400DE6BE9 /* DisplaySheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModel.swift; sourceTree = "<group>"; };
 		2E24F77926FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModelOutput.swift; sourceTree = "<group>"; };
 		2E24F77B26FA085100DE6BE9 /* DisplaySheetViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModelType.swift; sourceTree = "<group>"; };
+		2E2C7B502705E5310084CBDE /* CreateSheetModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSheetModal.swift; sourceTree = "<group>"; };
+		2E2C7B522705E5B80084CBDE /* EditModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalComponent.swift; sourceTree = "<group>"; };
+		2E2C7B542705E7960084CBDE /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModel.swift; sourceTree = "<group>"; };
 		2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelOutput.swift; sourceTree = "<group>"; };
 		2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelType.swift; sourceTree = "<group>"; };
@@ -128,6 +139,11 @@
 		2EAE08F026FCC0C0000630A5 /* NewSheetModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSheetModalViewModel.swift; sourceTree = "<group>"; };
 		2EAE08F226FCC0D1000630A5 /* NewSheetModalViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSheetModalViewModelOutput.swift; sourceTree = "<group>"; };
 		2EAE08F426FCC0DD000630A5 /* NewSheetModalViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSheetModalViewModelType.swift; sourceTree = "<group>"; };
+		2EF7724326FE41A700A88EC8 /* CharacterSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkills.swift; sourceTree = "<group>"; };
+		2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCell.swift; sourceTree = "<group>"; };
+		2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeader.swift; sourceTree = "<group>"; };
+		2EF7724D2700EC5000A88EC8 /* SheetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeader.swift; sourceTree = "<group>"; };
+		2EF772502703E18E00A88EC8 /* CharacterPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPoints.swift; sourceTree = "<group>"; };
 		2EFC74A526EA368E00D9487F /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2EFC74B526EA51FA00D9487F /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		5B0DC56D26EA2B68008C8578 /* MimicRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MimicRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				2E16CCB026F36A4B00500E44 /* UserSheet.swift */,
+				2EF7724D2700EC5000A88EC8 /* SheetHeader.swift */,
+				2E2C7B522705E5B80084CBDE /* EditModalComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -277,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				2EAE08ED26FCA6B7000630A5 /* NewSheetModal.swift */,
+				2E2C7B502705E5310084CBDE /* CreateSheetModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -289,6 +308,24 @@
 				2EAE08F426FCC0DD000630A5 /* NewSheetModalViewModelType.swift */,
 			);
 			path = NewSheetModalViewModel;
+			sourceTree = "<group>";
+		};
+		2EF7724226FE417D00A88EC8 /* CharacterSkills */ = {
+			isa = PBXGroup;
+			children = (
+				2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */,
+				2EF7724326FE41A700A88EC8 /* CharacterSkills.swift */,
+				2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */,
+			);
+			path = CharacterSkills;
+			sourceTree = "<group>";
+		};
+		2EF7724F2703E12800A88EC8 /* CharacterPoints */ = {
+			isa = PBXGroup;
+			children = (
+				2EF772502703E18E00A88EC8 /* CharacterPoints.swift */,
+			);
+			path = CharacterPoints;
 			sourceTree = "<group>";
 		};
 		5B0DC56426EA2B67008C8578 = {
@@ -388,6 +425,7 @@
 				2EFC74A526EA368E00D9487F /* CustomColors.swift */,
 				2EFC74B526EA51FA00D9487F /* CustomFonts.swift */,
 				5B7BBE1A26FCFA18008260D9 /* Image+SolidColor.swift */,
+				2E2C7B542705E7960084CBDE /* HideKeyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -445,6 +483,8 @@
 			isa = PBXGroup;
 			children = (
 				00A89D872704A07200ED72B2 /* CharacterAttributes */,
+				2EF7724F2703E12800A88EC8 /* CharacterPoints */,
+				2EF7724226FE417D00A88EC8 /* CharacterSkills */,
 				5B7BBE1726FCF9A7008260D9 /* CharacterItems */,
 				5B1B05F626FCEFCA003537EA /* CharacterNotes */,
 				5B1659FA26F9FF53004CD628 /* CharacterBio */,
@@ -553,7 +593,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					5B0DC56C26EA2B68008C8578 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -660,7 +700,9 @@
 				2EAE08EE26FCA6B7000630A5 /* NewSheetModal.swift in Sources */,
 				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
+				2E2C7B532705E5B80084CBDE /* EditModalComponent.swift in Sources */,
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
+				2EF772512703E18E00A88EC8 /* CharacterPoints.swift in Sources */,
 				2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */,
 				2EAE08F126FCC0C0000630A5 /* NewSheetModalViewModel.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
@@ -668,6 +710,7 @@
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				00A89D9327059B9100ED72B2 /* AttributeBoxT20.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
+				2E2C7B552705E7960084CBDE /* HideKeyboard.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
 				2E16CCD326F4068400500E44 /* DiceRollerViewModelOutput.swift in Sources */,
 				2E24F77C26FA085100DE6BE9 /* DisplaySheetViewModelType.swift in Sources */,
@@ -684,8 +727,10 @@
 				5B1B05FA26FCF000003537EA /* CharacterNotes.swift in Sources */,
 				5B1B05F826FCEFDC003537EA /* CharacterNotesCell.swift in Sources */,
 				5BC9C7CC26F37FEA006F6BC1 /* SettingsViewModelOutput.swift in Sources */,
+				2E2C7B512705E5310084CBDE /* CreateSheetModal.swift in Sources */,
 				5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */,
 				2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */,
+				2EF7724E2700EC5000A88EC8 /* SheetHeader.swift in Sources */,
 				5B1659FE26FA0AA9004CD628 /* CharacterBio.swift in Sources */,
 				5B7C970E26F0C09F00E01EBA /* Sheet+CoreDataClass.swift in Sources */,
 				5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */,
@@ -702,10 +747,13 @@
 				96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				2EAE08F526FCC0DD000630A5 /* NewSheetModalViewModelType.swift in Sources */,
+				2EF7724426FE41A700A88EC8 /* CharacterSkills.swift in Sources */,
 				5B7BBE1D26FCFAEF008260D9 /* CharacterItems.swift in Sources */,
 				2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */,
 				2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */,
+				2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeader.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
+				2EF7724626FE41E500A88EC8 /* CharacterSkillsCell.swift in Sources */,
 				5B7BBE1926FCF9BE008260D9 /* CharacterItemsCell.swift in Sources */,
 				00A89D91270598A900ED72B2 /* CharacterAttributesT20.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,

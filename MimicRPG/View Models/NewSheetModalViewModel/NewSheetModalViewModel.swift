@@ -8,30 +8,7 @@
 import Foundation
 import UIKit
 
-enum Systems: String, CaseIterable {
-    case ct7 = "CT7"
-    case t20 = "T20"
 
-    var description: String {
-        switch self {
-        case .ct7:
-            return "Cthulhu 7th ed."
-        case .t20:
-            return "Tormenta 20"
-        }
-    }
-
-    init?(id : Int) {
-        switch id {
-        case 0:
-            self = .ct7
-        case 1:
-            self = .t20
-        default:
-            return nil
-        }
-    }
-}
 
 enum NewSheetModalSettings: CaseIterable {
     case name
@@ -67,10 +44,10 @@ final class NewSheetModalViewModel {
 
 extension NewSheetModalViewModel: NewSheetModalViewModelType {
 
-    func createNewSheet(name: String, occupation: String) {
+    func createNewSheet(name: String, system: String) {
         let newSheet = Sheet(context: self.context)
         newSheet.name = name
-        newSheet.occupation = occupation
+        newSheet.system = system
         do {
             try context.save()
         } catch {
