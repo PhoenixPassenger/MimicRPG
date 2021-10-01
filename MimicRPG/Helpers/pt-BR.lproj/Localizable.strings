@@ -46,3 +46,9 @@ Attacks = "Ataques";
 Notes = "Notas";
 Life = "Vida";
 DEX = "DES";
+Damage = "Dano: ";
+AttackBonus = "Bônus de Ataque: ";
+DamageType = "Tipo: ";
+Reach = "Alcance: ";
+Critical = "Crítico: ";
+

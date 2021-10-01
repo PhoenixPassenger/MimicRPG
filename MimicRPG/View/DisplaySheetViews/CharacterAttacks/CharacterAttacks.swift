@@ -45,7 +45,7 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterAttacksCell
         guard let cell = cellWrap else { fatalError() }
-        cell.set(name: "Tacape \(indexPath.row)")
+        cell.set(name: "Tacape \(indexPath.row)", damage: "1d10", bonus: 3, type: "Corte", reach: "Longo", critical: "x3")
         cell.deleteButton.tag = indexPath.row
         cell.deleteButton.addTarget(self, action: #selector(removeCell), for: .touchUpInside)
         cell.editButton.tag = indexPath.row

@@ -10,6 +10,11 @@ import UIKit
 class CharacterAttacksCell: UITableViewCell {
 
     var attackName: String = ""
+    var damageDice: String = ""
+    var attackBonus: String = ""
+    var damageType: String = ""
+    var attackReach: String = ""
+    var attackCritical: String = ""
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -59,7 +64,7 @@ class CharacterAttacksCell: UITableViewCell {
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
-        label.text = "Dano: 1d10 + 4"
+        label.text = "Damage".localized() + damageDice
         self.addSubview(label)
         return label
     }()
@@ -82,7 +87,7 @@ class CharacterAttacksCell: UITableViewCell {
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
-        label.text = "Bônus de Ataque: 6"
+        label.text = "AttackBonus".localized() + attackBonus
         self.addSubview(label)
         return label
     }()
@@ -105,7 +110,7 @@ class CharacterAttacksCell: UITableViewCell {
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
-        label.text = "Tipo: Impacto"
+        label.text = "DamageType".localized() + damageType
         self.addSubview(label)
         return label
     }()
@@ -128,7 +133,7 @@ class CharacterAttacksCell: UITableViewCell {
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
-        label.text = "Alcance: Curto"
+        label.text = "Reach".localized() + attackReach
         self.addSubview(label)
         return label
     }()
@@ -151,7 +156,7 @@ class CharacterAttacksCell: UITableViewCell {
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
-        label.text = "Crítico: x2"
+        label.text = "Critical".localized() + attackCritical
         self.addSubview(label)
         return label
     }()
@@ -179,8 +184,13 @@ class CharacterAttacksCell: UITableViewCell {
         self.layer.cornerRadius = 5
     }
 
-    func set(name: String) {
+    func set(name: String, damage: String, bonus: Int, type: String, reach: String, critical: String) {
         attackName = name
+        damageDice = damage
+        attackBonus = String(bonus)
+        damageType = type
+        attackReach = reach
+        attackCritical = critical
         configureLayout()
         self.selectionStyle = .none
         self.layer.backgroundColor = UIColor(named: "Background")?.cgColor
