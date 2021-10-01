@@ -179,7 +179,12 @@ class CharacterAttacksCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50))
+        self.contentView.layer.cornerRadius = 13
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
