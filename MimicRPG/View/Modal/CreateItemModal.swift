@@ -66,12 +66,12 @@ class CreateItemModal: UIViewController {
     // MARK: - First Group
 
     lazy var sheetItemNameView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Name".localized(), type: .text)
+        let view = EditModalComponent(titleText: "ItemName".localized(), type: .text)
         return view
     }()
 
     lazy var sheetItemQtdView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Name".localized(), type: .stepper)
+        let view = EditModalComponent(titleText: "Quantity".localized(), type: .stepper)
         return view
     }()
 
@@ -88,7 +88,7 @@ class CreateItemModal: UIViewController {
     // MARK: - Second Group
 
     lazy var sheetItemDescView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Name".localized(),multiline: true, type: .text)
+        let view = EditModalComponent(titleText: "Description".localized(),multiline: true, type: .text)
         return view
     }()
 
@@ -123,7 +123,7 @@ class CreateItemModal: UIViewController {
 
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
-            createNewSheet()
+            createNewItem()
             dismiss(animated: true, completion: nil)
         } else {
             paginator += 1
@@ -163,17 +163,8 @@ class CreateItemModal: UIViewController {
     }
 
     // MARK: - CoreData
-    func createNewSheet() {
-//        let newSheet = Sheet(context: self.context)
-//        guard let name = sheetNameView.valueText.text else {return}
-//        newSheet.name = name
-//        guard let system = Systems(id: selectedRow)?.description else {return}
-//        newSheet.system = system
-//        do {
-//            try context.save()
-//        } catch {
-//            fatalError("Unable to save data in coredata model")
-//        }
+    func createNewItem() {
+        // Criar item novo aqui
     }
 
     private func configureLayout() {

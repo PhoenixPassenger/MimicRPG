@@ -49,3 +49,6 @@ DEX = "DEX";
 NewItem = "New Item";
 Next = "Next";
 Back = "Back";
+ItemName = "Item Name";
+Quantity = "Quantity";
+Description = "Description";

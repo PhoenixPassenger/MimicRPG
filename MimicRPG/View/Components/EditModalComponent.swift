@@ -77,7 +77,7 @@ class EditModalComponent: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.distribution = .fillEqually
+        stack.spacing = 12
         self.addSubview(stack)
         return stack
     }()
