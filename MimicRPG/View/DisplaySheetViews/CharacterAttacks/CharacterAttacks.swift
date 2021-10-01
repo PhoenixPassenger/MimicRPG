@@ -17,6 +17,7 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
         self.delegate = self
         self.tableFooterView = UIView()
         self.rowHeight = 120
+        self.backgroundColor = UIColor(named: "Background")
     }
 
     @objc func addCell() {
@@ -26,7 +27,10 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor(hue: 1, saturation: 0, brightness: 1, alpha: 0.75)
+        let colorComponents = UIColor(named: "Background")?.cgColor.components
+        if let color = colorComponents {
+            view.backgroundColor = UIColor.init(red: color[0], green: color[1], blue: color[2], alpha: 0.75)
+        }
 
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 380, y: 0, width: 30, height: 30)
