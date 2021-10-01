@@ -12,13 +12,12 @@ class CharacterAttacksCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
-        // setupUI()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     lazy var cellBackground: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -196,8 +195,6 @@ class CharacterAttacksCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     private func configureLayout() {
@@ -206,7 +203,7 @@ class CharacterAttacksCell: UITableViewCell {
             cellBackground.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
             cellBackground.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
             cellBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
-            
+
             attackNameLabel.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 10),
             attackNameLabel.trailingAnchor.constraint(equalTo: attackNameLabel.leadingAnchor, constant: 250),
             attackNameLabel.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 10),
@@ -268,5 +265,4 @@ class CharacterAttacksCell: UITableViewCell {
             attackCriticalLabel.heightAnchor.constraint(equalTo: attackCriticalBackground.heightAnchor)
         ])
     }
-
 }
