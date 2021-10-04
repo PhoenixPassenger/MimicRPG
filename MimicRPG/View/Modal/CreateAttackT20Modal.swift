@@ -1,14 +1,14 @@
 //
-//  CreateItemModal.swift
+//  CreateAttackModal.swift
 //  MimicRPG
 //
-//  Created by Eduardo Oliveira on 01/10/21.
+//  Created by Eduardo Oliveira on 04/10/21.
 //
 // swiftlint:disable force_cast
 
 import UIKit
 
-class CreateItemModal: UIViewController {
+class CreateAttackModal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
@@ -37,7 +37,7 @@ class CreateItemModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "NewItem".localized()
+        label.text = "NewAttack".localized()
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -74,18 +74,23 @@ class CreateItemModal: UIViewController {
     
     // MARK: - First Group
 
-    lazy var sheetItemNameView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "ItemName".localized(), type: .text)
+    lazy var sheetAttackNameView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "AttackName".localized(), type: .text)
         return view
     }()
 
-    lazy var sheetItemQtdView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Quantity".localized(), type: .stepper)
+    lazy var sheetAttackDamageView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Damage".localized(), type: .text)
+        return view
+    }()
+
+    lazy var sheetAttackBonusView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "AttackBonus".localized(), type: .stepper)
         return view
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetItemNameView, sheetItemQtdView])
+        let stack = UIStackView(arrangedSubviews: [sheetAttackNameView, sheetAttackDamageView, sheetAttackBonusView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -96,13 +101,23 @@ class CreateItemModal: UIViewController {
 
     // MARK: - Second Group
 
-    lazy var sheetItemDescView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Description".localized(),multiline: true, type: .text)
+    lazy var sheetAttackTypeView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Type".localized(), type: .text)
+        return view
+    }()
+
+    lazy var sheetAttackRangeView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Range".localized(), type: .text)
+        return view
+    }()
+
+    lazy var sheetAttackCriticalView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Critical".localized(), type: .text)
         return view
     }()
 
     lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetItemDescView])
+        let stack = UIStackView(arrangedSubviews: [sheetAttackTypeView, sheetAttackRangeView, sheetAttackCriticalView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
