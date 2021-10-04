@@ -37,9 +37,6 @@
 		2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */; };
 		2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */; };
 		2EAE08EE26FCA6B7000630A5 /* NewSheetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE08ED26FCA6B7000630A5 /* NewSheetModal.swift */; };
-		2EAE08F126FCC0C0000630A5 /* NewSheetModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE08F026FCC0C0000630A5 /* NewSheetModalViewModel.swift */; };
-		2EAE08F326FCC0D1000630A5 /* NewSheetModalViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE08F226FCC0D1000630A5 /* NewSheetModalViewModelOutput.swift */; };
-		2EAE08F526FCC0DD000630A5 /* NewSheetModalViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE08F426FCC0DD000630A5 /* NewSheetModalViewModelType.swift */; };
 		2EF7724426FE41A700A88EC8 /* CharacterSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724326FE41A700A88EC8 /* CharacterSkills.swift */; };
 		2EF7724626FE41E500A88EC8 /* CharacterSkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */; };
 		2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */; };
@@ -138,9 +135,6 @@
 		2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelOutput.swift; sourceTree = "<group>"; };
 		2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelType.swift; sourceTree = "<group>"; };
 		2EAE08ED26FCA6B7000630A5 /* NewSheetModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSheetModal.swift; sourceTree = "<group>"; };
-		2EAE08F026FCC0C0000630A5 /* NewSheetModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSheetModalViewModel.swift; sourceTree = "<group>"; };
-		2EAE08F226FCC0D1000630A5 /* NewSheetModalViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSheetModalViewModelOutput.swift; sourceTree = "<group>"; };
-		2EAE08F426FCC0DD000630A5 /* NewSheetModalViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSheetModalViewModelType.swift; sourceTree = "<group>"; };
 		2EF7724326FE41A700A88EC8 /* CharacterSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkills.swift; sourceTree = "<group>"; };
 		2EF7724526FE41E500A88EC8 /* CharacterSkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCell.swift; sourceTree = "<group>"; };
 		2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeader.swift; sourceTree = "<group>"; };
@@ -304,16 +298,6 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
-		2EAE08EF26FCC05E000630A5 /* NewSheetModalViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2EAE08F026FCC0C0000630A5 /* NewSheetModalViewModel.swift */,
-				2EAE08F226FCC0D1000630A5 /* NewSheetModalViewModelOutput.swift */,
-				2EAE08F426FCC0DD000630A5 /* NewSheetModalViewModelType.swift */,
-			);
-			path = NewSheetModalViewModel;
-			sourceTree = "<group>";
-		};
 		2EF7724226FE417D00A88EC8 /* CharacterSkills */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,7 +441,6 @@
 			isa = PBXGroup;
 			children = (
 				2EA6F15A26FD3C9E00027E41 /* UserSheetsViewModel */,
-				2EAE08EF26FCC05E000630A5 /* NewSheetModalViewModel */,
 				5B7BBE1526FCF3BD008260D9 /* SettingsViewModel */,
 				2E24F77626FA071700DE6BE9 /* DisplaySheetViewModel */,
 				2E16CCD126F4066200500E44 /* DiceRollerViewModel */,
@@ -718,7 +701,6 @@
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
 				2EF772512703E18E00A88EC8 /* CharacterPoints.swift in Sources */,
 				2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */,
-				2EAE08F126FCC0C0000630A5 /* NewSheetModalViewModel.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
@@ -758,11 +740,9 @@
 				2E24F77A26FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
 				96435CF22705DD8F00C9E571 /* CharacterAttacksCell.swift in Sources */,
-				2EAE08F326FCC0D1000630A5 /* NewSheetModalViewModelOutput.swift in Sources */,
 				9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */,
 				96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
-				2EAE08F526FCC0DD000630A5 /* NewSheetModalViewModelType.swift in Sources */,
 				2EF7724426FE41A700A88EC8 /* CharacterSkills.swift in Sources */,
 				5B7BBE1D26FCFAEF008260D9 /* CharacterItems.swift in Sources */,
 				2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */,
