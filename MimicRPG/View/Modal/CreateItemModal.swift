@@ -62,7 +62,16 @@ class CreateItemModal: UIViewController {
         self.view.addSubview(button)
         return button
     }()
+    
+    // MARK: - Breadcrumb
 
+    lazy var breadcrumb: BreadcrumbForm = {
+        let breadcrumb = BreadcrumbForm()
+        breadcrumb.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(breadcrumb)
+        return breadcrumb
+    }()
+    
     // MARK: - First Group
 
     lazy var sheetItemNameView: EditModalComponent = {
@@ -117,7 +126,7 @@ class CreateItemModal: UIViewController {
             dismiss(animated: true, completion: nil)
         } else {
             paginator -= 1
-            atualizeUI()
+            updateUI()
         }
     }
 
@@ -127,11 +136,11 @@ class CreateItemModal: UIViewController {
             dismiss(animated: true, completion: nil)
         } else {
             paginator += 1
-            atualizeUI()
+            updateUI()
         }
     }
 
-    func atualizeUI() {
+    func updateUI() {
         if paginator == 0 {
             leftButton.setTitle("Cancel".localized(), for: .normal)
         } else {
@@ -154,17 +163,47 @@ class CreateItemModal: UIViewController {
         default:
             break
         }
+        updateBreadcrumb()
+    }
+
+    func updateBreadcrumb() {
+        UIView.animate(withDuration: 0.3, animations: { [self] in
+            switch paginator {
+            case 0:
+                breadcrumb.firstCircle.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
+                breadcrumb.line.backgroundColor = .systemGray
+                breadcrumb.secondCircle.transform = CGAffineTransform.identity
+                breadcrumb.secondCircle.backgroundColor = .systemGray
+            case 1:
+                breadcrumb.firstCircle.transform = CGAffineTransform.identity
+                breadcrumb.line.backgroundColor = UIColor(named: "Azure")
+                breadcrumb.secondCircle.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
+                breadcrumb.secondCircle.backgroundColor = UIColor(named: "Azure")
+            default:
+                break
+            }
+        })
     }
 
     private func additionalConfigurations() {
         configureLayout()
         view.backgroundColor = UIColor(named: "Background")
-        atualizeUI()
+        updateUI()
     }
 
     // MARK: - CoreData
     func createNewItem() {
-        // Criar item novo aqui
+//        let newItem = Item(context: self.context)
+//        guard let name = sheetItemNameView.valueText.text else {return}
+//        newItem.name = name
+//        guard let qtd = sheetItemQtdView.valueText.text else {return}
+//
+//        guard let desc = sheetItemDescView.valueText.text else {return}
+//        do {
+//            try context.save()
+//        } catch {
+//            fatalError("Unable to save data in coredata model")
+//        }
     }
 
     private func configureLayout() {
@@ -183,11 +222,18 @@ class CreateItemModal: UIViewController {
             rightButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             rightButton.centerYAnchor.constraint(equalTo: navigationBar.centerYAnchor),
 
-            firstStack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
+            breadcrumb.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
+            breadcrumb.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
+            breadcrumb.heightAnchor.constraint(equalToConstant: 9),
+            breadcrumb.widthAnchor.constraint(equalToConstant: 32),
+//            breadcrumb.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+//            breadcrumb.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+
+            firstStack.topAnchor.constraint(equalTo: breadcrumb.bottomAnchor, constant: 10),
             firstStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             firstStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 
-            secondStack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
+            secondStack.topAnchor.constraint(equalTo: breadcrumb.bottomAnchor, constant: 10),
             secondStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             secondStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])

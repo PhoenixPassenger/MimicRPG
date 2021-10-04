@@ -32,6 +32,7 @@
 		2E2C7B532705E5B80084CBDE /* EditModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B522705E5B80084CBDE /* EditModalComponent.swift */; };
 		2E2C7B552705E7960084CBDE /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B542705E7960084CBDE /* HideKeyboard.swift */; };
 		2E2C7B5827074CB60084CBDE /* CreateItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B5727074CB60084CBDE /* CreateItemModal.swift */; };
+		2E2C7B5A270784320084CBDE /* BreadcrumbForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */; };
 		2EA6F15C26FD3CF000027E41 /* UserSheetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */; };
 		2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */; };
 		2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */; };
@@ -126,6 +127,7 @@
 		2E2C7B522705E5B80084CBDE /* EditModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalComponent.swift; sourceTree = "<group>"; };
 		2E2C7B542705E7960084CBDE /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		2E2C7B5727074CB60084CBDE /* CreateItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemModal.swift; sourceTree = "<group>"; };
+		2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadcrumbForm.swift; sourceTree = "<group>"; };
 		2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModel.swift; sourceTree = "<group>"; };
 		2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelOutput.swift; sourceTree = "<group>"; };
 		2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelType.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				2E16CCB026F36A4B00500E44 /* UserSheet.swift */,
 				2EF7724D2700EC5000A88EC8 /* SheetHeader.swift */,
 				2E2C7B522705E5B80084CBDE /* EditModalComponent.swift */,
+				2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
 				5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */,
 				5B1659FC26F9FF6E004CD628 /* CharacterBioCell.swift in Sources */,
+				2E2C7B5A270784320084CBDE /* BreadcrumbForm.swift in Sources */,
 				9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */,
 				5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */,
 				9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */,
