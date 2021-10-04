@@ -50,22 +50,37 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterAttacksCell
         guard let cell = cellWrap else { fatalError() }
         cell.set(name: "Tacape \(indexPath.row)", damage: "1d10", bonus: 3, type: "Corte", reach: "Longo", critical: "x3")
-        cell.deleteButton.tag = indexPath.row
-        cell.deleteButton.addTarget(self, action: #selector(removeCell), for: .touchUpInside)
-        cell.editButton.tag = indexPath.row
-        cell.editButton.addTarget(self, action: #selector(editCell), for: .touchUpInside)
         cell.contentView.isUserInteractionEnabled = false
         return cell
     }
 
-    @objc func removeCell(sender: UIButton) {
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "EditAttack".localized()) { [weak self] (_, _, completionHandler) in
+            self?.editCell(row: indexPath.row)
+            completionHandler(true)
+        }
+        action.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "DeleteAttack".localized()) { [weak self] (_, _, completionHandler) in
+            self?.removeCell(row: indexPath.row)
+            completionHandler(true)
+        }
+        action.backgroundColor = .systemRed
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+
+    private func removeCell(row: Int) {
+        // Melhor implementar um alert antes disso
         attacksCount -= 1
-        let path = IndexPath(row: sender.tag, section: 0)
+        let path = IndexPath(row: row, section: 0)
         self.deleteRows(at: [path], with: .fade)
         self.reloadData()
     }
 
-    @objc func editCell() {
-
+    private func editCell(row: Int) {
+        print(row)
     }
 }

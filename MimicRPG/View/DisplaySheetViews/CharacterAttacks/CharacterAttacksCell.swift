@@ -161,24 +161,6 @@ class CharacterAttacksCell: UITableViewCell {
         return label
     }()
 
-    lazy var deleteButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "trash.fill"), for: .normal)
-        button.tintColor = UIColor.white
-        self.addSubview(button)
-        return button
-    }()
-
-    lazy var editButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "pencil"), for: .normal)
-        button.tintColor = UIColor.white
-        self.addSubview(button)
-        return button
-    }()
-
     override func draw(_ rect: CGRect) {
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 5
@@ -239,16 +221,6 @@ class CharacterAttacksCell: UITableViewCell {
             damageBonusLabel.leadingAnchor.constraint(equalTo: damageBonusBackground.leadingAnchor, constant: 5),
             damageBonusLabel.topAnchor.constraint(equalTo: damageBonusBackground.topAnchor),
             damageBonusLabel.heightAnchor.constraint(equalTo: damageBonusBackground.heightAnchor),
-
-            editButton.trailingAnchor.constraint(equalTo: damageBonusBackground.trailingAnchor),
-            editButton.leadingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -30),
-            editButton.topAnchor.constraint(equalTo: attackNameLabel.topAnchor),
-            editButton.bottomAnchor.constraint(equalTo: editButton.topAnchor, constant: 30),
-
-            deleteButton.trailingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -30),
-            deleteButton.leadingAnchor.constraint(equalTo: deleteButton.trailingAnchor, constant: -30),
-            deleteButton.topAnchor.constraint(equalTo: attackNameLabel.topAnchor),
-            deleteButton.bottomAnchor.constraint(equalTo: deleteButton.topAnchor, constant: 30),
 
             damageTypeBackground.leadingAnchor.constraint(equalTo: damageValueBackground.leadingAnchor),
             damageTypeBackground.trailingAnchor.constraint(equalTo: damageTypeBackground.leadingAnchor, constant: 130),

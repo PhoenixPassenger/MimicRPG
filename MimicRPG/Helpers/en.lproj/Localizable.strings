@@ -57,3 +57,5 @@ Back = "Back";
 ItemName = "Item Name";
 Quantity = "Quantity";
 Description = "Description";
+EditAttack = "Edit Attack";
+DeleteAttack = "Delete Attack";
