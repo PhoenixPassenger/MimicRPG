@@ -65,12 +65,7 @@ class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     private func editCell(row: Int) {
-//        let newSheetModal = NewSheetModal(action: {self.fetchData()})
-//        newSheetModal.viewModel = NewSheetModalViewModel()
-//        newSheetModal.viewModel.output = newSheetModal
-//        present(newSheetModal, animated: true, completion: nil)
-        let createSheetModal = CreateAttackModal()
-        // present(createSheetModal, animated: true, completion: nil)
+        print(row)
     }
 
     private func removeCell(row: Int) {
