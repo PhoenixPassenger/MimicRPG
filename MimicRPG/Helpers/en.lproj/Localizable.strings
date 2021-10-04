@@ -66,3 +66,5 @@ Range = "Range";
 Critical = "Critical";
 EditAttack = "Edit Attack";
 DeleteAttack = "Delete Attack";
+EditNote = "Edit Note";
+DeleteNote = "Delete Note";
