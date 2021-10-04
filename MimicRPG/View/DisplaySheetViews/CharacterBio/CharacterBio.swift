@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
     func setupTableView() {
         self.register(CharacterBioCell.self, forCellReuseIdentifier: "MyCell")
@@ -16,7 +17,7 @@ class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterBioCell
         guard let cell = cellWrap else { fatalError() }

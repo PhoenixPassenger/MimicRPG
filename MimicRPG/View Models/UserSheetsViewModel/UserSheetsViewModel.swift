@@ -12,7 +12,7 @@ import UIKit
 final class UserSheetsViewModel {
 
     var sheets: [Sheet]? = []
-    
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     public weak var output: UserSheetsViewModelOutput?

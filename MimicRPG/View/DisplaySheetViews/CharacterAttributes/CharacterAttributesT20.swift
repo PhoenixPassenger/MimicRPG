@@ -69,7 +69,7 @@ class CharacterAttributesT20: UIView {
     }
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            //Incluir botão de editar depois bem aqui
+            // Incluir botão de editar depois bem aqui
 
             stackPhysical.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -0),
             stackPhysical.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
