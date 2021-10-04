@@ -30,8 +30,7 @@ class DisplaySheetViewController: UIViewController {
                 view.setupTableView()
             case 2:
                 let view = CharacterAttributesT20()
-                sheetView = view
-                
+                sheetView = view   
             case 1:
                 let view = CharacterPoints()
                 sheetView = view
@@ -42,6 +41,10 @@ class DisplaySheetViewController: UIViewController {
                 view.setupTableView()
             case 4:
                 let view = CharacterItems()
+                sheetView = view
+                view.setupTableView()
+            case 5:
+                let view = CharacterAttacks()
                 sheetView = view
                 view.setupTableView()
             case 6:
@@ -208,11 +211,11 @@ class DisplaySheetViewController: UIViewController {
             }
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         sheetHeader?.removeFromSuperview()
     }
-    
+
     @objc func tabFunction(sender: UIButton) {
         changeSelectedButton(tag: sender.tag)
     }

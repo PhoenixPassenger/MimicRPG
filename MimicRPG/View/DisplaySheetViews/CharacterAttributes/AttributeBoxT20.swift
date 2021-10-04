@@ -13,8 +13,8 @@ class AttributeBoxT20: UIView {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "T20AttributeBox")
         imgView.translatesAutoresizingMaskIntoConstraints = false
-       //imgView.clipsToBounds = true
-        //imgView.contentMode = .scaleAspectFit
+       // imgView.clipsToBounds = true
+        // imgView.contentMode = .scaleAspectFit
         self.addSubview(imgView)
         return imgView
     }()
@@ -23,7 +23,7 @@ class AttributeBoxT20: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.josefinSansButton()
-        //label.sizeToFit()
+        // label.sizeToFit()
         self.addSubview(label)
         return label
     }()
@@ -48,7 +48,7 @@ class AttributeBoxT20: UIView {
         configureLayout()
         attributeLabelT20.text = attribute
         attributeValueT20.text = String(value)
-        //Adicionar o sinal do modificador
+        // Adicionar o sinal do modificador
         if (value>9) {
             attributeModifierT20.text = "+" + String((value-10)/2)
 
