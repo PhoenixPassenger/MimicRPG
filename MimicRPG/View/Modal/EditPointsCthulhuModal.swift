@@ -66,7 +66,7 @@ class EditPointsCthulhuModal: UIViewController {
         let view = EditModalComponent(titleText: "MaxLuck".localized(), type: .stepper)
         return view
     }()
-    
+
     lazy var maxMagicView: EditModalComponent = {
         let view = EditModalComponent(titleText: "MaxMagic".localized(), type: .stepper)
         return view
@@ -76,7 +76,7 @@ class EditPointsCthulhuModal: UIViewController {
         let view = EditModalComponent(titleText: "MaxSanity".localized(), type: .stepper)
         return view
     }()
-    
+
     lazy var maxLifeView: EditModalComponent = {
         let view = EditModalComponent(titleText: "MaxLife".localized(), type: .stepper)
         return view

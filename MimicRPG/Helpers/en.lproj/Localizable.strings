@@ -90,3 +90,7 @@ Power = "Power";
 Size = "Size";
 Education = "Education";
 Move = "Move";
+Value = "Value";
+Ammo = "Ammunation";
+Malfunction = "Malfunction";
+Attacks = "Attacks";

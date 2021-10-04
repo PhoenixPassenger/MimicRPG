@@ -90,3 +90,7 @@ Power = "Poder";
 Size = "Tamanho";
 Education = "Educação";
 Move = "Movimentação";
+Value = "Valor";
+Ammo = "Munição";
+Malfunction = "Malfuncionamento";
+Attacks = "Ataques";

@@ -88,7 +88,7 @@ class EditAttributesCthulhuModal: UIViewController {
         let view = EditModalComponent(titleText: "Intelligence".localized(), type: .stepper)
         return view
     }()
-    
+
     lazy var constitutionView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Constitution".localized(), type: .stepper)
         return view

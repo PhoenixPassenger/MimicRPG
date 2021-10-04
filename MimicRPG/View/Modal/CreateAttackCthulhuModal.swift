@@ -1,5 +1,5 @@
 //
-//  EditAttributesT20Modal.swift
+//  CreateAttackCthulhuModal.swift
 //  MimicRPG
 //
 //  Created by Eduardo Oliveira on 04/10/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditAttributesT20Modal: UIViewController {
+class CreateAttackCthulhuModal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
@@ -37,7 +37,7 @@ class EditAttributesT20Modal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "EditAttributes".localized()
+        label.text = "NewAttack".localized()
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -74,23 +74,28 @@ class EditAttributesT20Modal: UIViewController {
     
     // MARK: - First Group
 
-    lazy var strengthView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Strength".localized(), type: .stepper)
+    lazy var sheetAttackNameView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "AttackName".localized(), type: .text)
         return view
     }()
 
-    lazy var dexterityView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Dexterity".localized(), type: .stepper)
+    lazy var sheetAttackDamageView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Damage".localized(), type: .text)
         return view
     }()
 
-    lazy var constitutionView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Constitution".localized(), type: .stepper)
+    lazy var sheetAttackValueView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Value".localized(), type: .stepper)
+        return view
+    }()
+    
+    lazy var sheetAttackAmmoView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Ammo".localized(), type: .stepper)
         return view
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [strengthView, dexterityView, constitutionView])
+        let stack = UIStackView(arrangedSubviews: [sheetAttackNameView, sheetAttackDamageView, sheetAttackValueView, sheetAttackAmmoView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -101,23 +106,23 @@ class EditAttributesT20Modal: UIViewController {
 
     // MARK: - Second Group
 
-    lazy var intelligenceView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Intelligence".localized(), type: .stepper)
+    lazy var sheetAttackRangeView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Range".localized(), type: .text)
         return view
     }()
 
-    lazy var wisdomView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Wisdom".localized(), type: .stepper)
+    lazy var sheetAttackMalfunctionView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Malfunction".localized(), type: .text)
         return view
     }()
 
-    lazy var charismaView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Charisma".localized(), type: .stepper)
+    lazy var sheetAttackCriticalView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Attacks".localized(), type: .stepper)
         return view
     }()
 
     lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [intelligenceView, wisdomView, charismaView])
+        let stack = UIStackView(arrangedSubviews: [sheetAttackRangeView, sheetAttackMalfunctionView, sheetAttackCriticalView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -147,7 +152,7 @@ class EditAttributesT20Modal: UIViewController {
 
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
-            editAttributes()
+            createNewAttack()
             dismiss(animated: true, completion: nil)
         } else {
             paginator += 1
@@ -207,7 +212,7 @@ class EditAttributesT20Modal: UIViewController {
     }
 
     // MARK: - CoreData
-    func editAttributes() {
+    func createNewAttack() {
         //
     }
 

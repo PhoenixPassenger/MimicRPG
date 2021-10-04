@@ -40,6 +40,7 @@
 		2E6EAE3B270B4ADA00626650 /* EditAttributesT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */; };
 		2E6EAE3D270B820900626650 /* EditPointsCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */; };
 		2E6EAE3F270B853B00626650 /* EditAttributesCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3E270B853B00626650 /* EditAttributesCthulhuModal.swift */; };
+		2E6EAE41270B88BA00626650 /* CreateAttackCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE40270B88BA00626650 /* CreateAttackCthulhuModal.swift */; };
 		2EA6F15C26FD3CF000027E41 /* UserSheetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */; };
 		2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */; };
 		2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */; };
@@ -145,6 +146,7 @@
 		2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAttributesT20Modal.swift; sourceTree = "<group>"; };
 		2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPointsCthulhuModal.swift; sourceTree = "<group>"; };
 		2E6EAE3E270B853B00626650 /* EditAttributesCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAttributesCthulhuModal.swift; sourceTree = "<group>"; };
+		2E6EAE40270B88BA00626650 /* CreateAttackCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAttackCthulhuModal.swift; sourceTree = "<group>"; };
 		2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModel.swift; sourceTree = "<group>"; };
 		2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelOutput.swift; sourceTree = "<group>"; };
 		2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelType.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */,
 				2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */,
 				2E6EAE3E270B853B00626650 /* EditAttributesCthulhuModal.swift */,
+				2E6EAE40270B88BA00626650 /* CreateAttackCthulhuModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
 				2E2C7B532705E5B80084CBDE /* EditModalComponent.swift in Sources */,
+				2E6EAE41270B88BA00626650 /* CreateAttackCthulhuModal.swift in Sources */,
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
 				2EF772512703E18E00A88EC8 /* CharacterPoints.swift in Sources */,
 				2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */,
