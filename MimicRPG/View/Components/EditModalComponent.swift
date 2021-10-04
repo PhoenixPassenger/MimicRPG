@@ -16,7 +16,7 @@ class EditModalComponent: UIView {
 
     var isMultiline: Bool = false
     var typeOfModalComponent: TypeOfModalComponent = .text
-    
+
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
