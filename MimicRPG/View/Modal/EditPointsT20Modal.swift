@@ -1,5 +1,5 @@
 //
-//  CreateAttackModal.swift
+//  EditPointsT20Modal.swift
 //  MimicRPG
 //
 //  Created by Eduardo Oliveira on 04/10/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateAttackT20Modal: UIViewController {
+class EditPointsT20Modal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
@@ -74,23 +74,23 @@ class CreateAttackT20Modal: UIViewController {
     
     // MARK: - First Group
 
-    lazy var sheetAttackNameView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "AttackName".localized(), type: .text)
+    lazy var sheetBonusArmorView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "ArmorBonus".localized(), type: .stepper)
         return view
     }()
 
-    lazy var sheetAttackDamageView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Damage".localized(), type: .text)
+    lazy var sheetBonusShieldView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "ShieldBonus".localized(), type: .stepper)
         return view
     }()
 
-    lazy var sheetAttackBonusView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "AttackBonus".localized(), type: .stepper)
+    lazy var sheetOthersView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Others".localized(), type: .stepper)
         return view
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetAttackNameView, sheetAttackDamageView, sheetAttackBonusView])
+        let stack = UIStackView(arrangedSubviews: [sheetBonusArmorView, sheetBonusShieldView, sheetOthersView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -101,23 +101,23 @@ class CreateAttackT20Modal: UIViewController {
 
     // MARK: - Second Group
 
-    lazy var sheetAttackTypeView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Type".localized(), type: .text)
+    lazy var sheetTemporaryView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Temporary".localized(), type: .stepper)
         return view
     }()
 
-    lazy var sheetAttackRangeView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Range".localized(), type: .text)
+    lazy var sheetMaxLifeView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "MaxLife".localized(), type: .stepper)
         return view
     }()
 
-    lazy var sheetAttackCriticalView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Critical".localized(), type: .text)
+    lazy var sheetMaxManaView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "MaxMana".localized(), type: .stepper)
         return view
     }()
 
     lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetAttackTypeView, sheetAttackRangeView, sheetAttackCriticalView])
+        let stack = UIStackView(arrangedSubviews: [sheetTemporaryView, sheetMaxLifeView, sheetMaxManaView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
