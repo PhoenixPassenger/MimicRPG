@@ -147,7 +147,7 @@ class EditPointsT20Modal: UIViewController {
 
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
-            createNewAttack()
+            editPoints()
             dismiss(animated: true, completion: nil)
         } else {
             paginator += 1
@@ -207,7 +207,7 @@ class EditPointsT20Modal: UIViewController {
     }
 
     // MARK: - CoreData
-    func createNewAttack() {
+    func editPoints() {
         //
     }
 
