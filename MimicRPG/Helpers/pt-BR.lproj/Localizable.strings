@@ -52,3 +52,9 @@ DamageType = "Tipo: ";
 Reach = "Alcance: ";
 Critical = "Crítico: ";
 
+NewItem = "Novo Item";
+Next = "Próximo";
+Back = "Voltar";
+ItemName = "Nome do Item";
+Quantity = "Quantidade";
+Description = "Descrição";
