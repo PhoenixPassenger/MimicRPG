@@ -28,7 +28,7 @@ class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
         }
 
         let button = UIButton(type: .system)
-        button.frame = CGRect(x: 380, y: 0, width: 30, height: 30)
+        button.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 0, width: 30, height: 30)
         button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
         button.addTarget(self, action: #selector(self.addCell), for: .touchUpInside)
 
@@ -65,7 +65,12 @@ class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     private func editCell(row: Int) {
-        print(row)
+//        let newSheetModal = NewSheetModal(action: {self.fetchData()})
+//        newSheetModal.viewModel = NewSheetModalViewModel()
+//        newSheetModal.viewModel.output = newSheetModal
+//        present(newSheetModal, animated: true, completion: nil)
+        let createSheetModal = CreateAttackModal()
+        // present(createSheetModal, animated: true, completion: nil)
     }
 
     private func removeCell(row: Int) {
