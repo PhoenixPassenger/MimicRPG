@@ -82,3 +82,6 @@ Constitution = "Constitution";
 Intelligence = "Intelligence";
 Wisdom = "Wisdom";
 Charisma = "Charisma";
+MaxLuck = "Max. Luck";
+MaxMagic = "Max. Magic";
+MaxSanity = "Max. Sanity";

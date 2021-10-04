@@ -82,3 +82,6 @@ Constitution = "Constituição";
 Intelligence = "Inteligência";
 Wisdom = "Sabedoria";
 Charisma = "Carisma";
+MaxLuck = "Sorte Máxima";
+MaxMagic = "Magia Máxima";
+MaxSanity = "Sanidade Máxima";
