@@ -59,3 +59,7 @@ AttackBonus = "Attack Bonus";
 Type = "Type";
 Range = "Range";
 Critical = "Critical";
+EditPoints = "Edit Points";
+MaxLife = "Max. Life";
+MaxMana = "Max. Mana";
+

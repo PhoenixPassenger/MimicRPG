@@ -193,17 +193,7 @@ class CreateItemModal: UIViewController {
 
     // MARK: - CoreData
     func createNewItem() {
-//        let newItem = Item(context: self.context)
-//        guard let name = sheetItemNameView.valueText.text else {return}
-//        newItem.name = name
-//        guard let qtd = sheetItemQtdView.valueText.text else {return}
-//
-//        guard let desc = sheetItemDescView.valueText.text else {return}
-//        do {
-//            try context.save()
-//        } catch {
-//            fatalError("Unable to save data in coredata model")
-//        }
+        //
     }
 
     private func configureLayout() {

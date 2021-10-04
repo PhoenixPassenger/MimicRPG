@@ -59,3 +59,6 @@ AttackBonus = "Bônus de Ataque";
 Type = "Tipo";
 Range = "Alcance";
 Critical = "Crítico";
+EditPoints = "Editar Pontos";
+MaxLife = "Vida Máxima";
+MaxMana = "Mana Máxima";

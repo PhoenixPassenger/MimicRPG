@@ -36,6 +36,7 @@
 		2E2C7B5827074CB60084CBDE /* CreateItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B5727074CB60084CBDE /* CreateItemModal.swift */; };
 		2E2C7B5A270784320084CBDE /* BreadcrumbForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */; };
 		2E5E3332270B2DEF00F7624D /* CreateAttackT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E3331270B2DEF00F7624D /* CreateAttackT20Modal.swift */; };
+		2E5E3334270B34C700F7624D /* EditPointsT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E3333270B34C700F7624D /* EditPointsT20Modal.swift */; };
 		2EA6F15C26FD3CF000027E41 /* UserSheetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */; };
 		2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */; };
 		2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */; };
@@ -134,6 +135,7 @@
 		2E2C7B5727074CB60084CBDE /* CreateItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemModal.swift; sourceTree = "<group>"; };
 		2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadcrumbForm.swift; sourceTree = "<group>"; };
 		2E5E3331270B2DEF00F7624D /* CreateAttackT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAttackT20Modal.swift; sourceTree = "<group>"; };
+		2E5E3333270B34C700F7624D /* EditPointsT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPointsT20Modal.swift; sourceTree = "<group>"; };
 		2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModel.swift; sourceTree = "<group>"; };
 		2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelOutput.swift; sourceTree = "<group>"; };
 		2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelType.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				2E2C7B502705E5310084CBDE /* CreateSheetModal.swift */,
 				2E2C7B5727074CB60084CBDE /* CreateItemModal.swift */,
 				2E5E3331270B2DEF00F7624D /* CreateAttackT20Modal.swift */,
+				2E5E3333270B34C700F7624D /* EditPointsT20Modal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */,
 				5B0DC5B026EA3462008C8578 /* Coordinator.swift in Sources */,
 				9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */,
+				2E5E3334270B34C700F7624D /* EditPointsT20Modal.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
 				2E16CCD526F406A200500E44 /* DiceRollerViewModelType.swift in Sources */,
 				2E24F77826FA07F400DE6BE9 /* DisplaySheetViewModel.swift in Sources */,
