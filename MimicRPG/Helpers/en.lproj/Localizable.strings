@@ -82,3 +82,5 @@ Constitution = "Constitution";
 Intelligence = "Intelligence";
 Wisdom = "Wisdom";
 Charisma = "Charisma";
+EditItem = "Edit Item";
+DeleteItem = "Delete Item";
