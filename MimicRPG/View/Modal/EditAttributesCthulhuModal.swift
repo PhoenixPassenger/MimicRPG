@@ -1,5 +1,5 @@
 //
-//  EditAttributesT20Modal.swift
+//  EditAttributesCthulhuModal.swift
 //  MimicRPG
 //
 //  Created by Eduardo Oliveira on 04/10/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditAttributesT20Modal: UIViewController {
+class EditAttributesCthulhuModal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
@@ -84,13 +84,23 @@ class EditAttributesT20Modal: UIViewController {
         return view
     }()
 
+    lazy var intelligenceView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Intelligence".localized(), type: .stepper)
+        return view
+    }()
+
     lazy var constitutionView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Constitution".localized(), type: .stepper)
         return view
     }()
 
+    lazy var appearanceView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Appearance".localized(), type: .stepper)
+        return view
+    }()
+
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [strengthView, dexterityView, constitutionView])
+        let stack = UIStackView(arrangedSubviews: [strengthView, dexterityView, intelligenceView, constitutionView, appearanceView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -101,23 +111,28 @@ class EditAttributesT20Modal: UIViewController {
 
     // MARK: - Second Group
 
-    lazy var intelligenceView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Intelligence".localized(), type: .stepper)
+    lazy var powerView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Power".localized(), type: .stepper)
         return view
     }()
 
-    lazy var wisdomView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Wisdom".localized(), type: .stepper)
+    lazy var sizeView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Size".localized(), type: .stepper)
         return view
     }()
 
-    lazy var charismaView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Charisma".localized(), type: .stepper)
+    lazy var educationView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Education".localized(), type: .stepper)
+        return view
+    }()
+
+    lazy var moveView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Move".localized(), type: .stepper)
         return view
     }()
 
     lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [intelligenceView, wisdomView, charismaView])
+        let stack = UIStackView(arrangedSubviews: [powerView, sizeView, educationView, moveView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -242,4 +257,5 @@ class EditAttributesT20Modal: UIViewController {
         ])
     }
 }
+
 

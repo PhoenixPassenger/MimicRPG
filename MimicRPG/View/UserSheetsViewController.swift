@@ -97,7 +97,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
     }
 
     @objc func triggerNewSheetModal() {
-        let createSheetModal = EditAttributesT20Modal()
+        let createSheetModal = CreateAttackCthulhuModal()
         present(createSheetModal, animated: true, completion: nil)
     }
 
