@@ -1,5 +1,5 @@
 //
-//  EditPointsT20Modal.swift
+//  EditAttributesT20Modal.swift
 //  MimicRPG
 //
 //  Created by Eduardo Oliveira on 04/10/21.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class EditPointsT20Modal: UIViewController {
+class EditAttributesT20Modal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
-
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -37,7 +37,7 @@ class EditPointsT20Modal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "EditPoints".localized()
+        label.text = "EditAttributes".localized()
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -74,23 +74,23 @@ class EditPointsT20Modal: UIViewController {
     
     // MARK: - First Group
 
-    lazy var sheetBonusArmorView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "ArmorBonus".localized(), type: .stepper)
+    lazy var strengthView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Strength".localized(), type: .stepper)
         return view
     }()
 
-    lazy var sheetBonusShieldView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "ShieldBonus".localized(), type: .stepper)
+    lazy var dexterityView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Dexterity".localized(), type: .stepper)
         return view
     }()
 
-    lazy var sheetOthersView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Others".localized(), type: .stepper)
+    lazy var constitutionView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Constitution".localized(), type: .stepper)
         return view
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetBonusArmorView, sheetBonusShieldView, sheetOthersView])
+        let stack = UIStackView(arrangedSubviews: [strengthView, dexterityView, constitutionView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -101,23 +101,23 @@ class EditPointsT20Modal: UIViewController {
 
     // MARK: - Second Group
 
-    lazy var sheetTemporaryView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Temporary".localized(), type: .stepper)
+    lazy var intelligenceView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Intelligence".localized(), type: .stepper)
         return view
     }()
 
-    lazy var sheetMaxLifeView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "MaxLife".localized(), type: .stepper)
+    lazy var wisdomView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Wisdom".localized(), type: .stepper)
         return view
     }()
 
-    lazy var sheetMaxManaView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "MaxMana".localized(), type: .stepper)
+    lazy var charismaView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Charisma".localized(), type: .stepper)
         return view
     }()
 
     lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetTemporaryView, sheetMaxLifeView, sheetMaxManaView])
+        let stack = UIStackView(arrangedSubviews: [intelligenceView, wisdomView, charismaView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -242,3 +242,4 @@ class EditPointsT20Modal: UIViewController {
         ])
     }
 }
+
