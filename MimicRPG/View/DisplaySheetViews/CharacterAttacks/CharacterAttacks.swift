@@ -16,7 +16,7 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
         self.dataSource = self
         self.delegate = self
         self.tableFooterView = UIView()
-        self.rowHeight = 120
+        self.rowHeight = 155
         self.backgroundColor = UIColor(named: "Background")
     }
 
@@ -33,7 +33,7 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
         }
 
         let button = UIButton(type: .system)
-        button.frame = CGRect(x: 380, y: 0, width: 30, height: 30)
+        button.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 0, width: 30, height: 30)
         button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
         button.addTarget(self, action: #selector(self.addCell), for: .touchUpInside)
 
