@@ -29,7 +29,7 @@ class DisplaySheetViewController: UIViewController {
                 sheetView = view
                 view.setupTableView()
             case 2:
-                let view = CharacterAttributesT20()
+                let view = CharacterAttributesCthulhu()
                 sheetView = view   
             case 1:
                 let view = CharacterPoints()

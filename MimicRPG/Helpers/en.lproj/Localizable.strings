@@ -94,3 +94,6 @@ Value = "Value";
 Ammo = "Ammunation";
 Malfunction = "Malfunction";
 Attacks = "Attacks";
+APP = "APP";
+POW = "POW";
+SIZ = "SIZ";

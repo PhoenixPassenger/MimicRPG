@@ -94,3 +94,6 @@ Value = "Valor";
 Ammo = "Munição";
 Malfunction = "Malfuncionamento";
 Attacks = "Ataques";
+APP = "APA";
+POW = "POD";
+SIZ = "TAM";
