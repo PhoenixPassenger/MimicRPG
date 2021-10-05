@@ -29,6 +29,17 @@ extension UIFont {
         }
         return font
     }
+    
+    class func josefinSansSemiBold16() -> UIFont {
+        guard let font = UIFont(name: "JosefinSans-SemiBold", size: 16) else {
+            fatalError("""
+               Failed to load the "JosefinSans-Bold" font.
+               Make sure the font file is included in the project and the font name is spelled correctly.
+               """
+           )
+        }
+        return font
+    }
 
     class func josefinSansBold14() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Bold", size: 14) else {

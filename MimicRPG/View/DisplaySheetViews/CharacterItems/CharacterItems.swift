@@ -13,8 +13,8 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.dataSource = self
         self.delegate = self
         self.rowHeight = 125
-//        self.tableView.separatorStyle = .none
         self.backgroundColor = UIColor(named: "Background")
+        self.separatorStyle = .none
         self.tableFooterView = UIView()
     }
 
@@ -45,5 +45,34 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
+    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "EditItem".localized()) { [weak self] (_, _, completionHandler) in
+            self?.editCell(row: indexPath.row)
+            completionHandler(true)
+        }
+        action.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "DeleteItem".localized()) { [weak self] (_, _, completionHandler) in
+            self?.removeCell(row: indexPath.row)
+            completionHandler(true)
+        }
+        action.backgroundColor = .systemRed
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+
+    private func removeCell(row: Int) {
+        // Melhor implementar um alert antes disso
+        let path = IndexPath(row: row, section: 0)
+        self.deleteRows(at: [path], with: .fade)
+        self.reloadData()
+    }
+
+    private func editCell(row: Int) {
+        print(row)
     }
 }
