@@ -27,7 +27,7 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         MockSkillCthulhu(name: "Arqueologia", active: false, value: 22),
         MockSkillCthulhu(name: "Arremessar", active: true, value: 25),
         MockSkillCthulhu(name: "Artes Marciais", active: false, value: 22),
-        MockSkillCthulhu(name: "Astrologia", active: false, value: 22),
+        MockSkillCthulhu(name: "Astrologia", active: false, value: 22)
     ]
 
     var filteredSkills: [MockSkillCthulhu] = []
@@ -43,8 +43,8 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         return searchBar
     }()
 
-    lazy var infoView: CharacterSkillsHeaderT20 = {
-        let view = CharacterSkillsHeaderT20()
+    lazy var infoView: CharacterSkillsHeaderCthulhu = {
+        let view = CharacterSkillsHeaderCthulhu()
         view.frame = CGRect(x: 0, y: 54, width: UIScreen.main.bounds.width, height: 38)
         return view
     }()
@@ -125,4 +125,3 @@ extension CharacterSkillsCthulhu: UISearchBarDelegate {
         searchBar.endEditing(true)
     }
 }
-

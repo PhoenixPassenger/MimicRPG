@@ -43,6 +43,7 @@
 		2E6EAE41270B88BA00626650 /* CreateAttackCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE40270B88BA00626650 /* CreateAttackCthulhuModal.swift */; };
 		2E6EAE43270C923F00626650 /* CharacterSkillsCthulhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE42270C923F00626650 /* CharacterSkillsCthulhu.swift */; };
 		2E6EAE45270C943100626650 /* CharacterSkillsCellCthulhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE44270C943100626650 /* CharacterSkillsCellCthulhu.swift */; };
+		2E6EAE47270C99A400626650 /* CharacterSkillsHeaderCthulhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE46270C99A400626650 /* CharacterSkillsHeaderCthulhu.swift */; };
 		2EA6F15C26FD3CF000027E41 /* UserSheetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */; };
 		2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */; };
 		2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */; };
@@ -151,6 +152,7 @@
 		2E6EAE40270B88BA00626650 /* CreateAttackCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAttackCthulhuModal.swift; sourceTree = "<group>"; };
 		2E6EAE42270C923F00626650 /* CharacterSkillsCthulhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCthulhu.swift; sourceTree = "<group>"; };
 		2E6EAE44270C943100626650 /* CharacterSkillsCellCthulhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCellCthulhu.swift; sourceTree = "<group>"; };
+		2E6EAE46270C99A400626650 /* CharacterSkillsHeaderCthulhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeaderCthulhu.swift; sourceTree = "<group>"; };
 		2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModel.swift; sourceTree = "<group>"; };
 		2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelOutput.swift; sourceTree = "<group>"; };
 		2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelType.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */,
 				2E6EAE42270C923F00626650 /* CharacterSkillsCthulhu.swift */,
 				2E6EAE44270C943100626650 /* CharacterSkillsCellCthulhu.swift */,
+				2E6EAE46270C99A400626650 /* CharacterSkillsHeaderCthulhu.swift */,
 			);
 			path = CharacterSkills;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */,
 				5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */,
 				5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */,
+				2E6EAE47270C99A400626650 /* CharacterSkillsHeaderCthulhu.swift in Sources */,
 				5B7C971426F0C09F00E01EBA /* Attributes+CoreDataClass.swift in Sources */,
 				2E24F77A26FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,

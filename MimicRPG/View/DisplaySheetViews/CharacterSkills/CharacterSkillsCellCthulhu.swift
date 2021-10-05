@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 class CharacterSkillsCellCthulhu: UITableViewCell {
 
-    var isChecked: Bool = false
+    var isChecked: Bool = true
     var value: Int = 0
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -163,18 +163,21 @@ class CharacterSkillsCellCthulhu: UITableViewCell {
 
     func set( titleItem: String, active: Bool, value: Int) {
         titleLabel.text = titleItem
-        isChecked = !active
+        isChecked = active
         checkmark.isHidden = !isChecked
         self.value = value
-        totalBy5Label.text = "\(Int(self.value/5))"
-        totalBy2Label.text = "\(Int(self.value/2))"
-        totalLabel.text = "\(self.value)"
+        totalBy5Label.text = (isChecked ? "\(Int(self.value/5))" : "1")
+        totalBy2Label.text = (isChecked ? "\(Int(self.value/2))" : "1")
+        totalLabel.text = (isChecked ? "\(self.value)" : "1")
         checkbox.addTarget(self, action: #selector(didTapCheckbox), for: .touchUpInside)
     }
 
     @objc func didTapCheckbox () {
         self.isChecked = !isChecked
         checkmark.isHidden = !isChecked
+        totalBy5Label.text = (isChecked ? "\(Int(self.value/5))" : "1")
+        totalBy2Label.text = (isChecked ? "\(Int(self.value/2))" : "1")
+        totalLabel.text = (isChecked ? "\(self.value)" : "1")
     }
 }
 
@@ -248,4 +251,3 @@ extension CharacterSkillsCellCthulhu {
         ])
     }
 }
-
