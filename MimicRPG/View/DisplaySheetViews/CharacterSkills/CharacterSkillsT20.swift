@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MockSkill {
+class MockSkillT20 {
     var name: String = ""
     var active: Bool = false
     var other: Int = 0
@@ -26,19 +26,19 @@ class MockSkill {
     }
 }
 
-class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
+class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSource {
 
-    let mockSkills: [MockSkill] = [
-        MockSkill(name: "Acrobacia", active: false, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
-        MockSkill(name: "Adestramento", active: true, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
-        MockSkill(name: "Atletismo", active: false, other: 2, modAttribute: 1, attribute: "FOR", levelBy2: 2),
-        MockSkill(name: "Atuação", active: false, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
-        MockSkill(name: "Cavalgar", active: true, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
-        MockSkill(name: "Conhecimento", active: false, other: 0, modAttribute: 1, attribute: "INT", levelBy2: 2),
-        MockSkill(name: "Cura", active: false, other: 0, modAttribute: 1, attribute: "SAB", levelBy2: 2)
+    let mockSkills: [MockSkillT20] = [
+        MockSkillT20(name: "Acrobacia", active: false, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
+        MockSkillT20(name: "Adestramento", active: true, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
+        MockSkillT20(name: "Atletismo", active: false, other: 2, modAttribute: 1, attribute: "FOR", levelBy2: 2),
+        MockSkillT20(name: "Atuação", active: false, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
+        MockSkillT20(name: "Cavalgar", active: true, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
+        MockSkillT20(name: "Conhecimento", active: false, other: 0, modAttribute: 1, attribute: "INT", levelBy2: 2),
+        MockSkillT20(name: "Cura", active: false, other: 0, modAttribute: 1, attribute: "SAB", levelBy2: 2)
     ]
 
-    var filteredSkills: [MockSkill] = []
+    var filteredSkills: [MockSkillT20] = []
 
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -51,14 +51,14 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
         return searchBar
     }()
 
-    lazy var infoView: CharacterSkillsHeader = {
-        let view = CharacterSkillsHeader()
+    lazy var infoView: CharacterSkillsHeaderT20 = {
+        let view = CharacterSkillsHeaderT20()
         view.frame = CGRect(x: 0, y: 54, width: UIScreen.main.bounds.width, height: 38)
         return view
     }()
 
     func setupTableView() {
-        self.register(CharacterSkillsCell.self, forCellReuseIdentifier: "MyCell")
+        self.register(CharacterSkillsCellT20.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
 //        self.tableView.separatorStyle = .none
@@ -71,7 +71,7 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCell
+        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCellT20
         guard let cell = cellWrap else { fatalError() }
         cell.set(
             titleItem: filteredSkills[indexPath.row].name,
@@ -119,7 +119,7 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension CharacterSkills: UISearchBarDelegate {
+extension CharacterSkillsT20: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             filteredSkills = mockSkills
