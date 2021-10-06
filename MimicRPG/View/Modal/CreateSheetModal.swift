@@ -40,6 +40,7 @@ class CreateSheetModal: UIViewController {
     }
 
     var selectedRow: Int = 0
+    var sheetsOutput: UserSheetsViewModelOutput!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     required init?(coder: NSCoder) {
@@ -151,7 +152,7 @@ class CreateSheetModal: UIViewController {
 
     @objc func rightButtonBehavior() {
         createNewSheet()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: sheetsOutput.reloadDisplayData)
     }
 
     private func additionalConfigurations() {
@@ -202,6 +203,9 @@ class CreateSheetModal: UIViewController {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+//        for skill in Skills.allValues {
+//            print(skill.getSkills().name)
+//        }
     }
 
     private func configureLayout() {

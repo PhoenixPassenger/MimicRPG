@@ -1,44 +1,36 @@
 //
-//  CharacterSkills.swift
+//  CharacterSkillsCthulhu.swift
 //  MimicRPG
 //
-//  Created by Eduardo Oliveira on 24/09/21.
+//  Created by Eduardo Oliveira on 05/10/21.
 //
 
 import Foundation
 import UIKit
 
-class MockSkill {
+class MockSkillCthulhu {
     var name: String = ""
     var active: Bool = false
-    var other: Int = 0
-    var modAttribute: Int = 0
-    var attribute: String = "CON"
-    var levelBy2: Int = 0
+    var value: Int = 0
 
-    init(name: String, active: Bool, other: Int, modAttribute: Int, attribute: String, levelBy2: Int) {
+    init(name: String, active: Bool, value: Int) {
         self.name = name
         self.active = active
-        self.other = other
-        self.modAttribute = modAttribute
-        self.attribute = attribute
-        self.levelBy2 = levelBy2
+        self.value = value
     }
 }
 
-class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
+class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataSource {
 
-    let mockSkills: [MockSkill] = [
-        MockSkill(name: "Acrobacia", active: false, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
-        MockSkill(name: "Adestramento", active: true, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
-        MockSkill(name: "Atletismo", active: false, other: 2, modAttribute: 1, attribute: "FOR", levelBy2: 2),
-        MockSkill(name: "Atuação", active: false, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
-        MockSkill(name: "Cavalgar", active: true, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
-        MockSkill(name: "Conhecimento", active: false, other: 0, modAttribute: 1, attribute: "INT", levelBy2: 2),
-        MockSkill(name: "Cura", active: false, other: 0, modAttribute: 1, attribute: "SAB", levelBy2: 2)
+    let mockSkills: [MockSkillCthulhu] = [
+        MockSkillCthulhu(name: "Antropologia", active: true, value: 22),
+        MockSkillCthulhu(name: "Arqueologia", active: false, value: 22),
+        MockSkillCthulhu(name: "Arremessar", active: true, value: 25),
+        MockSkillCthulhu(name: "Artes Marciais", active: false, value: 22),
+        MockSkillCthulhu(name: "Astrologia", active: false, value: 22)
     ]
 
-    var filteredSkills: [MockSkill] = []
+    var filteredSkills: [MockSkillCthulhu] = []
 
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -51,14 +43,14 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
         return searchBar
     }()
 
-    lazy var infoView: CharacterSkillsHeader = {
-        let view = CharacterSkillsHeader()
+    lazy var infoView: CharacterSkillsHeaderCthulhu = {
+        let view = CharacterSkillsHeaderCthulhu()
         view.frame = CGRect(x: 0, y: 54, width: UIScreen.main.bounds.width, height: 38)
         return view
     }()
 
     func setupTableView() {
-        self.register(CharacterSkillsCell.self, forCellReuseIdentifier: "MyCell")
+        self.register(CharacterSkillsCellCthulhu.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
 //        self.tableView.separatorStyle = .none
@@ -71,15 +63,12 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCell
+        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCellCthulhu
         guard let cell = cellWrap else { fatalError() }
         cell.set(
             titleItem: filteredSkills[indexPath.row].name,
             active: filteredSkills[indexPath.row].active,
-            other: filteredSkills[indexPath.row].other,
-            modAttribute: filteredSkills[indexPath.row].modAttribute,
-            attribute: filteredSkills[indexPath.row].attribute,
-            levelBy2: filteredSkills[indexPath.row].levelBy2)
+            value: filteredSkills[indexPath.row].value)
         return cell
     }
 
@@ -119,7 +108,7 @@ class CharacterSkills: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension CharacterSkills: UISearchBarDelegate {
+extension CharacterSkillsCthulhu: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             filteredSkills = mockSkills

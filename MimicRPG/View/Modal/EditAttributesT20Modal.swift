@@ -12,7 +12,7 @@ class EditAttributesT20Modal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -62,7 +62,7 @@ class EditAttributesT20Modal: UIViewController {
         self.view.addSubview(button)
         return button
     }()
-    
+
     // MARK: - Breadcrumb
 
     lazy var breadcrumb: BreadcrumbForm = {
@@ -71,7 +71,7 @@ class EditAttributesT20Modal: UIViewController {
         self.view.addSubview(breadcrumb)
         return breadcrumb
     }()
-    
+
     // MARK: - First Group
 
     lazy var strengthView: EditModalComponent = {
@@ -242,4 +242,3 @@ class EditAttributesT20Modal: UIViewController {
         ])
     }
 }
-

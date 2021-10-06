@@ -1,18 +1,18 @@
 //
-//  CreateAttackCthulhuModal.swift
+//  EditFieldModal.swift
 //  MimicRPG
 //
-//  Created by Eduardo Oliveira on 04/10/21.
+//  Created by Eduardo Oliveira on 06/10/21.
 //
 // swiftlint:disable force_cast
 
 import UIKit
 
-class CreateAttackCthulhuModal: UIViewController {
+class EditFieldModal: UIViewController {
 
     var paginator: Int = 0
-    let lastPage: Int = 1
-    
+    let lastPage: Int = 0
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -37,7 +37,7 @@ class CreateAttackCthulhuModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "NewAttack".localized()
+        label.text = "EditField".localized()
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -62,67 +62,16 @@ class CreateAttackCthulhuModal: UIViewController {
         self.view.addSubview(button)
         return button
     }()
-    
-    // MARK: - Breadcrumb
 
-    lazy var breadcrumb: BreadcrumbForm = {
-        let breadcrumb = BreadcrumbForm()
-        breadcrumb.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(breadcrumb)
-        return breadcrumb
-    }()
-    
     // MARK: - First Group
 
-    lazy var sheetAttackNameView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "AttackName".localized(), type: .text)
-        return view
-    }()
-
-    lazy var sheetAttackDamageView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Damage".localized(), type: .text)
-        return view
-    }()
-
-    lazy var sheetAttackValueView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Value".localized(), type: .stepper)
-        return view
-    }()
-
-    lazy var sheetAttackAmmoView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Ammo".localized(), type: .stepper)
+    lazy var sheetItemDescView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Description".localized(), multiline: true, type: .text)
         return view
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetAttackNameView, sheetAttackDamageView, sheetAttackValueView, sheetAttackAmmoView])
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.alignment = .fill
-        stack.spacing = 22
-        self.view.addSubview(stack)
-        return stack
-    }()
-
-    // MARK: - Second Group
-
-    lazy var sheetAttackRangeView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Range".localized(), type: .text)
-        return view
-    }()
-
-    lazy var sheetAttackMalfunctionView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Malfunction".localized(), type: .text)
-        return view
-    }()
-
-    lazy var sheetAttackCriticalView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Attacks".localized(), type: .stepper)
-        return view
-    }()
-
-    lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetAttackRangeView, sheetAttackMalfunctionView, sheetAttackCriticalView])
+        let stack = UIStackView(arrangedSubviews: [sheetItemDescView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -152,7 +101,7 @@ class CreateAttackCthulhuModal: UIViewController {
 
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
-            createNewAttack()
+            createNewItem()
             dismiss(animated: true, completion: nil)
         } else {
             paginator += 1
@@ -172,37 +121,6 @@ class CreateAttackCthulhuModal: UIViewController {
         } else {
             rightButton.setTitle("Next".localized(), for: .normal)
         }
-
-        switch paginator {
-        case 0:
-            firstStack.isHidden = false
-            secondStack.isHidden = true
-        case 1:
-            firstStack.isHidden = true
-            secondStack.isHidden = false
-        default:
-            break
-        }
-        updateBreadcrumb()
-    }
-
-    func updateBreadcrumb() {
-        UIView.animate(withDuration: 0.3, animations: { [self] in
-            switch paginator {
-            case 0:
-                breadcrumb.firstCircle.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
-                breadcrumb.line.backgroundColor = .systemGray
-                breadcrumb.secondCircle.transform = CGAffineTransform.identity
-                breadcrumb.secondCircle.backgroundColor = .systemGray
-            case 1:
-                breadcrumb.firstCircle.transform = CGAffineTransform.identity
-                breadcrumb.line.backgroundColor = UIColor(named: "Azure")
-                breadcrumb.secondCircle.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
-                breadcrumb.secondCircle.backgroundColor = UIColor(named: "Azure")
-            default:
-                break
-            }
-        })
     }
 
     private func additionalConfigurations() {
@@ -212,8 +130,8 @@ class CreateAttackCthulhuModal: UIViewController {
     }
 
     // MARK: - CoreData
-    func createNewAttack() {
-        //
+    func createNewItem() {
+//        
     }
 
     private func configureLayout() {
@@ -232,18 +150,9 @@ class CreateAttackCthulhuModal: UIViewController {
             rightButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             rightButton.centerYAnchor.constraint(equalTo: navigationBar.centerYAnchor),
 
-            breadcrumb.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
-            breadcrumb.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
-            breadcrumb.heightAnchor.constraint(equalToConstant: 9),
-            breadcrumb.widthAnchor.constraint(equalToConstant: 32),
-
-            firstStack.topAnchor.constraint(equalTo: breadcrumb.bottomAnchor, constant: 10),
+            firstStack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
             firstStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            firstStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-
-            secondStack.topAnchor.constraint(equalTo: breadcrumb.bottomAnchor, constant: 10),
-            secondStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            secondStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+            firstStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
     }
 }

@@ -18,7 +18,14 @@ class MockSheet {
         self.image = image
         self.charName = charName
         self.desc = desc
-        self.system = system
+        switch (system) {
+        case "Cthulhu 7th ed.":
+            self.system = "CT7"
+        case "Tormenta 20":
+            self.system = "T20"
+        default:
+            self.system = "T20"
+        }
     }
 }
 
@@ -31,16 +38,11 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
     let searchController = UISearchController()
     lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(triggerNewSheetModal))
 
-    var mockSheets: [MockSheet] = [
-        MockSheet(image: "llanowar", charName: "Llanowar", desc: "Guerra da Centelha", system: "T20"),
-        MockSheet(image: "llanowar", charName: "Ral", desc: "O Trono de Eldraine", system: "T20"),
-        MockSheet(image: "llanowar", charName: "Nahiri", desc: "Retorno de Zendikar", system: "T20"),
-        MockSheet(image: "llanowar", charName: "Cleiton Rasta", desc: "O mistério do Sabiá", system: "CT7"),
-        MockSheet(image: "llanowar", charName: "Llanowar", desc: "Guerra da Centelha", system: "T20"),
-        MockSheet(image: "llanowar", charName: "Ral", desc: "O Trono de Eldraine", system: "T20"),
-        MockSheet(image: "llanowar", charName: "Nahiri", desc: "Retorno de Zendikar", system: "T20"),
-        MockSheet(image: "llanowar", charName: "Cleiton Rasta", desc: "O mistério do Sabiá", system: "CT7")
-    ]
+    var mockSheets: [MockSheet] = [] {
+        didSet {
+            filteredSheets = mockSheets
+        }
+    }
 
     var filteredSheets: [MockSheet] = []
 
@@ -59,8 +61,6 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 30, bottom: 10, right: 30)
         layout.itemSize = CGSize(width: 160, height: 180)
-
-        filteredSheets = mockSheets
 
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView?.register(UserSheet.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -97,7 +97,8 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
     }
 
     @objc func triggerNewSheetModal() {
-        let createSheetModal = EditSkillT20Modal()
+        let createSheetModal = CreateSheetModal()
+        createSheetModal.sheetsOutput = viewModel.output
         present(createSheetModal, animated: true, completion: nil)
     }
 
@@ -134,12 +135,21 @@ extension UserSheetsViewController: UICollectionViewDataSource {
     }
 
     func fetchData() {
-        print(viewModel.fetchSheets().count)
+        let storedSheets = viewModel.fetchSheets()
+        mockSheets.removeAll()
+        for sheet in storedSheets {
+            if let sheetName = sheet.name, let sheetSystem = sheet.system {
+                mockSheets.append(MockSheet(image: "llanowar", charName: sheetName, desc: "Guerra da Centelha", system: sheetSystem))
+            }
+        }
+        collectionView?.reloadData()
     }
 }
 
 extension UserSheetsViewController: UserSheetsViewModelOutput {
-
+    func reloadDisplayData() {
+        fetchData()
+    }
 }
 
 extension UserSheetsViewController: UICollectionViewDelegate {
