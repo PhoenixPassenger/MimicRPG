@@ -37,7 +37,7 @@ class EditFieldModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "CreateNote".localized()
+        label.text = "EditField".localized()
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -66,7 +66,7 @@ class EditFieldModal: UIViewController {
     // MARK: - First Group
 
     lazy var sheetItemDescView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "NoteContents".localized(), multiline: true, type: .text)
+        let view = EditModalComponent(titleText: "Description".localized(), multiline: true, type: .text)
         return view
     }()
 
