@@ -7,9 +7,9 @@
 
 import Foundation
 import UIKit
-class CharacterSkillsCell: UITableViewCell {
+class CharacterSkillsCellT20: UITableViewCell {
 
-    var isChecked: Bool = false
+    var isChecked: Bool = true
     var total: Int = 0
     var other: Int = 0
     var modAttribute: Int = 0
@@ -207,7 +207,7 @@ class CharacterSkillsCell: UITableViewCell {
 
     func set( titleItem: String, active: Bool, other: Int, modAttribute: Int, attribute: String, levelBy2: Int) {
         titleLabel.text = titleItem
-        isChecked = !active
+        isChecked = active
         checkmark.isHidden = !isChecked
         self.other = other
         self.modAttribute = modAttribute
@@ -230,7 +230,7 @@ class CharacterSkillsCell: UITableViewCell {
     }
 }
 
-extension CharacterSkillsCell {
+extension CharacterSkillsCellT20 {
     private func configureLayout() {
         NSLayoutConstraint.activate([
             checkbox.centerYAnchor.constraint(equalTo: self.centerYAnchor),
