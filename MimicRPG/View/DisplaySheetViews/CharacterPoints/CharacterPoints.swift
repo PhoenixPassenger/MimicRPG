@@ -386,11 +386,13 @@ class CharacterPoints: UIView {
         NSLayoutConstraint.activate([
             defenseBox.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
             defenseBox.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            defenseBox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            defenseBox.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             defenseBox.heightAnchor.constraint(equalToConstant: 109),
 
             baseBox.topAnchor.constraint(equalTo: defenseBox.topAnchor, constant: 21),
-            baseBox.leadingAnchor.constraint(equalTo: defenseBox.leadingAnchor, constant: 7),
-            baseBox.widthAnchor.constraint(equalToConstant: 76),
+            baseBox.leadingAnchor.constraint(equalTo: defenseBox.leadingAnchor, constant: UIScreen.main.bounds.width * 0.022),
+            baseBox.widthAnchor.constraint(equalTo: defenseBox.widthAnchor, multiplier: 0.23),
             baseBox.heightAnchor.constraint(equalToConstant: 36),
 
             baseValue.centerXAnchor.constraint(equalTo: baseBox.centerXAnchor),
@@ -400,7 +402,7 @@ class CharacterPoints: UIView {
 
             attributeBox.topAnchor.constraint(equalTo: defenseBox.topAnchor, constant: 21),
             attributeBox.leadingAnchor.constraint(equalTo: baseBox.trailingAnchor, constant: 1),
-            attributeBox.widthAnchor.constraint(equalToConstant: 76),
+            attributeBox.widthAnchor.constraint(equalTo: defenseBox.widthAnchor, multiplier: 0.23),
             attributeBox.heightAnchor.constraint(equalToConstant: 36),
 
             attributeValue.centerXAnchor.constraint(equalTo: attributeBox.centerXAnchor),
@@ -410,7 +412,7 @@ class CharacterPoints: UIView {
 
             temporaryBox.topAnchor.constraint(equalTo: defenseBox.topAnchor, constant: 21),
             temporaryBox.leadingAnchor.constraint(equalTo: attributeBox.trailingAnchor, constant: 1),
-            temporaryBox.widthAnchor.constraint(equalToConstant: 76),
+            temporaryBox.widthAnchor.constraint(equalTo: defenseBox.widthAnchor, multiplier: 0.23),
             temporaryBox.heightAnchor.constraint(equalToConstant: 36),
 
             temporaryValue.centerXAnchor.constraint(equalTo: temporaryBox.centerXAnchor),
@@ -419,8 +421,8 @@ class CharacterPoints: UIView {
             temporaryText.centerYAnchor.constraint(equalTo: temporaryBox.centerYAnchor, constant: 10),
 
             armorBonusBox.topAnchor.constraint(equalTo: baseBox.bottomAnchor, constant: 1),
-            armorBonusBox.leadingAnchor.constraint(equalTo: defenseBox.leadingAnchor, constant: 7),
-            armorBonusBox.widthAnchor.constraint(equalToConstant: 76),
+            armorBonusBox.leadingAnchor.constraint(equalTo: baseBox.leadingAnchor),
+            armorBonusBox.widthAnchor.constraint(equalTo: baseBox.widthAnchor),
             armorBonusBox.heightAnchor.constraint(equalToConstant: 36),
 
             armorBonusValue.centerXAnchor.constraint(equalTo: armorBonusBox.centerXAnchor),
@@ -430,7 +432,7 @@ class CharacterPoints: UIView {
 
             shieldBonusBox.topAnchor.constraint(equalTo: baseBox.bottomAnchor, constant: 1),
             shieldBonusBox.leadingAnchor.constraint(equalTo: armorBonusBox.trailingAnchor, constant: 1),
-            shieldBonusBox.widthAnchor.constraint(equalToConstant: 76),
+            shieldBonusBox.widthAnchor.constraint(equalTo: attributeBox.widthAnchor),
             shieldBonusBox.heightAnchor.constraint(equalToConstant: 36),
 
             shieldBonusValue.centerXAnchor.constraint(equalTo: shieldBonusBox.centerXAnchor),
@@ -440,7 +442,7 @@ class CharacterPoints: UIView {
 
             othersBox.topAnchor.constraint(equalTo: baseBox.bottomAnchor, constant: 1),
             othersBox.leadingAnchor.constraint(equalTo: shieldBonusBox.trailingAnchor, constant: 1),
-            othersBox.widthAnchor.constraint(equalToConstant: 76),
+            othersBox.widthAnchor.constraint(equalTo: temporaryBox.widthAnchor),
             othersBox.heightAnchor.constraint(equalToConstant: 36),
 
             othersValue.centerXAnchor.constraint(equalTo: othersBox.centerXAnchor),
@@ -451,13 +453,13 @@ class CharacterPoints: UIView {
             defenseText.centerXAnchor.constraint(equalTo: attributeBox.centerXAnchor),
             defenseText.centerYAnchor.constraint(equalTo: attributeBox.topAnchor, constant: -10),
 
-            totalBox.bottomAnchor.constraint(equalTo: defenseBox.bottomAnchor),
+            totalBox.centerYAnchor.constraint(equalTo: defenseBox.centerYAnchor),
+            totalBox.leadingAnchor.constraint(equalTo: othersBox.trailingAnchor, constant: 15),
             totalBox.trailingAnchor.constraint(equalTo: defenseBox.trailingAnchor, constant: -5),
-            totalBox.widthAnchor.constraint(equalToConstant: 73),
-            totalBox.heightAnchor.constraint(equalToConstant: 91),
+            totalBox.heightAnchor.constraint(equalToConstant: 80),
 
             totalValue.centerXAnchor.constraint(equalTo: totalBox.centerXAnchor),
-            totalValue.centerYAnchor.constraint(equalTo: totalBox.centerYAnchor, constant: -5),
+            totalValue.centerYAnchor.constraint(equalTo: totalBox.centerYAnchor, constant: 5),
 
             stackPoints.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             stackPoints.topAnchor.constraint(equalTo: defenseBox.bottomAnchor, constant: 15),
