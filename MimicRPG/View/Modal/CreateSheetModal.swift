@@ -202,6 +202,9 @@ class CreateSheetModal: UIViewController {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+//        for skill in Skills.allValues {
+//            print(skill.getSkills().name)
+//        }
     }
 
     private func configureLayout() {

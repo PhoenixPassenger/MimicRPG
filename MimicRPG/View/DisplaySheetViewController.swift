@@ -63,7 +63,12 @@ class DisplaySheetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setHeader()
+        updateButtons()
+        setupButtons()
+    }
+    
+    func setHeader() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundImage = UIImage(named: "banner")
@@ -81,8 +86,6 @@ class DisplaySheetViewController: UIViewController {
         sheetHeader!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         navigationController?.navigationBar.subviews[0].insertSubview(sheetHeader!, at: 0)
         self.view.backgroundColor = UIColor(named: "Background")
-        updateButtons()
-        setupButtons()
     }
 
     override func viewDidAppear(_ animated: Bool) {
