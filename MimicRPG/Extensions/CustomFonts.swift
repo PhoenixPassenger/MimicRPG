@@ -29,7 +29,7 @@ extension UIFont {
         }
         return font
     }
-    
+
     class func josefinSansSemiBold16() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-SemiBold", size: 16) else {
             fatalError("""

@@ -8,16 +8,6 @@
 
 import Foundation
 
-struct SkillT20 {
-    var name: String
-    var attribute: SkillT20Attribute
-    
-    init (name: String, attribute: SkillT20Attribute) {
-        self.name = name
-        self.attribute = attribute
-    }
-}
-
 struct PointT2O {
     var name: String
     var value: Int
@@ -29,7 +19,40 @@ struct PointT2O {
 }
 
 enum PointsT20 {
+    case maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers
     
+    func getpoints() -> PointT2O {
+        switch self {
+        case .maxLife:
+            return PointT2O(name: "Max Life", value: 0)
+        case .actualLife:
+            return PointT2O(name: "Actual Life", value: 0)
+        case .maxMana:
+            return PointT2O(name: "Max Mana", value: 0)
+        case .actualMana:
+            return PointT2O(name: "Actual Mana", value: 0)
+        case .classArmorTemp:
+            return PointT2O(name: "Class Armor Temporary", value: 0)
+        case .armorBonus:
+            return PointT2O(name: "Armor Bonus", value: 0)
+        case .shieldBonus:
+            return PointT2O(name: "Shield Bonus", value: 0)
+        case .classArmorOthers:
+            return PointT2O(name: "Class armor Others", value: 0)
+        }
+    }
+    
+    static let allValues = [maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers]
+}
+
+struct SkillT20 {
+    var name: String
+    var attribute: SkillT20Attribute
+    
+    init (name: String, attribute: SkillT20Attribute) {
+        self.name = name
+        self.attribute = attribute
+    }
 }
 
 enum SkillT20Attribute {
