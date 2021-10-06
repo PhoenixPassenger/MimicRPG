@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00A89D91270598A900ED72B2 /* CharacterAttributesT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A89D90270598A900ED72B2 /* CharacterAttributesT20.swift */; };
 		00A89D9327059B9100ED72B2 /* AttributeBoxT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A89D9227059B9100ED72B2 /* AttributeBoxT20.swift */; };
+		00C57CCF270DCFF200CEB5A7 /* EditSkillT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C57CCE270DCFF200CEB5A7 /* EditSkillT20Modal.swift */; };
 		2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCB026F36A4B00500E44 /* UserSheet.swift */; };
 		2E16CCC126F36A9800500E44 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */; };
 		2E16CCC226F36A9800500E44 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */; };
@@ -115,6 +116,7 @@
 /* Begin PBXFileReference section */
 		00A89D90270598A900ED72B2 /* CharacterAttributesT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttributesT20.swift; sourceTree = "<group>"; };
 		00A89D9227059B9100ED72B2 /* AttributeBoxT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeBoxT20.swift; sourceTree = "<group>"; };
+		00C57CCE270DCFF200CEB5A7 /* EditSkillT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillT20Modal.swift; sourceTree = "<group>"; };
 		2E16CCB026F36A4B00500E44 /* UserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheet.swift; sourceTree = "<group>"; };
 		2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */,
 				2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */,
 				2E6EAE3E270B853B00626650 /* EditAttributesCthulhuModal.swift */,
+				00C57CCE270DCFF200CEB5A7 /* EditSkillT20Modal.swift */,
 				2E6EAE40270B88BA00626650 /* CreateAttackCthulhuModal.swift */,
 			);
 			path = Modal;
@@ -766,6 +769,7 @@
 				5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */,
 				5B0DC57326EA2B68008C8578 /* SceneDelegate.swift in Sources */,
 				5B7C971426F0C09F00E01EBA /* Attributes+CoreDataClass.swift in Sources */,
+				00C57CCF270DCFF200CEB5A7 /* EditSkillT20Modal.swift in Sources */,
 				2E24F77A26FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
 				96435CF22705DD8F00C9E571 /* CharacterAttacksCell.swift in Sources */,
