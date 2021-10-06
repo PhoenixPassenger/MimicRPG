@@ -26,6 +26,7 @@ System = "System";
 NewSheet = "New Sheet";
 ChooseTheDice = "Choose the Dice";
 Roll = "Roll";
+Bonus = "BONUS";
 Result = "Result";
 Uses = "Uses.: ";
 Name = "Name";

@@ -203,7 +203,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
             view.addSubview(button)
         case .bonus:
             let label = UILabel()
-            label.text = "BÔNUS"
+            label.text = "Bonus".localized()
             label.font = UIFont.josefinSansSkillDesc()
             label.frame = CGRect(x: 10, y: 10, width: 130, height: 44)
             view.addSubview(label)
