@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Points T20
 struct PointT2O {
     var name: String
     var value: Int
@@ -44,6 +45,15 @@ enum PointsT20 {
     
     static let allValues = [maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers]
 }
+// MARK: - Attributes T20
+
+enum SkillT20Attribute {
+    case FOR, DEX, CON, INT, WIS, CHA
+    
+    static let allValues = [FOR, DEX, CON, INT, WIS, CHA]
+}
+
+// MARK: - Skills T20
 
 struct SkillT20 {
     var name: String
@@ -55,16 +65,7 @@ struct SkillT20 {
     }
 }
 
-enum SkillT20Attribute {
-    case FOR
-    case DEX
-    case CON
-    case INT
-    case WIS
-    case CHA
-}
-
-enum Skills {
+enum SkillsT20 {
 
     case acrobatics, dressage, athletics, acting, ride, knowledge, cure, diplomacy, cheat, fortitude, stealth, war, initiative, intimidation, intuition, investigation, gambling, thieving, fighting, mysticism, nobility, occupation,perception,piloting, aiming, reflexes, religion, survival, volition
 
@@ -130,6 +131,6 @@ enum Skills {
             return SkillT20(name: "Volition", attribute: .WIS)
         }
     }
-    
+
      static let allValues = [acrobatics, dressage, athletics, acting, ride, knowledge, cure, diplomacy, cheat, fortitude, stealth, war, initiative, intimidation, intuition, investigation, gambling, thieving, fighting, mysticism, nobility, occupation, perception, piloting, aiming, reflexes, religion, survival, volition]
 }
