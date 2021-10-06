@@ -102,4 +102,5 @@ ModifierCON = "Modificador - Constituição (CON)";
 ModifierINT = "Modificador - Inteligência (INT)";
 ModifierWIS = "Modificador - Sabedoria (SAB)";
 ModifierCHA = "Modificador - Carisma (CAR)";
+Training = "Treinamento";
 

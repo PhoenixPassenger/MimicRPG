@@ -4,20 +4,18 @@
 //
 //  Created by Gustavo Lemos on 05/10/21.
 //
+// swiftlint:disable force_cast
 
 import UIKit
 
 class EditSkillT20Modal: UIViewController {
-    
-    var paginator: Int = 0
-    let lastPage: Int = 1
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
 
     var selectedRow: Int = 0
-    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -61,10 +59,7 @@ class EditSkillT20Modal: UIViewController {
         self.view.addSubview(button)
         return button
     }()
-    
-    // MARK: - Breadcrumb
-    
-    
+
     // MARK: - First Group
     lazy var skillTitleLabel: UILabel = {
         let label = UILabel()
@@ -93,13 +88,12 @@ class EditSkillT20Modal: UIViewController {
         let view = EditModalComponent(titleText: "Others".localized(), type: .stepper)
         return view
     }()
-    
+
     lazy var trainedView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Training", type: .switchButton)
-        view.titleStepper.text = "Enabled"
+        view.titleStepper.text = "Enabled".localized()
         return view
     }()
-    
 
     lazy var firstStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [halfLevelView, modifierView, otherView, trainedView])
@@ -110,7 +104,6 @@ class EditSkillT20Modal: UIViewController {
         self.view.addSubview(stack)
         return stack
     }()
-
 
     // MARK: - Functions
 
@@ -124,7 +117,6 @@ class EditSkillT20Modal: UIViewController {
 
     @objc func leftButtonBehavior() {
         dismiss(animated: true, completion: nil)
-        
     }
 
     @objc func rightButtonBehavior() {
@@ -132,28 +124,9 @@ class EditSkillT20Modal: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    func updateUI() {
-        if paginator == 0 {
-            leftButton.setTitle("Cancel".localized(), for: .normal)
-        } else {
-            leftButton.setTitle("Back".localized(), for: .normal)
-        }
-
-        if paginator == lastPage {
-            rightButton.setTitle("Confirm".localized(), for: .normal)
-        } else {
-            rightButton.setTitle("Next".localized(), for: .normal)
-        }
-
-    
-        
-    }
-
-
     private func additionalConfigurations() {
         configureLayout()
         view.backgroundColor = UIColor(named: "Background")
-        //updateUI()
     }
 
     // MARK: - CoreData
@@ -177,18 +150,12 @@ class EditSkillT20Modal: UIViewController {
             rightButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             rightButton.centerYAnchor.constraint(equalTo: navigationBar.centerYAnchor),
 
-            
             skillTitleLabel.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
             skillTitleLabel.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
-            /*breadcrumb.heightAnchor.constraint(equalToConstant: 9),
-            breadcrumb.widthAnchor.constraint(equalToConstant: 32),
-            */
 
             firstStack.topAnchor.constraint(equalTo: skillTitleLabel.bottomAnchor, constant: 10),
             firstStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            firstStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-
-           
+            firstStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
     }
 

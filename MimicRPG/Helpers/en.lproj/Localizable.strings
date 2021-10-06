@@ -102,3 +102,4 @@ ModifierCON = "Modifier - Constitution (CON)";
 ModifierINT = "Modifier - Intelligence (INT)";
 ModifierWIS = "Modifier - Wisdom (WIS)";
 ModifierCHA = "Modifier - Charisma (CHA)";
+Training = "Training";
