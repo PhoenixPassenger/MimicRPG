@@ -75,7 +75,7 @@ class CharacterAttributesT20: UIView {
             stackPhysical.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
 
             stackMental.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -0),
-            stackMental.topAnchor.constraint(equalTo: stackPhysical.bottomAnchor, constant: 60)
+            stackMental.topAnchor.constraint(equalTo: stackPhysical.bottomAnchor, constant: 15)
             ])
 
     }
