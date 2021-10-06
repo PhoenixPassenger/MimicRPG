@@ -53,6 +53,8 @@ class CharacterSkillsCellT20: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
         label.font = UIFont.josefinSansBold17()
+        label.lineBreakMode = .byCharWrapping
+        label.numberOfLines = 2
         label.sizeToFit()
         self.addSubview(label)
         return label
@@ -232,7 +234,7 @@ extension CharacterSkillsCellT20 {
     private func configureLayout() {
         NSLayoutConstraint.activate([
             checkbox.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            checkbox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            checkbox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             checkbox.widthAnchor.constraint(equalToConstant: 20),
             checkbox.heightAnchor.constraint(equalToConstant: 20),
 
@@ -309,7 +311,9 @@ extension CharacterSkillsCellT20 {
             bottomBar.heightAnchor.constraint(equalToConstant: 1),
 
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 12)
+            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: levelBy2Box.leadingAnchor, constant: -10),
+            titleLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7)
         ])
     }
 }
