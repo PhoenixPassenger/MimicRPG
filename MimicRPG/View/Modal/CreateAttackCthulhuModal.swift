@@ -88,7 +88,7 @@ class CreateAttackCthulhuModal: UIViewController {
         let view = EditModalComponent(titleText: "Value".localized(), type: .stepper)
         return view
     }()
-    
+
     lazy var sheetAttackAmmoView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Ammo".localized(), type: .stepper)
         return view
@@ -247,4 +247,3 @@ class CreateAttackCthulhuModal: UIViewController {
         ])
     }
 }
-

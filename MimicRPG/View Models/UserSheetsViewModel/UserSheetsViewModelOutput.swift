@@ -7,8 +7,8 @@
 
 import Foundation
 protocol UserSheetsViewModelOutput: AnyObject {
+    func reloadDisplayData()
 //    func showAlert()
 //    func openSettingsAlert()
-//    func reloadData()
 //    func showSystemsPicker()
 }

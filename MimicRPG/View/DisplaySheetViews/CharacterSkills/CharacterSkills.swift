@@ -131,7 +131,7 @@ extension CharacterSkills: UISearchBarDelegate {
         self.reloadData()
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.endEditing(true)
     }
