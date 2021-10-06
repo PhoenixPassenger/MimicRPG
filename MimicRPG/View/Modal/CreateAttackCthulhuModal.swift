@@ -71,7 +71,7 @@ class CreateAttackCthulhuModal: UIViewController {
         self.view.addSubview(breadcrumb)
         return breadcrumb
     }()
-    
+
     // MARK: - First Group
 
     lazy var sheetAttackNameView: EditModalComponent = {
