@@ -21,7 +21,7 @@ class MainCoordinator : Coordinator {
         let sheetsViewController = UserSheetsViewController()
         sheetsViewController.viewModel = UserSheetsViewModel()
         sheetsViewController.viewModel.output = sheetsViewController
-        sheetsViewController.title = "Fichas"
+        sheetsViewController.title = "TabBarSheets".localized()
         sheetsViewController.tabBarItem = UITabBarItem(title: "Fichas", image: UIImage(named: "pencil"),
                                        selectedImage: UIImage(named: "pencil"))
 
@@ -29,7 +29,7 @@ class MainCoordinator : Coordinator {
         diceRollerViewController.viewModel = DiceRollerViewModel()
         diceRollerViewController.viewModel.output = diceRollerViewController
         diceRollerViewController.coordinator = self
-        diceRollerViewController.title = "Dados"
+        diceRollerViewController.title = "TabBarDice".localized()
         diceRollerViewController.tabBarItem = UITabBarItem(title: "Dados", image: UIImage(named: "pencil"),
                                                            selectedImage: UIImage(named: "pencil"))
 
@@ -37,9 +37,9 @@ class MainCoordinator : Coordinator {
         settingsViewController.viewModel = SettingsViewModel()
         settingsViewController.viewModel.output = settingsViewController
         settingsViewController.coordinator = self
-        settingsViewController.title = "Options".localized()
-        settingsViewController.tabBarItem = UITabBarItem(title: "Options".localized(), image: UIImage(named: "gearshape"),
-                                                         selectedImage: UIImage(named: "gearshape.fill"))
+        settingsViewController.title = "TabBarOptions".localized()
+        settingsViewController.tabBarItem = UITabBarItem(title: "Options".localized(), image: UIImage(systemName: "gearshape"),
+                                                         selectedImage: UIImage(systemName: "gearshape.fill"))
 
         let sheetsNavigationController = UINavigationController(rootViewController: sheetsViewController)
         let diceNavigationController = UINavigationController(rootViewController: diceRollerViewController)

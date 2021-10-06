@@ -62,7 +62,7 @@ class EditPointsT20Modal: UIViewController {
         self.view.addSubview(button)
         return button
     }()
-    
+
     // MARK: - Breadcrumb
 
     lazy var breadcrumb: BreadcrumbForm = {
@@ -71,7 +71,7 @@ class EditPointsT20Modal: UIViewController {
         self.view.addSubview(breadcrumb)
         return breadcrumb
     }()
-    
+
     // MARK: - First Group
 
     lazy var sheetBonusArmorView: EditModalComponent = {
