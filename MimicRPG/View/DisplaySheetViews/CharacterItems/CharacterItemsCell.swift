@@ -13,47 +13,22 @@ class CharacterItemsCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFont.josefinSansSemiBold16()
         return label
     }()
 
-    lazy var itemDescriptionTextLabel: UITextView = {
-        let field = UITextView()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.font = UIFont.systemFont(ofSize: 17.0)
-        field.textColor = .black
-        field.backgroundColor = .pinkT20
-        field.isEditable = false
-        field.layer.borderWidth = 1
-        field.layer.cornerRadius = 5
-        field.textContainer.lineBreakMode = .byWordWrapping
-        field.textContainerInset = UIEdgeInsets(top: 3, left: 10, bottom: 0, right: 10)
-        return field
-    }()
-
-    lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [itemNameLabel, itemDescriptionTextLabel])
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.alignment = .fill
-        stack.spacing = 15
-        self.addSubview(stack)
-        return stack
-    }()
-
-    lazy var itemUsesBackground: UIImageView = {
-        let view = UIImageView()
+    lazy var itemUsesBackground: UIView = {
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        let color = UIImage.imageWithColor(color: .pinkT20)
-        view.image = color
-        self.addSubview(view)
+        view.layer.cornerRadius = 5
+        view.backgroundColor = .lightBrandy
         return view
     }()
 
     lazy var itemUsesLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
@@ -62,55 +37,64 @@ class CharacterItemsCell: UITableViewCell {
         return label
     }()
 
-    lazy var itemUsesTextLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(label)
-        label.font = UIFont.josefinSansBold17()
-        label.textColor = .black
-        label.backgroundColor = .pinkT20
-        label.textAlignment = .center
-        label.layer.borderColor = UIColor.auburnT20.cgColor
-        return label
+    lazy var firstStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [itemNameLabel, itemUsesBackground])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.spacing = 15
+        return stack
     }()
 
-    override func draw(_ rect: CGRect) {
-        self.layer.borderWidth = 3
-        self.layer.cornerRadius = 5
-        self.layer.backgroundColor = UIColor.auburnT20.cgColor
-        self.layer.borderColor = UIColor.auburnT20.cgColor
-    }
+    lazy var itemDescriptionTextLabel: UITextView = {
+        let field = UITextView()
+        field.translatesAutoresizingMaskIntoConstraints = false
+        field.font = UIFont.josefinSansDetail()
+        field.textColor = .black
+        field.backgroundColor = .pinkT20
+        field.isEditable = false
+        field.layer.cornerRadius = 5
+        field.textContainer.lineBreakMode = .byWordWrapping
+        field.textContainerInset = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+        return field
+    }()
+
+    lazy var stack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [firstStack, itemDescriptionTextLabel])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.spacing = 2
+        stack.backgroundColor = .brandy
+        stack.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layer.cornerRadius = 5
+        self.addSubview(stack)
+        return stack
+    }()
 
     func set(itemName: String, itemDescription: String, itemUses: Int) {
         configureLayout()
-        self.backgroundColor = .auburnT20
-        self.selectionStyle = .none
+        self.backgroundColor = .clear
         itemNameLabel.text = itemName
         itemDescriptionTextLabel.text = itemDescription
-        itemUsesTextLabel.text = "\(itemUses)"
+        itemUsesLabel.text = "Uses".localized() + "\(itemUses)"
     }
-
     private func configureLayout() {
         self.sendSubviewToBack(itemUsesBackground)
         NSLayoutConstraint.activate([
-            stack.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             stack.topAnchor.constraint(equalTo: self.topAnchor),
             stack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
-            itemNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            itemNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            itemUsesBackground.heightAnchor.constraint(equalToConstant: 22),
+            itemUsesBackground.widthAnchor.constraint(equalToConstant: 59),
 
-            itemUsesBackground.leadingAnchor.constraint(equalTo: self.trailingAnchor, constant: -118),
-            itemUsesBackground.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-            itemUsesBackground.heightAnchor.constraint(equalToConstant: 44),
-
-            itemUsesLabel.leadingAnchor.constraint(equalTo: itemUsesBackground.leadingAnchor),
-            itemUsesLabel.centerYAnchor.constraint(equalTo: itemUsesBackground.centerYAnchor),
-            itemUsesTextLabel.leadingAnchor.constraint(equalTo: itemUsesLabel.trailingAnchor),
-            itemUsesTextLabel.centerYAnchor.constraint(equalTo: itemUsesBackground.centerYAnchor),
-
-            itemDescriptionTextLabel.leadingAnchor.constraint(equalTo: stack.leadingAnchor)
+            itemUsesLabel.leadingAnchor.constraint(equalTo: itemUsesBackground.leadingAnchor, constant: 3),
+            itemUsesLabel.centerYAnchor.constraint(equalTo: itemUsesBackground.centerYAnchor)
         ])
     }
 }

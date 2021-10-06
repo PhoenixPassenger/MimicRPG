@@ -59,7 +59,7 @@ class BreadcrumbForm: UIView {
             secondCircle.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             secondCircle.leadingAnchor.constraint(equalTo: line.trailingAnchor),
             secondCircle.widthAnchor.constraint(equalToConstant: 9),
-            secondCircle.heightAnchor.constraint(equalToConstant: 9),
+            secondCircle.heightAnchor.constraint(equalToConstant: 9)
         ])
     }
 }
