@@ -61,6 +61,7 @@ class CharacterAttributesT20: UIView {
     }()
     init() {
         super.init(frame: .zero)
+        self.backgroundColor = UIColor(named: "Background")
         configureLayout()
     }
 
