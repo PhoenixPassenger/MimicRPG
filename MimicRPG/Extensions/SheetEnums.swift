@@ -1,5 +1,5 @@
 //
-//  SkillLists.swift
+//  SheetEnums.swift
 //  MimicRPG
 //
 //  Created by Eduardo Oliveira on 05/10/21.
@@ -7,15 +7,6 @@
 // swiftlint:disable all
 
 import Foundation
-
-enum SkillT20Attribute {
-    case FOR
-    case DEX
-    case CON
-    case INT
-    case WIS
-    case CHA
-}
 
 struct SkillT20 {
     var name: String
@@ -25,6 +16,29 @@ struct SkillT20 {
         self.name = name
         self.attribute = attribute
     }
+}
+
+struct PointT2O {
+    var name: String
+    var value: Int
+    
+    init (name: String, value: Int) {
+        self.name = name
+        self.value = value
+    }
+}
+
+enum PointsT20 {
+    
+}
+
+enum SkillT20Attribute {
+    case FOR
+    case DEX
+    case CON
+    case INT
+    case WIS
+    case CHA
 }
 
 enum Skills {
