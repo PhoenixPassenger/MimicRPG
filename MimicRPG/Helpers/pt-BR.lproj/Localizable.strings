@@ -97,9 +97,9 @@ Malfunction = "Malfuncionamento";
 Attacks = "Ataques";
 HalfLevel = "1/2 DO NÍVEL";
 ModifierSTR = "Modificador - Força (FOR)";
-ModifierSTR = "Modificador - Destreza (DES)";
-ModifierSTR = "Modificador - Constituição (CON)";
-ModifierSTR = "Modificador - Inteligência (INT)";
-ModifierSTR = "Modificador - Sabedoria (SAB)";
-ModifierSTR = "Modificador - Carisma (CAR)";
+ModifierDEX = "Modificador - Destreza (DES)";
+ModifierCON = "Modificador - Constituição (CON)";
+ModifierINT = "Modificador - Inteligência (INT)";
+ModifierWIS = "Modificador - Sabedoria (SAB)";
+ModifierCHA = "Modificador - Carisma (CAR)";
 

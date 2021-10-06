@@ -77,11 +77,15 @@ class EditSkillT20Modal: UIViewController {
     }()
     lazy var halfLevelView: EditModalComponent = {
         let view = EditModalComponent(titleText: "HalfLevel".localized(), type: .text)
+        view.valueText.text = "5"
+        view.valueText.isEditable = false
         return view
     }()
 
     lazy var modifierView: EditModalComponent = {
         let view = EditModalComponent(titleText: "ModifierCHA".localized(), type: .text)
+        view.valueText.text = "4"
+        view.valueText.isEditable = false
         return view
     }()
 
@@ -90,12 +94,12 @@ class EditSkillT20Modal: UIViewController {
         return view
     }()
     
-    lazy var trainedView: UISwitch = {
-        let switchButton = UISwitch()
-        switchButton.isOn = false
-        switchButton.isEnabled = false
-        return switchButton
+    lazy var trainedView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Training", type: .switchButton)
+        view.titleStepper.text = "Enabled"
+        return view
     }()
+    
 
     lazy var firstStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [halfLevelView, modifierView, otherView, trainedView])
