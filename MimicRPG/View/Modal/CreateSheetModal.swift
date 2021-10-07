@@ -203,10 +203,10 @@ class CreateSheetModal: UIViewController {
     // MARK: - Create a profile
         let newProfile = Profile(context: self.context)
         var sheetCharacteristics: [Characteristics] = []
-        
+
         for bio in BiosT20.allValues {
             let newCharacteristic = Characteristics(context: self.context)
-            
+
             newCharacteristic.name = bio.getBios().name
             newCharacteristic.stringValue = bio.getBios().description
             newCharacteristic.profile = newProfile
@@ -215,7 +215,22 @@ class CreateSheetModal: UIViewController {
         }
         newProfile.characteristics = NSSet(array: sheetCharacteristics)
         newProfile.sheet = newSheet
-        
+
+    // MARK: - Create attributes
+        var sheetAttributes: [Attributes] = []
+
+        for attribute in SkillT20Attributes.allValues {
+            let newAttribute = Attributes(context: self.context)
+
+            newAttribute.name = attribute.getAttribute().name
+            newAttribute.abbreviation = attribute.getAttribute().abbreviation
+            newAttribute.value = 0
+            newAttribute.sheet = newSheet
+
+            sheetAttributes.append(newAttribute)
+        }
+        newSheet.attribute = NSSet(array: sheetAttributes)
+
     // MARK: - Create skills
         var sheetSkills: [Skill] = []
 
@@ -224,7 +239,7 @@ class CreateSheetModal: UIViewController {
 
             newSkill.name = skill.getSkills().name
             newSkill.isActivated = false
-            newSkill.attribute = skill.getSkills().attribute.getAttribute()
+            newSkill.attribute = skill.getSkills().attribute.getAttribute().abbreviation
             newSkill.sheet = newSheet
 
             sheetSkills.append(newSkill)

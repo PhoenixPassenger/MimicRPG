@@ -13,6 +13,7 @@ protocol DisplaySheetViewModelType {
     var sheet: Sheet? { get set }
 
     func callEditAttributes()
+    func getAttributes() -> [Attributes]
     func getProfile() -> [Characteristics] 
     func getSkills() -> [Skill]
     func getPoints() -> [Points]

@@ -19,7 +19,7 @@ class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.tableFooterView = UIView()
 
         for bio in viewModel.getProfile() {
-            print(bio.name)
+            // Consome a bio aqui
         }
     }
 

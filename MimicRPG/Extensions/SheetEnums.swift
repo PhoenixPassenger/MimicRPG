@@ -79,23 +79,33 @@ enum PointsT20 {
 }
 // MARK: - Attributes T20
 
-enum SkillT20Attribute {
+struct SkillT20Attribute {
+    var name: String
+    var abbreviation: String
+    
+    init (name: String, abbreviation: String) {
+        self.name = name
+        self.abbreviation = abbreviation
+    }
+}
+
+enum SkillT20Attributes {
     case STR, DEX, CON, INT, WIS, CHA
     
-    func getAttribute() -> String {
+    func getAttribute() -> SkillT20Attribute {
         switch self {
         case .STR:
-            return "STR"
+            return SkillT20Attribute(name: "Strength", abbreviation: "STR")
         case .DEX:
-            return "DEX"
+            return SkillT20Attribute(name: "Dexterity", abbreviation: "DEX")
         case .CON:
-            return "CON"
+            return SkillT20Attribute(name: "Constitution", abbreviation: "CON")
         case .INT:
-            return "INT"
+            return SkillT20Attribute(name: "Intelligence", abbreviation: "INT")
         case .WIS:
-            return "WIS"
+            return SkillT20Attribute(name: "Wisdom", abbreviation: "WIS")
         case .CHA:
-            return "CHA"
+            return SkillT20Attribute(name: "Charisma", abbreviation: "CHA")
         }
     }
     
@@ -106,9 +116,9 @@ enum SkillT20Attribute {
 
 struct SkillT20 {
     var name: String
-    var attribute: SkillT20Attribute
+    var attribute: SkillT20Attributes
     
-    init (name: String, attribute: SkillT20Attribute) {
+    init (name: String, attribute: SkillT20Attributes) {
         self.name = name
         self.attribute = attribute
     }

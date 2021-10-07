@@ -35,7 +35,7 @@ class CharacterPoints: UIView {
     func setupView(attribute: Int, temporary: Int, armorBonus: Int, shieldBonus: Int, others: Int, lifeActual: Int, lifeMax: Int, manaActual: Int, manaMax: Int) {
         
         for point in viewModel.getPoints() {
-            print(point.name)
+            // consome os pontos aqui
         }
         
         self.backgroundColor = UIColor(named: "Background")

@@ -18,14 +18,18 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.displayEditAttributes()
     }
 
+    func getAttributes() -> [Attributes] {
+        return Array(sheet?.attribute as! Set<Attributes>)
+    }
+
     func getProfile() -> [Characteristics] {
         return Array(sheet?.profile?.characteristics as! Set<Characteristics>)
     }
-    
+
     func getSkills() -> [Skill] {
         return Array(sheet?.skills as! Set<Skill>)
     }
-    
+
     func getPoints() -> [Points] {
         return Array(sheet?.points as! Set<Points>)
     }

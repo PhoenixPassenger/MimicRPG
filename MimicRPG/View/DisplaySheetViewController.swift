@@ -34,6 +34,7 @@ class DisplaySheetViewController: UIViewController {
                 let view = CharacterAttributesT20()
                 view.viewModel = self.viewModel
                 sheetView = view
+                view.setupView()
             case 1:
                 let view = CharacterPoints()
                 sheetView = view
@@ -85,7 +86,7 @@ class DisplaySheetViewController: UIViewController {
         setupElements()
         changeSelectedButton(tag: 0)
 
-        print(self.viewModel.sheet?.skills?.count)
+        print(self.viewModel.sheet?.attribute?.count)
     }
 
     func setupButtons() {
