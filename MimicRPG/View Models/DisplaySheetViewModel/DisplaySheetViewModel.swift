@@ -14,16 +14,15 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
-<<<<<<< HEAD
     func callEditAttributes() {
         self.output?.displayEditAttributes()
     }
-    
+
     func getSkills() -> [Skill] {
         return Array(sheet?.skills as! Set<Skill>)
-=======
+    }
+
     func displayModal() {
         self.output?.displayEditModal()
->>>>>>> main
     }
 }

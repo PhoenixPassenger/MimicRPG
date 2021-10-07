@@ -11,12 +11,10 @@ import UIKit
 protocol DisplaySheetViewModelType {
     var output: DisplaySheetViewModelOutput? {get set}
     var sheet: Sheet? { get set }
-<<<<<<< HEAD
+
     func callEditAttributes()
     func getSkills() -> [Skill]
-=======
     func displayModal()
->>>>>>> main
 //    var dices: [Dice]? {get set}
 //    var bonus: Int? {get set}
 //    var cellReuseIdentifier: String? {get set}
