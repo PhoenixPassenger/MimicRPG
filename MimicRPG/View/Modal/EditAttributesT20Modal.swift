@@ -13,8 +13,11 @@ class EditAttributesT20Modal: UIViewController {
     var paginator: Int = 0
     let lastPage: Int = 1
 
-    init() {
+    var characterSheet: Sheet?
+
+    init(with sheet: Sheet) {
         super.init(nibName: nil, bundle: nil)
+        setStartingAttributeValues(with: sheet)
     }
 
     var selectedRow: Int = 0
@@ -22,7 +25,7 @@ class EditAttributesT20Modal: UIViewController {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-      }
+    }
 
     // MARK: - NavBar
     lazy var navigationBar: UIView = {
@@ -153,6 +156,10 @@ class EditAttributesT20Modal: UIViewController {
             paginator += 1
             updateUI()
         }
+    }
+    
+    func setStartingAttributeValues(with sheet: Sheet) {
+        
     }
 
     func updateUI() {

@@ -13,6 +13,7 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
-    
-
+    func callEditAttributes() {
+        self.output?.displayEditAttributes()
+    }
 }
