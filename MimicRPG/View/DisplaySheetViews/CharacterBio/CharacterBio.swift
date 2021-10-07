@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
+    var viewModel: DisplaySheetViewModelType!
     func setupTableView() {
         self.register(CharacterBioCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
