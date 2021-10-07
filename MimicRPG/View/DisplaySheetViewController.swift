@@ -13,12 +13,13 @@ class DisplaySheetViewController: UIViewController {
     var viewModel: DisplaySheetViewModelType!
     var coordinator: Coordinator?
 
+    var bannerView: UIImageView = UIImageView()
+    var sheetHeader: SheetHeader = SheetHeader()
     let stackView: UIStackView = UIStackView()
     let scrollView: UIScrollView = UIScrollView()
     let barIndicator: UIView = UIView()
     let divisor: UIView = UIView()
     var sheetView: UIView = UIView()
-    var sheetHeader: SheetHeader?
 
     var selectedTag: Int = 0 {
         didSet {
@@ -64,33 +65,21 @@ class DisplaySheetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setHeader()
-        updateButtons()
-        setupButtons()
-    }
-    
-    func setHeader() {
+        self.view.backgroundColor = UIColor(named: "SecondaryBackground")
+
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundImage = UIImage(named: "banner")
+        appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [.font:
         UIFont.boldSystemFont(ofSize: 20.0),
                                       .foregroundColor: UIColor.white]
-        // Customizing our navigation bar
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        sheetHeader = SheetHeader()
-        sheetHeader!.frame = CGRect(x: 0, y: (navigationController?.navigationBar.subviews[0].bounds.height)! - 55, width: (navigationController?.navigationBar.subviews[0].bounds.width)!, height: 114)
-        sheetHeader!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        navigationController?.navigationBar.subviews[0].insertSubview(sheetHeader!, at: 0)
-        self.view.backgroundColor = UIColor(named: "Background")
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        updateButtons()
+        setupButtons()
+        setupElements()
         changeSelectedButton(tag: 0)
     }
 
@@ -124,19 +113,37 @@ class DisplaySheetViewController: UIViewController {
         for button in buttons {
             stackView.addArrangedSubview(button)
         }
+    }
+
+    func setupElements() {
         stackView.spacing = 32
+
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.image = UIImage(named: "banner")
+        bannerView.layer.opacity = 0.5
+        bannerView.layer.zPosition = 1
+        
+        sheetHeader.translatesAutoresizingMaskIntoConstraints = false
+        sheetHeader.layer.zPosition = 1
+        sheetHeader.backgroundColor = UIColor(named: "SecondaryBackground")
+
         barIndicator.translatesAutoresizingMaskIntoConstraints = false
         barIndicator.layer.cornerRadius = 2
         barIndicator.backgroundColor = UIColor(named: "Azure")
+        barIndicator.layer.zPosition = 1
+
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.contentSize = CGSize(width: .zero, height: 38)
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.backgroundColor = UIColor(named: "SecondaryBackground")
         scrollView.layer.zPosition = 1
+
         divisor.translatesAutoresizingMaskIntoConstraints = false
         divisor.backgroundColor = UIColor(named: "FontColor")
         divisor.layer.zPosition = 0
 
+        view.addSubview(bannerView)
+        view.addSubview(sheetHeader)
         scrollView.addSubview(stackView)
         scrollView.addSubview(barIndicator)
         scrollView.clipsToBounds = false
@@ -147,7 +154,16 @@ class DisplaySheetViewController: UIViewController {
 
     func configureConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 58),
+            bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -(navigationController?.navigationBar.frame.height)!),
+            bannerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bannerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bannerView.heightAnchor.constraint(equalToConstant: 139),
+
+            sheetHeader.topAnchor.constraint(equalTo: bannerView.bottomAnchor),
+            sheetHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            sheetHeader.trailingAnchor.constraint(equalTo: view.leadingAnchor),
+
+            scrollView.topAnchor.constraint(equalTo: sheetHeader.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: 38),
@@ -203,22 +219,24 @@ class DisplaySheetViewController: UIViewController {
     }
 
     func changeSelectedButton(tag: Int) {
-        selectedTag = tag
-        updateButtons()
+        
         for button in buttons {
             if button.tag == tag {
                 widthAnchor.constant = button.frame.width
                 centerXAnchor.constant = button.frame.midX
                 UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
                     self.view.layoutIfNeeded()
+                }, completion: { _ in
+                    self.selectedTag = tag
+                    self.updateButtons()
                 })
             }
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        sheetHeader?.removeFromSuperview()
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        sheetHeader?.removeFromSuperview()
+//    }
 
     @objc func tabFunction(sender: UIButton) {
         changeSelectedButton(tag: sender.tag)

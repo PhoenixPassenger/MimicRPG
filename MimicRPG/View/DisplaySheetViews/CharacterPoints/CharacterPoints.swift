@@ -61,6 +61,22 @@ class CharacterPoints: UIView {
         self.manaStepper.value = Double(self.actualMana)
         self.manaValue.text = "\(self.actualMana)/\(self.maxMana)"
     }
+    
+    lazy var editButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 0, width: 30, height: 30)
+        button.setTitle("Edit".localized(), for: .normal)
+        button.setTitleColor(UIColor(named: "Azure"), for: .normal)
+        button.addTarget(self, action: #selector(self.editPoints), for: .touchUpInside)
+        self.addSubview(button)
+        return button
+    }()
+
+    @objc func editPoints() {
+//        let editPointsT20Modal = EditPointsT20Modal()
+//        present(editPointsT20Modal, animated: true, completion: nil)
+    }
 
     lazy var defenseBox: UIImageView = {
         let imageView = UIImageView()
@@ -384,7 +400,11 @@ class CharacterPoints: UIView {
 
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            defenseBox.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            editButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            editButton.heightAnchor.constraint(equalToConstant: 34),
+            
+            defenseBox.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15),
             defenseBox.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             defenseBox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             defenseBox.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),

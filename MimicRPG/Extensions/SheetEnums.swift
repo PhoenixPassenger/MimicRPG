@@ -1,5 +1,5 @@
 //
-//  SkillLists.swift
+//  SheetEnums.swift
 //  MimicRPG
 //
 //  Created by Eduardo Oliveira on 05/10/21.
@@ -8,14 +8,52 @@
 
 import Foundation
 
-enum SkillT20Attribute {
-    case FOR
-    case DEX
-    case CON
-    case INT
-    case WIS
-    case CHA
+// MARK: - Points T20
+struct PointT2O {
+    var name: String
+    var value: Int
+    
+    init (name: String, value: Int) {
+        self.name = name
+        self.value = value
+    }
 }
+
+enum PointsT20 {
+    case maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers
+    
+    func getpoints() -> PointT2O {
+        switch self {
+        case .maxLife:
+            return PointT2O(name: "Max Life", value: 0)
+        case .actualLife:
+            return PointT2O(name: "Actual Life", value: 0)
+        case .maxMana:
+            return PointT2O(name: "Max Mana", value: 0)
+        case .actualMana:
+            return PointT2O(name: "Actual Mana", value: 0)
+        case .classArmorTemp:
+            return PointT2O(name: "Class Armor Temporary", value: 0)
+        case .armorBonus:
+            return PointT2O(name: "Armor Bonus", value: 0)
+        case .shieldBonus:
+            return PointT2O(name: "Shield Bonus", value: 0)
+        case .classArmorOthers:
+            return PointT2O(name: "Class armor Others", value: 0)
+        }
+    }
+    
+    static let allValues = [maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers]
+}
+// MARK: - Attributes T20
+
+enum SkillT20Attribute {
+    case FOR, DEX, CON, INT, WIS, CHA
+    
+    static let allValues = [FOR, DEX, CON, INT, WIS, CHA]
+}
+
+// MARK: - Skills T20
 
 struct SkillT20 {
     var name: String
@@ -27,7 +65,7 @@ struct SkillT20 {
     }
 }
 
-enum Skills {
+enum SkillsT20 {
 
     case acrobatics, dressage, athletics, acting, ride, knowledge, cure, diplomacy, cheat, fortitude, stealth, war, initiative, intimidation, intuition, investigation, gambling, thieving, fighting, mysticism, nobility, occupation,perception,piloting, aiming, reflexes, religion, survival, volition
 
@@ -93,6 +131,6 @@ enum Skills {
             return SkillT20(name: "Volition", attribute: .WIS)
         }
     }
-    
+
      static let allValues = [acrobatics, dressage, athletics, acting, ride, knowledge, cure, diplomacy, cheat, fortitude, stealth, war, initiative, intimidation, intuition, investigation, gambling, thieving, fighting, mysticism, nobility, occupation, perception, piloting, aiming, reflexes, religion, survival, volition]
 }

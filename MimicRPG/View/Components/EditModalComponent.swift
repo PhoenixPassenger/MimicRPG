@@ -10,6 +10,7 @@ import UIKit
 enum TypeOfModalComponent {
     case text
     case stepper
+    case switchButton
 }
 
 class EditModalComponent: UIView {
@@ -66,14 +67,47 @@ class EditModalComponent: UIView {
         self.addSubview(stack)
         return stack
     }()
+    
+    lazy var trainedSwitch: UISwitch = {
+        let switchButton = UISwitch()
+        switchButton.isOn = false
+        switchButton.isEnabled = true
+        return switchButton
+    }()
 
+    lazy var stackSwitch: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [titleStepper, trainedSwitch])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.layer.borderWidth = 1
+        stack.layer.cornerRadius = 5
+        stack.layer.borderColor = UIColor.systemGray3.cgColor
+        stack.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.backgroundColor = UIColor(named: "SecondaryBackground")
+        self.addSubview(stack)
+        return stack
+    }()
+    
     lazy var stack: UIStackView = {
         var stack = UIStackView()
+        
+        switch typeOfModalComponent {
+        case .text:
+            stack = UIStackView(arrangedSubviews: [titleLabel, valueText])
+        case .stepper:
+            stack = UIStackView(arrangedSubviews: [titleLabel, stackStepper])
+        case .switchButton:
+            stack = UIStackView(arrangedSubviews: [titleLabel, stackSwitch])
+        }
+        /*
         if typeOfModalComponent == .text {
             stack = UIStackView(arrangedSubviews: [titleLabel, valueText])
         } else {
             stack = UIStackView(arrangedSubviews: [titleLabel, stackStepper])
         }
+     */
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill

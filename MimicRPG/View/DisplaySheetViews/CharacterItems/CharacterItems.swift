@@ -29,22 +29,34 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.deselectRow(at: indexPath, animated: false)
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 8
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        let colorComponents = UIColor(named: "Background")?.cgColor.components
+        if let color = colorComponents {
+            view.backgroundColor = UIColor.init(red: color[0], green: color[1], blue: color[2], alpha: 0.75)
+        }
+
+        let button = UIButton(type: .system)
+        button.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 0, width: 30, height: 30)
+        button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
+        button.tintColor = UIColor(named: "Azure")
+        button.addTarget(self, action: #selector(self.addCell), for: .touchUpInside)
+
+        view.addSubview(button)
+
+        return view
+     }
+    
+    @objc func addCell() {
+//
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-         let headerView = UIView()
-         headerView.backgroundColor = UIColor.clear
-         return headerView
-     }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
