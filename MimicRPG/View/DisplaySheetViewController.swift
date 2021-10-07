@@ -81,6 +81,8 @@ class DisplaySheetViewController: UIViewController {
         setupButtons()
         setupElements()
         changeSelectedButton(tag: 0)
+
+        print(self.viewModel.sheet?.skills?.count)
     }
 
     func setupButtons() {
