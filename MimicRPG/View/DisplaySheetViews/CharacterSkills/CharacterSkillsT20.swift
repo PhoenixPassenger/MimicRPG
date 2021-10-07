@@ -8,24 +8,6 @@
 import Foundation
 import UIKit
 
-//class MockSkillT20 {
-//    var name: String = ""
-//    var active: Bool = false
-//    var other: Int = 0
-//    var modAttribute: Int = 0
-//    var attribute: String = "CON"
-//    var levelBy2: Int = 0
-//
-//    init(name: String, active: Bool, other: Int, modAttribute: Int, attribute: String, levelBy2: Int) {
-//        self.name = name
-//        self.active = active
-//        self.other = other
-//        self.modAttribute = modAttribute
-//        self.attribute = attribute
-//        self.levelBy2 = levelBy2
-//    }
-//}
-
 class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSource {
     var viewModel: DisplaySheetViewModelType!
 
@@ -71,12 +53,6 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
             modAttribute: 0,
             attribute: filteredSkills[indexPath.row].attribute!,
             levelBy2: 0
-//            titleItem: filteredSkills[indexPath.row].name,
-//            active: filteredSkills[indexPath.row].active,
-//            other: filteredSkills[indexPath.row].other,
-//            modAttribute: filteredSkills[indexPath.row].modAttribute,
-//            attribute: filteredSkills[indexPath.row].attribute,
-//            levelBy2: filteredSkills[indexPath.row].levelBy2
         )
         return cell
     }

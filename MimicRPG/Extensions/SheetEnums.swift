@@ -11,39 +11,37 @@ import Foundation
 // MARK: - Points T20
 struct PointT2O {
     var name: String
-    var value: Int
+    var actualValue: Int
+    var maximumValue: Int
     
-    init (name: String, value: Int) {
+    init (name: String, actualValue: Int, maximumValue: Int = 0) {
         self.name = name
-        self.value = value
+        self.actualValue = actualValue
+        self.maximumValue = maximumValue
     }
 }
 
 enum PointsT20 {
-    case maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers
+    case life, mana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers
     
     func getPoints() -> PointT2O {
         switch self {
-        case .maxLife:
-            return PointT2O(name: "Max Life", value: 0)
-        case .actualLife:
-            return PointT2O(name: "Actual Life", value: 0)
-        case .maxMana:
-            return PointT2O(name: "Max Mana", value: 0)
-        case .actualMana:
-            return PointT2O(name: "Actual Mana", value: 0)
+        case .life:
+            return PointT2O(name: "Life", actualValue: 0)
+        case .mana:
+            return PointT2O(name: "Mana", actualValue: 0)
         case .classArmorTemp:
-            return PointT2O(name: "Class Armor Temporary", value: 0)
+            return PointT2O(name: "Class Armor Temporary", actualValue: 0)
         case .armorBonus:
-            return PointT2O(name: "Armor Bonus", value: 0)
+            return PointT2O(name: "Armor Bonus", actualValue: 0)
         case .shieldBonus:
-            return PointT2O(name: "Shield Bonus", value: 0)
+            return PointT2O(name: "Shield Bonus", actualValue: 0)
         case .classArmorOthers:
-            return PointT2O(name: "Class armor Others", value: 0)
+            return PointT2O(name: "Class armor Others", actualValue: 0)
         }
     }
     
-    static let allValues = [maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers]
+    static let allValues = [life, mana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers]
 }
 // MARK: - Attributes T20
 

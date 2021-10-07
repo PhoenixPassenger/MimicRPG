@@ -14,6 +14,7 @@ protocol DisplaySheetViewModelType {
 
     func callEditAttributes()
     func getSkills() -> [Skill]
+    func getPoints() -> [Points]
     func displayModal()
 //    var dices: [Dice]? {get set}
 //    var bonus: Int? {get set}

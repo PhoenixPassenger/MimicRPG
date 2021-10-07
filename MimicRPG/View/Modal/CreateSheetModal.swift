@@ -214,6 +214,20 @@ class CreateSheetModal: UIViewController {
         }
         newSheet.skills = NSSet(array: sheetAttributes)
 
+        var sheetPoints: [Points] = []
+
+        for point in PointsT20.allValues {
+            let newPoint = Points(context: self.context)
+
+            newPoint.name = point.getPoints().name
+            newPoint.actualValue = Int64(point.getPoints().actualValue)
+            newPoint.maxValue = Int64(point.getPoints().maximumValue)
+            newPoint.sheet = newSheet
+
+            sheetPoints.append(newPoint)
+        }
+        newSheet.points = NSSet(array: sheetPoints)
+
         do {
             try context.save()
         } catch {

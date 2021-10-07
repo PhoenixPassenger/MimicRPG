@@ -21,6 +21,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func getSkills() -> [Skill] {
         return Array(sheet?.skills as! Set<Skill>)
     }
+    
+    func getPoints() -> [Points] {
+        return Array(sheet?.points as! Set<Points>)
+    }
 
     func displayModal() {
         self.output?.displayEditModal()
