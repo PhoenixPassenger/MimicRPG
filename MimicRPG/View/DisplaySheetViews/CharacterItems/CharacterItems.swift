@@ -46,7 +46,7 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
 
         return view
      }
-    
+
     @objc func addCell() {
 //
     }

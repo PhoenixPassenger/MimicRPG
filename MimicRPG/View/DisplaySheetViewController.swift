@@ -32,6 +32,7 @@ class DisplaySheetViewController: UIViewController {
                 view.setupTableView()
             case 2:
                 let view = CharacterAttributesT20()
+                view.viewModel = self.viewModel
                 sheetView = view
             case 1:
                 let view = CharacterPoints()
@@ -124,7 +125,7 @@ class DisplaySheetViewController: UIViewController {
         bannerView.image = UIImage(named: "banner")
         bannerView.layer.opacity = 0.5
         bannerView.layer.zPosition = 1
-        
+
         sheetHeader.translatesAutoresizingMaskIntoConstraints = false
         sheetHeader.layer.zPosition = 1
         sheetHeader.backgroundColor = UIColor(named: "SecondaryBackground")
@@ -221,7 +222,7 @@ class DisplaySheetViewController: UIViewController {
     }
 
     func changeSelectedButton(tag: Int) {
-        
+
         for button in buttons {
             if button.tag == tag {
                 widthAnchor.constant = button.frame.width
@@ -252,4 +253,11 @@ class DisplaySheetViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+}
+
+extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func displayEditAttributes() {
+        let editPointsT20Modal = EditAttributesT20Modal()
+        present(editPointsT20Modal, animated: true, completion: nil)
+    }
 }

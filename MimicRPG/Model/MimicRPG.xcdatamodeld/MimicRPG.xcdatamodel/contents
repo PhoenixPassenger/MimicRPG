@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Attack" representedClassName="Attack" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="characteristics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="attack" inverseEntity="Characteristics"/>
@@ -44,10 +44,10 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="system" optional="YES" attributeType="String"/>
         <relationship name="attack" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attack" inverseName="sheet" inverseEntity="Attack"/>
-        <relationship name="attribute" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Attributes" inverseName="sheet" inverseEntity="Attributes"/>
+        <relationship name="attribute" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attributes" inverseName="sheet" inverseEntity="Attributes"/>
         <relationship name="item" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="sheet" inverseEntity="Item"/>
-        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Notes" inverseName="sheet" inverseEntity="Notes"/>
-        <relationship name="points" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Points" inverseName="sheet" inverseEntity="Points"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notes" inverseName="sheet" inverseEntity="Notes"/>
+        <relationship name="points" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Points" inverseName="sheet" inverseEntity="Points"/>
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Profile" inverseName="sheet" inverseEntity="Profile"/>
         <relationship name="skills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Skill" inverseName="sheet" inverseEntity="Skill"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sheets" inverseEntity="User"/>

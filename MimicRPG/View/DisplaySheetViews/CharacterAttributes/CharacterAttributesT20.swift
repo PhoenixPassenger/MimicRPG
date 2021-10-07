@@ -8,7 +8,8 @@
 import UIKit
 
 class CharacterAttributesT20: UIView {
-    
+    var viewModel: DisplaySheetViewModelType!
+
     lazy var editButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -21,8 +22,7 @@ class CharacterAttributesT20: UIView {
     }()
 
     @objc func editAttributes() {
-//        let editPointsT20Modal = EditPointsT20Modal()
-//        present(editPointsT20Modal, animated: true, completion: nil)
+        viewModel.callEditAttributes()
     }
 
     let attributeFORT20: AttributeBoxT20 = {
