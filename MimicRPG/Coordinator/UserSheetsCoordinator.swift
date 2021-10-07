@@ -18,8 +18,8 @@ class UserSheetsCoordinator : Coordinator {
         navigationController = navController
     }
 
-    func goToSelectedSheet() {
-        let displayCoord = DisplaySheetCoordinator(with: self, navController: navigationController)
+    func goToSelectedSheet(sheet: Sheet) {
+        let displayCoord = DisplaySheetCoordinator(with: self, navController: navigationController, sheet: sheet)
         displayCoord.start()
         addChildCoordinator(displayCoord)
     }

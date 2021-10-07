@@ -9,8 +9,10 @@ import Foundation
 
 final class DisplaySheetViewModel {
     public weak var output: DisplaySheetViewModelOutput?
+    var sheet: Sheet?
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
+    
 
 }
