@@ -203,7 +203,7 @@ class CreateSheetModal: UIViewController {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
-//        for skill in Skills.allValues {
+//        for skill in SkillsT20.allValues {
 //            print(skill.getSkills().name)
 //        }
     }

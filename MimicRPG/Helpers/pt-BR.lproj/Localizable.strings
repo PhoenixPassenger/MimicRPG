@@ -108,3 +108,4 @@ APP = "APA";
 POW = "POD";
 SIZ = "TAM";
 EditField = "Editar Campos";
+Edit = "Editar";
