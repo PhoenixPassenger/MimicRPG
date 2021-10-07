@@ -30,6 +30,7 @@ class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
         let button = UIButton(type: .system)
         button.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 0, width: 30, height: 30)
         button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
+        button.tintColor = UIColor(named: "Azure")
         button.addTarget(self, action: #selector(self.addCell), for: .touchUpInside)
 
         view.addSubview(button)

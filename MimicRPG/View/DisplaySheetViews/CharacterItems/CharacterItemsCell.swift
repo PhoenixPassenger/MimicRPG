@@ -87,8 +87,8 @@ class CharacterItemsCell: UITableViewCell {
         NSLayoutConstraint.activate([
             stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            stack.topAnchor.constraint(equalTo: self.topAnchor),
-            stack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            stack.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
 
             itemUsesBackground.heightAnchor.constraint(equalToConstant: 22),
             itemUsesBackground.widthAnchor.constraint(equalToConstant: 59),

@@ -41,7 +41,7 @@ class CharacterAttacksCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFont.josefinSansSemiBold16()
         label.text = attackName
         self.addSubview(label)
         return label
@@ -61,7 +61,7 @@ class CharacterAttacksCell: UITableViewCell {
     lazy var damageValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
@@ -85,7 +85,7 @@ class CharacterAttacksCell: UITableViewCell {
     lazy var damageBonusLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
@@ -108,7 +108,7 @@ class CharacterAttacksCell: UITableViewCell {
     lazy var damageTypeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
@@ -131,7 +131,7 @@ class CharacterAttacksCell: UITableViewCell {
     lazy var attackReachLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
@@ -154,7 +154,7 @@ class CharacterAttacksCell: UITableViewCell {
     lazy var attackCriticalLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .clear
@@ -196,19 +196,19 @@ class CharacterAttacksCell: UITableViewCell {
 
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            cellBackground.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-            cellBackground.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
-            cellBackground.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            cellBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            cellBackground.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            cellBackground.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            cellBackground.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            cellBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
 
-            attackNameLabel.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 10),
-            attackNameLabel.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -10),
-            attackNameLabel.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 10),
+            attackNameLabel.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 5),
+            attackNameLabel.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -5),
+            attackNameLabel.topAnchor.constraint(equalTo: cellBackground.topAnchor, constant: 5),
             attackNameLabel.heightAnchor.constraint(equalToConstant: 28),
 
-            damageValueBackground.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 10),
-            damageValueBackground.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -10),
-            damageValueBackground.topAnchor.constraint(equalTo: attackNameLabel.bottomAnchor, constant: 5),
+            damageValueBackground.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 5),
+            damageValueBackground.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -5),
+            damageValueBackground.topAnchor.constraint(equalTo: attackNameLabel.bottomAnchor, constant: 1),
             damageValueBackground.heightAnchor.constraint(equalToConstant: 28),
 
             damageValueLabel.leadingAnchor.constraint(equalTo: damageValueBackground.leadingAnchor, constant: 5),
@@ -216,7 +216,7 @@ class CharacterAttacksCell: UITableViewCell {
             damageValueLabel.topAnchor.constraint(equalTo: damageValueBackground.topAnchor),
             damageValueLabel.heightAnchor.constraint(equalTo: damageValueBackground.heightAnchor),
 
-            damageBonusBackground.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 10),
+            damageBonusBackground.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 5),
             damageBonusBackground.widthAnchor.constraint(equalTo: cellBackground.widthAnchor, multiplier: 0.5),
             damageBonusBackground.topAnchor.constraint(equalTo: damageValueBackground.bottomAnchor, constant: 5),
             damageBonusBackground.heightAnchor.constraint(equalTo: damageValueBackground.heightAnchor),
@@ -226,7 +226,7 @@ class CharacterAttacksCell: UITableViewCell {
             damageBonusLabel.heightAnchor.constraint(equalTo: damageBonusBackground.heightAnchor),
 
             damageTypeBackground.leadingAnchor.constraint(equalTo: damageBonusBackground.trailingAnchor, constant: 5),
-            damageTypeBackground.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -10),
+            damageTypeBackground.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -5),
             damageTypeBackground.topAnchor.constraint(equalTo: damageValueBackground.bottomAnchor, constant: 5),
             damageTypeBackground.heightAnchor.constraint(equalTo: damageValueBackground.heightAnchor),
 
@@ -234,7 +234,7 @@ class CharacterAttacksCell: UITableViewCell {
             damageTypeLabel.topAnchor.constraint(equalTo: damageTypeBackground.topAnchor),
             damageTypeLabel.heightAnchor.constraint(equalTo: damageTypeBackground.heightAnchor),
 
-            attackReachBackground.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 10),
+            attackReachBackground.leadingAnchor.constraint(equalTo: cellBackground.leadingAnchor, constant: 5),
             attackReachBackground.widthAnchor.constraint(equalTo: cellBackground.widthAnchor, multiplier: 0.5),
             attackReachBackground.topAnchor.constraint(equalTo: damageBonusBackground.bottomAnchor, constant: 5),
             attackReachBackground.heightAnchor.constraint(equalTo: damageValueBackground.heightAnchor),
@@ -244,7 +244,7 @@ class CharacterAttacksCell: UITableViewCell {
             attackReachLabel.heightAnchor.constraint(equalTo: attackReachBackground.heightAnchor),
 
             attackCriticalBackground.leadingAnchor.constraint(equalTo: attackReachBackground.trailingAnchor, constant: 5),
-            attackCriticalBackground.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -10),
+            attackCriticalBackground.trailingAnchor.constraint(equalTo: cellBackground.trailingAnchor, constant: -5),
             attackCriticalBackground.topAnchor.constraint(equalTo: damageTypeBackground.bottomAnchor, constant: 5),
             attackCriticalBackground.heightAnchor.constraint(equalTo: damageValueBackground.heightAnchor),
 
