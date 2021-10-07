@@ -12,6 +12,7 @@ protocol DisplaySheetViewModelType {
     var output: DisplaySheetViewModelOutput? {get set}
     var sheet: Sheet? { get set }
     func callEditAttributes()
+    func getSkills() -> [Skill]
 //    var dices: [Dice]? {get set}
 //    var bonus: Int? {get set}
 //    var cellReuseIdentifier: String? {get set}

@@ -4,6 +4,7 @@
 //
 //  Created by Eduardo Oliveira on 21/09/21.
 //
+// swiftlint:disable force_cast
 
 import Foundation
 
@@ -15,5 +16,9 @@ final class DisplaySheetViewModel {
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func callEditAttributes() {
         self.output?.displayEditAttributes()
+    }
+    
+    func getSkills() -> [Skill] {
+        return Array(sheet?.skills as! Set<Skill>)
     }
 }

@@ -8,37 +8,28 @@
 import Foundation
 import UIKit
 
-class MockSkillT20 {
-    var name: String = ""
-    var active: Bool = false
-    var other: Int = 0
-    var modAttribute: Int = 0
-    var attribute: String = "CON"
-    var levelBy2: Int = 0
-
-    init(name: String, active: Bool, other: Int, modAttribute: Int, attribute: String, levelBy2: Int) {
-        self.name = name
-        self.active = active
-        self.other = other
-        self.modAttribute = modAttribute
-        self.attribute = attribute
-        self.levelBy2 = levelBy2
-    }
-}
+//class MockSkillT20 {
+//    var name: String = ""
+//    var active: Bool = false
+//    var other: Int = 0
+//    var modAttribute: Int = 0
+//    var attribute: String = "CON"
+//    var levelBy2: Int = 0
+//
+//    init(name: String, active: Bool, other: Int, modAttribute: Int, attribute: String, levelBy2: Int) {
+//        self.name = name
+//        self.active = active
+//        self.other = other
+//        self.modAttribute = modAttribute
+//        self.attribute = attribute
+//        self.levelBy2 = levelBy2
+//    }
+//}
 
 class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSource {
+    var viewModel: DisplaySheetViewModelType!
 
-    let mockSkills: [MockSkillT20] = [
-        MockSkillT20(name: "Acrobacia", active: false, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
-        MockSkillT20(name: "Adestramento", active: true, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
-        MockSkillT20(name: "Atletismo", active: false, other: 2, modAttribute: 1, attribute: "FOR", levelBy2: 2),
-        MockSkillT20(name: "Atuação", active: false, other: 0, modAttribute: 2, attribute: "CAR", levelBy2: 2),
-        MockSkillT20(name: "Cavalgar", active: true, other: 0, modAttribute: 1, attribute: "DES", levelBy2: 2),
-        MockSkillT20(name: "Conhecimento", active: false, other: 0, modAttribute: 1, attribute: "INT", levelBy2: 2),
-        MockSkillT20(name: "Cura", active: false, other: 0, modAttribute: 1, attribute: "SAB", levelBy2: 2)
-    ]
-
-    var filteredSkills: [MockSkillT20] = []
+    var filteredSkills: [Skill] = []
 
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -64,7 +55,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
 //        self.tableView.separatorStyle = .none
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
-        filteredSkills = mockSkills
+        filteredSkills = viewModel.getSkills()
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.addGestureRecognizer(tap)
@@ -74,12 +65,19 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCellT20
         guard let cell = cellWrap else { fatalError() }
         cell.set(
-            titleItem: filteredSkills[indexPath.row].name,
-            active: filteredSkills[indexPath.row].active,
-            other: filteredSkills[indexPath.row].other,
-            modAttribute: filteredSkills[indexPath.row].modAttribute,
-            attribute: filteredSkills[indexPath.row].attribute,
-            levelBy2: filteredSkills[indexPath.row].levelBy2)
+            titleItem: filteredSkills[indexPath.row].name!,
+            active: filteredSkills[indexPath.row].isActivated,
+            other: 0,
+            modAttribute: 0,
+            attribute: filteredSkills[indexPath.row].attribute!,
+            levelBy2: 0
+//            titleItem: filteredSkills[indexPath.row].name,
+//            active: filteredSkills[indexPath.row].active,
+//            other: filteredSkills[indexPath.row].other,
+//            modAttribute: filteredSkills[indexPath.row].modAttribute,
+//            attribute: filteredSkills[indexPath.row].attribute,
+//            levelBy2: filteredSkills[indexPath.row].levelBy2
+        )
         return cell
     }
 
@@ -122,10 +120,10 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
 extension CharacterSkillsT20: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
-            filteredSkills = mockSkills
+            filteredSkills = viewModel.getSkills()
         } else {
-            filteredSkills = mockSkills.filter { item in
-                return item.name.lowercased().contains(searchText.lowercased())
+            filteredSkills = viewModel.getSkills().filter { item in
+                return item.name!.lowercased().contains(searchText.lowercased())
             }
         }
         self.reloadData()

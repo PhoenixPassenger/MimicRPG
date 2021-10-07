@@ -40,6 +40,7 @@ class DisplaySheetViewController: UIViewController {
                 view.setupView(attribute: 1, temporary: 0, armorBonus: 2, shieldBonus: 2, others: 0, lifeActual: 30, lifeMax: 50, manaActual: 25, manaMax: 30)
             case 3:
                 let view = CharacterSkillsT20()
+                view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             case 4:
