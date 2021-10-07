@@ -10,12 +10,17 @@ import UIKit
 
 class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
     var viewModel: DisplaySheetViewModelType!
+
     func setupTableView() {
         self.register(CharacterBioCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
+
+        for bio in viewModel.getProfile() {
+            print(bio.name)
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

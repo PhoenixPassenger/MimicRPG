@@ -200,7 +200,24 @@ class CreateSheetModal: UIViewController {
         guard let system = Systems(id: selectedRow)?.description else {return}
         newSheet.system = system
 
-        var sheetAttributes: [Skill] = []
+    // MARK: - Create a profile
+        let newProfile = Profile(context: self.context)
+        var sheetCharacteristics: [Characteristics] = []
+        
+        for bio in BiosT20.allValues {
+            let newCharacteristic = Characteristics(context: self.context)
+            
+            newCharacteristic.name = bio.getBios().name
+            newCharacteristic.stringValue = bio.getBios().description
+            newCharacteristic.profile = newProfile
+
+            sheetCharacteristics.append(newCharacteristic)
+        }
+        newProfile.characteristics = NSSet(array: sheetCharacteristics)
+        newProfile.sheet = newSheet
+        
+    // MARK: - Create skills
+        var sheetSkills: [Skill] = []
 
         for skill in SkillsT20.allValues {
             let newSkill = Skill(context: self.context)
@@ -210,10 +227,11 @@ class CreateSheetModal: UIViewController {
             newSkill.attribute = skill.getSkills().attribute.getAttribute()
             newSkill.sheet = newSheet
 
-            sheetAttributes.append(newSkill)
+            sheetSkills.append(newSkill)
         }
-        newSheet.skills = NSSet(array: sheetAttributes)
+        newSheet.skills = NSSet(array: sheetSkills)
 
+    // MARK: - Create points
         var sheetPoints: [Points] = []
 
         for point in PointsT20.allValues {
