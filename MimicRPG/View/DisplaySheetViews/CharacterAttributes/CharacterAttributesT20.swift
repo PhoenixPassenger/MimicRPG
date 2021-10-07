@@ -8,6 +8,22 @@
 import UIKit
 
 class CharacterAttributesT20: UIView {
+    
+    lazy var editButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 0, width: 30, height: 30)
+        button.setTitle("Edit".localized(), for: .normal)
+        button.setTitleColor(UIColor(named: "Azure"), for: .normal)
+        button.addTarget(self, action: #selector(self.editAttributes), for: .touchUpInside)
+        self.addSubview(button)
+        return button
+    }()
+
+    @objc func editAttributes() {
+//        let editPointsT20Modal = EditPointsT20Modal()
+//        present(editPointsT20Modal, animated: true, completion: nil)
+    }
 
     let attributeFORT20: AttributeBoxT20 = {
         let view = AttributeBoxT20(attribute: "AttributesSTR".localized(), value: 20)
@@ -70,16 +86,17 @@ class CharacterAttributesT20: UIView {
     }
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            // Incluir botão de editar depois bem aqui
+            editButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            editButton.heightAnchor.constraint(equalToConstant: 34),
 
             stackPhysical.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.03),
             stackPhysical.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.03),
-            stackPhysical.topAnchor.constraint(equalTo: self.topAnchor, constant: UIScreen.main.bounds.height * 0.03),
+            stackPhysical.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15),
 
             stackMental.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.03),
             stackMental.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.03),
             stackMental.topAnchor.constraint(equalTo: stackPhysical.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03)
-            ])
-
+        ])
     }
 }
