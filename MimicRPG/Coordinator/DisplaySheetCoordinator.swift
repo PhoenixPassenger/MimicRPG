@@ -25,6 +25,7 @@ class DisplaySheetCoordinator : Coordinator {
         let sheetVM = DisplaySheetViewModel()
         sheetVM.sheet = sheet
         sheetVC.viewModel = sheetVM
+        sheetVM.output = sheetVC
         navigationController.pushViewController(sheetVC, animated: true)
     }
 

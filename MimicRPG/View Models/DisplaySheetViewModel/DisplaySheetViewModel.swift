@@ -13,6 +13,7 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
-    
-
+    func displayModal() {
+        self.output?.displayEditModal()
+    }
 }
