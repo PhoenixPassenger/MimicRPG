@@ -12,6 +12,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
     var viewModel: DisplaySheetViewModelType!
 
     var filteredSkills: [Skill] = []
+    var attributes: [Attributes] = []
 
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -38,19 +39,45 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
         filteredSkills = viewModel.getSkills()
+        attributes = viewModel.getAttributes()
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.addGestureRecognizer(tap)
     }
+    
+//    func modifier(baseAttribute: Int) -> Int {
+//        switch baseAttribute {
+//        case 1:
+//            return -5
+//        case 2, 3:
+//            return -4
+//        case 4, 5:
+//            return -3
+//        case 6, 7:
+//            return -2
+//        case 8, 9:
+//            return -1
+//        case 10, 11:
+//            return 0
+//        case 12, 13:
+//            return 1
+//        case 14, 15:
+//            return 2
+//        case 16, 17:
+//            return 3
+//        case 18, 19:
+//        }
+//    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCellT20
         guard let cell = cellWrap else { fatalError() }
+        let selectedAttribute = attributes.first(where: {$0.abbreviation == filteredSkills[indexPath.row].attribute!})
         cell.set(
             titleItem: filteredSkills[indexPath.row].name!,
             active: filteredSkills[indexPath.row].isActivated,
             other: 0,
-            modAttribute: 0,
+            modAttribute: Int((selectedAttribute!.value - 10)/2),
             attribute: filteredSkills[indexPath.row].attribute!,
             levelBy2: 0
         )
