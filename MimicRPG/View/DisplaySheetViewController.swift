@@ -10,7 +10,7 @@ import UIKit
 class DisplaySheetViewController: UIViewController {
 
     var buttons: [UIButton] = []
-
+    var viewModel: DisplaySheetViewModelType!
     var coordinator: Coordinator?
 
     var bannerView: UIImageView = UIImageView()
@@ -27,6 +27,7 @@ class DisplaySheetViewController: UIViewController {
             switch selectedTag {
             case 0:
                 let view = CharacterBio()
+                view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             case 2:

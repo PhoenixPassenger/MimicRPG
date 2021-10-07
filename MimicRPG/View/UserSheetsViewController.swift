@@ -38,13 +38,13 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
     let searchController = UISearchController()
     lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(triggerNewSheetModal))
 
-    var mockSheets: [MockSheet] = [] {
+    var mockSheets: [Sheet] = [] {
         didSet {
             filteredSheets = mockSheets
         }
     }
 
-    var filteredSheets: [MockSheet] = []
+    var filteredSheets: [Sheet] = []
 
     override func viewDidLoad() {
 
@@ -92,8 +92,8 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         collectionView?.layer.backgroundColor = UIColor(named: "Background")?.cgColor
     }
 
-    @objc func toSheet() {
-        coordinator?.goToSelectedSheet()
+    @objc func toSheet(sheet: Sheet) {
+        coordinator?.goToSelectedSheet(sheet: sheet)
     }
 
     @objc func triggerNewSheetModal() {
@@ -110,7 +110,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
             filteredSheets = mockSheets
         } else {
             filteredSheets = mockSheets.filter { item in
-                return item.charName.lowercased().contains(text.lowercased())
+                return item.name!.lowercased().contains(text.lowercased())
             }
         }
         collectionView?.reloadData()
@@ -126,7 +126,7 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? UserSheet else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         }
-        myCell.set(name: filteredSheets[indexPath.row].charName, desc: filteredSheets[indexPath.row].desc, system: filteredSheets[indexPath.row].system)
+        myCell.set(name: filteredSheets[indexPath.row].name!, desc: "mocked", system: filteredSheets[indexPath.row].system!)
         return myCell
     }
 
@@ -138,9 +138,7 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         let storedSheets = viewModel.fetchSheets()
         mockSheets.removeAll()
         for sheet in storedSheets {
-            if let sheetName = sheet.name, let sheetSystem = sheet.system {
-                mockSheets.append(MockSheet(image: "llanowar", charName: sheetName, desc: "Guerra da Centelha", system: sheetSystem))
-            }
+            mockSheets.append(sheet)
         }
         collectionView?.reloadData()
     }
@@ -154,6 +152,6 @@ extension UserSheetsViewController: UserSheetsViewModelOutput {
 
 extension UserSheetsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        toSheet()
+        toSheet(sheet: self.filteredSheets[indexPath.row])
     }
 }
