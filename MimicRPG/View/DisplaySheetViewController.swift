@@ -233,3 +233,12 @@ class DisplaySheetViewController: UIViewController {
     }
 
 }
+
+extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func displayEditModal() {
+        let modal = EditFieldModal()
+        self.present(modal, animated: true, completion: nil)
+    }
+    
+    
+}
