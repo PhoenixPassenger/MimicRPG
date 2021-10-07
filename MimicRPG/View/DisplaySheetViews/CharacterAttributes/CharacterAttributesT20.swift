@@ -8,7 +8,8 @@
 import UIKit
 
 class CharacterAttributesT20: UIView {
-    
+    var viewModel: DisplaySheetViewModelType!
+
     lazy var editButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -21,11 +22,10 @@ class CharacterAttributesT20: UIView {
     }()
 
     @objc func editAttributes() {
-//        let editPointsT20Modal = EditPointsT20Modal()
-//        present(editPointsT20Modal, animated: true, completion: nil)
+        viewModel.callEditAttributes()
     }
 
-    let attributeFORT20: AttributeBoxT20 = {
+    let attributeSTRT20: AttributeBoxT20 = {
         let view = AttributeBoxT20(attribute: "AttributesSTR".localized(), value: 20)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -56,7 +56,7 @@ class CharacterAttributesT20: UIView {
         return view
     }()
     lazy var stackPhysical: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [attributeFORT20, attributeDEST20, attributeCONT20])
+        let stack = UIStackView(arrangedSubviews: [attributeSTRT20, attributeDEST20, attributeCONT20])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill

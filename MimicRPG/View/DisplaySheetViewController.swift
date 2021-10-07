@@ -32,13 +32,16 @@ class DisplaySheetViewController: UIViewController {
                 view.setupTableView()
             case 2:
                 let view = CharacterAttributesT20()
+                view.viewModel = self.viewModel
                 sheetView = view
             case 1:
                 let view = CharacterPoints()
                 sheetView = view
+                view.viewModel = self.viewModel
                 view.setupView(attribute: 1, temporary: 0, armorBonus: 2, shieldBonus: 2, others: 0, lifeActual: 30, lifeMax: 50, manaActual: 25, manaMax: 30)
             case 3:
                 let view = CharacterSkillsT20()
+                view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             case 4:
@@ -81,6 +84,8 @@ class DisplaySheetViewController: UIViewController {
         setupButtons()
         setupElements()
         changeSelectedButton(tag: 0)
+
+        print(self.viewModel.sheet?.skills?.count)
     }
 
     func setupButtons() {
@@ -122,7 +127,7 @@ class DisplaySheetViewController: UIViewController {
         bannerView.image = UIImage(named: "banner")
         bannerView.layer.opacity = 0.5
         bannerView.layer.zPosition = 1
-        
+
         sheetHeader.translatesAutoresizingMaskIntoConstraints = false
         sheetHeader.layer.zPosition = 1
         sheetHeader.backgroundColor = UIColor(named: "SecondaryBackground")
@@ -219,7 +224,7 @@ class DisplaySheetViewController: UIViewController {
     }
 
     func changeSelectedButton(tag: Int) {
-        
+
         for button in buttons {
             if button.tag == tag {
                 widthAnchor.constant = button.frame.width
@@ -253,10 +258,12 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func displayEditAttributes() {
+        let editPointsT20Modal = EditAttributesT20Modal(with: viewModel.sheet!)
+        present(editPointsT20Modal, animated: true, completion: nil)
+    }
     func displayEditModal() {
         let modal = EditFieldModal()
         self.present(modal, animated: true, completion: nil)
     }
-    
-    
 }
