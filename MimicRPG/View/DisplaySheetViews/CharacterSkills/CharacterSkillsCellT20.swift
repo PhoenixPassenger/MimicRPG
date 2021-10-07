@@ -7,9 +7,9 @@
 
 import Foundation
 import UIKit
-class CharacterSkillsCell: UITableViewCell {
+class CharacterSkillsCellT20: UITableViewCell {
 
-    var isChecked: Bool = false
+    var isChecked: Bool = true
     var total: Int = 0
     var other: Int = 0
     var modAttribute: Int = 0
@@ -53,6 +53,8 @@ class CharacterSkillsCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
         label.font = UIFont.josefinSansBold17()
+        label.lineBreakMode = .byCharWrapping
+        label.numberOfLines = 2
         label.sizeToFit()
         self.addSubview(label)
         return label
@@ -205,7 +207,7 @@ class CharacterSkillsCell: UITableViewCell {
 
     func set( titleItem: String, active: Bool, other: Int, modAttribute: Int, attribute: String, levelBy2: Int) {
         titleLabel.text = titleItem
-        isChecked = !active
+        isChecked = active
         checkmark.isHidden = !isChecked
         self.other = other
         self.modAttribute = modAttribute
@@ -228,11 +230,11 @@ class CharacterSkillsCell: UITableViewCell {
     }
 }
 
-extension CharacterSkillsCell {
+extension CharacterSkillsCellT20 {
     private func configureLayout() {
         NSLayoutConstraint.activate([
             checkbox.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            checkbox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            checkbox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             checkbox.widthAnchor.constraint(equalToConstant: 20),
             checkbox.heightAnchor.constraint(equalToConstant: 20),
 
@@ -309,7 +311,9 @@ extension CharacterSkillsCell {
             bottomBar.heightAnchor.constraint(equalToConstant: 1),
 
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 12)
+            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: levelBy2Box.leadingAnchor, constant: -10),
+            titleLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7)
         ])
     }
 }

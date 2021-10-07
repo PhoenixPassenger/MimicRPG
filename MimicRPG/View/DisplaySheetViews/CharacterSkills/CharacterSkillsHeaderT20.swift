@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CharacterSkillsHeader: UIView {
+class CharacterSkillsHeaderT20: UIView {
 
     init() {
         super.init(frame: .zero)

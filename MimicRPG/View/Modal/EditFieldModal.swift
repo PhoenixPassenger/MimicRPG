@@ -1,14 +1,17 @@
 //
-//  EditPointsCthulhuModal.swift
+//  EditFieldModal.swift
 //  MimicRPG
 //
-//  Created by Eduardo Oliveira on 04/10/21.
+//  Created by Eduardo Oliveira on 06/10/21.
 //
 // swiftlint:disable force_cast
 
 import UIKit
 
-class EditPointsCthulhuModal: UIViewController {
+class EditFieldModal: UIViewController {
+
+    var paginator: Int = 0
+    let lastPage: Int = 0
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -34,7 +37,7 @@ class EditPointsCthulhuModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "EditPoints".localized()
+        label.text = "EditField".localized()
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -62,28 +65,13 @@ class EditPointsCthulhuModal: UIViewController {
 
     // MARK: - First Group
 
-    lazy var maxLuckView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "MaxLuck".localized(), type: .stepper)
+    lazy var sheetItemDescView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Description".localized(), multiline: true, type: .text)
         return view
     }()
 
-    lazy var maxMagicView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "MaxMagic".localized(), type: .stepper)
-        return view
-    }()
-
-    lazy var maxSanityView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "MaxSanity".localized(), type: .stepper)
-        return view
-    }()
-
-    lazy var maxLifeView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "MaxLife".localized(), type: .stepper)
-        return view
-    }()
-
-    lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [maxLuckView, maxMagicView, maxSanityView, maxLifeView])
+    lazy var firstStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [sheetItemDescView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -103,22 +91,47 @@ class EditPointsCthulhuModal: UIViewController {
     }
 
     @objc func leftButtonBehavior() {
-        dismiss(animated: true, completion: nil)
+        if paginator == 0 {
+            dismiss(animated: true, completion: nil)
+        } else {
+            paginator -= 1
+            updateUI()
+        }
     }
 
     @objc func rightButtonBehavior() {
-        editPoints()
-        dismiss(animated: true, completion: nil)
+        if paginator == lastPage {
+            createNewItem()
+            dismiss(animated: true, completion: nil)
+        } else {
+            paginator += 1
+            updateUI()
+        }
+    }
+
+    func updateUI() {
+        if paginator == 0 {
+            leftButton.setTitle("Cancel".localized(), for: .normal)
+        } else {
+            leftButton.setTitle("Back".localized(), for: .normal)
+        }
+
+        if paginator == lastPage {
+            rightButton.setTitle("Confirm".localized(), for: .normal)
+        } else {
+            rightButton.setTitle("Next".localized(), for: .normal)
+        }
     }
 
     private func additionalConfigurations() {
         configureLayout()
         view.backgroundColor = UIColor(named: "Background")
+        updateUI()
     }
 
     // MARK: - CoreData
-    func editPoints() {
-       //
+    func createNewItem() {
+//        
     }
 
     private func configureLayout() {
@@ -137,9 +150,9 @@ class EditPointsCthulhuModal: UIViewController {
             rightButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             rightButton.centerYAnchor.constraint(equalTo: navigationBar.centerYAnchor),
 
-            stack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
-            stack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            stack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+            firstStack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
+            firstStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            firstStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
     }
 }
