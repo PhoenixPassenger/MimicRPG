@@ -22,7 +22,7 @@ struct PointT2O {
 enum PointsT20 {
     case maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers
     
-    func getpoints() -> PointT2O {
+    func getPoints() -> PointT2O {
         switch self {
         case .maxLife:
             return PointT2O(name: "Max Life", value: 0)
@@ -49,6 +49,23 @@ enum PointsT20 {
 
 enum SkillT20Attribute {
     case FOR, DEX, CON, INT, WIS, CHA
+    
+    func getAttribute() -> String {
+        switch self {
+        case .FOR:
+            return "FOR"
+        case .DEX:
+            return "DEX"
+        case .CON:
+            return "CON"
+        case .INT:
+            return "INT"
+        case .WIS:
+            return "WIS"
+        case .CHA:
+            return "CHA"
+        }
+    }
     
     static let allValues = [FOR, DEX, CON, INT, WIS, CHA]
 }

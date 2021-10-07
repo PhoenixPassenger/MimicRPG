@@ -53,6 +53,7 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sheets" inverseEntity="User"/>
     </entity>
     <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="category">
+        <attribute name="attribute" optional="YES" attributeType="String"/>
         <attribute name="isActivated" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="value" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -83,7 +84,7 @@
         <element name="Points" positionX="-4.2418212890625" positionY="-177.4718627929688" width="128" height="89"/>
         <element name="Profile" positionX="-196.2710571289062" positionY="80.95466613769531" width="128" height="59"/>
         <element name="Sheet" positionX="-667.0755615234375" positionY="328.3356323242188" width="128" height="179"/>
-        <element name="Skill" positionX="-360.7604370117188" positionY="12.67359924316406" width="128" height="89"/>
+        <element name="Skill" positionX="-360.7604370117188" positionY="12.67359924316406" width="128" height="104"/>
         <element name="User" positionX="-120.60693359375" positionY="228.7191314697266" width="128" height="59"/>
     </elements>
 </model>

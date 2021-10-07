@@ -194,20 +194,34 @@ class CreateSheetModal: UIViewController {
     // MARK: - CoreData
     func createNewSheet() {
         let newSheet = Sheet(context: self.context)
+
         guard let name = sheetNameView.valueText.text else {return}
         newSheet.name = name
         guard let system = Systems(id: selectedRow)?.description else {return}
         newSheet.system = system
+
+        var sheetAttributes: [Skill] = []
+
+        for skill in SkillsT20.allValues {
+            let newSkill = Skill(context: self.context)
+
+            newSkill.name = skill.getSkills().name
+            newSkill.isActivated = false
+            newSkill.attribute = skill.getSkills().attribute.getAttribute()
+            newSkill.sheet = newSheet
+
+            sheetAttributes.append(newSkill)
+        }
+        newSheet.skills = NSSet(array: sheetAttributes)
+
         do {
             try context.save()
         } catch {
             fatalError("Unable to save data in coredata model")
         }
-//        for skill in SkillsT20.allValues {
-//            print(skill.getSkills().name)
-//        }
     }
 
+    // MARK: - Layout
     private func configureLayout() {
         NSLayoutConstraint.activate([
             navigationBar.topAnchor.constraint(equalTo: self.view.topAnchor),
