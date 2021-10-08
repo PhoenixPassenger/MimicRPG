@@ -22,7 +22,6 @@ class EditAttributesT20Modal: UIViewController {
     }
 
     var selectedRow: Int = 0
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -233,7 +232,13 @@ class EditAttributesT20Modal: UIViewController {
 
     // MARK: - CoreData
     func editAttributes() {
-        viewModel.setAttributes(with: <#T##[Attributes]#>)
+        let editSTR = strengthView.getValue()
+        let editDEX = dexterityView.getValue()
+        let editCON = constitutionView.getValue()
+        let editINT = intelligenceView.getValue()
+        let editWIS = wisdomView.getValue()
+        let editCHA = charismaView.getValue()
+        viewModel.setAttributes(setSTR: editSTR, setDEX: editDEX, setCON: editCON, setINT: editINT, setWIS: editWIS, setCHA: editCHA)
     }
 
     private func configureLayout() {

@@ -258,24 +258,27 @@ class DisplaySheetViewController: UIViewController {
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
-    func saveSheetAttributes(with attributes: [Attributes]) {
+    func saveSheetAttributes(newSTR: Int, newDEX: Int, newCON: Int, newINT: Int, newWIS: Int, newCHA: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
+
         for attribute in viewModel.getAttributes() {
-            
+            switch (attribute.name) {
+            case SkillT20Attributes.getAttribute(.STR)().name:
+                attribute.value = Int64(newSTR)
+            case SkillT20Attributes.getAttribute(.DEX)().name:
+                attribute.value = Int64(newDEX)
+            case SkillT20Attributes.getAttribute(.CON)().name:
+                attribute.value = Int64(newCON)
+            case SkillT20Attributes.getAttribute(.INT)().name:
+                attribute.value = Int64(newINT)
+            case SkillT20Attributes.getAttribute(.WIS)().name:
+                attribute.value = Int64(newWIS)
+            case SkillT20Attributes.getAttribute(.CHA)().name:
+                attribute.value = Int64(newCHA)
+            default:
+                attribute.value = Int64(newSTR)
+            }
         }
-        
-//        for attribute in attributes {
-//            let changedAttribute = Attributes(context: context)
-//
-//            newAttribute.name = attribute.name
-//            newAttribute.abbreviation = attribute.abbreviation
-//            newAttribute.value = attribute.value
-//            newAttribute.sheet = attribute.sheet
-//
-//            sheetAttributes.append(newAttribute)
-//        }
-//        newSheet.attribute = NSSet(array: sheetAttributes)
 
         do {
             try context.save()
@@ -283,12 +286,12 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
             fatalError("Unable to save data in coredata model")
         }
     }
-    
+
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
-    
+
     func displayEditModal() {
         let modal = EditFieldModal()
         self.present(modal, animated: true, completion: nil)

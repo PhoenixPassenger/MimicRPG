@@ -22,8 +22,8 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         return Array(sheet?.attribute as! Set<Attributes>)
     }
 
-    func setAttributes(with attributes: [Attributes]) {
-        self.output?.saveSheetAttributes(with: attributes)
+    func setAttributes(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
+        self.output?.saveSheetAttributes(newSTR: setSTR, newDEX: setDEX, newCON: setCON, newINT: setINT, newWIS: setWIS, newCHA: setCHA)
     }
 
     func getProfile() -> [Characteristics] {
