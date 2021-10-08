@@ -12,7 +12,7 @@ import UIKit
 class CharacterPoints: UIView {
     var viewModel: DisplaySheetViewModelType!
 
-    var nameAttribute: String = "DES"
+    var nameAttribute: String = "DEX".localized()
     var valueAttribute: Int = 0
     var valueTemporary: Int = 0
     var valueArmorBonus: Int = 0
@@ -32,37 +32,49 @@ class CharacterPoints: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupView(attribute: Int, temporary: Int, armorBonus: Int, shieldBonus: Int, others: Int, lifeActual: Int, lifeMax: Int, manaActual: Int, manaMax: Int) {
-        
+    func setupView() {
         for point in viewModel.getPoints() {
-            // consome os pontos aqui
+            print(point.name)
         }
         
         self.backgroundColor = UIColor(named: "Background")
         self.attributeText.text = self.nameAttribute
-        self.valueAttribute = attribute
+        
+        let attribute = viewModel.getAttributes().filter{ $0.abbreviation == "DEX" }.first
+        self.valueAttribute = Int((attribute!.value - 10)/2)
         self.attributeValue.text = "\(self.valueAttribute)"
-        self.valueTemporary = temporary
+        
+        let temporary = viewModel.getPoints().filter{ $0.name == "ClassArmorTemporary" }.first
+        self.valueTemporary = Int(temporary!.actualValue)
         self.temporaryValue.text = "\(self.valueTemporary)"
-        self.valueArmorBonus = armorBonus
+        
+        let armorBonus = viewModel.getPoints().filter{ $0.name == "ArmorBonus" }.first
+        self.valueArmorBonus = Int(armorBonus!.actualValue)
         self.armorBonusValue.text = "\(self.valueArmorBonus)"
-        self.valueShieldBonus = shieldBonus
+
+        let shieldBonus = viewModel.getPoints().filter{ $0.name == "ShieldBonus" }.first
+        self.valueShieldBonus = Int(shieldBonus!.actualValue)
         self.shieldBonusValue.text = "\(self.valueShieldBonus)"
-        self.valueOthers = others
+
+        let others = viewModel.getPoints().filter{ $0.name == "ClassArmorOthers" }.first
+        self.valueOthers = Int(others!.actualValue)
         self.othersValue.text = "\(self.valueOthers)"
+
         self.valueTotal = 10 + self.valueAttribute + self.valueTemporary + self.valueArmorBonus + self.valueShieldBonus + self.valueOthers
         self.totalValue.text = "\(self.valueTotal)"
-        
-        
+
         configureLayout()
 
-        self.actualLife = lifeActual
-        self.maxLife = lifeMax
+        let life = viewModel.getPoints().filter{ $0.name == "Life" }.first
+        self.actualLife = Int(life!.actualValue)
+        self.maxLife = Int(life!.maxValue)
         self.lifeStepper.maximumValue = Double(self.maxLife)
         self.lifeStepper.value = Double(self.actualLife)
         self.lifeValue.text = "\(self.actualLife)/\(self.maxLife)"
-        self.actualMana = manaActual
-        self.maxMana = manaMax
+
+        let mana = viewModel.getPoints().filter{ $0.name == "Mana" }.first
+        self.actualMana = Int(mana!.actualValue)
+        self.maxMana = Int(mana!.maxValue)
         self.manaStepper.maximumValue = Double(maxMana)
         self.manaStepper.value = Double(self.actualMana)
         self.manaValue.text = "\(self.actualMana)/\(self.maxMana)"
