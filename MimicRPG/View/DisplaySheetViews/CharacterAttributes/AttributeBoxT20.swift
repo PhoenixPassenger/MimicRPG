@@ -56,6 +56,17 @@ class AttributeBoxT20: UIView {
             attributeModifierT20.text = String((value-10)/2)
         }
     }
+    
+    func setAttributeValue(with value: Int) {
+        attributeValueT20.text = String(value)
+        if (value>9) {
+            attributeModifierT20.text = "+" + String((value-10)/2)
+
+        } else {
+            attributeModifierT20.text = String((value-10)/2)
+        }
+    }
+    
     private func configureLayout() {
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalTo: attributeBackgroundT20.heightAnchor),
