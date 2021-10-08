@@ -13,11 +13,9 @@ class EditAttributesT20Modal: UIViewController {
     var paginator: Int = 0
     let lastPage: Int = 1
 
-    var characterSheet: Sheet?
-
-    init(with sheet: Sheet) {
+    init(with viewModel: DisplaySheetViewModelType) {
         super.init(nibName: nil, bundle: nil)
-        setStartingAttributeValues(with: sheet)
+        setStartingAttributeValues(with: viewModel)
     }
 
     var selectedRow: Int = 0
@@ -158,9 +156,25 @@ class EditAttributesT20Modal: UIViewController {
         }
     }
 
-    func setStartingAttributeValues(with sheet: Sheet) {
-        let name = SkillT20Attributes.getAttribute(.STR)().name
-        let sheetSTR = sheet.attribute?.allObjects
+    func setStartingAttributeValues(with viewModel: DisplaySheetViewModelType) {
+        for attribute in viewModel.getAttributes() {
+            switch (attribute.name) {
+            case SkillT20Attributes.getAttribute(.STR)().name:
+                strengthView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.DEX)().name:
+                dexterityView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.CON)().name:
+                constitutionView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.INT)().name:
+                intelligenceView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.WIS)().name:
+                wisdomView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.CHA)().name:
+                charismaView.setValue(with: Int(attribute.value))
+            default:
+                strengthView.setValue(with: Int(attribute.value))
+            }
+        }
     }
 
     func updateUI() {

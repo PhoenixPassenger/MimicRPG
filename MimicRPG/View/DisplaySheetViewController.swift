@@ -262,7 +262,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
     }
 
     func displayEditAttributesModal() {
-        let editPointsT20Modal = EditAttributesT20Modal(with: viewModel.sheet!)
+        let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
     func displayEditModal() {

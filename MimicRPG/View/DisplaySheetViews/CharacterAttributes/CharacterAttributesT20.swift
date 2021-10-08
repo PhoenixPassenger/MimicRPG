@@ -84,17 +84,17 @@ class CharacterAttributesT20: UIView {
     func setupView() {
         for attribute in viewModel.getAttributes() {
             switch (attribute.name) {
-            case "Strength":
+            case SkillT20Attributes.getAttribute(.STR)().name:
                 attributeSTRT20.setAttributeValue(with: Int(attribute.value))
-            case "Dexterity":
+            case SkillT20Attributes.getAttribute(.DEX)().name:
                 attributeDEXT20.setAttributeValue(with: Int(attribute.value))
-            case "Constitution":
+            case SkillT20Attributes.getAttribute(.CON)().name:
                 attributeCONT20.setAttributeValue(with: Int(attribute.value))
-            case "Intelligence":
+            case SkillT20Attributes.getAttribute(.INT)().name:
                 attributeINTT20.setAttributeValue(with: Int(attribute.value))
-            case "Wisdom":
+            case SkillT20Attributes.getAttribute(.WIS)().name:
                 attributeWIST20.setAttributeValue(with: Int(attribute.value))
-            case "Charisma":
+            case SkillT20Attributes.getAttribute(.CHA)().name:
                 attributeCHAT20.setAttributeValue(with: Int(attribute.value))
             default:
                 attributeSTRT20.setAttributeValue(with: Int(attribute.value))

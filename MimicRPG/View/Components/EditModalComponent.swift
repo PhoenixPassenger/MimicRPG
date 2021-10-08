@@ -124,13 +124,18 @@ class EditModalComponent: UIView {
         self.endEditing(true)
     }
 
+    func setValue(with value: Int) {
+        self.valueStepper.value = Double(value)
+        self.titleStepper.text = "\(Int(self.valueStepper.value))"
+    }
+
     init(titleText: String, multiline: Bool = false, type: TypeOfModalComponent, actualStepper: Int = 0, maxStepper: Int = 100) {
         super.init(frame: .zero)
         titleLabel.text = titleText
         self.isMultiline = multiline
         self.typeOfModalComponent = type
-        self.titleStepper.text = "\(actualStepper)"
         self.valueStepper.value = Double(actualStepper)
+        self.titleStepper.text = "\(self.valueStepper.value)"
         self.valueStepper.maximumValue = Double(maxStepper)
         configureLayout()
     }
