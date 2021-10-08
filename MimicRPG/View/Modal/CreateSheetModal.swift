@@ -202,16 +202,16 @@ class CreateSheetModal: UIViewController {
 
         var sheetAttributes: [Skill] = []
 
-        for skill in SkillsT20.allValues {
-            let newSkill = Skill(context: self.context)
-
-            newSkill.name = skill.getSkills().name
-            newSkill.isActivated = false
-            newSkill.attribute = skill.getSkills().attribute.getAttribute()
-            newSkill.sheet = newSheet
-
-            sheetAttributes.append(newSkill)
-        }
+//        for skill in SkillsT20.allValues {
+//            let newSkill = Skill(context: self.context)
+//
+//            newSkill.name = skill.getSkills().name
+//            newSkill.isActivated = false
+//            newSkill.attribute = skill.getSkills().attribute.getAttribute()
+//            newSkill.sheet = newSheet
+//
+//            sheetAttributes.append(newSkill)
+//        }
         newSheet.skills = NSSet(array: sheetAttributes)
 
         do {

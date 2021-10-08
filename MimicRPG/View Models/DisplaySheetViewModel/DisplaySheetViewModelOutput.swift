@@ -7,7 +7,7 @@
 
 import Foundation
 protocol DisplaySheetViewModelOutput: AnyObject {
-    func displayEditAttributes() 
+    func displayEditAttributesModal() 
 //    func removeDice(indexPath: IndexPath)
 //    func reloadData()
 }

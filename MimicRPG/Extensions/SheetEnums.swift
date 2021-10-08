@@ -48,12 +48,12 @@ enum PointsT20 {
 // MARK: - Attributes T20
 
 enum SkillT20Attribute {
-    case FOR, DEX, CON, INT, WIS, CHA
+    case STR, DEX, CON, INT, WIS, CHA
     
     func getAttribute() -> String {
         switch self {
-        case .FOR:
-            return "FOR"
+        case .STR:
+            return "STR"
         case .DEX:
             return "DEX"
         case .CON:
@@ -67,7 +67,7 @@ enum SkillT20Attribute {
         }
     }
     
-    static let allValues = [FOR, DEX, CON, INT, WIS, CHA]
+    static let allValues = [STR, DEX, CON, INT, WIS, CHA]
 }
 
 // MARK: - Skills T20
@@ -93,7 +93,7 @@ enum SkillsT20 {
         case .dressage:
             return SkillT20(name: "Dressage", attribute: .CHA)
         case .athletics:
-            return SkillT20(name: "Athlectics", attribute: .FOR)
+            return SkillT20(name: "Athlectics", attribute: .STR)
         case .acting:
             return SkillT20(name: "Acting", attribute: .CHA)
         case .ride:
@@ -125,7 +125,7 @@ enum SkillsT20 {
         case .thieving:
             return SkillT20(name: "Thieving", attribute: .DEX)
         case .fighting:
-            return SkillT20(name: "Fighting", attribute: .FOR)
+            return SkillT20(name: "Fighting", attribute: .STR)
         case .mysticism:
             return SkillT20(name: "Mysticism", attribute: .INT)
         case .nobility:

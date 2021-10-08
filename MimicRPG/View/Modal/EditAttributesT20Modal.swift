@@ -157,9 +157,10 @@ class EditAttributesT20Modal: UIViewController {
             updateUI()
         }
     }
-    
+
     func setStartingAttributeValues(with sheet: Sheet) {
-        
+        let name = SkillT20Attribute.getAttribute(.STR)()
+        let sheetSTR = sheet.attribute?.allObjects
     }
 
     func updateUI() {
@@ -215,7 +216,7 @@ class EditAttributesT20Modal: UIViewController {
 
     // MARK: - CoreData
     func editAttributes() {
-        //
+
     }
 
     private func configureLayout() {
