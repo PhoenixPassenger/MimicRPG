@@ -224,7 +224,7 @@ class CreateSheetModal: UIViewController {
 
             newAttribute.name = attribute.getAttribute().name
             newAttribute.abbreviation = attribute.getAttribute().abbreviation
-            newAttribute.value = 0
+            newAttribute.value = 13
             newAttribute.sheet = newSheet
 
             sheetAttributes.append(newAttribute)
@@ -240,6 +240,7 @@ class CreateSheetModal: UIViewController {
             newSkill.name = skill.getSkills().name
             newSkill.isActivated = false
             newSkill.attribute = skill.getSkills().attribute.getAttribute().abbreviation
+            newSkill.value = 0
             newSkill.sheet = newSheet
 
             sheetSkills.append(newSkill)

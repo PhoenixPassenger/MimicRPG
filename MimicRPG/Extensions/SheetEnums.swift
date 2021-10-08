@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - Bio T20
-struct BioT20 {
+struct Bio {
     var name: String
     var description: String
     
@@ -22,20 +22,20 @@ struct BioT20 {
 enum BiosT20 {
     case characterName, race, level, characterClass, origin, description
     
-    func getBios() -> BioT20 {
+    func getBios() -> Bio {
         switch self {
         case .characterName:
-            return BioT20(name: "CharacterName", description: "")
+            return Bio(name: "CharacterName", description: "")
         case .race:
-            return BioT20(name: "Race", description: "")
+            return Bio(name: "Race", description: "")
         case .level:
-            return BioT20(name: "Level", description: "")
+            return Bio(name: "Level", description: "")
         case .characterClass:
-            return BioT20(name: "Class", description: "")
+            return Bio(name: "Class", description: "")
         case .origin:
-            return BioT20(name: "Origin", description: "")
+            return Bio(name: "Origin", description: "")
         case .description:
-            return BioT20(name: "Description", description: "")
+            return Bio(name: "Description", description: "")
         }
     }
     
@@ -43,7 +43,7 @@ enum BiosT20 {
 }
 
 // MARK: - Points T20
-struct PointT2O {
+struct Point {
     var name: String
     var actualValue: Int
     var maximumValue: Int
@@ -58,20 +58,20 @@ struct PointT2O {
 enum PointsT20 {
     case life, mana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers
     
-    func getPoints() -> PointT2O {
+    func getPoints() -> Point {
         switch self {
         case .life:
-            return PointT2O(name: "Life", actualValue: 0)
+            return Point(name: "Life", actualValue: 0)
         case .mana:
-            return PointT2O(name: "Mana", actualValue: 0)
+            return Point(name: "Mana", actualValue: 0)
         case .classArmorTemp:
-            return PointT2O(name: "Class Armor Temporary", actualValue: 0)
+            return Point(name: "ClassArmorTemporary", actualValue: 0)
         case .armorBonus:
-            return PointT2O(name: "Armor Bonus", actualValue: 0)
+            return Point(name: "ArmorBonus", actualValue: 0)
         case .shieldBonus:
-            return PointT2O(name: "Shield Bonus", actualValue: 0)
+            return Point(name: "ShieldBonus", actualValue: 0)
         case .classArmorOthers:
-            return PointT2O(name: "Class armor Others", actualValue: 0)
+            return Point(name: "ClassArmorOthers", actualValue: 0)
         }
     }
     
@@ -79,7 +79,7 @@ enum PointsT20 {
 }
 // MARK: - Attributes T20
 
-struct SkillT20Attribute {
+struct SkillAttribute {
     var name: String
     var abbreviation: String
     
@@ -92,20 +92,20 @@ struct SkillT20Attribute {
 enum SkillT20Attributes {
     case STR, DEX, CON, INT, WIS, CHA
     
-    func getAttribute() -> SkillT20Attribute {
+    func getAttribute() -> SkillAttribute {
         switch self {
         case .STR:
-            return SkillT20Attribute(name: "Strength", abbreviation: "STR")
+            return SkillAttribute(name: "Strength", abbreviation: "STR")
         case .DEX:
-            return SkillT20Attribute(name: "Dexterity", abbreviation: "DEX")
+            return SkillAttribute(name: "Dexterity", abbreviation: "DEX")
         case .CON:
-            return SkillT20Attribute(name: "Constitution", abbreviation: "CON")
+            return SkillAttribute(name: "Constitution", abbreviation: "CON")
         case .INT:
-            return SkillT20Attribute(name: "Intelligence", abbreviation: "INT")
+            return SkillAttribute(name: "Intelligence", abbreviation: "INT")
         case .WIS:
-            return SkillT20Attribute(name: "Wisdom", abbreviation: "WIS")
+            return SkillAttribute(name: "Wisdom", abbreviation: "WIS")
         case .CHA:
-            return SkillT20Attribute(name: "Charisma", abbreviation: "CHA")
+            return SkillAttribute(name: "Charisma", abbreviation: "CHA")
         }
     }
     
@@ -192,4 +192,196 @@ enum SkillsT20 {
     }
 
      static let allValues = [acrobatics, dressage, athletics, acting, ride, knowledge, cure, diplomacy, cheat, fortitude, stealth, war, initiative, intimidation, intuition, investigation, gambling, thieving, fighting, mysticism, nobility, occupation, perception, piloting, aiming, reflexes, religion, survival, volition]
+}
+
+// MARK: - Bio Cthulhu
+
+enum BiosCthulhu {
+    case nameInvestigator, occupation, namePlayer, age, gender, address, birthPlace, personalDescription, ideology, traits, woundsAndScars, phobiasAndManias, importantPersons, importantLocals, possessions, tomesAndSpells, meetingWithEntities
+    
+    func getBios() -> Bio {
+        switch self {
+        case .nameInvestigator:
+            return Bio(name: "NameInvestigator", description: "")
+        case .occupation:
+            return Bio(name: "Occupation", description: "")
+        case .namePlayer:
+            return Bio(name: "NamePlayer", description: "")
+        case .age:
+            return Bio(name: "Age", description: "")
+        case .gender:
+            return Bio(name: "Gender", description: "")
+        case .address:
+            return Bio(name: "Address", description: "")
+        case .birthPlace:
+            return Bio(name: "BirthPlace", description: "")
+        case .personalDescription:
+            return Bio(name: "PersonalDescription", description: "")
+        case .ideology:
+            return Bio(name: "Ideology", description: "")
+        case .traits:
+            return Bio(name: "Traits", description: "")
+        case .woundsAndScars:
+            return Bio(name: "WoundAndScars", description: "")
+        case .phobiasAndManias:
+            return Bio(name: "PhobiasAndManias", description: "")
+        case .importantPersons:
+            return Bio(name: "ImportantPersons", description: "")
+        case .importantLocals:
+            return Bio(name: "ImportantLocals", description: "")
+        case .possessions:
+            return Bio(name: "Possessions", description: "")
+        case .tomesAndSpells:
+            return Bio(name: "TomesAndSpells", description: "")
+        case .meetingWithEntities:
+            return Bio(name: "CMeetingWithEntities", description: "")
+        }
+    }
+    
+    static let allValues = [nameInvestigator, occupation, namePlayer, age, gender, address, birthPlace, personalDescription, ideology, traits, woundsAndScars, phobiasAndManias, importantPersons, importantLocals, possessions, tomesAndSpells, meetingWithEntities]
+}
+
+// MARK: - Points Cthulhu
+
+enum PointsCthulhu {
+    case life, magic, sanity, luck
+    
+    func getPoints() -> Point {
+        switch self {
+        case .life:
+            return Point(name: "Life", actualValue: 0)
+        case .magic:
+            return Point(name: "Magic", actualValue: 0)
+        case .sanity:
+            return Point(name: "Sanity", actualValue: 0)
+        case .luck:
+            return Point(name: "Luck", actualValue: 0)
+        }
+    }
+    
+    static let allValues = [life, magic, sanity, luck]
+}
+
+// MARK: - Attributes Cthulhu
+
+enum SkillCthulhuAttributes {
+    case STR, DEX, INT, CON, APP, POW, SIZ, EDU, MOV
+    
+    func getAttribute() -> SkillAttribute {
+        switch self {
+        case .STR:
+            return SkillAttribute(name: "Strength", abbreviation: "STR")
+        case .DEX:
+            return SkillAttribute(name: "Dexterity", abbreviation: "DEX")
+        case .INT:
+            return SkillAttribute(name: "Intelligence", abbreviation: "INT")
+        case .CON:
+            return SkillAttribute(name: "Constitution", abbreviation: "CON")
+        case .APP:
+            return SkillAttribute(name: "Appearance", abbreviation: "APP")
+        case .POW:
+            return SkillAttribute(name: "Power", abbreviation: "POW")
+        case .SIZ:
+            return SkillAttribute(name: "Size", abbreviation: "SIZ")
+        case .EDU:
+            return SkillAttribute(name: "Education", abbreviation: "EDU")
+        case .MOV:
+            return SkillAttribute(name: "Move", abbreviation: "MOV")
+        }
+    }
+    
+    static let allValues = [STR, DEX, INT, CON, APP, POW, SIZ, EDU, MOV]
+}
+
+// MARK: - Skills Cthulhu
+
+struct SkillCthulhu {
+    var name: String
+    var value: Int
+    
+    init (name: String, value: Int) {
+        self.name = name
+        self.value = value
+    }
+}
+
+enum SkillsCthulhu {
+    case accounting, chemistry, art, astronomy, anthropology, bargain, archaeology, biology, climb, conceal, craft, creditRating, cthulhuMythos, disguise, driveAutomobile, eletricalRepair, fastTalk, firstAid, fistPunch, geology, grapple, handgun, headbutt, hide, history, jump, kick, law, libraryUse, listen, locksmith, machineGun, martialArts, mechanicalRepair, medicine
+    
+    func setSkills() -> SkillCthulhu {
+        switch self {
+        case .accounting:
+            return SkillCthulhu(name: "Accounting", value: 10)
+        case .chemistry:
+            return SkillCthulhu(name: "Chemistry", value: 1)
+        case .art:
+            return SkillCthulhu(name: "Art", value: 5)
+        case .astronomy:
+            return SkillCthulhu(name: "Astronomy", value: 1)
+        case .anthropology:
+            return SkillCthulhu(name: "Anthropology", value: 1)
+        case .bargain:
+            return SkillCthulhu(name: "Bargain", value: 5)
+        case .archaeology:
+            return SkillCthulhu(name: "Archaeology", value: 1)
+        case .biology:
+            return SkillCthulhu(name: "Biology", value: 1)
+        case .climb:
+            return SkillCthulhu(name: "Climb", value: 40)
+        case .conceal:
+            return SkillCthulhu(name: "Conceal", value: 15)
+        case .craft:
+            return SkillCthulhu(name: "Craft", value: 5)
+        case .creditRating:
+            return SkillCthulhu(name: "CreditRacing", value: 15)
+        case .cthulhuMythos:
+            return SkillCthulhu(name: "CthulhuMythos", value: 1)
+        case .disguise:
+            return SkillCthulhu(name: "Disguise", value: 1)
+        case .driveAutomobile:
+            return SkillCthulhu(name: "Drive Automobile", value: 20)
+        case .eletricalRepair:
+            return SkillCthulhu(name: "EletricalRepair", value: 10)
+        case .fastTalk:
+            return SkillCthulhu(name: "FastTalk", value: 5)
+        case .firstAid:
+            return SkillCthulhu(name: "FirstAid", value: 30)
+        case .fistPunch:
+            return SkillCthulhu(name: "Fist/Punch", value: 50)
+        case .geology:
+            return SkillCthulhu(name: "Geology", value: 1)
+        case .grapple:
+            return SkillCthulhu(name: "Grapple", value: 25)
+        case .handgun:
+            return SkillCthulhu(name: "Handgun", value: 20)
+        case .headbutt:
+            return SkillCthulhu(name: "Headbutt", value: 10)
+        case .hide:
+            return SkillCthulhu(name: "Hide", value: 10)
+        case .history:
+            return SkillCthulhu(name: "History", value: 10)
+        case .jump:
+            return SkillCthulhu(name: "Jump", value: 20)
+        case .kick:
+            return SkillCthulhu(name: "Kick", value: 25)
+        case .law:
+            return SkillCthulhu(name: "Law", value: 25)
+        case .libraryUse:
+            return SkillCthulhu(name: "LibraryUse", value: 5)
+        case .listen:
+            return SkillCthulhu(name: "Listen", value: 25)
+        case .locksmith:
+            return SkillCthulhu(name: "Locksmith", value: 1)
+        case .machineGun:
+            return SkillCthulhu(name: "MachineGun", value: 15)
+        case .martialArts:
+            return SkillCthulhu(name: "MartialArts", value: 1)
+        case .mechanicalRepair:
+            return SkillCthulhu(name: "MechanicalRepair", value: 20)
+        case .medicine:
+            return SkillCthulhu(name: "Medicine", value: 5)
+        }
+    }
+    
+    static let allValues = [accounting, chemistry, art, astronomy, anthropology, bargain, archaeology, biology, climb, conceal, craft, creditRating, cthulhuMythos, disguise, driveAutomobile, eletricalRepair, fastTalk, firstAid, fistPunch, geology, grapple, handgun, headbutt, hide, history, jump, kick, law, libraryUse, listen, locksmith, machineGun, martialArts, mechanicalRepair, medicine]
 }

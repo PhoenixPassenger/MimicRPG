@@ -80,7 +80,7 @@ class CharacterAttributesT20: UIView {
         self.backgroundColor = UIColor(named: "Background")
         configureLayout()
     }
-    
+
     func setupView() {
         for attribute in viewModel.getAttributes() {
             print(attribute.name)
