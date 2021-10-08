@@ -34,12 +34,15 @@ class DisplaySheetViewController: UIViewController {
                 let view = CharacterAttributesT20()
                 view.viewModel = self.viewModel
                 sheetView = view
+                view.setupView()
             case 1:
                 let view = CharacterPoints()
                 sheetView = view
+                view.viewModel = self.viewModel
                 view.setupView(attribute: 1, temporary: 0, armorBonus: 2, shieldBonus: 2, others: 0, lifeActual: 30, lifeMax: 50, manaActual: 25, manaMax: 30)
             case 3:
                 let view = CharacterSkillsT20()
+                view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             case 4:
@@ -83,7 +86,7 @@ class DisplaySheetViewController: UIViewController {
         setupElements()
         changeSelectedButton(tag: 0)
 
-        print(self.viewModel.sheet?.skills?.count)
+        print(self.viewModel.sheet?.attribute?.count)
     }
 
     func setupButtons() {
@@ -259,5 +262,9 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel.sheet!)
         present(editPointsT20Modal, animated: true, completion: nil)
+    }
+    func displayEditModal() {
+        let modal = EditFieldModal()
+        self.present(modal, animated: true, completion: nil)
     }
 }

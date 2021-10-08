@@ -8,62 +8,104 @@
 
 import Foundation
 
+// MARK: - Bio T20
+struct BioT20 {
+    var name: String
+    var description: String
+    
+    init (name: String, description: String) {
+        self.name = name
+        self.description = description
+    }
+}
+
+enum BiosT20 {
+    case characterName, race, level, characterClass, origin, description
+    
+    func getBios() -> BioT20 {
+        switch self {
+        case .characterName:
+            return BioT20(name: "CharacterName", description: "")
+        case .race:
+            return BioT20(name: "Race", description: "")
+        case .level:
+            return BioT20(name: "Level", description: "")
+        case .characterClass:
+            return BioT20(name: "Class", description: "")
+        case .origin:
+            return BioT20(name: "Origin", description: "")
+        case .description:
+            return BioT20(name: "Description", description: "")
+        }
+    }
+    
+    static let allValues = [characterName, race, level, characterClass, origin, description]
+}
+
 // MARK: - Points T20
 struct PointT2O {
     var name: String
-    var value: Int
+    var actualValue: Int
+    var maximumValue: Int
     
-    init (name: String, value: Int) {
+    init (name: String, actualValue: Int, maximumValue: Int = 0) {
         self.name = name
-        self.value = value
+        self.actualValue = actualValue
+        self.maximumValue = maximumValue
     }
 }
 
 enum PointsT20 {
-    case maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers
+    case life, mana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers
     
     func getPoints() -> PointT2O {
         switch self {
-        case .maxLife:
-            return PointT2O(name: "Max Life", value: 0)
-        case .actualLife:
-            return PointT2O(name: "Actual Life", value: 0)
-        case .maxMana:
-            return PointT2O(name: "Max Mana", value: 0)
-        case .actualMana:
-            return PointT2O(name: "Actual Mana", value: 0)
+        case .life:
+            return PointT2O(name: "Life", actualValue: 0)
+        case .mana:
+            return PointT2O(name: "Mana", actualValue: 0)
         case .classArmorTemp:
-            return PointT2O(name: "Class Armor Temporary", value: 0)
+            return PointT2O(name: "Class Armor Temporary", actualValue: 0)
         case .armorBonus:
-            return PointT2O(name: "Armor Bonus", value: 0)
+            return PointT2O(name: "Armor Bonus", actualValue: 0)
         case .shieldBonus:
-            return PointT2O(name: "Shield Bonus", value: 0)
+            return PointT2O(name: "Shield Bonus", actualValue: 0)
         case .classArmorOthers:
-            return PointT2O(name: "Class armor Others", value: 0)
+            return PointT2O(name: "Class armor Others", actualValue: 0)
         }
     }
     
-    static let allValues = [maxLife, actualLife, maxMana, actualMana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers]
+    static let allValues = [life, mana, classArmorTemp, armorBonus, shieldBonus, classArmorOthers]
 }
 // MARK: - Attributes T20
 
-enum SkillT20Attribute {
+struct SkillT20Attribute {
+    var name: String
+    var abbreviation: String
+    
+    init (name: String, abbreviation: String) {
+        self.name = name
+        self.abbreviation = abbreviation
+    }
+}
+
+enum SkillT20Attributes {
     case STR, DEX, CON, INT, WIS, CHA
     
-    func getAttribute() -> String {
+    func getAttribute() -> SkillT20Attribute {
         switch self {
         case .STR:
-            return "STR"
+            return SkillT20Attribute(name: "Strength", abbreviation: "STR")
         case .DEX:
-            return "DEX"
+            return SkillT20Attribute(name: "Dexterity", abbreviation: "DEX")
         case .CON:
-            return "CON"
+            return SkillT20Attribute(name: "Constitution", abbreviation: "CON")
         case .INT:
-            return "INT"
+            return SkillT20Attribute(name: "Intelligence", abbreviation: "INT")
         case .WIS:
-            return "WIS"
+            return SkillT20Attribute(name: "Wisdom", abbreviation: "WIS")
         case .CHA:
-            return "CHA"
+            return SkillT20Attribute(name: "Charisma", abbreviation: "CHA")
         }
     }
     
@@ -74,9 +116,9 @@ enum SkillT20Attribute {
 
 struct SkillT20 {
     var name: String
-    var attribute: SkillT20Attribute
+    var attribute: SkillT20Attributes
     
-    init (name: String, attribute: SkillT20Attribute) {
+    init (name: String, attribute: SkillT20Attributes) {
         self.name = name
         self.attribute = attribute
     }

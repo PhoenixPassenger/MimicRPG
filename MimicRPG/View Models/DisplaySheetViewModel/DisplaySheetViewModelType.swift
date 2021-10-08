@@ -11,7 +11,13 @@ import UIKit
 protocol DisplaySheetViewModelType {
     var output: DisplaySheetViewModelOutput? {get set}
     var sheet: Sheet? { get set }
+
     func callEditAttributes()
+    func getAttributes() -> [Attributes]
+    func getProfile() -> [Characteristics] 
+    func getSkills() -> [Skill]
+    func getPoints() -> [Points]
+    func displayModal()
 //    var dices: [Dice]? {get set}
 //    var bonus: Int? {get set}
 //    var cellReuseIdentifier: String? {get set}

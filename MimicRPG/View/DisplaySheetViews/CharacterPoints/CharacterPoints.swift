@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class CharacterPoints: UIView {
+    var viewModel: DisplaySheetViewModelType!
 
     var nameAttribute: String = "DES"
     var valueAttribute: Int = 0
@@ -32,6 +33,11 @@ class CharacterPoints: UIView {
     }
 
     func setupView(attribute: Int, temporary: Int, armorBonus: Int, shieldBonus: Int, others: Int, lifeActual: Int, lifeMax: Int, manaActual: Int, manaMax: Int) {
+        
+        for point in viewModel.getPoints() {
+            // consome os pontos aqui
+        }
+        
         self.backgroundColor = UIColor(named: "Background")
         self.attributeText.text = self.nameAttribute
         self.valueAttribute = attribute

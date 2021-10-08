@@ -9,8 +9,8 @@ import UIKit
 
 class CharacterAttributesCthulhu: UIView {
 
-    let attributeFORCthulhu: AttributeBoxCthulhu = {
-        let view = AttributeBoxCthulhu(attribute: "FOR", value: 50)
+    let attributeSTRCthulhu: AttributeBoxCthulhu = {
+        let view = AttributeBoxCthulhu(attribute: "STR", value: 50)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -56,7 +56,7 @@ class CharacterAttributesCthulhu: UIView {
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [attributeFORCthulhu, attributeDESCthulhu, attributeINTCthulhu])
+        let stack = UIStackView(arrangedSubviews: [attributeSTRCthulhu, attributeDESCthulhu, attributeINTCthulhu])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill

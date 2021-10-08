@@ -10,13 +10,17 @@ import UIKit
 
 class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
     var viewModel: DisplaySheetViewModelType!
+
     func setupTableView() {
         self.register(CharacterBioCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
-//        self.tableView.separatorStyle = .none
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
+
+        for bio in viewModel.getProfile() {
+            // Consome a bio aqui
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -28,6 +32,19 @@ class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
+    }
+
+    func editCell(row: Int) {
+        self.viewModel.displayModal()
+    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "EditAttack".localized()) { [weak self] (_, _, completionHandler) in
+            self?.editCell(row: indexPath.row)
+            completionHandler(true)
+        }
+        action.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [action])
     }
 
     private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
