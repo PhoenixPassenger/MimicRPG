@@ -12,6 +12,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
     var viewModel: DisplaySheetViewModelType!
 
     var filteredSkills: [Skill] = []
+    var attributes: [Attributes] = []
 
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -38,6 +39,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
         filteredSkills = viewModel.getSkills()
+        attributes = viewModel.getAttributes()
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.addGestureRecognizer(tap)
@@ -46,11 +48,12 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCellT20
         guard let cell = cellWrap else { fatalError() }
+        let selectedAttribute = attributes.first(where: {$0.abbreviation == filteredSkills[indexPath.row].attribute!})
         cell.set(
             titleItem: filteredSkills[indexPath.row].name!,
             active: filteredSkills[indexPath.row].isActivated,
-            other: 0,
-            modAttribute: 0,
+            other: Int(filteredSkills[indexPath.row].value),
+            modAttribute: Int((selectedAttribute!.value - 10)/2),
             attribute: filteredSkills[indexPath.row].attribute!,
             levelBy2: 0
         )
