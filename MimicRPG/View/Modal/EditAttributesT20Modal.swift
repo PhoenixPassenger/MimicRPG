@@ -12,10 +12,13 @@ class EditAttributesT20Modal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
+    
+    var viewModel: DisplaySheetViewModelType!
 
     init(with viewModel: DisplaySheetViewModelType) {
         super.init(nibName: nil, bundle: nil)
-        setStartingAttributeValues(with: viewModel)
+        self.viewModel = viewModel
+        setStartingAttributeValues(with: self.viewModel)
     }
 
     var selectedRow: Int = 0
@@ -230,7 +233,7 @@ class EditAttributesT20Modal: UIViewController {
 
     // MARK: - CoreData
     func editAttributes() {
-
+        viewModel.setAttributes(with: <#T##[Attributes]#>)
     }
 
     private func configureLayout() {

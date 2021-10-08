@@ -257,14 +257,38 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
-    func displayEditAttributes() {
-        return
-    }
 
+    func saveSheetAttributes(with attributes: [Attributes]) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        for attribute in viewModel.getAttributes() {
+            
+        }
+        
+//        for attribute in attributes {
+//            let changedAttribute = Attributes(context: context)
+//
+//            newAttribute.name = attribute.name
+//            newAttribute.abbreviation = attribute.abbreviation
+//            newAttribute.value = attribute.value
+//            newAttribute.sheet = attribute.sheet
+//
+//            sheetAttributes.append(newAttribute)
+//        }
+//        newSheet.attribute = NSSet(array: sheetAttributes)
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+    
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
+    
     func displayEditModal() {
         let modal = EditFieldModal()
         self.present(modal, animated: true, completion: nil)
