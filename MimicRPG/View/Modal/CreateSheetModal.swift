@@ -240,6 +240,7 @@ class CreateSheetModal: UIViewController {
             newSkill.name = skill.getSkills().name
             newSkill.isActivated = false
             newSkill.attribute = skill.getSkills().attribute.getAttribute().abbreviation
+            newSkill.value = 0
             newSkill.sheet = newSheet
 
             sheetSkills.append(newSkill)
