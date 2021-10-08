@@ -65,7 +65,7 @@ class EditSkillT20Modal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "Latrocínio" //Localized strings depois
+        label.text = "Latrocínio" // Localized strings depois
         label.font = UIFont.josefinSansBold()
         self.view.addSubview(label)
         return label

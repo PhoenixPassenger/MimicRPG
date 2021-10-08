@@ -14,7 +14,7 @@ protocol DisplaySheetViewModelType {
 
     func callEditAttributes()
     func getAttributes() -> [Attributes]
-    func getProfile() -> [Characteristics] 
+    func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]
     func getPoints() -> [Points]
     func displayModal()

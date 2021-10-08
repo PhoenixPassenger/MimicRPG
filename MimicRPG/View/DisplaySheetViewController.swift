@@ -259,6 +259,10 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func displayEditAttributes() {
+        return
+    }
+
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel.sheet!)
         present(editPointsT20Modal, animated: true, completion: nil)

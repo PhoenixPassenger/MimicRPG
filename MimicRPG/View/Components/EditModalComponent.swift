@@ -67,7 +67,7 @@ class EditModalComponent: UIView {
         self.addSubview(stack)
         return stack
     }()
-    
+
     lazy var trainedSwitch: UISwitch = {
         let switchButton = UISwitch()
         switchButton.isOn = false
@@ -89,10 +89,10 @@ class EditModalComponent: UIView {
         self.addSubview(stack)
         return stack
     }()
-    
+
     lazy var stack: UIStackView = {
         var stack = UIStackView()
-        
+
         switch typeOfModalComponent {
         case .text:
             stack = UIStackView(arrangedSubviews: [titleLabel, valueText])

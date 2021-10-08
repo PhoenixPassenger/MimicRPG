@@ -159,7 +159,7 @@ class EditAttributesT20Modal: UIViewController {
     }
 
     func setStartingAttributeValues(with sheet: Sheet) {
-        let name = SkillT20Attribute.getAttribute(.STR)()
+        let name = SkillT20Attributes.getAttribute(.STR)().name
         let sheetSTR = sheet.attribute?.allObjects
     }
 
