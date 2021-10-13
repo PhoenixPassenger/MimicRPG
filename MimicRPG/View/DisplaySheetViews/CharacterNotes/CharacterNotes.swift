@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
 
-    var notesCount = 3
+    var viewModel : DisplaySheetViewModelType!
 
     func setupTableView() {
         self.register(CharacterNotesCell.self, forCellReuseIdentifier: "MyCell")
@@ -61,31 +61,33 @@ class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     @objc func addCell() {
-        notesCount += 1
-        self.reloadData()
+        self.viewModel.newNoteModal()
     }
 
     private func editCell(row: Int) {
-        print(row)
+        let notes = self.viewModel.getNotes()
+        let noteRow = notes[row]
+        self.viewModel.editNoteModal(note: noteRow)
     }
 
     private func removeCell(row: Int) {
         // Melhor implementar um alert antes disso
-        notesCount -= 1
-        let path = IndexPath(row: row, section: 0)
-        self.deleteRows(at: [path], with: .fade)
-        self.reloadData()
+        let notes = self.viewModel.getNotes()
+        let noteRow = notes[row]
+        self.viewModel.removeNote(note: noteRow)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterNotesCell
         guard let cell = cellWrap else { fatalError() }
-        cell.set(titleItem: "Nota", valueItem: "Isso é uma nota curta")
+        let notes = self.viewModel.getNotes()
+        let noteRow = notes[indexPath.row]
+        cell.set(titleItem: noteRow.name ?? "Nota", valueItem: (noteRow.characteristics?.stringValue) ?? "Descrição")
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notesCount
+        return self.viewModel.getNotes().count
     }
 
     private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

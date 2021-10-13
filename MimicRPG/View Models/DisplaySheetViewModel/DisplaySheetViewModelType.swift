@@ -19,7 +19,13 @@ protocol DisplaySheetViewModelType {
     func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]
     func getPoints() -> [Points]
+    func getNotes() -> [Notes]
+    func newNote(name: String, text: String)
+    func editNote(name: String, text: String, note: Notes)
     func displayModal()
+    func newNoteModal()
+    func removeNote(note: Notes)
+    func editNoteModal(note: Notes)
 //    var dices: [Dice]? {get set}
 //    var bonus: Int? {get set}
 //    var cellReuseIdentifier: String? {get set}
