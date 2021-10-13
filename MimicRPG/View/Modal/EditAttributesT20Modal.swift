@@ -232,12 +232,12 @@ class EditAttributesT20Modal: UIViewController {
 
     // MARK: - CoreData
     func editAttributes() {
-        let editSTR = strengthView.getValue()
-        let editDEX = dexterityView.getValue()
-        let editCON = constitutionView.getValue()
-        let editINT = intelligenceView.getValue()
-        let editWIS = wisdomView.getValue()
-        let editCHA = charismaView.getValue()
+        let editSTR = strengthView.getStepperValue()
+        let editDEX = dexterityView.getStepperValue()
+        let editCON = constitutionView.getStepperValue()
+        let editINT = intelligenceView.getStepperValue()
+        let editWIS = wisdomView.getStepperValue()
+        let editCHA = charismaView.getStepperValue()
         viewModel.setAttributes(setSTR: editSTR, setDEX: editDEX, setCON: editCON, setINT: editINT, setWIS: editWIS, setCHA: editCHA)
     }
 

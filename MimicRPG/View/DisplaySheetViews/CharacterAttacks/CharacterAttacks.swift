@@ -8,6 +8,7 @@
 import UIKit
 
 class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource {
+    var viewModel: DisplaySheetViewModelType!
 
     var attacksCount = 3
 
@@ -21,8 +22,7 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
     }
 
     @objc func addCell() {
-        attacksCount += 1
-        self.reloadData()
+        viewModel.callAddAttack()
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

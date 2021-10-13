@@ -51,6 +51,7 @@ class DisplaySheetViewController: UIViewController {
                 view.setupTableView()
             case 5:
                 let view = CharacterAttacks()
+                view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             case 6:
@@ -257,6 +258,11 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func displayAddAttackModal() {
+        let addAttackT20Modal = CreateAttackT20Modal(with: viewModel)
+        present(addAttackT20Modal, animated: true, completion: nil)
+    }
+
     func reloadAttributes() {
         let attributesView = sheetView as? CharacterAttributesT20
         attributesView?.setupView()

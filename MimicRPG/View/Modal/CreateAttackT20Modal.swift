@@ -13,8 +13,11 @@ class CreateAttackT20Modal: UIViewController {
     var paginator: Int = 0
     let lastPage: Int = 1
 
-    init() {
+    var viewModel: DisplaySheetViewModelType!
+
+    init(with: DisplaySheetViewModelType) {
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = with
     }
 
     var selectedRow: Int = 0
@@ -208,7 +211,13 @@ class CreateAttackT20Modal: UIViewController {
 
     // MARK: - CoreData
     func createNewAttack() {
-        //
+        let attackName = sheetAttackNameView.getBoxText()
+        let attackDamage = sheetAttackDamageView.getBoxText()
+        let attackBonus = sheetAttackBonusView.getStepperValue()
+        let attackType = sheetAttackTypeView.getBoxText()
+        let attackRange = sheetAttackRangeView.getBoxText()
+        let criticalEffect = sheetAttackCriticalView.getBoxText()
+        viewModel.createAttack()
     }
 
     private func configureLayout() {

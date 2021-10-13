@@ -129,8 +129,12 @@ class EditModalComponent: UIView {
         self.titleStepper.text = "\(Int(self.valueStepper.value))"
     }
 
-    func getValue() -> Int {
+    func getStepperValue() -> Int {
         return Int(self.valueStepper.value)
+    }
+
+    func getBoxText() -> String {
+        return self.valueText.text
     }
 
     init(titleText: String, multiline: Bool = false, type: TypeOfModalComponent, actualStepper: Int = 0, maxStepper: Int = 100) {

@@ -51,9 +51,27 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
     }
-    
+
     func callReloadAttributes() {
         self.output?.reloadAttributes()
+    }
+
+    func callAddAttack() {
+        self.output?.displayAddAttackModal()
+    }
+
+    func createAttack(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        var newAttack = Attack(context: context)
+        newAttack.name = attackName
+
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
     }
 
     func getProfile() -> [Characteristics] {
