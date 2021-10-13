@@ -276,10 +276,16 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         self.present(modal, animated: true, completion: nil)
     }
     
-    func displayEditAttributes() {
-        let editPointsT20Modal = EditAttributesT20Modal(with: viewModel.sheet!)
+    func reloadAttributes() {
+        let attributesView = sheetView as? CharacterAttributesT20
+        attributesView?.setupView()
+    }
+
+    func displayEditAttributesModal() {
+        let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
+
     func displayEditModal() {
         let modal = EditFieldModal()
         self.present(modal, animated: true, completion: nil)
