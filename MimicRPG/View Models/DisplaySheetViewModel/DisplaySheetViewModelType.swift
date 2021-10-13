@@ -22,7 +22,13 @@ protocol DisplaySheetViewModelType {
     func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int)
     func getPoints() -> [Points]
     func callReloadPoints()
+    func getNotes() -> [Notes]
+    func newNote(name: String, text: String)
+    func editNote(name: String, text: String, note: Notes)
     func displayModal()
+    func newNoteModal()
+    func removeNote(note: Notes)
+    func editNoteModal(note: Notes)
 //    var dices: [Dice]? {get set}
 //    var bonus: Int? {get set}
 //    var cellReuseIdentifier: String? {get set}

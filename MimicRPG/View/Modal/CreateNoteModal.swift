@@ -9,7 +9,9 @@
 import UIKit
 
 class CreateNoteModal: UIViewController {
-
+    var viewModel : DisplaySheetViewModelType!
+    var isEditMode: Bool = false
+    var editNote: Notes?
     var paginator: Int = 0
     let lastPage: Int = 0
 
@@ -65,18 +67,18 @@ class CreateNoteModal: UIViewController {
 
     // MARK: - First Group
 
-    lazy var sheetItemNameView: EditModalComponent = {
+    lazy var sheetNoteNameView: EditModalComponent = {
         let view = EditModalComponent(titleText: "NoteTitle".localized(), type: .text)
         return view
     }()
 
-    lazy var sheetItemDescView: EditModalComponent = {
+    lazy var sheetNoteDescView: EditModalComponent = {
         let view = EditModalComponent(titleText: "NoteContents".localized(), multiline: true, type: .text)
         return view
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetItemNameView, sheetItemDescView])
+        let stack = UIStackView(arrangedSubviews: [sheetNoteNameView, sheetNoteDescView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -127,6 +129,13 @@ class CreateNoteModal: UIViewController {
             rightButton.setTitle("Next".localized(), for: .normal)
         }
     }
+    
+    func fillForm(name: String, desc: String, note: Notes) {
+        sheetNoteNameView.valueText.text = name
+        sheetNoteDescView.valueText.text = desc
+        self.editNote = note
+        self.isEditMode = true
+    }
 
     private func additionalConfigurations() {
         configureLayout()
@@ -136,17 +145,9 @@ class CreateNoteModal: UIViewController {
 
     // MARK: - CoreData
     func createNewItem() {
-//        let newItem = Item(context: self.context)
-//        guard let name = sheetItemNameView.valueText.text else {return}
-//        newItem.name = name
-//        guard let qtd = sheetItemQtdView.valueText.text else {return}
-//
-//        guard let desc = sheetItemDescView.valueText.text else {return}
-//        do {
-//            try context.save()
-//        } catch {
-//            fatalError("Unable to save data in coredata model")
-//        }
+        guard let name = sheetNoteNameView.valueText.text else {return}
+        guard let desc = sheetNoteDescView.valueText.text else {return}
+        !self.isEditMode ? self.viewModel.newNote(name: name, text: desc) : self.viewModel.editNote(name: name, text: desc, note: self.editNote!)
     }
 
     private func configureLayout() {

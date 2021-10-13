@@ -56,6 +56,7 @@ class DisplaySheetViewController: UIViewController {
                 view.setupTableView()
             case 6:
                 let view = CharacterNotes()
+                view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             default:
@@ -281,6 +282,24 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+    }
+
+    func displayEditNoteModal(name: String, desc: String, note: Notes) {
+        let modal = CreateNoteModal()
+        modal.viewModel = self.viewModel
+        modal.fillForm(name: name, desc: desc, note: note)
+        self.present(modal, animated: true, completion: nil)
+    }
+    
+    func updateNotes() {
+        let view = self.sheetView as? CharacterNotes
+        view?.reloadData()
+    }
+    
+    func displayNewNoteModal() {
+        let modal = CreateNoteModal()
+        modal.viewModel = self.viewModel
+        self.present(modal, animated: true, completion: nil)
     }
 
     func reloadAttributes() {
