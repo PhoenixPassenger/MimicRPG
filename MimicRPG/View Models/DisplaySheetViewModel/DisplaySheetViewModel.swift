@@ -7,6 +7,7 @@
 // swiftlint:disable force_cast
 
 import Foundation
+import UIKit
 
 final class DisplaySheetViewModel {
     public weak var output: DisplaySheetViewModelOutput?
@@ -23,7 +24,32 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func setAttributes(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
-        self.output?.saveSheetAttributes(newSTR: setSTR, newDEX: setDEX, newCON: setCON, newINT: setINT, newWIS: setWIS, newCHA: setCHA)
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        for attribute in self.getAttributes() {
+            switch (attribute.name) {
+            case SkillT20Attributes.getAttribute(.STR)().name:
+                attribute.value = Int64(setSTR)
+            case SkillT20Attributes.getAttribute(.DEX)().name:
+                attribute.value = Int64(setDEX)
+            case SkillT20Attributes.getAttribute(.CON)().name:
+                attribute.value = Int64(setCON)
+            case SkillT20Attributes.getAttribute(.INT)().name:
+                attribute.value = Int64(setINT)
+            case SkillT20Attributes.getAttribute(.WIS)().name:
+                attribute.value = Int64(setWIS)
+            case SkillT20Attributes.getAttribute(.CHA)().name:
+                attribute.value = Int64(setCHA)
+            default:
+                attribute.value = Int64(setSTR)
+            }
+        }
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
     }
 
     func getProfile() -> [Characteristics] {

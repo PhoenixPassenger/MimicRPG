@@ -12,7 +12,7 @@ class EditAttributesT20Modal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
-    
+
     var viewModel: DisplaySheetViewModelType!
 
     init(with viewModel: DisplaySheetViewModelType) {

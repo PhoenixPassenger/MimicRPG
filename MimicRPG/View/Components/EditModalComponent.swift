@@ -128,7 +128,7 @@ class EditModalComponent: UIView {
         self.valueStepper.value = Double(value)
         self.titleStepper.text = "\(Int(self.valueStepper.value))"
     }
-    
+
     func getValue() -> Int {
         return Int(self.valueStepper.value)
     }

@@ -258,35 +258,6 @@ class DisplaySheetViewController: UIViewController {
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
-    func saveSheetAttributes(newSTR: Int, newDEX: Int, newCON: Int, newINT: Int, newWIS: Int, newCHA: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-        for attribute in viewModel.getAttributes() {
-            switch (attribute.name) {
-            case SkillT20Attributes.getAttribute(.STR)().name:
-                attribute.value = Int64(newSTR)
-            case SkillT20Attributes.getAttribute(.DEX)().name:
-                attribute.value = Int64(newDEX)
-            case SkillT20Attributes.getAttribute(.CON)().name:
-                attribute.value = Int64(newCON)
-            case SkillT20Attributes.getAttribute(.INT)().name:
-                attribute.value = Int64(newINT)
-            case SkillT20Attributes.getAttribute(.WIS)().name:
-                attribute.value = Int64(newWIS)
-            case SkillT20Attributes.getAttribute(.CHA)().name:
-                attribute.value = Int64(newCHA)
-            default:
-                attribute.value = Int64(newSTR)
-            }
-        }
-
-        do {
-            try context.save()
-        } catch {
-            fatalError("Unable to save data in coredata model")
-        }
-    }
-
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
