@@ -4,6 +4,7 @@
 //
 //  Created by Pedro Henrique on 13/09/21.
 //
+// swiftlint:disable force_cast
 
 import UIKit
 
@@ -282,13 +283,6 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         }
     }
 
-    func displayEditAttributes() {
-        let editAttributesT20Modal = EditAttributesT20Modal(with: viewModel.sheet!)
-        present(editAttributesT20Modal, animated: true, completion: nil)
-    }
-
-    func displayEditPoints() {
-        let editPointsT20Modal = EditPointsT20Modal(with: viewModel.sheet!)
     func reloadAttributes() {
         let attributesView = sheetView as? CharacterAttributesT20
         attributesView?.setupView()
@@ -296,6 +290,11 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
+        present(editPointsT20Modal, animated: true, completion: nil)
+    }
+    
+    func displayEditPointsModal() {
+        let editPointsT20Modal = EditPointsT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
 

@@ -15,12 +15,16 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
+    func setPoints(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
+        print("aaaa")
+    }
+    
     func callEditAttributes() {
         self.output?.displayEditAttributesModal()
     }
     
     func callEditPoints() {
-        self.output?.displayEditPoints()
+        self.output?.displayEditPointsModal()
     }
 
     func getAttributes() -> [Attributes] {

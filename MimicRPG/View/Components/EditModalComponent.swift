@@ -133,15 +133,6 @@ class EditModalComponent: UIView {
         return Int(self.valueStepper.value)
     }
 
-    func setValue(with value: Int) {
-        self.valueStepper.value = Double(value)
-        self.titleStepper.text = "\(Int(self.valueStepper.value))"
-    }
-
-    func getValue() -> Int {
-        return Int(self.valueStepper.value)
-    }
-
     init(titleText: String, multiline: Bool = false, type: TypeOfModalComponent, actualStepper: Int = 0, maxStepper: Int = 100) {
         super.init(frame: .zero)
         titleLabel.text = titleText

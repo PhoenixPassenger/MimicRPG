@@ -15,8 +15,9 @@ class EditPointsT20Modal: UIViewController {
 
     var viewModel: DisplaySheetViewModelType!
 
-    init(with sheet: Sheet) {
+    init(with viewModel: DisplaySheetViewModelType) {
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
         setStartingPointsValues(with: self.viewModel)
     }
 
@@ -159,8 +160,25 @@ class EditPointsT20Modal: UIViewController {
     }
 
     func setStartingPointsValues(with viewModel: DisplaySheetViewModelType) {
-
+        for point in viewModel.getPoints() {
+            switch (point.name) {
+            case PointsT20.getPoints(.armorBonus)().name:
+                sheetBonusArmorView.setValue(with: Int(point.actualValue))
+            case PointsT20.getPoints(.shieldBonus)().name:
+                sheetBonusShieldView.setValue(with: Int(point.actualValue))
+            case PointsT20.getPoints(.classArmorOthers)().name:
+                sheetOthersView.setValue(with: Int(point.actualValue))
+            case PointsT20.getPoints(.classArmorTemp)().name:
+                sheetTemporaryView.setValue(with: Int(point.actualValue))
+            case PointsT20.getPoints(.life)().name:
+                sheetMaxLifeView.setValue(with: Int(point.maxValue))
+            case PointsT20.getPoints(.mana)().name:
+                sheetMaxManaView.setValue(with: Int(point.maxValue))
+            default:
+                sheetBonusArmorView.setValue(with: Int(point.actualValue))
+            }
         }
+    }
 
     func updateUI() {
         if paginator == 0 {
