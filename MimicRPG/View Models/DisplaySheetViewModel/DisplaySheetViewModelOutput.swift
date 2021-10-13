@@ -10,6 +10,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func displayEditPointsModal()
     func displayEditAttributesModal()
     func reloadAttributes()
+    func reloadPoints()
     func displayEditModal()
 //    func addDices()
 //    func removeDice(indexPath: IndexPath)

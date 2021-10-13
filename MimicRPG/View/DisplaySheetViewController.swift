@@ -287,12 +287,17 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let attributesView = sheetView as? CharacterAttributesT20
         attributesView?.setupView()
     }
+    
+    func reloadPoints() {
+        let pointsView = sheetView as? CharacterPoints
+        pointsView?.setupView()
+    }
 
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
-    
+
     func displayEditPointsModal() {
         let editPointsT20Modal = EditPointsT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)

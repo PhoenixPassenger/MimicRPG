@@ -19,8 +19,9 @@ protocol DisplaySheetViewModelType {
     func callReloadAttributes()
     func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]
-    func setPoints(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int)
+    func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int)
     func getPoints() -> [Points]
+    func callReloadPoints()
     func displayModal()
 //    var dices: [Dice]? {get set}
 //    var bonus: Int? {get set}

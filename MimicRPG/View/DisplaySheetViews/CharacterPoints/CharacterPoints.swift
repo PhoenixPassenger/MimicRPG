@@ -26,6 +26,8 @@ class CharacterPoints: UIView {
 
     init() {
         super.init(frame: .zero)
+        self.backgroundColor = UIColor(named: "Background")
+        configureLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -33,47 +35,45 @@ class CharacterPoints: UIView {
     }
 
     func setupView() {
-        self.backgroundColor = UIColor(named: "Background")
-        self.attributeText.text = self.nameAttribute
         
         let attribute = viewModel.getAttributes().filter{ $0.abbreviation == "DEX" }.first
         self.valueAttribute = Int((attribute!.value - 10)/2)
         self.attributeValue.text = "\(self.valueAttribute)"
         
-        let temporary = viewModel.getPoints().filter{ $0.name == "ClassArmorTemporary" }.first
-        self.valueTemporary = Int(temporary!.actualValue)
-        self.temporaryValue.text = "\(self.valueTemporary)"
+        for point in viewModel.getPoints() {
+            switch (point.name) {
+            case PointsT20.getPoints(.armorBonus)().name:
+                self.valueArmorBonus = Int(point.actualValue)
+                self.armorBonusValue.text = "\(self.valueArmorBonus)"
+            case PointsT20.getPoints(.shieldBonus)().name:
+                self.valueShieldBonus = Int(point.actualValue)
+                self.shieldBonusValue.text = "\(self.valueShieldBonus)"
+            case PointsT20.getPoints(.classArmorOthers)().name:
+                self.valueOthers = Int(point.actualValue)
+                self.othersValue.text = "\(self.valueOthers)"
+            case PointsT20.getPoints(.classArmorTemp)().name:
+                self.valueTemporary = Int(point.actualValue)
+                self.temporaryValue.text = "\(self.valueTemporary)"
+            case PointsT20.getPoints(.life)().name:
+                self.actualLife = Int(point.actualValue)
+                self.maxLife = Int(point.maxValue)
+                self.lifeStepper.maximumValue = Double(self.maxLife)
+                self.lifeStepper.value = Double(self.actualLife)
+                self.lifeValue.text = "\(self.actualLife)/\(self.maxLife)"
+            case PointsT20.getPoints(.mana)().name:
+                self.actualMana = Int(point.actualValue)
+                self.maxMana = Int(point.maxValue)
+                self.manaStepper.maximumValue = Double(maxMana)
+                self.manaStepper.value = Double(self.actualMana)
+                self.manaValue.text = "\(self.actualMana)/\(self.maxMana)"
+            default:
+                self.valueArmorBonus = Int(point.actualValue)
+                self.armorBonusValue.text = "\(self.valueArmorBonus)"
+            }
+        }
         
-        let armorBonus = viewModel.getPoints().filter{ $0.name == "ArmorBonus" }.first
-        self.valueArmorBonus = Int(armorBonus!.actualValue)
-        self.armorBonusValue.text = "\(self.valueArmorBonus)"
-
-        let shieldBonus = viewModel.getPoints().filter{ $0.name == "ShieldBonus" }.first
-        self.valueShieldBonus = Int(shieldBonus!.actualValue)
-        self.shieldBonusValue.text = "\(self.valueShieldBonus)"
-
-        let others = viewModel.getPoints().filter{ $0.name == "ClassArmorOthers" }.first
-        self.valueOthers = Int(others!.actualValue)
-        self.othersValue.text = "\(self.valueOthers)"
-
         self.valueTotal = 10 + self.valueAttribute + self.valueTemporary + self.valueArmorBonus + self.valueShieldBonus + self.valueOthers
         self.totalValue.text = "\(self.valueTotal)"
-
-        configureLayout()
-
-        let life = viewModel.getPoints().filter{ $0.name == "Life" }.first
-        self.actualLife = Int(life!.actualValue)
-        self.maxLife = Int(life!.maxValue)
-        self.lifeStepper.maximumValue = Double(self.maxLife)
-        self.lifeStepper.value = Double(self.actualLife)
-        self.lifeValue.text = "\(self.actualLife)/\(self.maxLife)"
-
-        let mana = viewModel.getPoints().filter{ $0.name == "Mana" }.first
-        self.actualMana = Int(mana!.actualValue)
-        self.maxMana = Int(mana!.maxValue)
-        self.manaStepper.maximumValue = Double(maxMana)
-        self.manaStepper.value = Double(self.actualMana)
-        self.manaValue.text = "\(self.actualMana)/\(self.maxMana)"
     }
     
     lazy var editButton: UIButton = {

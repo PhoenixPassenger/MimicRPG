@@ -123,7 +123,7 @@ class EditModalComponent: UIView {
     @objc func tapDone(sender: Any) {
         self.endEditing(true)
     }
-    
+
     func setValue(with value: Int) {
         self.valueStepper.value = Double(value)
         self.titleStepper.text = "\(Int(self.valueStepper.value))"
