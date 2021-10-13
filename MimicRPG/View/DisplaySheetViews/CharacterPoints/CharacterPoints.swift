@@ -33,10 +33,6 @@ class CharacterPoints: UIView {
     }
 
     func setupView() {
-        for point in viewModel.getPoints() {
-            print(point.name)
-        }
-        
         self.backgroundColor = UIColor(named: "Background")
         self.attributeText.text = self.nameAttribute
         
@@ -92,8 +88,7 @@ class CharacterPoints: UIView {
     }()
 
     @objc func editPoints() {
-//        let editPointsT20Modal = EditPointsT20Modal()
-//        present(editPointsT20Modal, animated: true, completion: nil)
+        viewModel.callEditPoints()
     }
 
     lazy var defenseBox: UIImageView = {

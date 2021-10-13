@@ -17,6 +17,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func callEditAttributes() {
         self.output?.displayEditAttributes()
     }
+    
+    func callEditPoints() {
+        self.output?.displayEditPoints()
+    }
 
     func getAttributes() -> [Attributes] {
         return Array(sheet?.attribute as! Set<Attributes>)

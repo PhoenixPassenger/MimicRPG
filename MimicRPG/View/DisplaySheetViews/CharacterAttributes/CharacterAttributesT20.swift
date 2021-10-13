@@ -82,9 +82,9 @@ class CharacterAttributesT20: UIView {
     }
 
     func setupView() {
-        for attribute in viewModel.getAttributes() {
-            print(attribute.name)
-        }
+//        for attribute in viewModel.getAttributes() {
+//            print(attribute.name)
+//        }
     }
 
     required init?(coder: NSCoder) {

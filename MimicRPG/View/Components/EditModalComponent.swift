@@ -89,10 +89,10 @@ class EditModalComponent: UIView {
         self.addSubview(stack)
         return stack
     }()
-    
+
     lazy var stack: UIStackView = {
         var stack = UIStackView()
-        
+
         switch typeOfModalComponent {
         case .text:
             stack = UIStackView(arrangedSubviews: [titleLabel, valueText])
@@ -122,6 +122,15 @@ class EditModalComponent: UIView {
 
     @objc func tapDone(sender: Any) {
         self.endEditing(true)
+    }
+    
+    func setValue(with value: Int) {
+        self.valueStepper.value = Double(value)
+        self.titleStepper.text = "\(Int(self.valueStepper.value))"
+    }
+
+    func getValue() -> Int {
+        return Int(self.valueStepper.value)
     }
 
     init(titleText: String, multiline: Bool = false, type: TypeOfModalComponent, actualStepper: Int = 0, maxStepper: Int = 100) {

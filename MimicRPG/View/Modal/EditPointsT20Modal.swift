@@ -13,8 +13,11 @@ class EditPointsT20Modal: UIViewController {
     var paginator: Int = 0
     let lastPage: Int = 1
 
-    init() {
+    var viewModel: DisplaySheetViewModelType!
+
+    init(with sheet: Sheet) {
         super.init(nibName: nil, bundle: nil)
+        setStartingPointsValues(with: self.viewModel)
     }
 
     var selectedRow: Int = 0
@@ -154,6 +157,10 @@ class EditPointsT20Modal: UIViewController {
             updateUI()
         }
     }
+
+    func setStartingPointsValues(with viewModel: DisplaySheetViewModelType) {
+
+        }
 
     func updateUI() {
         if paginator == 0 {
