@@ -67,7 +67,6 @@ class EditAttributesT20Modal: UIViewController {
     }()
 
     // MARK: - Breadcrumb
-
     lazy var breadcrumb: BreadcrumbForm = {
         let breadcrumb = BreadcrumbForm()
         breadcrumb.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +75,6 @@ class EditAttributesT20Modal: UIViewController {
     }()
 
     // MARK: - First Group
-
     lazy var strengthView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Strength".localized(), type: .stepper)
         return view
@@ -103,7 +101,6 @@ class EditAttributesT20Modal: UIViewController {
     }()
 
     // MARK: - Second Group
-
     lazy var intelligenceView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Intelligence".localized(), type: .stepper)
         return view
@@ -130,7 +127,6 @@ class EditAttributesT20Modal: UIViewController {
     }()
 
     // MARK: - Functions
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()

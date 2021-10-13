@@ -113,9 +113,9 @@ ModifierINT = "Modificador - Inteligência (INT)";
 ModifierWIS = "Modificador - Sabedoria (SAB)";
 ModifierCHA = "Modificador - Carisma (CAR)";
 Training = "Treinamento";
-
 APP = "APA";
 POW = "POD";
 SIZ = "TAM";
 EditField = "Editar Campos";
 Edit = "Editar";
+DEX = "DES";

@@ -16,9 +16,45 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
+    func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        for point in self.getPoints() {
+            switch (point.name) {
+            case PointsT20.getPoints(.armorBonus)().name:
+                point.actualValue = Int64(setArmorBonus)
+            case PointsT20.getPoints(.shieldBonus)().name:
+                point.actualValue = Int64(setShieldBonus)
+            case PointsT20.getPoints(.classArmorOthers)().name:
+                point.actualValue = Int64(setOthers)
+            case PointsT20.getPoints(.classArmorTemp)().name:
+                point.actualValue = Int64(setTemporary)
+            case PointsT20.getPoints(.life)().name:
+                point.maxValue = Int64(setMaxLife)
+            case PointsT20.getPoints(.mana)().name:
+                point.maxValue = Int64(setMaxMana)
+            default:
+                point.actualValue = Int64(setArmorBonus)
+            }
+        }
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+
+    func callReloadPoints() {
+        self.output?.reloadPoints()
+    }
 
     func callEditAttributes() {
         self.output?.displayEditAttributesModal()
+    }
+
+    func callEditPoints() {
+        self.output?.displayEditPointsModal()
     }
 
     func getAttributes() -> [Attributes] {

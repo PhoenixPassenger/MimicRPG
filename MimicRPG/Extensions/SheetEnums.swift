@@ -61,9 +61,9 @@ enum PointsT20 {
     func getPoints() -> Point {
         switch self {
         case .life:
-            return Point(name: "Life", actualValue: 0)
+            return Point(name: "Life", actualValue: 0, maximumValue: 10)
         case .mana:
-            return Point(name: "Mana", actualValue: 0)
+            return Point(name: "Mana", actualValue: 0, maximumValue: 8)
         case .classArmorTemp:
             return Point(name: "ClassArmorTemporary", actualValue: 0)
         case .armorBonus:
