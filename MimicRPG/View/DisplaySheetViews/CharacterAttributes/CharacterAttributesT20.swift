@@ -30,7 +30,7 @@ class CharacterAttributesT20: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    let attributeDEST20: AttributeBoxT20 = {
+    let attributeDEXT20: AttributeBoxT20 = {
         let view = AttributeBoxT20(attribute: "AttributesDEX".localized(), value: 18)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -45,18 +45,18 @@ class CharacterAttributesT20: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    let attributeSABT20: AttributeBoxT20 = {
+    let attributeWIST20: AttributeBoxT20 = {
         let view = AttributeBoxT20(attribute: "AttributesWIS".localized(), value: 12)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    let attributeCART20: AttributeBoxT20 = {
+    let attributeCHAT20: AttributeBoxT20 = {
         let view = AttributeBoxT20(attribute: "AttributesCHA".localized(), value: 8)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     lazy var stackPhysical: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [attributeSTRT20, attributeDEST20, attributeCONT20])
+        let stack = UIStackView(arrangedSubviews: [attributeSTRT20, attributeDEXT20, attributeCONT20])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
@@ -66,7 +66,7 @@ class CharacterAttributesT20: UIView {
         return stack
     }()
     lazy var stackMental: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [attributeINTT20, attributeSABT20, attributeCART20])
+        let stack = UIStackView(arrangedSubviews: [attributeINTT20, attributeWIST20, attributeCHAT20])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
@@ -83,7 +83,22 @@ class CharacterAttributesT20: UIView {
 
     func setupView() {
         for attribute in viewModel.getAttributes() {
-            print(attribute.name)
+            switch (attribute.name) {
+            case SkillT20Attributes.getAttribute(.STR)().name:
+                attributeSTRT20.setAttributeValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.DEX)().name:
+                attributeDEXT20.setAttributeValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.CON)().name:
+                attributeCONT20.setAttributeValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.INT)().name:
+                attributeINTT20.setAttributeValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.WIS)().name:
+                attributeWIST20.setAttributeValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.CHA)().name:
+                attributeCHAT20.setAttributeValue(with: Int(attribute.value))
+            default:
+                attributeSTRT20.setAttributeValue(with: Int(attribute.value))
+            }
         }
     }
 
