@@ -55,6 +55,7 @@ class DisplaySheetViewController: UIViewController {
                 view.setupTableView()
             case 6:
                 let view = CharacterNotes()
+                view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             default:
@@ -257,6 +258,24 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func displayEditNoteModal(name: String, desc: String, note: Notes) {
+        let modal = CreateNoteModal()
+        modal.viewModel = self.viewModel
+        modal.fillForm(name: name, desc: desc, note: note)
+        self.present(modal, animated: true, completion: nil)
+    }
+    
+    func updateNotes() {
+        let view = self.sheetView as? CharacterNotes
+        view?.reloadData()
+    }
+    
+    func displayNewNoteModal() {
+        let modal = CreateNoteModal()
+        modal.viewModel = self.viewModel
+        self.present(modal, animated: true, completion: nil)
+    }
+    
     func displayEditAttributes() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel.sheet!)
         present(editPointsT20Modal, animated: true, completion: nil)
