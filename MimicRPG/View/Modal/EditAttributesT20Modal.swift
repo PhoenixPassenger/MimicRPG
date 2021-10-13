@@ -13,15 +13,15 @@ class EditAttributesT20Modal: UIViewController {
     var paginator: Int = 0
     let lastPage: Int = 1
 
-    var characterSheet: Sheet?
+    var viewModel: DisplaySheetViewModelType!
 
-    init(with sheet: Sheet) {
+    init(with viewModel: DisplaySheetViewModelType) {
         super.init(nibName: nil, bundle: nil)
-        setStartingAttributeValues(with: sheet)
+        self.viewModel = viewModel
+        setStartingAttributeValues(with: self.viewModel)
     }
 
     var selectedRow: Int = 0
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -147,15 +147,32 @@ class EditAttributesT20Modal: UIViewController {
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
             editAttributes()
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: viewModel.callReloadAttributes)
         } else {
             paginator += 1
             updateUI()
         }
     }
-    
-    func setStartingAttributeValues(with sheet: Sheet) {
-        
+
+    func setStartingAttributeValues(with viewModel: DisplaySheetViewModelType) {
+        for attribute in viewModel.getAttributes() {
+            switch (attribute.name) {
+            case SkillT20Attributes.getAttribute(.STR)().name:
+                strengthView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.DEX)().name:
+                dexterityView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.CON)().name:
+                constitutionView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.INT)().name:
+                intelligenceView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.WIS)().name:
+                wisdomView.setValue(with: Int(attribute.value))
+            case SkillT20Attributes.getAttribute(.CHA)().name:
+                charismaView.setValue(with: Int(attribute.value))
+            default:
+                strengthView.setValue(with: Int(attribute.value))
+            }
+        }
     }
 
     func updateUI() {
@@ -211,7 +228,13 @@ class EditAttributesT20Modal: UIViewController {
 
     // MARK: - CoreData
     func editAttributes() {
-        //
+        let editSTR = strengthView.getValue()
+        let editDEX = dexterityView.getValue()
+        let editCON = constitutionView.getValue()
+        let editINT = intelligenceView.getValue()
+        let editWIS = wisdomView.getValue()
+        let editCHA = charismaView.getValue()
+        viewModel.setAttributes(setSTR: editSTR, setDEX: editDEX, setCON: editCON, setINT: editINT, setWIS: editWIS, setCHA: editCHA)
     }
 
     private func configureLayout() {
