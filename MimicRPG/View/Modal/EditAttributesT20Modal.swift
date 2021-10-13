@@ -151,7 +151,7 @@ class EditAttributesT20Modal: UIViewController {
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
             editAttributes()
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: viewModel.callReloadAttributes)
         } else {
             paginator += 1
             updateUI()

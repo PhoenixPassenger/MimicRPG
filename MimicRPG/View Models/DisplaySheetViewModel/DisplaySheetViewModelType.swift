@@ -15,6 +15,7 @@ protocol DisplaySheetViewModelType {
     func callEditAttributes()
     func getAttributes() -> [Attributes]
     func setAttributes(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int)
+    func callReloadAttributes()
     func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]
     func getPoints() -> [Points]

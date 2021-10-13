@@ -257,6 +257,10 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func reloadAttributes() {
+        let attributesView = sheetView as? CharacterAttributesT20
+        attributesView?.setupView()
+    }
 
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)

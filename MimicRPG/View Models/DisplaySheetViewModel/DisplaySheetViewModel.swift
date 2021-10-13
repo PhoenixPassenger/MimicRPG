@@ -51,6 +51,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
     }
+    
+    func callReloadAttributes() {
+        self.output?.reloadAttributes()
+    }
 
     func getProfile() -> [Characteristics] {
         return Array(sheet?.profile?.characteristics as! Set<Characteristics>)
