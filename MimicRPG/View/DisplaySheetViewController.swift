@@ -265,16 +265,17 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         modal.fillForm(name: name, desc: desc, note: note)
         self.present(modal, animated: true, completion: nil)
     }
-    
+
     func updateNotes() {
         let view = self.sheetView as? CharacterNotes
         view?.reloadData()
     }
-    
+
     func displayNewNoteModal() {
         let modal = CreateNoteModal()
         modal.viewModel = self.viewModel
         self.present(modal, animated: true, completion: nil)
+    }
     func displayAddAttackModal() {
         let addAttackT20Modal = CreateAttackT20Modal(with: viewModel)
         present(addAttackT20Modal, animated: true, completion: nil)

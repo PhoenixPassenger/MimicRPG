@@ -16,6 +16,7 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
+
     func callEditAttributes() {
         self.output?.displayEditAttributesModal()
     }
@@ -66,7 +67,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
         var newAttack = Attack(context: context)
         newAttack.name = attackName
-
 
         do {
             try context.save()

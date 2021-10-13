@@ -217,7 +217,7 @@ class CreateAttackT20Modal: UIViewController {
         let attackType = sheetAttackTypeView.getBoxText()
         let attackRange = sheetAttackRangeView.getBoxText()
         let criticalEffect = sheetAttackCriticalView.getBoxText()
-        viewModel.createAttack()
+        viewModel.createAttack(attackName: attackName, attackDamage: attackDamage, attackBonus: attackBonus, attackType: attackType, attackRange: attackRange, criticalBonus: criticalEffect)
     }
 
     private func configureLayout() {
