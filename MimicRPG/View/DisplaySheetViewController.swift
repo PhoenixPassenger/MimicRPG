@@ -290,12 +290,12 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         modal.fillForm(name: name, desc: desc, note: note)
         self.present(modal, animated: true, completion: nil)
     }
-    
+
     func updateNotes() {
         let view = self.sheetView as? CharacterNotes
         view?.reloadData()
     }
-    
+
     func displayNewNoteModal() {
         let modal = CreateNoteModal()
         modal.viewModel = self.viewModel
@@ -306,7 +306,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let attributesView = sheetView as? CharacterAttributesT20
         attributesView?.setupView()
     }
-    
+
     func reloadPoints() {
         let pointsView = sheetView as? CharacterPoints
         pointsView?.setupView()
