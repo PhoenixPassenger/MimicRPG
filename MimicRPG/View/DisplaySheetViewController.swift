@@ -4,6 +4,7 @@
 //
 //  Created by Pedro Henrique on 13/09/21.
 //
+// swiftlint:disable force_cast
 
 import UIKit
 
@@ -39,7 +40,7 @@ class DisplaySheetViewController: UIViewController {
                 let view = CharacterPoints()
                 sheetView = view
                 view.viewModel = self.viewModel
-                view.setupView(attribute: 1, temporary: 0, armorBonus: 2, shieldBonus: 2, others: 0, lifeActual: 30, lifeMax: 50, manaActual: 25, manaMax: 30)
+                view.setupView()
             case 3:
                 let view = CharacterSkillsT20()
                 view.viewModel = self.viewModel
@@ -239,10 +240,6 @@ class DisplaySheetViewController: UIViewController {
         }
     }
 
-//    override func viewWillDisappear(_ animated: Bool) {
-//        sheetHeader?.removeFromSuperview()
-//    }
-
     @objc func tabFunction(sender: UIButton) {
         changeSelectedButton(tag: sender.tag)
     }
@@ -258,31 +255,70 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func saveSheetPoints(newSTR: Int, newDEX: Int, newCON: Int, newINT: Int, newWIS: Int, newCHA: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        for attribute in viewModel.getAttributes() {
+            switch (attribute.name) {
+            case SkillT20Attributes.getAttribute(.STR)().name:
+                attribute.value = Int64(newSTR)
+            case SkillT20Attributes.getAttribute(.DEX)().name:
+                attribute.value = Int64(newDEX)
+            case SkillT20Attributes.getAttribute(.CON)().name:
+                attribute.value = Int64(newCON)
+            case SkillT20Attributes.getAttribute(.INT)().name:
+                attribute.value = Int64(newINT)
+            case SkillT20Attributes.getAttribute(.WIS)().name:
+                attribute.value = Int64(newWIS)
+            case SkillT20Attributes.getAttribute(.CHA)().name:
+                attribute.value = Int64(newCHA)
+            default:
+                attribute.value = Int64(newSTR)
+            }
+        }
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+
     func displayEditNoteModal(name: String, desc: String, note: Notes) {
         let modal = CreateNoteModal()
         modal.viewModel = self.viewModel
         modal.fillForm(name: name, desc: desc, note: note)
         self.present(modal, animated: true, completion: nil)
     }
-    
+
     func updateNotes() {
         let view = self.sheetView as? CharacterNotes
         view?.reloadData()
     }
-    
+
     func displayNewNoteModal() {
         let modal = CreateNoteModal()
         modal.viewModel = self.viewModel
         self.present(modal, animated: true, completion: nil)
     }
-    
+
     func reloadAttributes() {
         let attributesView = sheetView as? CharacterAttributesT20
         attributesView?.setupView()
     }
 
+    func reloadPoints() {
+        let pointsView = sheetView as? CharacterPoints
+        pointsView?.setupView()
+    }
+
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
+        present(editPointsT20Modal, animated: true, completion: nil)
+    }
+
+    func displayEditPointsModal() {
+        let editPointsT20Modal = EditPointsT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
 

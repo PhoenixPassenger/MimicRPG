@@ -13,8 +13,12 @@ class EditPointsT20Modal: UIViewController {
     var paginator: Int = 0
     let lastPage: Int = 1
 
-    init() {
+    var viewModel: DisplaySheetViewModelType!
+
+    init(with viewModel: DisplaySheetViewModelType) {
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+        setStartingPointsValues(with: self.viewModel)
     }
 
     var selectedRow: Int = 0
@@ -148,10 +152,31 @@ class EditPointsT20Modal: UIViewController {
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
             editPoints()
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: viewModel.callReloadPoints)
         } else {
             paginator += 1
             updateUI()
+        }
+    }
+
+    func setStartingPointsValues(with viewModel: DisplaySheetViewModelType) {
+        for point in viewModel.getPoints() {
+            switch (point.name) {
+            case PointsT20.getPoints(.armorBonus)().name:
+                sheetBonusArmorView.setValue(with: Int(point.actualValue))
+            case PointsT20.getPoints(.shieldBonus)().name:
+                sheetBonusShieldView.setValue(with: Int(point.actualValue))
+            case PointsT20.getPoints(.classArmorOthers)().name:
+                sheetOthersView.setValue(with: Int(point.actualValue))
+            case PointsT20.getPoints(.classArmorTemp)().name:
+                sheetTemporaryView.setValue(with: Int(point.actualValue))
+            case PointsT20.getPoints(.life)().name:
+                sheetMaxLifeView.setValue(with: Int(point.maxValue))
+            case PointsT20.getPoints(.mana)().name:
+                sheetMaxManaView.setValue(with: Int(point.maxValue))
+            default:
+                sheetBonusArmorView.setValue(with: Int(point.actualValue))
+            }
         }
     }
 
@@ -208,7 +233,13 @@ class EditPointsT20Modal: UIViewController {
 
     // MARK: - CoreData
     func editPoints() {
-        //
+        let editArmorBonus = sheetBonusArmorView.getValue()
+        let editShieldBonus = sheetBonusShieldView.getValue()
+        let editOthers =  sheetOthersView.getValue()
+        let editTemporary = sheetTemporaryView.getValue()
+        let editMaxLife = sheetMaxLifeView.getValue()
+        let editMaxMana = sheetMaxManaView.getValue()
+        viewModel.setPoints(setArmorBonus: editArmorBonus, setShieldBonus: editShieldBonus, setOthers: editOthers, setTemporary: editTemporary, setMaxLife: editMaxLife, setMaxMana: editMaxMana)
     }
 
     private func configureLayout() {
