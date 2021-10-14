@@ -48,6 +48,7 @@ class DisplaySheetViewController: UIViewController {
                 view.setupTableView()
             case 4:
                 let view = CharacterItems()
+                view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             case 5:
@@ -311,6 +312,11 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let pointsView = sheetView as? CharacterPoints
         pointsView?.setupView()
     }
+    
+    func updateItems() {
+        let itemsView = sheetView as? CharacterItems
+        itemsView?.reloadData()
+    }
 
     func displayEditAttributesModal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
@@ -324,6 +330,19 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
     func displayEditModal() {
         let modal = EditFieldModal()
+        self.present(modal, animated: true, completion: nil)
+    }
+
+    func displayEditItemModal(name: String, desc: String, uses: Int, item: Item) {
+        let modal = CreateItemModal()
+        modal.viewModel = self.viewModel
+        modal.fillForm(name: name, desc: desc, uses: uses, item: item)
+        self.present(modal, animated: true, completion: nil)
+    }
+
+    func displayNewItem() {
+        let modal = CreateItemModal()
+        modal.viewModel = self.viewModel
         self.present(modal, animated: true, completion: nil)
     }
 }
