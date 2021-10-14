@@ -87,6 +87,7 @@ class DisplaySheetViewController: UIViewController {
         updateButtons()
         setupButtons()
         setupElements()
+        updateHeader()
         changeSelectedButton(tag: 0)
     }
 
@@ -303,9 +304,18 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let view = self.sheetView as? CharacterNotes
         view?.reloadData()
     }
+    
+    func updateHeader() {
+        sheetHeader.set(
+            name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "aa",
+            race: (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue) ?? "aa",
+            level: Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
+        )
+    }
 
     func updateProfile() {
         let view = self.sheetView as? CharacterBio
+        updateHeader()
         view?.reloadData()
     }
 
@@ -324,7 +334,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let pointsView = sheetView as? CharacterPoints
         pointsView?.setupView()
     }
-    
+
     func updateItems() {
         let itemsView = sheetView as? CharacterItems
         itemsView?.reloadData()
