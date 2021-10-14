@@ -322,7 +322,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let pointsView = sheetView as? CharacterPoints
         pointsView?.setupView()
     }
-    
+
     func updateItems() {
         let itemsView = sheetView as? CharacterItems
         itemsView?.reloadData()

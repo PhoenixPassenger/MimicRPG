@@ -210,12 +210,12 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func displayModal() {
         self.output?.displayEditModal()
     }
-    
+
     func getItemsCount() -> Int {
         return self.sheet?.item?.count ?? 0
     }
-    
-    func getItems() -> [Item] {
+
+    func getItems() -> [Item] {
         return self.sheet?.item?.allObjects as! [Item]
     }
 
@@ -228,11 +228,11 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         self.output?.updateItems()
     }
-    
+
     func editItemModal(item: Item) {
         self.output?.displayEditItemModal(name: item.name!, desc: (item.characteristics?.stringValue)!, uses: Int(item.characteristics!.numberValue), item: item)
     }
-    
+
     func editItem(name: String, description: String, uses: Int, item: Item) {
         item.name = name
         item.characteristics?.stringValue = description
