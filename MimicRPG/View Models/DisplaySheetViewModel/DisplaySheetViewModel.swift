@@ -16,6 +16,7 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
+
     func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -136,6 +137,21 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.updateNotes()
     }
 
+    func editField(name: String, text: String, value: Int, characteristic: Characteristics) {
+        characteristic.name = name
+        if name == "Level" {
+            characteristic.numberValue = Int64(value)
+        } else {
+            characteristic.stringValue = text
+        }
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+    
+
     func removeNote(note: Notes) {
         context.delete(note)
         do {
@@ -148,6 +164,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     
     func editNoteModal(note: Notes) {
         self.output?.displayEditNoteModal(name: note.name!, desc: (note.characteristics?.stringValue)!, note: note)
+    }
+
+    func editBioModal(characteristic: Characteristics) {
+        self.output?.displayEditBioModal(name: characteristic.name!, desc: characteristic.stringValue ?? "", value: Int(characteristic.numberValue), characteristic: characteristic)
     }
 
     func newNoteModal() {

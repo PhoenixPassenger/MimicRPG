@@ -290,6 +290,13 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         modal.fillForm(name: name, desc: desc, note: note)
         self.present(modal, animated: true, completion: nil)
     }
+    
+    func displayEditBioModal(name: String, desc: String, value: Int, characteristic: Characteristics) {
+        let modal = EditFieldModal()
+        modal.viewModel = self.viewModel
+        modal.fillForm(name: name, desc: desc, value: value, characteristic: characteristic)
+        self.present(modal, animated: true, completion: nil)
+    }
 
     func updateNotes() {
         let view = self.sheetView as? CharacterNotes

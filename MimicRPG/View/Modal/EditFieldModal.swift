@@ -10,6 +10,8 @@ import UIKit
 
 class EditFieldModal: UIViewController {
 
+    var viewModel : DisplaySheetViewModelType!
+    var editCharacteristic: Characteristics?
     var paginator: Int = 0
     let lastPage: Int = 0
 
@@ -64,14 +66,20 @@ class EditFieldModal: UIViewController {
     }()
 
     // MARK: - First Group
+    
+    lazy var sheetBioNameView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Name".localized(), multiline: true, type: .text)
+        view.valueText.isEditable = false
+        return view
+    }()
 
-    lazy var sheetItemDescView: EditModalComponent = {
+    lazy var sheetBioDescView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Description".localized(), multiline: true, type: .text)
         return view
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetItemDescView])
+        let stack = UIStackView(arrangedSubviews: [sheetBioNameView, sheetBioDescView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -101,12 +109,23 @@ class EditFieldModal: UIViewController {
 
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
-            createNewItem()
+            editField()
             dismiss(animated: true, completion: nil)
         } else {
             paginator += 1
             updateUI()
         }
+    }
+    
+    func fillForm(name: String, desc: String, value: Int, characteristic: Characteristics) {
+        sheetBioNameView.valueText.text = name
+        if name != "Level" {
+            sheetBioDescView.valueText.text = desc
+        } else {
+            sheetBioDescView = EditModalComponent(titleText: "Description".localized(), multiline: true, type: .stepper)
+            sheetBioDescView.setValue(with: value)
+        }
+        self.editCharacteristic = characteristic
     }
 
     func updateUI() {
@@ -129,9 +148,13 @@ class EditFieldModal: UIViewController {
         updateUI()
     }
 
-    // MARK: - CoreData
-    func createNewItem() {
-//        
+    // MARK: - CoreDatas
+    func editField() {
+        guard let name = sheetBioNameView.valueText.text else {return}
+        guard let desc = sheetBioDescView.valueText.text else {return}
+        let value = sheetBioDescView.valueStepper.value
+        
+        self.viewModel.editField(name: name, text: desc, value: Int(value), characteristic: self.editCharacteristic!)
     }
 
     private func configureLayout() {
