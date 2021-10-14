@@ -31,6 +31,13 @@ protocol DisplaySheetViewModelType {
     func editNote(name: String, text: String, note: Notes)
     func displayModal()
     func newNoteModal()
+    func newItemModal()
+    func getItemsCount() -> Int
+    func createNewItem(name: String, uses: Int, description: String)
+    func editItem(name: String, description: String, uses: Int, item: Item)
+    func getItems() -> [Item]
+    func removeItem(item: Item)
+    func editItemModal(item: Item)
     func removeNote(note: Notes)
     func editNoteModal(note: Notes)
 //    var dices: [Dice]? {get set}

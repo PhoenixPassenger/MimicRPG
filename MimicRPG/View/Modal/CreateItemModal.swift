@@ -9,6 +9,9 @@
 import UIKit
 
 class CreateItemModal: UIViewController {
+    var viewModel : DisplaySheetViewModelType!
+    var isEditMode: Bool = false
+    var editItem: Item?
 
     var paginator: Int = 0
     let lastPage: Int = 1
@@ -184,6 +187,15 @@ class CreateItemModal: UIViewController {
             }
         })
     }
+    
+    func fillForm(name: String, desc: String, uses: Int, item: Item) {
+        sheetItemNameView.valueText.text = name
+        sheetItemQtdView.valueStepper.value = Double(uses)
+        sheetItemQtdView.titleStepper.text = String(uses)
+        sheetItemDescView.valueText.text = desc
+        self.editItem = item
+        self.isEditMode = true
+    }
 
     private func additionalConfigurations() {
         configureLayout()
@@ -193,7 +205,10 @@ class CreateItemModal: UIViewController {
 
     // MARK: - CoreData
     func createNewItem() {
-        //
+        let name = sheetItemNameView.valueText.text ?? ""
+        let uses = Int(sheetItemQtdView.valueStepper.value)
+        let desc = sheetItemDescView.valueText.text ?? ""
+        !self.isEditMode ? self.viewModel.createNewItem(name: name, uses: uses, description: desc) : self.viewModel.editItem(name: name, description: desc, uses: uses, item: self.editItem!)
     }
 
     private func configureLayout() {

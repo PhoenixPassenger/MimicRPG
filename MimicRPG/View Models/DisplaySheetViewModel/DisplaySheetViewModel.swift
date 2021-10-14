@@ -210,4 +210,58 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func displayModal() {
         self.output?.displayEditModal()
     }
+    
+    func getItemsCount() -> Int {
+        return self.sheet?.item?.count ?? 0
+    }
+    
+    func getItems() -> [Item] {
+        return self.sheet?.item?.allObjects as! [Item]
+    }
+
+    func removeItem(item: Item) {
+        context.delete(item)
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to fetch data from core data ")
+        }
+        self.output?.updateItems()
+    }
+    
+    func editItemModal(item: Item) {
+        self.output?.displayEditItemModal(name: item.name!, desc: (item.characteristics?.stringValue)!, uses: Int(item.characteristics!.numberValue), item: item)
+    }
+    
+    func editItem(name: String, description: String, uses: Int, item: Item) {
+        item.name = name
+        item.characteristics?.stringValue = description
+        item.characteristics?.numberValue = Int64(uses)
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+        self.output?.updateItems()
+    }
+
+    func createNewItem(name: String, uses: Int, description: String) {
+        let item = Item(context: context)
+        item.sheet = self.sheet
+        let char = Characteristics(context: context)
+        char.stringValue = description
+        char.numberValue = Int64(uses)
+        item.characteristics = char
+        item.name = name
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+        self.output?.updateItems()
+    }
+
+    func newItemModal() {
+        self.output?.displayNewItem()
+    }
 }

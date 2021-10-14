@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
+    var viewModel: DisplaySheetViewModelType!
     func setupTableView() {
         self.register(CharacterItemsCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
@@ -21,7 +22,11 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterItemsCell
         guard let cell = cellWrap else { fatalError() }
-        cell.set(itemName: "Kit de ferrammentas (Artesão)", itemDescription: "Deve-se ter a perícia de artesão para utilizar", itemUses: 2)
+        let item = self.viewModel.getItems()[indexPath.row]
+        guard let itemUses = item.characteristics?.numberValue else {
+            fatalError()
+        }
+        cell.set(itemName: item.name ?? "", itemDescription: item.characteristics?.stringValue ?? "", itemUses: Int(itemUses))
         return cell
     }
 
@@ -48,11 +53,11 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
      }
 
     @objc func addCell() {
-//
+        self.viewModel.newItemModal()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        self.viewModel.getItemsCount()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,12 +84,14 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     private func removeCell(row: Int) {
         // Melhor implementar um alert antes disso
-        let path = IndexPath(row: row, section: 0)
-        self.deleteRows(at: [path], with: .fade)
-        self.reloadData()
+        let items = self.viewModel.getItems()
+        let itemRow = items[row]
+        self.viewModel.removeItem(item: itemRow)
     }
 
     private func editCell(row: Int) {
-        print(row)
+        let items = self.viewModel.getItems()
+        let itemRow = items[row]
+        self.viewModel.editItemModal(item: itemRow)
     }
 }

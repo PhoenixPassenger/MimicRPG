@@ -22,7 +22,7 @@
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="characteristics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="item" inverseEntity="Characteristics"/>
+        <relationship name="characteristics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="item" inverseEntity="Characteristics"/>
         <relationship name="sheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="item" inverseEntity="Sheet"/>
     </entity>
     <entity name="Notes" representedClassName="Notes" syncable="YES" codeGenerationType="category">
