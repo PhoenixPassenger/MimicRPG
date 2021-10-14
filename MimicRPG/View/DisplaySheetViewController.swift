@@ -256,6 +256,11 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func reloadAttacks() {
+        let view = self.sheetView as? CharacterAttacks
+        view?.reloadData()
+    }
+
     func saveSheetPoints(newSTR: Int, newDEX: Int, newCON: Int, newINT: Int, newWIS: Int, newCHA: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 

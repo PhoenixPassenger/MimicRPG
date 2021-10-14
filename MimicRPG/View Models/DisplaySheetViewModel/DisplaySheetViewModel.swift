@@ -16,6 +16,10 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
+    func callReloadAttacks() {
+        self.output?.reloadAttacks()
+    }
+
     func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -101,14 +105,46 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func createAttack(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-        var newAttack = Attack(context: context)
+        let newAttack = Attack(context: context)
         newAttack.name = attackName
+
+        let newDamage = Characteristics(context: context)
+        newDamage.name = AttackCharacteristicsT20.getCharacteristicName(.attackDamage)()
+        newDamage.stringValue = attackDamage
+        newAttack.addToCharacteristics(newDamage)
+
+        let newBonus = Characteristics(context: context)
+        newBonus.name = AttackCharacteristicsT20.getCharacteristicName(.attackBonus)()
+        newBonus.numberValue = Int64(attackBonus)
+        newAttack.addToCharacteristics(newBonus)
+
+        let newType = Characteristics(context: context)
+        newType.name = AttackCharacteristicsT20.getCharacteristicName(.attackType)()
+        newType.stringValue = attackType
+        newAttack.addToCharacteristics(newType)
+
+        let newReach = Characteristics(context: context)
+        newReach.name = AttackCharacteristicsT20.getCharacteristicName(.attackReach)()
+        newReach.stringValue = attackRange
+        newAttack.addToCharacteristics(newReach)
+
+        let newCritical = Characteristics(context: context)
+        newCritical.name = AttackCharacteristicsT20.getCharacteristicName(.attackCritical)()
+        newCritical.stringValue = criticalBonus
+        newAttack.addToCharacteristics(newCritical)
+
+        newAttack.sheet = self.sheet
+        sheet?.attack = sheet?.attack?.adding(newAttack) as NSSet?
 
         do {
             try context.save()
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+    }
+
+    func getAttacks() -> [Attack] {
+        return Array(sheet?.attack as! Set<Attack>)
     }
 
     func getProfile() -> [Characteristics] {
@@ -141,7 +177,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         self.output?.updateNotes()
     }
-    
+
     func editNote(name: String, text: String, note: Notes) {
         note.name = name
         note.characteristics?.stringValue = text
@@ -162,7 +198,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         self.output?.updateNotes()
     }
-    
+
     func editNoteModal(note: Notes) {
         self.output?.displayEditNoteModal(name: note.name!, desc: (note.characteristics?.stringValue)!, note: note)
     }

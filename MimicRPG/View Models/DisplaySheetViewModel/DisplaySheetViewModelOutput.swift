@@ -14,6 +14,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func displayAddAttackModal()
     func reloadAttributes()
     func reloadPoints()
+    func reloadAttacks()
     func displayEditModal()
     func updateNotes()
 //    func addDices()

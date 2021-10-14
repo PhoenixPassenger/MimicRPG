@@ -151,7 +151,7 @@ class CreateAttackT20Modal: UIViewController {
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
             createNewAttack()
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: viewModel.callReloadAttacks)
         } else {
             paginator += 1
             updateUI()

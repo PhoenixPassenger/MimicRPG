@@ -233,12 +233,12 @@ class EditPointsT20Modal: UIViewController {
 
     // MARK: - CoreData
     func editPoints() {
-        let editArmorBonus = sheetBonusArmorView.getValue()
-        let editShieldBonus = sheetBonusShieldView.getValue()
-        let editOthers =  sheetOthersView.getValue()
-        let editTemporary = sheetTemporaryView.getValue()
-        let editMaxLife = sheetMaxLifeView.getValue()
-        let editMaxMana = sheetMaxManaView.getValue()
+        let editArmorBonus = sheetBonusArmorView.getStepperValue()
+        let editShieldBonus = sheetBonusShieldView.getStepperValue()
+        let editOthers =  sheetOthersView.getStepperValue()
+        let editTemporary = sheetTemporaryView.getStepperValue()
+        let editMaxLife = sheetMaxLifeView.getStepperValue()
+        let editMaxMana = sheetMaxManaView.getStepperValue()
         viewModel.setPoints(setArmorBonus: editArmorBonus, setShieldBonus: editShieldBonus, setOthers: editOthers, setTemporary: editTemporary, setMaxLife: editMaxLife, setMaxMana: editMaxMana)
     }
 
