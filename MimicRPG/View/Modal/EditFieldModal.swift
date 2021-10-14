@@ -66,9 +66,9 @@ class EditFieldModal: UIViewController {
     }()
 
     // MARK: - First Group
-    
+
     lazy var sheetBioNameView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Name".localized(), multiline: true, type: .text)
+        let view = EditModalComponent(titleText: "Name".localized(), type: .text)
         view.valueText.isEditable = false
         return view
     }()
@@ -119,6 +119,7 @@ class EditFieldModal: UIViewController {
     
     func fillForm(name: String, desc: String, value: Int, characteristic: Characteristics) {
         sheetBioNameView.valueText.text = name
+        print(name)
         if name != "Level" {
             sheetBioDescView.valueText.text = desc
         } else {
@@ -153,7 +154,7 @@ class EditFieldModal: UIViewController {
         guard let name = sheetBioNameView.valueText.text else {return}
         guard let desc = sheetBioDescView.valueText.text else {return}
         let value = sheetBioDescView.valueStepper.value
-        
+
         self.viewModel.editField(name: name, text: desc, value: Int(value), characteristic: self.editCharacteristic!)
     }
 

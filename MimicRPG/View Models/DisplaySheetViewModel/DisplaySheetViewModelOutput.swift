@@ -16,4 +16,5 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func reloadPoints()
     func displayEditModal()
     func updateNotes()
+    func updateProfile()
 }

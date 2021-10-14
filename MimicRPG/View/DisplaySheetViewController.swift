@@ -290,7 +290,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         modal.fillForm(name: name, desc: desc, note: note)
         self.present(modal, animated: true, completion: nil)
     }
-    
+
     func displayEditBioModal(name: String, desc: String, value: Int, characteristic: Characteristics) {
         let modal = EditFieldModal()
         modal.viewModel = self.viewModel
@@ -300,6 +300,11 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
     func updateNotes() {
         let view = self.sheetView as? CharacterNotes
+        view?.reloadData()
+    }
+
+    func updateProfile() {
+        let view = self.sheetView as? CharacterBio
         view?.reloadData()
     }
 

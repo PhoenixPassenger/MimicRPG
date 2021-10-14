@@ -96,7 +96,8 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func getProfile() -> [Characteristics] {
-        return Array(sheet?.profile?.characteristics as! Set<Characteristics>)
+        let profile = Array(sheet?.profile?.characteristics as! Set<Characteristics>)
+        return profile.sorted(by: { $0.name! < $1.name! })
     }
 
     func getSkills() -> [Skill] {
@@ -125,7 +126,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         self.output?.updateNotes()
     }
-    
+
     func editNote(name: String, text: String, note: Notes) {
         note.name = name
         note.characteristics?.stringValue = text
@@ -149,8 +150,8 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        self.output?.updateProfile()
     }
-    
 
     func removeNote(note: Notes) {
         context.delete(note)
@@ -161,7 +162,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         self.output?.updateNotes()
     }
-    
+
     func editNoteModal(note: Notes) {
         self.output?.displayEditNoteModal(name: note.name!, desc: (note.characteristics?.stringValue)!, note: note)
     }

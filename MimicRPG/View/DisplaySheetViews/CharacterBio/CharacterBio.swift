@@ -23,7 +23,11 @@ class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterBioCell
         guard let cell = cellWrap else { fatalError() }
         let bio = viewModel.getProfile()
-        cell.set(titleItem: bio[indexPath.row].name!, valueItem: bio[indexPath.row].stringValue!)
+        if bio[indexPath.row].name! == "Level" {
+            cell.set(titleItem: bio[indexPath.row].name!.localized(), valueItem: "\(bio[indexPath.row].numberValue)")
+        } else {
+            cell.set(titleItem: bio[indexPath.row].name!.localized(), valueItem: bio[indexPath.row].stringValue!)
+        }
         return cell
     }
 
