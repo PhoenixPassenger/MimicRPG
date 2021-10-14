@@ -144,7 +144,21 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func getAttacks() -> [Attack] {
-        return Array(sheet?.attack as! Set<Attack>)
+        return self.sheet?.attack?.allObjects as! [Attack]
+    }
+
+    func removeAttack(attack: Attack) {
+        context.delete(attack)
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to fetch data from core data ")
+        }
+        self.output?.reloadAttacks()
+    }
+    
+    func editAttackModal(attack: Attack) {
+        self.output?.displayEditAttackModal()
     }
 
     func getProfile() -> [Characteristics] {

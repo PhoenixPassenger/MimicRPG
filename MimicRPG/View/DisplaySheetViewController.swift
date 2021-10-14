@@ -312,6 +312,10 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let addAttackT20Modal = CreateAttackT20Modal(with: viewModel)
         present(addAttackT20Modal, animated: true, completion: nil)
     }
+    
+    func displayEditAttackModal() {
+        //let editAttackT20Modal = Edit
+    }
 
     func reloadAttributes() {
         let attributesView = sheetView as? CharacterAttributesT20

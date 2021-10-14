@@ -4,7 +4,6 @@
 //
 //  Created by Pedro Henrique on 29/09/21.
 //
-// swiftlint:disable force_cast
 
 import UIKit
 
@@ -43,7 +42,7 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.sheet?.attack?.count ?? 0
+        return self.viewModel.getAttacks().count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,23 +92,22 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal, title: "DeleteAttack".localized()) { [weak self] (_, _, completionHandler) in
-            self?.removeCell(row: indexPath.row)
+            self?.removeAttack(row: indexPath.row)
             completionHandler(true)
         }
         action.backgroundColor = .systemRed
         return UISwipeActionsConfiguration(actions: [action])
     }
 
-    private func removeCell(row: Int) {
+    private func removeAttack(row: Int) {
         // Melhor implementar um alert antes disso
-//        attacksCount -= 1
-//        let path = IndexPath(row: row, section: 0)
-//        self.deleteRows(at: [path], with: .fade)
-//        self.reloadData()
-        print(row)
+        let attacks = self.viewModel.getAttacks()
+        let attackRow = attacks[row]
+        self.viewModel.removeAttack(attack: attackRow)
     }
 
     private func editCell(row: Int) {
-        print(row)
+        let attacks = self.viewModel.getAttacks()
+        let attackRow = attacks[row]
     }
 }

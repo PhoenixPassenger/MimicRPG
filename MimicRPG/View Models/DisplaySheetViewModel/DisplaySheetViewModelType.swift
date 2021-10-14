@@ -21,6 +21,8 @@ protocol DisplaySheetViewModelType {
     func createAttack(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String)
     func getAttacks() -> [Attack]
     func callReloadAttacks()
+    func removeAttack(attack: Attack)
+    func editAttackModal(attack: Attack)
     func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]
     func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int)
