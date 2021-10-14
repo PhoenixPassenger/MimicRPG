@@ -8,27 +8,6 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class MockSheet {
-    var image: String = ""
-    var charName: String = ""
-    var desc: String = ""
-    var system: String = ""
-
-    init(image: String, charName: String, desc: String, system: String) {
-        self.image = image
-        self.charName = charName
-        self.desc = desc
-        switch (system) {
-        case "Cthulhu 7th ed.":
-            self.system = "CT7"
-        case "Tormenta 20":
-            self.system = "T20"
-        default:
-            self.system = "T20"
-        }
-    }
-}
-
 class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
     var coordinator: UserSheetsCoordinator?

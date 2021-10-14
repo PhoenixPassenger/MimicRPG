@@ -119,3 +119,9 @@ SIZ = "SIZ";
 EditField = "Edit Field";
 Edit = "Edit";
 DEX = "DEX";
+Class = "Class";
+Level = "Level";
+Origin = "Origin";
+Race = "Race";
+Divinity = "Divinity";
+

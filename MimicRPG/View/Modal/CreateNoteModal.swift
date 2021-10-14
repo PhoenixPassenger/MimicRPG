@@ -9,6 +9,7 @@
 import UIKit
 
 class CreateNoteModal: UIViewController {
+
     var viewModel : DisplaySheetViewModelType!
     var isEditMode: Bool = false
     var editNote: Notes?
@@ -108,7 +109,7 @@ class CreateNoteModal: UIViewController {
 
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
-            createNewItem()
+            createNewNote()
             dismiss(animated: true, completion: nil)
         } else {
             paginator += 1
@@ -144,7 +145,7 @@ class CreateNoteModal: UIViewController {
     }
 
     // MARK: - CoreData
-    func createNewItem() {
+    func createNewNote() {
         guard let name = sheetNoteNameView.valueText.text else {return}
         guard let desc = sheetNoteDescView.valueText.text else {return}
         !self.isEditMode ? self.viewModel.newNote(name: name, text: desc) : self.viewModel.editNote(name: name, text: desc, note: self.editNote!)

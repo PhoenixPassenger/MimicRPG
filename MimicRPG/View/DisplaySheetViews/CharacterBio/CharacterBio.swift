@@ -17,25 +17,28 @@ class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.delegate = self
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
-
-        for bio in viewModel.getProfile() {
-            // Consome a bio aqui
-        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterBioCell
         guard let cell = cellWrap else { fatalError() }
-        cell.set(titleItem: "Name", valueItem: "Bolsonaro 6 dedo Bolsonaro 6 dedo Bolsonaro 6 dedo Bolsonaro 6 dedo Bolsonaro 6 dedo Bolsonaro 6 dedo")
+        let bio = viewModel.getProfile()
+        if bio[indexPath.row].name! == "Level" {
+            cell.set(titleItem: bio[indexPath.row].name!.localized(), valueItem: "\(bio[indexPath.row].numberValue)")
+        } else {
+            cell.set(titleItem: bio[indexPath.row].name!.localized(), valueItem: bio[indexPath.row].stringValue!)
+        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.getProfile().count
     }
 
     func editCell(row: Int) {
-        self.viewModel.displayModal()
+        let profile = self.viewModel.getProfile()
+        let profileRow = profile[row]
+        self.viewModel.editBioModal(characteristic: profileRow)
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

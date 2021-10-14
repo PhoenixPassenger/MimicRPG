@@ -209,6 +209,9 @@ class CreateSheetModal: UIViewController {
 
             newCharacteristic.name = bio.getBios().name
             newCharacteristic.stringValue = bio.getBios().description
+            if newCharacteristic.name == "Level" {
+                newCharacteristic.numberValue = 0
+            }
             newCharacteristic.profile = newProfile
 
             sheetCharacteristics.append(newCharacteristic)
