@@ -311,7 +311,8 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func getSkills() -> [Skill] {
-        return Array(sheet?.skills as! Set<Skill>)
+        let skills = Array(sheet?.skills as! Set<Skill>)
+        return skills.sorted(by: { $0.name! < $1.name! })
     }
 
     func getPoints() -> [Points] {

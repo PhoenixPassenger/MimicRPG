@@ -62,10 +62,20 @@ class DisplaySheetViewController: UIViewController {
                     break
                 }
             case 3:
-                let view = CharacterSkillsT20()
-                view.viewModel = self.viewModel
-                sheetView = view
-                view.setupTableView()
+                switch viewModel.getSystem() {
+                case "Tormenta 20":
+                    let view = CharacterSkillsT20()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupTableView()
+                case "Cthulhu 7th ed.":
+                    let view = CharacterSkillsCthulhu()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupTableView()
+                default:
+                    break
+                }
             case 4:
                 let view = CharacterItems()
                 view.viewModel = self.viewModel
