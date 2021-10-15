@@ -18,6 +18,7 @@ protocol DisplaySheetViewModelType {
     func callEditAttributesCthulhu()
     func callEditPointsT20()
     func callEditPointsCthulhu()
+    func changePointValue(type: String, value: Int)
     func getAttributes() -> [Attributes]
     func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int)
     func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int)

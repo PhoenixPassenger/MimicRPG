@@ -126,6 +126,7 @@ class CharacterPointsCthulhu: UIView {
      @objc func lifeChanged(sender: UIStepper) {
          actualLife = Int(sender.value)
          lifeValue.text = ("\(Int(sender.value))/\(Int(sender.maximumValue))")
+         viewModel.changePointValue(type: "Life", value: Int(sender.value))
      }
      // MARK: - MagicBox
      lazy var magicBox: UIImageView = {
@@ -174,6 +175,7 @@ class CharacterPointsCthulhu: UIView {
      @objc func magicChanged(sender: UIStepper) {
          actualMagic = Int(sender.value)
          magicValue.text = ("\(Int(sender.value))/\(Int(sender.maximumValue))")
+         viewModel.changePointValue(type: "Magic", value: Int(sender.value))
      }
     // MARK: - First Stack
      lazy var firstStackPoints: UIStackView = {
@@ -233,6 +235,7 @@ class CharacterPointsCthulhu: UIView {
      @objc func sanityChanged(sender: UIStepper) {
          actualSanity = Int(sender.value)
          sanityValue.text = ("\(Int(sender.value))/\(Int(sender.maximumValue))")
+         viewModel.changePointValue(type: "Sanity", value: Int(sender.value))
      }
      // MARK: - LuckBox
      lazy var luckBox: UIImageView = {
@@ -281,6 +284,7 @@ class CharacterPointsCthulhu: UIView {
      @objc func luckChanged(sender: UIStepper) {
          actualLuck = Int(sender.value)
          luckValue.text = ("\(Int(sender.value))/\(Int(sender.maximumValue))")
+         viewModel.changePointValue(type: "Luck", value: Int(sender.value))
      }
     // MARK: - Second Stack
      lazy var secondStackPoints: UIStackView = {
@@ -320,7 +324,7 @@ class CharacterPointsCthulhu: UIView {
             magicStepper.centerYAnchor.constraint(equalTo: magicBox.bottomAnchor, constant: -10),
             
             secondStackPoints.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            secondStackPoints.topAnchor.constraint(equalTo: firstStackPoints.bottomAnchor, constant: 15),
+            secondStackPoints.topAnchor.constraint(equalTo: firstStackPoints.bottomAnchor, constant: 30),
             secondStackPoints.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.03),
             secondStackPoints.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.03),
 

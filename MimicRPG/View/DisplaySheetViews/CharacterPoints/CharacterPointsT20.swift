@@ -320,6 +320,7 @@ class CharacterPointsT20: UIView {
      @objc func lifeChanged(sender: UIStepper) {
          actualLife = Int(sender.value)
          lifeValue.text = ("\(Int(sender.value))/\(Int(sender.maximumValue))")
+         viewModel.changePointValue(type: "Life", value: Int(sender.value))
      }
      // MARK: - ManaBox
      lazy var manaBox: UIImageView = {
@@ -368,6 +369,7 @@ class CharacterPointsT20: UIView {
      @objc func manaChanged(sender: UIStepper) {
          actualMana = Int(sender.value)
          manaValue.text = ("\(Int(sender.value))/\(Int(sender.maximumValue))")
+         viewModel.changePointValue(type: "Mana", value: Int(sender.value))
      }
 
      lazy var stackPoints: UIStackView = {

@@ -74,7 +74,19 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
     }
-    
+
+    func changePointValue(type: String, value: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let point = self.getPoints().first(where: {$0.name == type})
+        point?.actualValue = Int64(value)
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
     
     func callReloadPointsT20() {
         self.output?.reloadPointsT20()
