@@ -7,7 +7,8 @@
 
 import Foundation
 protocol DisplaySheetViewModelOutput: AnyObject {
-    func displayEditPointsModal()
+    func displayEditPointsT20Modal()
+    func displayEditPointsCthulhuModal()
     func displayNewNoteModal()
     func displayEditNoteModal(name: String, desc: String, note: Notes)
     func displayEditBioModal(name: String, desc: String, value: Int, characteristic: Characteristics)
@@ -16,7 +17,8 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func displayNewItem()
     func reloadAttributesT20()
     func reloadAttributesCthulhu()
-    func reloadPoints()
+    func reloadPointsT20()
+    func reloadPointsCthulhu()
     func displayEditModal()
     func updateNotes()
     func updateProfile()

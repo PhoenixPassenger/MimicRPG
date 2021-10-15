@@ -17,12 +17,11 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
-
     func getSystem() -> String {
         return (sheet?.system)!
     }
     
-    func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
+    func setPointsT20(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         for point in self.getPoints() {
@@ -51,8 +50,38 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
     }
 
-    func callReloadPoints() {
-        self.output?.reloadPoints()
+    func setPointsCthulhu(setMaxLife: Int, setMaxMagic: Int, setMaxSanity: Int, setMaxLuck: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        for point in self.getPoints() {
+            switch (point.name) {
+            case PointsCthulhu.getPoints(.life)().name:
+                point.maxValue = Int64(setMaxLife)
+            case PointsCthulhu.getPoints(.magic)().name:
+                point.maxValue = Int64(setMaxMagic)
+            case PointsCthulhu.getPoints(.sanity)().name:
+                point.maxValue = Int64(setMaxSanity)
+            case PointsCthulhu.getPoints(.luck)().name:
+                point.maxValue = Int64(setMaxLuck)
+            default:
+                point.maxValue = Int64(setMaxLife)
+            }
+        }
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+    
+    
+    func callReloadPointsT20() {
+        self.output?.reloadPointsT20()
+    }
+    
+    func callReloadPointsCthulhu() {
+        self.output?.reloadPointsCthulhu()
     }
 
     func callEditAttributesT20() {
@@ -63,8 +92,12 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.displayEditAttributesCthulhuModal()
     }
     
-    func callEditPoints() {
-        self.output?.displayEditPointsModal()
+    func callEditPointsT20() {
+        self.output?.displayEditPointsT20Modal()
+    }
+    
+    func callEditPointsCthulhu() {
+        self.output?.displayEditPointsCthulhuModal()
     }
 
     func getAttributes() -> [Attributes] {

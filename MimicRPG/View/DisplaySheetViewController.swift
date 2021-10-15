@@ -32,10 +32,20 @@ class DisplaySheetViewController: UIViewController {
                 sheetView = view
                 view.setupTableView()
             case 1:
-                let view = CharacterPoints()
-                sheetView = view
-                view.viewModel = self.viewModel
-                view.setupView()
+                switch viewModel.getSystem() {
+                case "Tormenta 20":
+                    let view = CharacterPointsT20()
+                    sheetView = view
+                    view.viewModel = self.viewModel
+                    view.setupView()
+                case "Cthulhu 7th ed.":
+                    let view = CharacterPointsCthulhu()
+                    sheetView = view
+                    view.viewModel = self.viewModel
+                    view.setupView()
+                default:
+                    break
+                }
             case 2:
                 switch viewModel.getSystem() {
                 case "Tormenta 20":
@@ -351,8 +361,13 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         attributesView?.setupView()
     }
 
-    func reloadPoints() {
-        let pointsView = sheetView as? CharacterPoints
+    func reloadPointsT20() {
+        let pointsView = sheetView as? CharacterPointsT20
+        pointsView?.setupView()
+    }
+    
+    func reloadPointsCthulhu() {
+        let pointsView = sheetView as? CharacterPointsCthulhu
         pointsView?.setupView()
     }
 
@@ -371,8 +386,13 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         present(editPointsCthulhuModal, animated: true, completion: nil)
     }
 
-    func displayEditPointsModal() {
+    func displayEditPointsT20Modal() {
         let editPointsT20Modal = EditPointsT20Modal(with: viewModel)
+        present(editPointsT20Modal, animated: true, completion: nil)
+    }
+    
+    func displayEditPointsCthulhuModal() {
+        let editPointsT20Modal = EditPointsCthulhuModal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
 

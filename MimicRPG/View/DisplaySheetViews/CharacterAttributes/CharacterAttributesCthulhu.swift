@@ -24,7 +24,7 @@ class CharacterAttributesCthulhu: UIView {
     @objc func editAttributes() {
         viewModel.callEditAttributesCthulhu()
     }
-    
+
     let attributeSTRCthulhu: AttributeBoxCthulhu = {
         let view = AttributeBoxCthulhu(attribute: "STR", value: 50)
         view.translatesAutoresizingMaskIntoConstraints = false

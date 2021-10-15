@@ -16,7 +16,8 @@ protocol DisplaySheetViewModelType {
     func getSystem() -> String
     func callEditAttributesT20()
     func callEditAttributesCthulhu()
-    func callEditPoints()
+    func callEditPointsT20()
+    func callEditPointsCthulhu()
     func getAttributes() -> [Attributes]
     func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int)
     func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int)
@@ -24,9 +25,11 @@ protocol DisplaySheetViewModelType {
     func callReloadAttributesCthulhu()
     func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]
-    func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int)
+    func setPointsT20(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int)
+    func setPointsCthulhu(setMaxLife: Int, setMaxMagic: Int, setMaxSanity: Int, setMaxLuck: Int)
     func getPoints() -> [Points]
-    func callReloadPoints()
+    func callReloadPointsT20()
+    func callReloadPointsCthulhu()
     func getNotes() -> [Notes]
     func newNote(name: String, text: String)
     func editNote(name: String, text: String, note: Notes)

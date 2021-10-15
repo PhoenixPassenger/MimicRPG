@@ -38,6 +38,7 @@
 		2E2C7B5A270784320084CBDE /* BreadcrumbForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */; };
 		2E5E3332270B2DEF00F7624D /* CreateAttackT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E3331270B2DEF00F7624D /* CreateAttackT20Modal.swift */; };
 		2E5E3334270B34C700F7624D /* EditPointsT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E3333270B34C700F7624D /* EditPointsT20Modal.swift */; };
+		2E636A1F2719A2D400872F1B /* CharacterPointsCthulhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E636A1E2719A2D400872F1B /* CharacterPointsCthulhu.swift */; };
 		2E6EAE3B270B4ADA00626650 /* EditAttributesT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */; };
 		2E6EAE3D270B820900626650 /* EditPointsCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */; };
 		2E6EAE3F270B853B00626650 /* EditAttributesCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3E270B853B00626650 /* EditAttributesCthulhuModal.swift */; };
@@ -56,7 +57,7 @@
 		2EF7724626FE41E500A88EC8 /* CharacterSkillsCellT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */; };
 		2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */; };
 		2EF7724E2700EC5000A88EC8 /* SheetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724D2700EC5000A88EC8 /* SheetHeader.swift */; };
-		2EF772512703E18E00A88EC8 /* CharacterPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF772502703E18E00A88EC8 /* CharacterPoints.swift */; };
+		2EF772512703E18E00A88EC8 /* CharacterPointsT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF772502703E18E00A88EC8 /* CharacterPointsT20.swift */; };
 		2EFC74A626EA368E00D9487F /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74A526EA368E00D9487F /* CustomColors.swift */; };
 		2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC74B526EA51FA00D9487F /* CustomFonts.swift */; };
 		5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57026EA2B68008C8578 /* AppDelegate.swift */; };
@@ -152,6 +153,7 @@
 		2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadcrumbForm.swift; sourceTree = "<group>"; };
 		2E5E3331270B2DEF00F7624D /* CreateAttackT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAttackT20Modal.swift; sourceTree = "<group>"; };
 		2E5E3333270B34C700F7624D /* EditPointsT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPointsT20Modal.swift; sourceTree = "<group>"; };
+		2E636A1E2719A2D400872F1B /* CharacterPointsCthulhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPointsCthulhu.swift; sourceTree = "<group>"; };
 		2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAttributesT20Modal.swift; sourceTree = "<group>"; };
 		2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPointsCthulhuModal.swift; sourceTree = "<group>"; };
 		2E6EAE3E270B853B00626650 /* EditAttributesCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAttributesCthulhuModal.swift; sourceTree = "<group>"; };
@@ -170,7 +172,7 @@
 		2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCellT20.swift; sourceTree = "<group>"; };
 		2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeaderT20.swift; sourceTree = "<group>"; };
 		2EF7724D2700EC5000A88EC8 /* SheetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeader.swift; sourceTree = "<group>"; };
-		2EF772502703E18E00A88EC8 /* CharacterPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPoints.swift; sourceTree = "<group>"; };
+		2EF772502703E18E00A88EC8 /* CharacterPointsT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPointsT20.swift; sourceTree = "<group>"; };
 		2EFC74A526EA368E00D9487F /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2EFC74B526EA51FA00D9487F /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		5B0DC56D26EA2B68008C8578 /* MimicRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MimicRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,7 +360,8 @@
 		2EF7724F2703E12800A88EC8 /* CharacterPoints */ = {
 			isa = PBXGroup;
 			children = (
-				2EF772502703E18E00A88EC8 /* CharacterPoints.swift */,
+				2EF772502703E18E00A88EC8 /* CharacterPointsT20.swift */,
+				2E636A1E2719A2D400872F1B /* CharacterPointsCthulhu.swift */,
 			);
 			path = CharacterPoints;
 			sourceTree = "<group>";
@@ -749,11 +752,12 @@
 				2E6EAE41270B88BA00626650 /* CreateAttackCthulhuModal.swift in Sources */,
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
 				2E6EAE4B270CCD2E00626650 /* CharacterAttributesCthulhu.swift in Sources */,
-				2EF772512703E18E00A88EC8 /* CharacterPoints.swift in Sources */,
+				2EF772512703E18E00A88EC8 /* CharacterPointsT20.swift in Sources */,
 				2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				966A1D77270B3F900024DE12 /* CreateNoteModal.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
+				2E636A1F2719A2D400872F1B /* CharacterPointsCthulhu.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				00A89D9327059B9100ED72B2 /* AttributeBoxT20.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,

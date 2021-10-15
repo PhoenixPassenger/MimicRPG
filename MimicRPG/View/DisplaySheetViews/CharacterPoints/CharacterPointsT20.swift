@@ -1,5 +1,5 @@
 //
-//  CharacterPoints.swift
+//  CharacterPointsT20.swift
 //  MimicRPG
 //
 //  Created by Eduardo Oliveira on 28/09/21.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CharacterPoints: UIView {
+class CharacterPointsT20: UIView {
     var viewModel: DisplaySheetViewModelType!
 
     var nameAttribute: String = "DEX".localized()
@@ -88,7 +88,7 @@ class CharacterPoints: UIView {
     }()
 
     @objc func editPoints() {
-        viewModel.callEditPoints()
+        viewModel.callEditPointsT20()
     }
 
     lazy var defenseBox: UIImageView = {
