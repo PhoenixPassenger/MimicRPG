@@ -21,7 +21,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func getSystem() -> String {
         return (sheet?.system)!
     }
-    
+
     func setPointsT20(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
@@ -43,10 +43,16 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
                 point.actualValue = Int64(setTemporary)
             case PointsT20.getPoints(.life)().name:
                 point.maxValue = Int64(setMaxLife)
+                if point.actualValue > setMaxLife {
+                    point.actualValue = Int64(setMaxLife)
+                }
             case PointsT20.getPoints(.mana)().name:
                 point.maxValue = Int64(setMaxMana)
+                if point.actualValue > setMaxMana {
+                    point.actualValue = Int64(setMaxMana)
+                }
             default:
-                point.actualValue = Int64(setArmorBonus)
+                break
             }
         }
 
@@ -64,14 +70,26 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             switch (point.name) {
             case PointsCthulhu.getPoints(.life)().name:
                 point.maxValue = Int64(setMaxLife)
+                if point.actualValue > setMaxLife {
+                    point.actualValue = Int64(setMaxLife)
+                }
             case PointsCthulhu.getPoints(.magic)().name:
                 point.maxValue = Int64(setMaxMagic)
+                if point.actualValue > setMaxMagic {
+                    point.actualValue = Int64(setMaxMagic)
+                }
             case PointsCthulhu.getPoints(.sanity)().name:
                 point.maxValue = Int64(setMaxSanity)
+                if point.actualValue > setMaxSanity {
+                    point.actualValue = Int64(setMaxSanity)
+                }
             case PointsCthulhu.getPoints(.luck)().name:
                 point.maxValue = Int64(setMaxLuck)
+                if point.actualValue > setMaxLuck {
+                    point.actualValue = Int64(setMaxLuck)
+                }
             default:
-                point.maxValue = Int64(setMaxLife)
+                break
             }
         }
 
@@ -84,7 +102,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
     func changePointValue(type: String, value: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
+
         let point = self.getPoints().first(where: {$0.name == type})
         point?.actualValue = Int64(value)
 
@@ -94,11 +112,11 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
     }
-    
+
     func callReloadPointsT20() {
         self.output?.reloadPointsT20()
     }
-    
+
     func callReloadPointsCthulhu() {
         self.output?.reloadPointsCthulhu()
     }
@@ -110,11 +128,11 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func callEditAttributesCthulhu() {
         self.output?.displayEditAttributesCthulhuModal()
     }
-    
+
     func callEditPointsT20() {
         self.output?.displayEditPointsT20Modal()
     }
-    
+
     func callEditPointsCthulhu() {
         self.output?.displayEditPointsCthulhuModal()
     }
@@ -190,7 +208,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func callReloadAttributesT20() {
         self.output?.reloadAttributesT20()
     }
-    
+
     func callReloadAttributesCthulhu() {
         self.output?.reloadAttributesCthulhu()
     }
