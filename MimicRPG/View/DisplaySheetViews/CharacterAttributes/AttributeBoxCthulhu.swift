@@ -64,6 +64,17 @@ class AttributeBoxCthulhu: UIView {
             attributeValueBy5Cthulhu.text = "\(Int(value/5))"
         }
     }
+    func setAttributeValue(with value: Int, isMovement: Bool = false) {
+        attributeValueCthulhu.text = String(value)
+        if isMovement {
+            attributeValueBy2Cthulhu.text = "-1"
+            attributeValueBy5Cthulhu.text = "+1"
+        } else {
+            attributeValueBy2Cthulhu.text = "\(Int(value/2))"
+            attributeValueBy5Cthulhu.text = "\(Int(value/5))"
+        }
+    }
+
     private func configureLayout() {
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalTo: attributeBackgroundCthulhu.heightAnchor),

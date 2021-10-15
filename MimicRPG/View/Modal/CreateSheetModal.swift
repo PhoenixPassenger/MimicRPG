@@ -261,7 +261,7 @@ class CreateSheetModal: UIViewController {
 
                 newAttribute.name = attribute.getAttribute().name
                 newAttribute.abbreviation = attribute.getAttribute().abbreviation
-                newAttribute.value = 13
+                newAttribute.value = 50
                 newAttribute.sheet = newSheet
 
                 sheetAttributes.append(newAttribute)

@@ -5,6 +5,7 @@
 //  Created by Eduardo Oliveira on 21/09/21.
 //
 // swiftlint:disable force_cast
+// swiftlint:disable function_parameter_count
 
 import Foundation
 import UIKit
@@ -54,10 +55,14 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.reloadPoints()
     }
 
-    func callEditAttributes() {
-        self.output?.displayEditAttributesModal()
+    func callEditAttributesT20() {
+        self.output?.displayEditAttributesT20Modal()
     }
 
+    func callEditAttributesCthulhu() {
+        self.output?.displayEditAttributesCthulhuModal()
+    }
+    
     func callEditPoints() {
         self.output?.displayEditPointsModal()
     }
@@ -66,7 +71,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         return Array(sheet?.attribute as! Set<Attributes>)
     }
 
-    func setAttributes(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
+    func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         for attribute in self.getAttributes() {
@@ -87,7 +92,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
                 attribute.value = Int64(setSTR)
             }
         }
-
         do {
             try context.save()
         } catch {
@@ -95,8 +99,46 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
     }
 
-    func callReloadAttributes() {
-        self.output?.reloadAttributes()
+    func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        for attribute in self.getAttributes() {
+            switch (attribute.name) {
+            case SkillCthulhuAttributes.getAttribute(.STR)().name:
+                attribute.value = Int64(setSTR)
+            case SkillCthulhuAttributes.getAttribute(.DEX)().name:
+                attribute.value = Int64(setDEX)
+            case SkillCthulhuAttributes.getAttribute(.INT)().name:
+                attribute.value = Int64(setINT)
+            case SkillCthulhuAttributes.getAttribute(.CON)().name:
+                attribute.value = Int64(setCON)
+            case SkillCthulhuAttributes.getAttribute(.APP)().name:
+                attribute.value = Int64(setAPP)
+            case SkillCthulhuAttributes.getAttribute(.POW)().name:
+                attribute.value = Int64(setPOW)
+            case SkillCthulhuAttributes.getAttribute(.SIZ)().name:
+                attribute.value = Int64(setSIZ)
+            case SkillCthulhuAttributes.getAttribute(.EDU)().name:
+                attribute.value = Int64(setEDU)
+            case SkillCthulhuAttributes.getAttribute(.MOV)().name:
+                attribute.value = Int64(setMOV)
+            default:
+                attribute.value = Int64(setSTR)
+            }
+        }
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+
+    func callReloadAttributesT20() {
+        self.output?.reloadAttributesT20()
+    }
+    
+    func callReloadAttributesCthulhu() {
+        self.output?.reloadAttributesCthulhu()
     }
 
     func getProfile() -> [Characteristics] {

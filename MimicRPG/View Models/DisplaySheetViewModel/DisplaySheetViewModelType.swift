@@ -4,6 +4,7 @@
 //
 //  Created by Eduardo Oliveira on 21/09/21.
 //
+// swiftlint:disable function_parameter_count
 
 import Foundation
 import UIKit
@@ -13,11 +14,14 @@ protocol DisplaySheetViewModelType {
     var sheet: Sheet? { get set }
 
     func getSystem() -> String
-    func callEditAttributes()
+    func callEditAttributesT20()
+    func callEditAttributesCthulhu()
     func callEditPoints()
     func getAttributes() -> [Attributes]
-    func setAttributes(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int)
-    func callReloadAttributes()
+    func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int)
+    func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int)
+    func callReloadAttributesT20()
+    func callReloadAttributesCthulhu()
     func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]
     func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int)
