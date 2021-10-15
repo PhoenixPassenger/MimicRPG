@@ -50,6 +50,8 @@
 		2E6EAE4B270CCD2E00626650 /* CharacterAttributesCthulhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE4A270CCD2E00626650 /* CharacterAttributesCthulhu.swift */; };
 		2E6EAE4D270CF9FE00626650 /* SheetEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE4C270CF9FE00626650 /* SheetEnums.swift */; };
 		2E6EAE4F270DD3D800626650 /* EditFieldModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE4E270DD3D800626650 /* EditFieldModal.swift */; };
+		2E87F2612719FE64000416D6 /* CharacterAttacksCthulhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87F2602719FE64000416D6 /* CharacterAttacksCthulhu.swift */; };
+		2E87F2632719FEB6000416D6 /* CharacterAttacksCellCthulhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87F2622719FEB6000416D6 /* CharacterAttacksCellCthulhu.swift */; };
 		2EA6F15C26FD3CF000027E41 /* UserSheetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */; };
 		2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */; };
 		2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */; };
@@ -93,13 +95,13 @@
 		5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */; };
 		5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */; };
 		5BC9C7D026F3A954006F6BC1 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC5B926EA352F008C8578 /* String+Localized.swift */; };
-		96435CF22705DD8F00C9E571 /* CharacterAttacksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96435CF12705DD8E00C9E571 /* CharacterAttacksCell.swift */; };
+		96435CF22705DD8F00C9E571 /* CharacterAttacksCellT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96435CF12705DD8E00C9E571 /* CharacterAttacksCellT20.swift */; };
 		966A1D77270B3F900024DE12 /* CreateNoteModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A1D76270B3F900024DE12 /* CreateNoteModal.swift */; };
 		9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684023E26EF7435009AF620 /* DiceRollerViewController.swift */; };
 		9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024026EF7447009AF620 /* SettingsViewController.swift */; };
 		9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024226EF7486009AF620 /* UserSheetsViewController.swift */; };
 		9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */; };
-		96B23B4A27049F2600A394E0 /* CharacterAttacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B23B4927049F2600A394E0 /* CharacterAttacks.swift */; };
+		96B23B4A27049F2600A394E0 /* CharacterAttacksT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B23B4927049F2600A394E0 /* CharacterAttacksT20.swift */; };
 		96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F09C9826F9FAA3008F5554 /* DisplaySheetCoordinator.swift */; };
 		96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F09C9A26FA11B3008F5554 /* UserSheetsCoordinator.swift */; };
 /* End PBXBuildFile section */
@@ -165,6 +167,8 @@
 		2E6EAE4A270CCD2E00626650 /* CharacterAttributesCthulhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttributesCthulhu.swift; sourceTree = "<group>"; };
 		2E6EAE4C270CF9FE00626650 /* SheetEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetEnums.swift; sourceTree = "<group>"; };
 		2E6EAE4E270DD3D800626650 /* EditFieldModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFieldModal.swift; sourceTree = "<group>"; };
+		2E87F2602719FE64000416D6 /* CharacterAttacksCthulhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttacksCthulhu.swift; sourceTree = "<group>"; };
+		2E87F2622719FEB6000416D6 /* CharacterAttacksCellCthulhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttacksCellCthulhu.swift; sourceTree = "<group>"; };
 		2EA6F15B26FD3CF000027E41 /* UserSheetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModel.swift; sourceTree = "<group>"; };
 		2EA6F15D26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelOutput.swift; sourceTree = "<group>"; };
 		2EA6F15F26FD3D9C00027E41 /* UserSheetsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelType.swift; sourceTree = "<group>"; };
@@ -217,13 +221,13 @@
 		5BC9C7AC26F364EE006F6BC1 /* MimicRPG.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MimicRPG.entitlements; sourceTree = "<group>"; };
 		5BC9C7CB26F37FEA006F6BC1 /* SettingsViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelOutput.swift; sourceTree = "<group>"; };
 		5BC9C7CD26F37FF4006F6BC1 /* SettingsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelType.swift; sourceTree = "<group>"; };
-		96435CF12705DD8E00C9E571 /* CharacterAttacksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttacksCell.swift; sourceTree = "<group>"; };
+		96435CF12705DD8E00C9E571 /* CharacterAttacksCellT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttacksCellT20.swift; sourceTree = "<group>"; };
 		966A1D76270B3F900024DE12 /* CreateNoteModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteModal.swift; sourceTree = "<group>"; };
 		9684023E26EF7435009AF620 /* DiceRollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewController.swift; sourceTree = "<group>"; };
 		9684024026EF7447009AF620 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9684024226EF7486009AF620 /* UserSheetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewController.swift; sourceTree = "<group>"; };
 		9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewController.swift; sourceTree = "<group>"; };
-		96B23B4927049F2600A394E0 /* CharacterAttacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttacks.swift; sourceTree = "<group>"; };
+		96B23B4927049F2600A394E0 /* CharacterAttacksT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttacksT20.swift; sourceTree = "<group>"; };
 		96F09C9826F9FAA3008F5554 /* DisplaySheetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetCoordinator.swift; sourceTree = "<group>"; };
 		96F09C9A26FA11B3008F5554 /* UserSheetsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -571,8 +575,10 @@
 		96B23B4827049B2D00A394E0 /* CharacterAttacks */ = {
 			isa = PBXGroup;
 			children = (
-				96B23B4927049F2600A394E0 /* CharacterAttacks.swift */,
-				96435CF12705DD8E00C9E571 /* CharacterAttacksCell.swift */,
+				96B23B4927049F2600A394E0 /* CharacterAttacksT20.swift */,
+				96435CF12705DD8E00C9E571 /* CharacterAttacksCellT20.swift */,
+				2E87F2602719FE64000416D6 /* CharacterAttacksCthulhu.swift */,
+				2E87F2622719FEB6000416D6 /* CharacterAttacksCellCthulhu.swift */,
 			);
 			path = CharacterAttacks;
 			sourceTree = "<group>";
@@ -777,12 +783,14 @@
 				9684023F26EF7435009AF620 /* DiceRollerViewController.swift in Sources */,
 				2E5E3334270B34C700F7624D /* EditPointsT20Modal.swift in Sources */,
 				2E6EAE3B270B4ADA00626650 /* EditAttributesT20Modal.swift in Sources */,
-				96B23B4A27049F2600A394E0 /* CharacterAttacks.swift in Sources */,
+				96B23B4A27049F2600A394E0 /* CharacterAttacksT20.swift in Sources */,
+				2E87F2632719FEB6000416D6 /* CharacterAttacksCellCthulhu.swift in Sources */,
 				5B0DC57126EA2B68008C8578 /* AppDelegate.swift in Sources */,
 				2E16CCD526F406A200500E44 /* DiceRollerViewModelType.swift in Sources */,
 				2E24F77826FA07F400DE6BE9 /* DisplaySheetViewModel.swift in Sources */,
 				5B1B05FA26FCF000003537EA /* CharacterNotes.swift in Sources */,
 				5B1B05F826FCEFDC003537EA /* CharacterNotesCell.swift in Sources */,
+				2E87F2612719FE64000416D6 /* CharacterAttacksCthulhu.swift in Sources */,
 				5BC9C7CC26F37FEA006F6BC1 /* SettingsViewModelOutput.swift in Sources */,
 				2E2C7B512705E5310084CBDE /* CreateSheetModal.swift in Sources */,
 				5BC9C7CE26F37FF4006F6BC1 /* SettingsViewModelType.swift in Sources */,
@@ -803,7 +811,7 @@
 				00C57CCF270DCFF200CEB5A7 /* EditSkillT20Modal.swift in Sources */,
 				2E24F77A26FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
-				96435CF22705DD8F00C9E571 /* CharacterAttacksCell.swift in Sources */,
+				96435CF22705DD8F00C9E571 /* CharacterAttacksCellT20.swift in Sources */,
 				9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */,
 				96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,

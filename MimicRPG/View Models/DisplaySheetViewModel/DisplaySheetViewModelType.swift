@@ -5,6 +5,7 @@
 //  Created by Eduardo Oliveira on 21/09/21.
 //
 // swiftlint:disable function_parameter_count
+// swiftlint:disable line_length
 
 import Foundation
 import UIKit
@@ -26,13 +27,18 @@ protocol DisplaySheetViewModelType {
     func callReloadAttributesT20()
     func callReloadAttributesCthulhu()
 
-    func callAddAttack()
-    func createAttack(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String)
+    func callAddAttackT20()
+    func callAddAttackCthulhu()
+    func createAttackT20(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String)
+    func createAttackCthulhu(attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int)
     func getAttacks() -> [Attack]
-    func callReloadAttacks()
+    func callReloadAttacksT20()
+    func callReloadAttacksCthulhu()
     func removeAttack(attack: Attack)
     func editAttackModal(attack: Attack)
-    func editCurrentAttack(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String)
+    func editCurrentAttackT20(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String)
+    func editCurrentAttackCthulhu(currentAttack: Attack, attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int)
+    
 
     func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]

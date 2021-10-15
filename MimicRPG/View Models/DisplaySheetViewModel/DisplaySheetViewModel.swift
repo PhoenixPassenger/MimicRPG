@@ -6,6 +6,7 @@
 //
 // swiftlint:disable force_cast
 // swiftlint:disable function_parameter_count
+// swiftlint:disable line_length
 
 import Foundation
 import UIKit
@@ -26,8 +27,12 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
 
-    func callReloadAttacks() {
-        self.output?.reloadAttacks()
+    func callReloadAttacksT20() {
+        self.output?.reloadAttacksT20()
+    }
+    
+    func callReloadAttacksCthulhu() {
+        self.output?.reloadAttacksCthulhu()
     }
 
     func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
@@ -213,11 +218,15 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.reloadAttributesCthulhu()
     }
 
-    func callAddAttack() {
-        self.output?.displayAddAttackModal()
+    func callAddAttackT20() {
+        self.output?.displayAddAttackT20Modal()
+    }
+    
+    func callAddAttackCthulhu() {
+        self.output?.displayAddAttackCthulhuModal()
     }
 
-    func createAttack(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+    func createAttackT20(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
 
         let newAttack = Attack(context: context)
         newAttack.name = attackName
@@ -256,6 +265,50 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
     }
+    
+    func createAttackCthulhu(attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) {
+        let newAttack = Attack(context: context)
+        newAttack.name = attackName
+
+        let newDamage = Characteristics(context: context)
+        newDamage.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackDamage)()
+        newDamage.stringValue = attackDamage
+        newAttack.addToCharacteristics(newDamage)
+
+        let newValue = Characteristics(context: context)
+        newValue.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackValue)()
+        newValue.numberValue = Int64(attackValue)
+        newAttack.addToCharacteristics(newValue)
+
+        let newAmmo = Characteristics(context: context)
+        newAmmo.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackAmmo)()
+        newAmmo.numberValue = Int64(attackAmmo)
+        newAttack.addToCharacteristics(newAmmo)
+        
+        let newRange = Characteristics(context: context)
+        newRange.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackRange)()
+        newRange.stringValue = attackRange
+        newAttack.addToCharacteristics(newRange)
+        
+        let newMalfunction = Characteristics(context: context)
+        newMalfunction.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackMalfunction)()
+        newMalfunction.stringValue = attackMalfunction
+        newAttack.addToCharacteristics(newMalfunction)
+        
+        let newAttacks = Characteristics(context: context)
+        newAttacks.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackAttacks)()
+        newAttacks.numberValue = Int64(attackAttacks)
+        newAttack.addToCharacteristics(newAttacks)
+
+        newAttack.sheet = self.sheet
+        sheet?.attack = sheet?.attack?.adding(newAttack) as NSSet?
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
 
     func getAttacks() -> [Attack] {
         return self.sheet?.attack?.allObjects as! [Attack]
@@ -268,14 +321,18 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to fetch data from core data ")
         }
-        self.output?.reloadAttacks()
+        if getSystem() == "Tormenta 20" {
+            self.output?.reloadAttacksT20()
+        } else if getSystem() == "Cthulhu 7th ed." {
+            self.output?.reloadAttacksCthulhu()
+        }
     }
 
     func editAttackModal(attack: Attack) {
         self.output?.displayEditAttackModal(editAttack: attack)
     }
 
-    func editCurrentAttack(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+    func editCurrentAttackT20(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
         currentAttack.name = attackName
 
         let attackCharac = currentAttack.characteristics?.allObjects as? [Characteristics]
@@ -292,6 +349,38 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
                     currentChar.stringValue = attackRange
                 case AttackCharacteristicsT20.getCharacteristicName(.attackCritical)():
                     currentChar.stringValue = criticalBonus
+                default:
+                    currentChar.stringValue = attackDamage
+                }
+            }
+        }
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+    
+    func editCurrentAttackCthulhu(currentAttack: Attack, attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) {
+        currentAttack.name = attackName
+
+        let attackCharac = currentAttack.characteristics?.allObjects as? [Characteristics]
+        if let charArr = attackCharac {
+            for currentChar in charArr {
+                switch (currentChar.name) {
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackDamage)():
+                    currentChar.stringValue = attackDamage
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackValue)():
+                    currentChar.numberValue = Int64(attackValue)
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackAmmo)():
+                    currentChar.numberValue = Int64(attackAmmo)
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackRange)():
+                    currentChar.stringValue = attackRange
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackMalfunction)():
+                    currentChar.stringValue = attackMalfunction
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackAttacks)():
+                    currentChar.numberValue = Int64(attackAttacks)
                 default:
                     currentChar.stringValue = attackDamage
                 }

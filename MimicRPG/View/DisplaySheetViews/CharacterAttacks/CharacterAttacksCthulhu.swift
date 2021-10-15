@@ -1,17 +1,17 @@
 //
-//  CharacterAttacks.swift
+//  CharacterAttacksCthulhu.swift
 //  MimicRPG
 //
-//  Created by Pedro Henrique on 29/09/21.
+//  Created by Eduardo Oliveira on 15/10/21.
 //
 
 import UIKit
 
-class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource {
+class CharacterAttacksCthulhu: UITableView, UITableViewDelegate, UITableViewDataSource {
     var viewModel: DisplaySheetViewModelType!
 
     func setupTableView() {
-        self.register(CharacterAttacksCell.self, forCellReuseIdentifier: "MyCell")
+        self.register(CharacterAttacksCellT20.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
         self.tableFooterView = UIView()
@@ -20,7 +20,7 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
     }
 
     @objc func addCell() {
-        viewModel.callAddAttack()
+        viewModel.callAddAttackCthulhu()
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -46,7 +46,7 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterAttacksCell
+        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterAttacksCellT20
         guard let cell = cellWrap else { fatalError() }
         let attack = self.viewModel.getAttacks()[indexPath.row]
         let attackCharac = attack.characteristics?.allObjects as? [Characteristics]

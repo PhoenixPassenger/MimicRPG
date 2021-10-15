@@ -20,9 +20,11 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func reloadAttributesCthulhu()
     func reloadPointsT20()
     func reloadPointsCthulhu()
-    func displayAddAttackModal()
+    func displayAddAttackT20Modal()
+    func displayAddAttackCthulhuModal()
     func displayEditAttackModal(editAttack: Attack)
-    func reloadAttacks()
+    func reloadAttacksT20()
+    func reloadAttacksCthulhu()
 
     func displayEditModal()
     func updateNotes()

@@ -5,6 +5,7 @@
 //  Created by Eduardo Oliveira on 04/10/21.
 //
 // swiftlint:disable force_cast
+// swiftlint:disable line_length
 
 import UIKit
 
@@ -12,9 +13,15 @@ class CreateAttackCthulhuModal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
+    
+    var isEditMode: Bool = false
+    var editingAttack: Attack!
 
-    init() {
+    var viewModel: DisplaySheetViewModelType!
+
+    init(with: DisplaySheetViewModelType) {
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = with
     }
 
     var selectedRow: Int = 0
@@ -116,13 +123,13 @@ class CreateAttackCthulhuModal: UIViewController {
         return view
     }()
 
-    lazy var sheetAttackCriticalView: EditModalComponent = {
+    lazy var sheetAttackAttacksView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Attacks".localized(), type: .stepper)
         return view
     }()
 
     lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [sheetAttackRangeView, sheetAttackMalfunctionView, sheetAttackCriticalView])
+        let stack = UIStackView(arrangedSubviews: [sheetAttackRangeView, sheetAttackMalfunctionView, sheetAttackAttacksView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -152,8 +159,8 @@ class CreateAttackCthulhuModal: UIViewController {
 
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
-            createNewAttack()
-            dismiss(animated: true, completion: nil)
+            self.isEditMode ? editAttack() : createNewAttack()
+            dismiss(animated: true, completion: viewModel.callReloadAttacksCthulhu)
         } else {
             paginator += 1
             updateUI()
@@ -210,10 +217,72 @@ class CreateAttackCthulhuModal: UIViewController {
         view.backgroundColor = UIColor(named: "Background")
         updateUI()
     }
+    
+    func fillForm(currentAttack: Attack) {
+        self.isEditMode = true
+        self.title = "EditAttack".localized()
+        self.editingAttack = currentAttack
+
+        sheetAttackNameView.setBoxTextValue(with: currentAttack.name ?? "")
+        let attackCharac = editingAttack.characteristics?.allObjects as? [Characteristics]
+
+        var attackDamage = ""
+        var attackValue = 0
+        var attackAmmo = 0
+        var attackRange = ""
+        var attackMalfunction = ""
+        var attackAttacks = 0
+        if let charArr = attackCharac {
+            for currentChar in charArr {
+                switch (currentChar.name) {
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackDamage)():
+                    attackDamage = currentChar.stringValue ?? ""
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackValue)():
+                    attackValue = Int(currentChar.numberValue)
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackAmmo)():
+                    attackAmmo = Int(currentChar.numberValue)
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackRange)():
+                    attackRange = currentChar.stringValue ?? ""
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackMalfunction)():
+                    attackMalfunction = currentChar.stringValue ?? ""
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackAttacks)():
+                    attackAttacks = Int(currentChar.numberValue)
+                default:
+                    attackDamage = currentChar.stringValue ?? ""
+                }
+            }
+        }
+
+        sheetAttackDamageView.setBoxTextValue(with: attackDamage)
+        sheetAttackValueView.setStepperValue(with: attackValue)
+        sheetAttackAmmoView.setStepperValue(with: attackAmmo)
+        sheetAttackRangeView.setBoxTextValue(with: attackRange)
+        sheetAttackMalfunctionView.setBoxTextValue(with: attackRange)
+        sheetAttackAttacksView.setStepperValue(with: attackAttacks)
+    }
+
 
     // MARK: - CoreData
     func createNewAttack() {
-        //
+        let newName = sheetAttackNameView.getBoxText()
+        let newDamage = sheetAttackDamageView.getBoxText()
+        let newValue = sheetAttackValueView.getStepperValue()
+        let newAmmo = sheetAttackAmmoView.getStepperValue()
+        let newRange = sheetAttackRangeView.getBoxText()
+        let newMalfunction = sheetAttackMalfunctionView.getBoxText()
+        let newAttacks = sheetAttackAttacksView.getStepperValue()
+        viewModel.createAttackCthulhu(attackName: newName, attackDamage: newDamage, attackValue: newValue, attackAmmo: newAmmo, attackRange: newRange, attackMalfunction: newMalfunction, attackAttacks: newAttacks)
+    }
+
+    func editAttack() {
+        let newName = sheetAttackNameView.getBoxText()
+        let newDamage = sheetAttackDamageView.getBoxText()
+        let newValue = sheetAttackValueView.getStepperValue()
+        let newAmmo = sheetAttackAmmoView.getStepperValue()
+        let newRange = sheetAttackRangeView.getBoxText()
+        let newMalfunction = sheetAttackMalfunctionView.getBoxText()
+        let newAttacks = sheetAttackAttacksView.getStepperValue()
+        viewModel.editCurrentAttackCthulhu(currentAttack: self.editingAttack, attackName: newName, attackDamage: newDamage, attackValue: newValue, attackAmmo: newAmmo, attackRange: newRange, attackMalfunction: newMalfunction, attackAttacks: newAttacks)
     }
 
     private func configureLayout() {

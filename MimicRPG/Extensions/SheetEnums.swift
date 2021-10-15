@@ -315,7 +315,28 @@ enum SkillCthulhuAttributes {
     
     static let allValues = [STR, DEX, INT, CON, APP, POW, SIZ, EDU, MOV]
 }
+// MARK: - Attacks T20
 
+enum AttackCharacteristicsCthulhu {
+    case attackDamage, attackValue, attackAmmo, attackRange, attackMalfunction, attackAttacks
+    
+    func getCharacteristicName() -> String {
+        switch self {
+        case .attackDamage:
+            return "Damage"
+        case .attackValue:
+            return "Value"
+        case .attackAmmo:
+            return "Type"
+        case .attackRange:
+            return "Range"
+        case .attackMalfunction:
+            return "Malfunction"
+        case .attackAttacks:
+            return "Attacks"
+        }
+    }
+}
 // MARK: - Skills Cthulhu
 
 struct SkillCthulhu {

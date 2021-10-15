@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacterAttacksCell: UITableViewCell {
+class CharacterAttacksCellT20: UITableViewCell {
 
     var attackName: String = ""
     var damageDice: String = ""

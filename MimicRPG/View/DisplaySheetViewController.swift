@@ -82,10 +82,20 @@ class DisplaySheetViewController: UIViewController {
                 sheetView = view
                 view.setupTableView()
             case 5:
-                let view = CharacterAttacks()
-                view.viewModel = self.viewModel
-                sheetView = view
-                view.setupTableView()
+                switch viewModel.getSystem() {
+                case "Tormenta 20":
+                    let view = CharacterAttacksT20()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupTableView()
+                case "Cthulhu 7th ed.":
+                    let view = CharacterAttacksCthulhu()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupTableView()
+                default:
+                    break
+                }
             case 6:
                 let view = CharacterNotes()
                 view.viewModel = self.viewModel
@@ -289,8 +299,13 @@ class DisplaySheetViewController: UIViewController {
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
-    func reloadAttacks() {
-        let view = self.sheetView as? CharacterAttacks
+    func reloadAttacksT20() {
+        let view = self.sheetView as? CharacterAttacksT20
+        view?.reloadData()
+    }
+    
+    func reloadAttacksCthulhu() {
+        let view = self.sheetView as? CharacterAttacksCthulhu
         view?.reloadData()
     }
 
@@ -367,8 +382,14 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         modal.viewModel = self.viewModel
         self.present(modal, animated: true, completion: nil)
     }
-    func displayAddAttackModal() {
+
+    func displayAddAttackT20Modal() {
         let addAttackT20Modal = CreateAttackT20Modal(with: viewModel)
+        present(addAttackT20Modal, animated: true, completion: nil)
+    }
+    
+    func displayAddAttackCthulhuModal() {
+        let addAttackT20Modal = CreateAttackCthulhuModal(with: viewModel)
         present(addAttackT20Modal, animated: true, completion: nil)
     }
 
