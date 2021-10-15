@@ -71,7 +71,7 @@ class EditSkillT20Modal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        //label.text = "Latrocínio" // Localized strings depois
+        label.text = "Latrocínio" // Localized strings depois
         label.font = UIFont.josefinSansBold()
         self.view.addSubview(label)
         return label
@@ -126,7 +126,7 @@ class EditSkillT20Modal: UIViewController {
     }
 
     @objc func rightButtonBehavior() {
-        self.viewModel.skillT20SaveChanges(skillOtherValue: 50, trained: self.trainedSwitchState, skill: self.editSkill!)
+        self.viewModel.skillT20SaveChanges(skillOtherValue: Int(otherView.titleStepper.text!)!, trained: self.trainedSwitchState, skill: self.editSkill!)
         dismiss(animated: true, completion: nil)
     }
 
@@ -137,11 +137,12 @@ class EditSkillT20Modal: UIViewController {
     
     func fillForm(name: String, skill: Skill){
         skillTitleLabel.text = name
-        skill.value = 10
-        modifierView.valueText.text = "10"
+        //skill.value = 10
+        modifierView.titleStepper.text = "\(skill.value)"
+        
         otherView.valueStepper.value = Double(skill.value)
         self.editSkill = skill
-        configureLayout()
+        //configureLayout()
     }
 
     // MARK: - CoreData

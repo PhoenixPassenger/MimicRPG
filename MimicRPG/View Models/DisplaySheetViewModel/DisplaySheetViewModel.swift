@@ -238,13 +238,15 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
     
     func skillT20SaveChanges(skillOtherValue: Int, trained: Bool, skill: Skill){
+        print("SOV",skillOtherValue)
         skill.value = Int64(skillOtherValue)
+        print("Value",skill.value)
         skill.isActivated = trained
         do {
             try context.save()
         } catch {
             fatalError("Unable to save data in coredata model")
         }
-        //self.output?.updateItems()
+        self.output?.updateSkillsT20()
     }
 }

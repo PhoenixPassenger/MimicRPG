@@ -21,6 +21,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func updateItems()
     func displayEditItemModal(name: String, desc: String, uses: Int, item: Item)
     func displayEditSkillsT20Modal(name: String, skill: Skill)
+    func updateSkillsT20()
 //    func addDices()
 //    func removeDice(indexPath: IndexPath)
 //    func reloadData()
