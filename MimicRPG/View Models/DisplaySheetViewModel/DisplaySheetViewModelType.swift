@@ -12,6 +12,7 @@ protocol DisplaySheetViewModelType {
     var output: DisplaySheetViewModelOutput? {get set}
     var sheet: Sheet? { get set }
 
+    func getSystem() -> String
     func callEditAttributes()
     func callEditPoints()
     func getAttributes() -> [Attributes]

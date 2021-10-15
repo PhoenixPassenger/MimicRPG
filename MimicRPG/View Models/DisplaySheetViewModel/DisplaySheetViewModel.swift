@@ -17,6 +17,10 @@ final class DisplaySheetViewModel {
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
+    func getSystem() -> String {
+        return (sheet?.system)!
+    }
+    
     func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 

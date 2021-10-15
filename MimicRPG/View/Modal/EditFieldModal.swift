@@ -120,7 +120,6 @@ class EditFieldModal: UIViewController {
 
     func fillForm(name: String, desc: String, value: Int, characteristic: Characteristics) {
         sheetBioNameView.valueText.text = name
-        print(name)
         if name != "Level" {
             sheetBioDescView.valueText.text = desc
         } else {

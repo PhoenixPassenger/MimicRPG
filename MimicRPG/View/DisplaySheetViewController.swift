@@ -306,10 +306,16 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
     }
     
     func updateHeader() {
+        let level: Int?
+        if viewModel.getSystem() == "Tormenta 20" {
+            level = Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
+        } else {
+            level = 0
+        }
         sheetHeader.set(
             name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "aa",
             race: (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue) ?? "aa",
-            level: Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
+            level: level!
         )
     }
 

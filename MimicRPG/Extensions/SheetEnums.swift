@@ -20,7 +20,7 @@ struct Bio {
 }
 
 enum BiosT20 {
-    case characterName, race, level, characterClass, origin, description
+    case characterName, race, level, characterClass, origin, description, divinity
     
     func getBios() -> Bio {
         switch self {
@@ -36,12 +36,12 @@ enum BiosT20 {
             return Bio(name: "Origin", description: "")
         case .description:
             return Bio(name: "Description", description: "")
-        case .description:
+        case .divinity:
             return Bio(name: "Divinity", description: "")
         }
     }
     
-    static let allValues = [characterName, race, level, characterClass, origin, description]
+    static let allValues = [characterName, race, level, characterClass, origin, description, divinity]
 }
 
 // MARK: - Points T20
@@ -236,7 +236,7 @@ enum BiosCthulhu {
         case .tomesAndSpells:
             return Bio(name: "TomesAndSpells", description: "")
         case .meetingWithEntities:
-            return Bio(name: "CMeetingWithEntities", description: "")
+            return Bio(name: "MeetingWithEntities", description: "")
         }
     }
     
@@ -310,7 +310,7 @@ struct SkillCthulhu {
 enum SkillsCthulhu {
     case accounting, chemistry, art, astronomy, anthropology, bargain, archaeology, biology, climb, conceal, craft, creditRating, cthulhuMythos, disguise, driveAutomobile, eletricalRepair, fastTalk, firstAid, fistPunch, geology, grapple, handgun, headbutt, hide, history, jump, kick, law, libraryUse, listen, locksmith, machineGun, martialArts, mechanicalRepair, medicine
     
-    func setSkills() -> SkillCthulhu {
+    func getSkills() -> SkillCthulhu {
         switch self {
         case .accounting:
             return SkillCthulhu(name: "Accounting", value: 10)
