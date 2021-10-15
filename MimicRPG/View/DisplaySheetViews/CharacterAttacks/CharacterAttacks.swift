@@ -8,8 +8,7 @@
 import UIKit
 
 class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource {
-
-    var attacksCount = 3
+    var viewModel: DisplaySheetViewModelType!
 
     func setupTableView() {
         self.register(CharacterAttacksCell.self, forCellReuseIdentifier: "MyCell")
@@ -21,8 +20,7 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
     }
 
     @objc func addCell() {
-        attacksCount += 1
-        self.reloadData()
+        viewModel.callAddAttack()
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -44,13 +42,41 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return attacksCount
+        return self.viewModel.getAttacks().count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterAttacksCell
         guard let cell = cellWrap else { fatalError() }
-        cell.set(name: "Tacape \(indexPath.row)", damage: "1d10", bonus: 3, type: "Corte", reach: "Longo", critical: "x3")
+        let attack = self.viewModel.getAttacks()[indexPath.row]
+        let attackCharac = attack.characteristics?.allObjects as? [Characteristics]
+
+        var attackDamage = ""
+        var attackBonus = 0
+        var attackType = ""
+        var attackReach = ""
+        var attackCritical = ""
+        if let charArr = attackCharac {
+            for currentChar in charArr {
+                switch (currentChar.name) {
+                case AttackCharacteristicsT20.getCharacteristicName(.attackDamage)():
+                    attackDamage = currentChar.stringValue ?? ""
+                case AttackCharacteristicsT20.getCharacteristicName(.attackBonus)():
+                    attackBonus = Int(currentChar.numberValue)
+                case AttackCharacteristicsT20.getCharacteristicName(.attackType)():
+                    attackType = currentChar.stringValue ?? ""
+                case AttackCharacteristicsT20.getCharacteristicName(.attackReach)():
+                    attackReach = currentChar.stringValue ?? ""
+                case AttackCharacteristicsT20.getCharacteristicName(.attackCritical)():
+                    attackCritical = currentChar.stringValue ?? ""
+                default:
+                    attackDamage = currentChar.stringValue ?? ""
+                }
+            }
+        }
+
+        cell.set(name: attack.name ?? "", damage: attackDamage, bonus: attackBonus, type: attackType, reach: attackReach, critical: attackCritical)
+
         cell.contentView.isUserInteractionEnabled = false
         return cell
     }
@@ -66,22 +92,23 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal, title: "DeleteAttack".localized()) { [weak self] (_, _, completionHandler) in
-            self?.removeCell(row: indexPath.row)
+            self?.removeAttack(row: indexPath.row)
             completionHandler(true)
         }
         action.backgroundColor = .systemRed
         return UISwipeActionsConfiguration(actions: [action])
     }
 
-    private func removeCell(row: Int) {
+    private func removeAttack(row: Int) {
         // Melhor implementar um alert antes disso
-        attacksCount -= 1
-        let path = IndexPath(row: row, section: 0)
-        self.deleteRows(at: [path], with: .fade)
-        self.reloadData()
+        let attacks = self.viewModel.getAttacks()
+        let attackRow = attacks[row]
+        self.viewModel.removeAttack(attack: attackRow)
     }
 
     private func editCell(row: Int) {
-        print(row)
+        let attacks = self.viewModel.getAttacks()
+        let attackRow = attacks[row]
+        self.viewModel.editAttackModal(attack: attackRow)
     }
 }

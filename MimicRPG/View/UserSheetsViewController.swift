@@ -69,7 +69,6 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         self.view.backgroundColor = UIColor(named: "Background")
         addButton.tintColor = UIColor(named: "Azure")
         collectionView?.layer.backgroundColor = UIColor(named: "Background")?.cgColor
-        
         collectionView?.reloadData()
     }
 
