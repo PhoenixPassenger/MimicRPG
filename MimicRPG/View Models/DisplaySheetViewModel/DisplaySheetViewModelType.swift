@@ -38,4 +38,5 @@ protocol DisplaySheetViewModelType {
     func removeNote(note: Notes)
     func editNoteModal(note: Notes)
     func editBioModal(characteristic: Characteristics)
+    func editSkillsT20(skill: Skill)
 }

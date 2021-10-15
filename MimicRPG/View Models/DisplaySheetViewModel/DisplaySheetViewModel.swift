@@ -232,4 +232,8 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func newItemModal() {
         self.output?.displayNewItem()
     }
+    
+    func editSkillsT20(skill: Skill){
+        self.output?.displayEditSkillsT20Modal(name: skill.name!, skill: skill)
+    }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class EditSkillT20Modal: UIViewController {
 
+    var viewModel : DisplaySheetViewModelType!
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }

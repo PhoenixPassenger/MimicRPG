@@ -84,7 +84,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editSwipe = UIContextualAction(style: .normal, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
-            print("editar")
+            self.editSkillCell(row: indexPath.row)
         }
         editSwipe.backgroundColor = UIColor(named: "Azure")
         editSwipe.image = UIImage(systemName: "pencil")
@@ -112,5 +112,13 @@ extension CharacterSkillsT20: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.endEditing(true)
+    }
+    
+    private func editSkillCell(row: Int) {
+        print(row)
+        let skillCell = self.viewModel.getSkills()
+        let skillCellRow = skillCell[row]
+        self.viewModel.editSkillsT20(skill: skillCellRow)
+        
     }
 }
