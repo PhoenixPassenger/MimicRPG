@@ -64,13 +64,13 @@ class SheetHeader: UIView {
         return label
     }()
 
+    func set(name: String, race: String, level: Int) {
+        nameLabel.text = name
+        descLabel.text = race + " - " + "Nvl".localized() + ". \(level)"
+    }
+
     private func configureLayout() {
         NSLayoutConstraint.activate([
-//            bannerImage.topAnchor.constraint(equalTo: self.topAnchor),
-//            bannerImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            bannerImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            bannerImage.heightAnchor.constraint(equalToConstant: 139),
-
             perfilImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             perfilImage.centerYAnchor.constraint(equalTo: self.topAnchor),
             perfilImage.heightAnchor.constraint(equalToConstant: 100),

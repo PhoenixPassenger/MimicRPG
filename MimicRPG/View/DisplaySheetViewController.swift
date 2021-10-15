@@ -88,6 +88,7 @@ class DisplaySheetViewController: UIViewController {
         updateButtons()
         setupButtons()
         setupElements()
+        updateHeader()
         changeSelectedButton(tag: 0)
     }
 
@@ -299,8 +300,29 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         self.present(modal, animated: true, completion: nil)
     }
 
+    func displayEditBioModal(name: String, desc: String, value: Int, characteristic: Characteristics) {
+        let modal = EditFieldModal()
+        modal.viewModel = self.viewModel
+        modal.fillForm(name: name, desc: desc, value: value, characteristic: characteristic)
+        self.present(modal, animated: true, completion: nil)
+    }
+
     func updateNotes() {
         let view = self.sheetView as? CharacterNotes
+        view?.reloadData()
+    }
+    
+    func updateHeader() {
+        sheetHeader.set(
+            name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "aa",
+            race: (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue) ?? "aa",
+            level: Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
+        )
+    }
+
+    func updateProfile() {
+        let view = self.sheetView as? CharacterBio
+        updateHeader()
         view?.reloadData()
     }
 

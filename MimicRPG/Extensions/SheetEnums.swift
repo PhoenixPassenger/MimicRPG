@@ -36,6 +36,8 @@ enum BiosT20 {
             return Bio(name: "Origin", description: "")
         case .description:
             return Bio(name: "Description", description: "")
+        case .description:
+            return Bio(name: "Divinity", description: "")
         }
     }
     

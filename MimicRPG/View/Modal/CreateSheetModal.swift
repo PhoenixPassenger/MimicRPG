@@ -9,24 +9,24 @@
 import UIKit
 
 enum Systems: String, CaseIterable {
-    case ct7 = "CT7"
     case t20 = "T20"
+//    case ct7 = "CT7"
 
     var description: String {
         switch self {
-        case .ct7:
-            return "Cthulhu 7th ed."
         case .t20:
             return "Tormenta 20"
+//        case .ct7:
+//            return "Cthulhu 7th ed."
         }
     }
 
     init?(id : Int) {
         switch id {
         case 0:
-            self = .ct7
-        case 1:
             self = .t20
+//        case 1:
+//            self = .ct7
         default:
             return nil
         }
@@ -209,6 +209,11 @@ class CreateSheetModal: UIViewController {
 
             newCharacteristic.name = bio.getBios().name
             newCharacteristic.stringValue = bio.getBios().description
+            if newCharacteristic.name == "CharacterName" {
+                newCharacteristic.stringValue = name
+            } else if newCharacteristic.name == "Level" {
+                newCharacteristic.numberValue = 0
+            }
             newCharacteristic.profile = newProfile
 
             sheetCharacteristics.append(newCharacteristic)
