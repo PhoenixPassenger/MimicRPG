@@ -311,7 +311,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let view = self.sheetView as? CharacterNotes
         view?.reloadData()
     }
-    
+
     func updateHeader() {
         sheetHeader.set(
             name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "aa",

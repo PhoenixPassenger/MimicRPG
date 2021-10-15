@@ -278,7 +278,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         return self.sheet?.item?.count ?? 0
     }
 
-    func getItems() -> [Item] {
+    func getItems() -> [Item] {
         return self.sheet?.item?.allObjects as! [Item]
     }
 
