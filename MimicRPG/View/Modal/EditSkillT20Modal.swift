@@ -11,6 +11,10 @@ import UIKit
 class EditSkillT20Modal: UIViewController {
 
     var viewModel : DisplaySheetViewModelType!
+    var editSkill : Skill?
+    var trainedSwitchState:Bool {
+        return self.trainedView.trainedSwitch.isOn
+    }
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -67,7 +71,7 @@ class EditSkillT20Modal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "Latrocínio" // Localized strings depois
+        //label.text = "Latrocínio" // Localized strings depois
         label.font = UIFont.josefinSansBold()
         self.view.addSubview(label)
         return label
@@ -122,7 +126,7 @@ class EditSkillT20Modal: UIViewController {
     }
 
     @objc func rightButtonBehavior() {
-        editAttributes()
+        self.viewModel.skillT20SaveChanges(skillOtherValue: 50, trained: self.trainedSwitchState, skill: self.editSkill!)
         dismiss(animated: true, completion: nil)
     }
 
@@ -130,10 +134,19 @@ class EditSkillT20Modal: UIViewController {
         configureLayout()
         view.backgroundColor = UIColor(named: "Background")
     }
+    
+    func fillForm(name: String, skill: Skill){
+        skillTitleLabel.text = name
+        skill.value = 10
+        modifierView.valueText.text = "10"
+        otherView.valueStepper.value = Double(skill.value)
+        self.editSkill = skill
+        configureLayout()
+    }
 
     // MARK: - CoreData
-    func editAttributes() {
-        //
+    func editSkills() {
+        //self.viewModel.skillT20SaveChanges()
     }
 
     private func configureLayout() {

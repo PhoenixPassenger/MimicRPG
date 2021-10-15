@@ -302,7 +302,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
     func displayEditSkillsT20Modal(name: String, skill: Skill){
         let modal = EditSkillT20Modal()
         modal.viewModel = self.viewModel
-        modal.fillForm(name: name, desc: desc, value: value)
+        modal.fillForm(name: name, skill: skill)
         self.present(modal, animated: true, completion: nil)
     }
     func updateNotes() {

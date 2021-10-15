@@ -39,4 +39,5 @@ protocol DisplaySheetViewModelType {
     func editNoteModal(note: Notes)
     func editBioModal(characteristic: Characteristics)
     func editSkillsT20(skill: Skill)
+    func skillT20SaveChanges(skillOtherValue: Int, trained: Bool, skill: Skill)
 }
