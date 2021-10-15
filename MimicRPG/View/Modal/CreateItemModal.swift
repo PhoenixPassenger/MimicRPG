@@ -187,7 +187,7 @@ class CreateItemModal: UIViewController {
             }
         })
     }
-    
+
     func fillForm(name: String, desc: String, uses: Int, item: Item) {
         sheetItemNameView.valueText.text = name
         sheetItemQtdView.valueStepper.value = Double(uses)

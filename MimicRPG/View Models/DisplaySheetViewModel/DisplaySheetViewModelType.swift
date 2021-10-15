@@ -20,10 +20,20 @@ protocol DisplaySheetViewModelType {
     func callEditPointsCthulhu()
     func changePointValue(type: String, value: Int)
     func getAttributes() -> [Attributes]
+
     func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int)
     func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int)
     func callReloadAttributesT20()
     func callReloadAttributesCthulhu()
+
+    func callAddAttack()
+    func createAttack(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String)
+    func getAttacks() -> [Attack]
+    func callReloadAttacks()
+    func removeAttack(attack: Attack)
+    func editAttackModal(attack: Attack)
+    func editCurrentAttack(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String)
+
     func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]
     func setPointsT20(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int)

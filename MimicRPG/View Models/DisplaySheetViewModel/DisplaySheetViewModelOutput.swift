@@ -12,6 +12,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func displayNewNoteModal()
     func displayEditNoteModal(name: String, desc: String, note: Notes)
     func displayEditBioModal(name: String, desc: String, value: Int, characteristic: Characteristics)
+
     func displayEditAttributesT20Modal()
     func displayEditAttributesCthulhuModal()
     func displayNewItem()
@@ -19,6 +20,10 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func reloadAttributesCthulhu()
     func reloadPointsT20()
     func reloadPointsCthulhu()
+    func displayAddAttackModal()
+    func displayEditAttackModal(editAttack: Attack)
+    func reloadAttacks()
+
     func displayEditModal()
     func updateNotes()
     func updateProfile()

@@ -73,6 +73,7 @@ class DisplaySheetViewController: UIViewController {
                 view.setupTableView()
             case 5:
                 let view = CharacterAttacks()
+                view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             case 6:
@@ -277,6 +278,12 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+
+    func reloadAttacks() {
+        let view = self.sheetView as? CharacterAttacks
+        view?.reloadData()
+    }
+
     func saveSheetPoints(newSTR: Int, newDEX: Int, newCON: Int, newINT: Int, newWIS: Int, newCHA: Int) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -324,7 +331,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let view = self.sheetView as? CharacterNotes
         view?.reloadData()
     }
-    
+
     func updateHeader() {
         let level: Int?
         if viewModel.getSystem() == "Tormenta 20" {
@@ -349,6 +356,16 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let modal = CreateNoteModal()
         modal.viewModel = self.viewModel
         self.present(modal, animated: true, completion: nil)
+    }
+    func displayAddAttackModal() {
+        let addAttackT20Modal = CreateAttackT20Modal(with: viewModel)
+        present(addAttackT20Modal, animated: true, completion: nil)
+    }
+
+    func displayEditAttackModal(editAttack: Attack) {
+        let editAttackT20Modal = CreateAttackT20Modal(with: viewModel)
+        editAttackT20Modal.fillForm(currentAttack: editAttack)
+        present(editAttackT20Modal, animated: true, completion: nil)
     }
 
     func reloadAttributesT20() {

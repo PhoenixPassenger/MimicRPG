@@ -178,25 +178,25 @@ class EditAttributesCthulhuModal: UIViewController {
         for attribute in viewModel.getAttributes() {
             switch (attribute.name) {
             case SkillCthulhuAttributes.getAttribute(.STR)().name:
-                strengthView.setValue(with: Int(attribute.value))
+                strengthView.setStepperValue(with: Int(attribute.value))
             case SkillCthulhuAttributes.getAttribute(.DEX)().name:
-                dexterityView.setValue(with: Int(attribute.value))
+                dexterityView.setStepperValue(with: Int(attribute.value))
             case SkillCthulhuAttributes.getAttribute(.INT)().name:
-                 intelligenceView.setValue(with: Int(attribute.value))
+                 intelligenceView.setStepperValue(with: Int(attribute.value))
             case SkillCthulhuAttributes.getAttribute(.CON)().name:
-                constitutionView.setValue(with: Int(attribute.value))
+                constitutionView.setStepperValue(with: Int(attribute.value))
             case SkillCthulhuAttributes.getAttribute(.APP)().name:
-                appearanceView.setValue(with: Int(attribute.value))
+                appearanceView.setStepperValue(with: Int(attribute.value))
             case SkillCthulhuAttributes.getAttribute(.POW)().name:
-                powerView.setValue(with: Int(attribute.value))
+                powerView.setStepperValue(with: Int(attribute.value))
             case SkillCthulhuAttributes.getAttribute(.SIZ)().name:
-                sizeView.setValue(with: Int(attribute.value))
+                sizeView.setStepperValue(with: Int(attribute.value))
             case SkillCthulhuAttributes.getAttribute(.EDU)().name:
-                educationView.setValue(with: Int(attribute.value))
+                educationView.setStepperValue(with: Int(attribute.value))
             case SkillCthulhuAttributes.getAttribute(.MOV)().name:
-                moveView.setValue(with: Int(attribute.value))
+                moveView.setStepperValue(with: Int(attribute.value))
             default:
-                strengthView.setValue(with: Int(attribute.value))
+                strengthView.setStepperValue(with: Int(attribute.value))
             }
         }
     }
@@ -254,15 +254,15 @@ class EditAttributesCthulhuModal: UIViewController {
 
     // MARK: - CoreData
     func editAttributes() {
-        let editSTR = strengthView.getValue()
-        let editDEX = dexterityView.getValue()
-        let editINT = intelligenceView.getValue()
-        let editCON = constitutionView.getValue()
-        let editAPP = appearanceView.getValue()
-        let editPOW = powerView.getValue()
-        let editSIZ = sizeView.getValue()
-        let editEDU = educationView.getValue()
-        let editMOV = moveView.getValue()
+        let editSTR = strengthView.getStepperValue()
+        let editDEX = dexterityView.getStepperValue()
+        let editINT = intelligenceView.getStepperValue()
+        let editCON = constitutionView.getStepperValue()
+        let editAPP = appearanceView.getStepperValue()
+        let editPOW = powerView.getStepperValue()
+        let editSIZ = sizeView.getStepperValue()
+        let editEDU = educationView.getStepperValue()
+        let editMOV = moveView.getStepperValue()
         viewModel.setAttributesCthulhu(setSTR: editSTR, setDEX: editDEX, setINT: editINT, setCON: editCON, setAPP: editAPP, setPOW: editPOW, setSIZ: editSIZ, setEDU: editEDU, setMOV: editMOV)
     }
 

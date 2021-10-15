@@ -124,13 +124,13 @@ class EditPointsCthulhuModal: UIViewController {
         for point in viewModel.getPoints() {
             switch (point.name) {
             case PointsCthulhu.getPoints(.life)().name:
-                maxLifeView.setValue(with: Int(point.maxValue))
+                maxLifeView.setStepperValue(with: Int(point.maxValue))
             case PointsCthulhu.getPoints(.magic)().name:
-                maxMagicView.setValue(with: Int(point.maxValue))
+                maxMagicView.setStepperValue(with: Int(point.maxValue))
             case PointsCthulhu.getPoints(.sanity)().name:
-                maxSanityView.setValue(with: Int(point.maxValue))
+                maxSanityView.setStepperValue(with: Int(point.maxValue))
             case PointsCthulhu.getPoints(.luck)().name:
-                maxLuckView.setValue(with: Int(point.maxValue))
+                maxLuckView.setStepperValue(with: Int(point.maxValue))
             default:
                 break
             }
@@ -139,10 +139,10 @@ class EditPointsCthulhuModal: UIViewController {
     
     // MARK: - CoreData
     func editPoints() {
-        let editMaxLife = maxLifeView.getValue()
-        let editMaxMagic = maxMagicView.getValue()
-        let editMaxSanity = maxSanityView.getValue()
-        let editMaxLuck = maxLuckView.getValue()
+        let editMaxLife = maxLifeView.getStepperValue()
+        let editMaxMagic = maxMagicView.getStepperValue()
+        let editMaxSanity = maxSanityView.getStepperValue()
+        let editMaxLuck = maxLuckView.getStepperValue()
         viewModel.setPointsCthulhu(setMaxLife: editMaxLife, setMaxMagic: editMaxMagic, setMaxSanity: editMaxSanity, setMaxLuck: editMaxLuck)
     }
 

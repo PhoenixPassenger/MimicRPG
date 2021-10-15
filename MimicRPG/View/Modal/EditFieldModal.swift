@@ -124,7 +124,7 @@ class EditFieldModal: UIViewController {
             sheetBioDescView.valueText.text = desc
         } else {
             sheetBioDescView = EditModalComponent(titleText: "Description".localized(), multiline: true, type: .stepper)
-            sheetBioDescView.setValue(with: value)
+            sheetBioDescView.setStepperValue(with: value)
         }
         self.editCharacteristic = characteristic
     }

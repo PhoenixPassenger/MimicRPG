@@ -163,19 +163,19 @@ class EditPointsT20Modal: UIViewController {
         for point in viewModel.getPoints() {
             switch (point.name) {
             case PointsT20.getPoints(.armorBonus)().name:
-                sheetBonusArmorView.setValue(with: Int(point.actualValue))
+                sheetBonusArmorView.setStepperValue(with: Int(point.actualValue))
             case PointsT20.getPoints(.shieldBonus)().name:
-                sheetBonusShieldView.setValue(with: Int(point.actualValue))
+                sheetBonusShieldView.setStepperValue(with: Int(point.actualValue))
             case PointsT20.getPoints(.classArmorOthers)().name:
-                sheetOthersView.setValue(with: Int(point.actualValue))
+                sheetOthersView.setStepperValue(with: Int(point.actualValue))
             case PointsT20.getPoints(.classArmorTemp)().name:
-                sheetTemporaryView.setValue(with: Int(point.actualValue))
+                sheetTemporaryView.setStepperValue(with: Int(point.actualValue))
             case PointsT20.getPoints(.life)().name:
-                sheetMaxLifeView.setValue(with: Int(point.maxValue))
+                sheetMaxLifeView.setStepperValue(with: Int(point.maxValue))
             case PointsT20.getPoints(.mana)().name:
-                sheetMaxManaView.setValue(with: Int(point.maxValue))
+                sheetMaxManaView.setStepperValue(with: Int(point.maxValue))
             default:
-                sheetBonusArmorView.setValue(with: Int(point.actualValue))
+                sheetBonusArmorView.setStepperValue(with: Int(point.actualValue))
             }
         }
     }
@@ -233,12 +233,12 @@ class EditPointsT20Modal: UIViewController {
 
     // MARK: - CoreData
     func editPoints() {
-        let editArmorBonus = sheetBonusArmorView.getValue()
-        let editShieldBonus = sheetBonusShieldView.getValue()
-        let editOthers =  sheetOthersView.getValue()
-        let editTemporary = sheetTemporaryView.getValue()
-        let editMaxLife = sheetMaxLifeView.getValue()
-        let editMaxMana = sheetMaxManaView.getValue()
+        let editArmorBonus = sheetBonusArmorView.getStepperValue()
+        let editShieldBonus = sheetBonusShieldView.getStepperValue()
+        let editOthers =  sheetOthersView.getStepperValue()
+        let editTemporary = sheetTemporaryView.getStepperValue()
+        let editMaxLife = sheetMaxLifeView.getStepperValue()
+        let editMaxMana = sheetMaxManaView.getStepperValue()
         viewModel.setPointsT20(setArmorBonus: editArmorBonus, setShieldBonus: editShieldBonus, setOthers: editOthers, setTemporary: editTemporary, setMaxLife: editMaxLife, setMaxMana: editMaxMana)
     }
 

@@ -114,6 +114,27 @@ enum SkillT20Attributes {
     static let allValues = [STR, DEX, CON, INT, WIS, CHA]
 }
 
+// MARK: - Attacks T20
+
+enum AttackCharacteristicsT20 {
+    case attackDamage, attackBonus, attackType, attackReach, attackCritical
+    
+    func getCharacteristicName() -> String {
+        switch self {
+        case .attackDamage:
+            return "Damage"
+        case .attackBonus:
+            return "Attack Bonus"
+        case .attackType:
+            return "Type"
+        case .attackReach:
+            return "Reach"
+        case .attackCritical:
+            return "Critical"
+        }
+    }
+}
+
 // MARK: - Skills T20
 
 struct SkillT20 {
