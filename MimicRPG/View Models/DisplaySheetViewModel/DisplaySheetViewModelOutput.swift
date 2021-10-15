@@ -12,7 +12,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func displayEditNoteModal(name: String, desc: String, note: Notes)
     func displayEditAttributesModal()
     func displayAddAttackModal()
-    func displayEditAttackModal()
+    func displayEditAttackModal(editAttack: Attack)
     func displayNewItem()
     func reloadAttributes()
     func reloadPoints()

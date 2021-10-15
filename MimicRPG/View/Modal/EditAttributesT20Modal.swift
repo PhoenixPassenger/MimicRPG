@@ -157,19 +157,19 @@ class EditAttributesT20Modal: UIViewController {
         for attribute in viewModel.getAttributes() {
             switch (attribute.name) {
             case SkillT20Attributes.getAttribute(.STR)().name:
-                strengthView.setValue(with: Int(attribute.value))
+                strengthView.setStepperValue(with: Int(attribute.value))
             case SkillT20Attributes.getAttribute(.DEX)().name:
-                dexterityView.setValue(with: Int(attribute.value))
+                dexterityView.setStepperValue(with: Int(attribute.value))
             case SkillT20Attributes.getAttribute(.CON)().name:
-                constitutionView.setValue(with: Int(attribute.value))
+                constitutionView.setStepperValue(with: Int(attribute.value))
             case SkillT20Attributes.getAttribute(.INT)().name:
-                intelligenceView.setValue(with: Int(attribute.value))
+                intelligenceView.setStepperValue(with: Int(attribute.value))
             case SkillT20Attributes.getAttribute(.WIS)().name:
-                wisdomView.setValue(with: Int(attribute.value))
+                wisdomView.setStepperValue(with: Int(attribute.value))
             case SkillT20Attributes.getAttribute(.CHA)().name:
-                charismaView.setValue(with: Int(attribute.value))
+                charismaView.setStepperValue(with: Int(attribute.value))
             default:
-                strengthView.setValue(with: Int(attribute.value))
+                strengthView.setStepperValue(with: Int(attribute.value))
             }
         }
     }

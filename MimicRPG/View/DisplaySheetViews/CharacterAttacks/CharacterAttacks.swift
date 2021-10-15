@@ -109,5 +109,6 @@ class CharacterAttacks: UITableView, UITableViewDelegate, UITableViewDataSource 
     private func editCell(row: Int) {
         let attacks = self.viewModel.getAttacks()
         let attackRow = attacks[row]
+        self.viewModel.editAttackModal(attack: attackRow)
     }
 }

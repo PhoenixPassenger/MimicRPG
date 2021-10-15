@@ -16,13 +16,12 @@ final class DisplaySheetViewModel {
 }
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
+
     func callReloadAttacks() {
         self.output?.reloadAttacks()
     }
 
     func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
         for point in self.getPoints() {
             switch (point.name) {
             case PointsT20.getPoints(.armorBonus)().name:
@@ -66,8 +65,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func setAttributes(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
         for attribute in self.getAttributes() {
             switch (attribute.name) {
             case SkillT20Attributes.getAttribute(.STR)().name:
@@ -103,7 +100,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func createAttack(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         let newAttack = Attack(context: context)
         newAttack.name = attackName
@@ -156,9 +152,39 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         self.output?.reloadAttacks()
     }
-    
+
     func editAttackModal(attack: Attack) {
-        self.output?.displayEditAttackModal()
+        self.output?.displayEditAttackModal(editAttack: attack)
+    }
+    
+    func editCurrentAttack(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+        currentAttack.name = attackName
+
+        let attackCharac = currentAttack.characteristics?.allObjects as? [Characteristics]
+        if let charArr = attackCharac {
+            for currentChar in charArr {
+                switch (currentChar.name) {
+                case AttackCharacteristicsT20.getCharacteristicName(.attackDamage)():
+                    currentChar.stringValue = attackDamage
+                case AttackCharacteristicsT20.getCharacteristicName(.attackBonus)():
+                    currentChar.numberValue = Int64(attackBonus)
+                case AttackCharacteristicsT20.getCharacteristicName(.attackType)():
+                    currentChar.stringValue = attackType
+                case AttackCharacteristicsT20.getCharacteristicName(.attackReach)():
+                    currentChar.stringValue = attackRange
+                case AttackCharacteristicsT20.getCharacteristicName(.attackCritical)():
+                    currentChar.stringValue = criticalBonus
+                default:
+                    currentChar.stringValue = attackDamage
+                }
+            }
+        }
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
     }
 
     func getProfile() -> [Characteristics] {

@@ -13,6 +13,9 @@ class CreateAttackT20Modal: UIViewController {
     var paginator: Int = 0
     let lastPage: Int = 1
 
+    var isEditMode: Bool = false
+    var editingAttack: Attack!
+
     var viewModel: DisplaySheetViewModelType!
 
     init(with: DisplaySheetViewModelType) {
@@ -150,7 +153,7 @@ class CreateAttackT20Modal: UIViewController {
 
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
-            createNewAttack()
+            self.isEditMode ? editAttack() : createNewAttack()
             dismiss(animated: true, completion: viewModel.callReloadAttacks)
         } else {
             paginator += 1
@@ -209,15 +212,64 @@ class CreateAttackT20Modal: UIViewController {
         updateUI()
     }
 
+    func fillForm(currentAttack: Attack) {
+        self.isEditMode = true
+        self.title = "EditAttack".localized()
+        self.editingAttack = currentAttack
+
+        sheetAttackNameView.setBoxTextValue(with: currentAttack.name ?? "")
+        let attackCharac = editingAttack.characteristics?.allObjects as? [Characteristics]
+
+        var attackDamage = ""
+        var attackBonus = 0
+        var attackType = ""
+        var attackReach = ""
+        var attackCritical = ""
+        if let charArr = attackCharac {
+            for currentChar in charArr {
+                switch (currentChar.name) {
+                case AttackCharacteristicsT20.getCharacteristicName(.attackDamage)():
+                    attackDamage = currentChar.stringValue ?? ""
+                case AttackCharacteristicsT20.getCharacteristicName(.attackBonus)():
+                    attackBonus = Int(currentChar.numberValue)
+                case AttackCharacteristicsT20.getCharacteristicName(.attackType)():
+                    attackType = currentChar.stringValue ?? ""
+                case AttackCharacteristicsT20.getCharacteristicName(.attackReach)():
+                    attackReach = currentChar.stringValue ?? ""
+                case AttackCharacteristicsT20.getCharacteristicName(.attackCritical)():
+                    attackCritical = currentChar.stringValue ?? ""
+                default:
+                    attackDamage = currentChar.stringValue ?? ""
+                }
+            }
+        }
+
+        sheetAttackDamageView.setBoxTextValue(with: attackDamage)
+        sheetAttackBonusView.setStepperValue(with: attackBonus)
+        sheetAttackTypeView.setBoxTextValue(with: attackType)
+        sheetAttackRangeView.setBoxTextValue(with: attackReach)
+        sheetAttackCriticalView.setBoxTextValue(with: attackCritical)
+    }
+
     // MARK: - CoreData
     func createNewAttack() {
-        let attackName = sheetAttackNameView.getBoxText()
-        let attackDamage = sheetAttackDamageView.getBoxText()
-        let attackBonus = sheetAttackBonusView.getStepperValue()
-        let attackType = sheetAttackTypeView.getBoxText()
-        let attackRange = sheetAttackRangeView.getBoxText()
-        let criticalEffect = sheetAttackCriticalView.getBoxText()
-        viewModel.createAttack(attackName: attackName, attackDamage: attackDamage, attackBonus: attackBonus, attackType: attackType, attackRange: attackRange, criticalBonus: criticalEffect)
+        let newName = sheetAttackNameView.getBoxText()
+        let newDamage = sheetAttackDamageView.getBoxText()
+        let newBonus = sheetAttackBonusView.getStepperValue()
+        let newType = sheetAttackTypeView.getBoxText()
+        let newRange = sheetAttackRangeView.getBoxText()
+        let newCritical = sheetAttackCriticalView.getBoxText()
+        viewModel.createAttack(attackName: newName, attackDamage: newDamage, attackBonus: newBonus, attackType: newType, attackRange: newRange, criticalBonus: newCritical)
+    }
+
+    func editAttack() {
+        let newName = sheetAttackNameView.getBoxText()
+        let newDamage = sheetAttackDamageView.getBoxText()
+        let newBonus = sheetAttackBonusView.getStepperValue()
+        let newType = sheetAttackTypeView.getBoxText()
+        let newRange = sheetAttackRangeView.getBoxText()
+        let newCritical = sheetAttackCriticalView.getBoxText()
+        viewModel.editCurrentAttack(currentAttack: self.editingAttack, attackName: newName, attackDamage: newDamage, attackBonus: newBonus, attackType: newType, attackRange: newRange, criticalBonus: newCritical)
     }
 
     private func configureLayout() {

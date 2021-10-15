@@ -101,13 +101,7 @@ class EditModalComponent: UIView {
         case .switchButton:
             stack = UIStackView(arrangedSubviews: [titleLabel, stackSwitch])
         }
-        /*
-        if typeOfModalComponent == .text {
-            stack = UIStackView(arrangedSubviews: [titleLabel, valueText])
-        } else {
-            stack = UIStackView(arrangedSubviews: [titleLabel, stackStepper])
-        }
-     */
+
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -124,9 +118,13 @@ class EditModalComponent: UIView {
         self.endEditing(true)
     }
 
-    func setValue(with value: Int) {
+    func setStepperValue(with value: Int) {
         self.valueStepper.value = Double(value)
         self.titleStepper.text = "\(Int(self.valueStepper.value))"
+    }
+
+    func setBoxTextValue(with value: String) {
+        self.valueText.text = value
     }
 
     func getStepperValue() -> Int {
