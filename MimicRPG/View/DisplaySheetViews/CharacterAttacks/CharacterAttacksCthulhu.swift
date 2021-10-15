@@ -11,7 +11,7 @@ class CharacterAttacksCthulhu: UITableView, UITableViewDelegate, UITableViewData
     var viewModel: DisplaySheetViewModelType!
 
     func setupTableView() {
-        self.register(CharacterAttacksCellT20.self, forCellReuseIdentifier: "MyCell")
+        self.register(CharacterAttacksCellCthulhu.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
         self.tableFooterView = UIView()
@@ -46,36 +46,39 @@ class CharacterAttacksCthulhu: UITableView, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterAttacksCellT20
+        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterAttacksCellCthulhu
         guard let cell = cellWrap else { fatalError() }
         let attack = self.viewModel.getAttacks()[indexPath.row]
         let attackCharac = attack.characteristics?.allObjects as? [Characteristics]
 
         var attackDamage = ""
-        var attackBonus = 0
-        var attackType = ""
-        var attackReach = ""
-        var attackCritical = ""
+        var attackValue = 0
+        var attackAmmo = 0
+        var attackRange = ""
+        var attackMalfunction = ""
+        var attackAttacks = 0
         if let charArr = attackCharac {
             for currentChar in charArr {
                 switch (currentChar.name) {
-                case AttackCharacteristicsT20.getCharacteristicName(.attackDamage)():
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackDamage)():
                     attackDamage = currentChar.stringValue ?? ""
-                case AttackCharacteristicsT20.getCharacteristicName(.attackBonus)():
-                    attackBonus = Int(currentChar.numberValue)
-                case AttackCharacteristicsT20.getCharacteristicName(.attackType)():
-                    attackType = currentChar.stringValue ?? ""
-                case AttackCharacteristicsT20.getCharacteristicName(.attackReach)():
-                    attackReach = currentChar.stringValue ?? ""
-                case AttackCharacteristicsT20.getCharacteristicName(.attackCritical)():
-                    attackCritical = currentChar.stringValue ?? ""
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackValue)():
+                    attackValue = Int(currentChar.numberValue)
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackAmmo)():
+                    attackAmmo = Int(currentChar.numberValue)
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackRange)():
+                    attackRange = currentChar.stringValue ?? ""
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackMalfunction)():
+                    attackMalfunction = currentChar.stringValue ?? ""
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackAttacks)():
+                    attackAttacks = Int(currentChar.numberValue)
                 default:
                     attackDamage = currentChar.stringValue ?? ""
                 }
             }
         }
 
-        cell.set(name: attack.name ?? "", damage: attackDamage, bonus: attackBonus, type: attackType, reach: attackReach, critical: attackCritical)
+        cell.set(name: attack.name ?? "", damage: attackDamage, value: attackValue, ammo: attackAmmo, range: attackRange, malfunction: attackMalfunction, attacks: attackAttacks)
 
         cell.contentView.isUserInteractionEnabled = false
         return cell

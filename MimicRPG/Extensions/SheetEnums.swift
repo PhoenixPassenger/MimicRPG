@@ -327,7 +327,7 @@ enum AttackCharacteristicsCthulhu {
         case .attackValue:
             return "Value"
         case .attackAmmo:
-            return "Type"
+            return "Ammo"
         case .attackRange:
             return "Range"
         case .attackMalfunction:
