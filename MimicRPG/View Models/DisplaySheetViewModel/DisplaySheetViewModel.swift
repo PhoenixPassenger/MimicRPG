@@ -156,7 +156,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func editAttackModal(attack: Attack) {
         self.output?.displayEditAttackModal(editAttack: attack)
     }
-    
+
     func editCurrentAttack(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
         currentAttack.name = attackName
 
