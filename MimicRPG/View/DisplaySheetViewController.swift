@@ -298,12 +298,13 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    
 
     func reloadAttacksT20() {
         let view = self.sheetView as? CharacterAttacksT20
         view?.reloadData()
     }
-    
+
     func reloadAttacksCthulhu() {
         let view = self.sheetView as? CharacterAttacksCthulhu
         view?.reloadData()
@@ -393,10 +394,16 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         present(addAttackT20Modal, animated: true, completion: nil)
     }
 
-    func displayEditAttackModal(editAttack: Attack) {
+    func displayEditAttackT20Modal(editAttack: Attack) {
         let editAttackT20Modal = CreateAttackT20Modal(with: viewModel)
         editAttackT20Modal.fillForm(currentAttack: editAttack)
         present(editAttackT20Modal, animated: true, completion: nil)
+    }
+
+    func displayEditAttackCthulhuModal(editAttack: Attack) {
+        let editAttackCthulhuModal = CreateAttackCthulhuModal(with: viewModel)
+        editAttackCthulhuModal.fillForm(currentAttack: editAttack)
+        present(editAttackCthulhuModal, animated: true, completion: nil)
     }
 
     func reloadAttributesT20() {

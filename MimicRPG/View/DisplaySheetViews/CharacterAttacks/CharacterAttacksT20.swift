@@ -109,6 +109,6 @@ class CharacterAttacksT20: UITableView, UITableViewDelegate, UITableViewDataSour
     private func editCell(row: Int) {
         let attacks = self.viewModel.getAttacks()
         let attackRow = attacks[row]
-        self.viewModel.editAttackModal(attack: attackRow)
+        self.viewModel.editAttackT20Modal(attack: attackRow)
     }
 }

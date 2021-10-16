@@ -112,6 +112,6 @@ class CharacterAttacksCthulhu: UITableView, UITableViewDelegate, UITableViewData
     private func editCell(row: Int) {
         let attacks = self.viewModel.getAttacks()
         let attackRow = attacks[row]
-        self.viewModel.editAttackModal(attack: attackRow)
+        self.viewModel.editAttackCthulhuModal(attack: attackRow)
     }
 }

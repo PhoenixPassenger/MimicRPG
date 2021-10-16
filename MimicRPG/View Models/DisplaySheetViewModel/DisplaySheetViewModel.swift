@@ -328,8 +328,12 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
     }
 
-    func editAttackModal(attack: Attack) {
-        self.output?.displayEditAttackModal(editAttack: attack)
+    func editAttackT20Modal(attack: Attack) {
+        self.output?.displayEditAttackT20Modal(editAttack: attack)
+    }
+    
+    func editAttackCthulhuModal(attack: Attack) {
+        self.output?.displayEditAttackCthulhuModal(editAttack: attack)
     }
 
     func editCurrentAttackT20(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
