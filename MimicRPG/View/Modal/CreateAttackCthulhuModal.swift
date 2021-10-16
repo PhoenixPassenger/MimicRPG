@@ -257,7 +257,7 @@ class CreateAttackCthulhuModal: UIViewController {
         sheetAttackValueView.setStepperValue(with: attackValue)
         sheetAttackAmmoView.setStepperValue(with: attackAmmo)
         sheetAttackRangeView.setBoxTextValue(with: attackRange)
-        sheetAttackMalfunctionView.setBoxTextValue(with: attackRange)
+        sheetAttackMalfunctionView.setBoxTextValue(with: attackMalfunction)
         sheetAttackAttacksView.setStepperValue(with: attackAttacks)
     }
 
