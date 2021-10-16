@@ -388,7 +388,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let addAttackT20Modal = CreateAttackT20Modal(with: viewModel)
         present(addAttackT20Modal, animated: true, completion: nil)
     }
-    
+
     func displayAddAttackCthulhuModal() {
         let addAttackT20Modal = CreateAttackCthulhuModal(with: viewModel)
         present(addAttackT20Modal, animated: true, completion: nil)
@@ -410,7 +410,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let attributesView = sheetView as? CharacterAttributesT20
         attributesView?.setupView()
     }
-    
+
     func reloadAttributesCthulhu() {
         let attributesView = sheetView as? CharacterAttributesCthulhu
         attributesView?.setupView()
@@ -420,7 +420,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let pointsView = sheetView as? CharacterPointsT20
         pointsView?.setupView()
     }
-    
+
     func reloadPointsCthulhu() {
         let pointsView = sheetView as? CharacterPointsCthulhu
         pointsView?.setupView()
@@ -435,7 +435,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
-    
+
     func displayEditAttributesCthulhuModal() {
         let editPointsCthulhuModal = EditAttributesCthulhuModal(with: viewModel)
         present(editPointsCthulhuModal, animated: true, completion: nil)
@@ -445,7 +445,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let editPointsT20Modal = EditPointsT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
-    
+
     func displayEditPointsCthulhuModal() {
         let editPointsT20Modal = EditPointsCthulhuModal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
