@@ -444,7 +444,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
     func editField(name: String, text: String, value: Int, characteristic: Characteristics) {
         characteristic.name = name
-        if name == "CharacterName" {
+        if (name == "CharacterName") || (name == "01_NameInvestigator") {
             characteristic.profile?.sheet?.name = text
         }
         if name == "Level" {

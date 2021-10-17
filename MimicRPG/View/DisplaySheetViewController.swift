@@ -359,17 +359,24 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
     }
 
     func updateHeader() {
-        let level: Int?
-        if viewModel.getSystem() == "Tormenta 20" {
-            level = Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
+        if (viewModel.getSystem() == "Tormenta 20") {
+            let level = Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
+            var race = (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue)
+            if ((race?.isEmpty) != nil) {
+                race = "Unknown Race"
+            }
+            sheetHeader.set(
+                name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "Unknown Name",
+                desc: race! + " - " + "Nvl".localized() + ". \(level)"
+            )
         } else {
-            level = 0
+            let occupation = (viewModel.getProfile().first(where: {$0.name == "02_Occupation"})?.stringValue)
+            print(occupation)
+            sheetHeader.set(
+                name: (viewModel.getProfile().first(where: {$0.name == "01_NameInvestigator"})?.stringValue) ?? "Unknown Name",
+                desc: occupation!
+            )
         }
-        sheetHeader.set(
-            name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "aa",
-            race: (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue) ?? "aa",
-            level: level!
-        )
     }
 
     func updateProfile() {

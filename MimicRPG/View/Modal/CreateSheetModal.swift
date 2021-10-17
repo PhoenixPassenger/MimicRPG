@@ -226,7 +226,7 @@ class CreateSheetModal: UIViewController {
 
                 newCharacteristic.name = bio.getBios().name
                 newCharacteristic.stringValue = bio.getBios().description
-                if newCharacteristic.name == "CharacterName" {
+                if newCharacteristic.name == "01_NameInvestigator" {
                     newCharacteristic.stringValue = name
                 }
                 newCharacteristic.profile = newProfile

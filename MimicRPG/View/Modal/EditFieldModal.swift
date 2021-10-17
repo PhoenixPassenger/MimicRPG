@@ -12,6 +12,8 @@ class EditFieldModal: UIViewController {
 
     var viewModel : DisplaySheetViewModelType!
     var editCharacteristic: Characteristics?
+    
+    var characteristicName: String?
     var paginator: Int = 0
     let lastPage: Int = 0
 
@@ -119,7 +121,8 @@ class EditFieldModal: UIViewController {
     }
 
     func fillForm(name: String, desc: String, value: Int, characteristic: Characteristics) {
-        sheetBioNameView.valueText.text = name
+        self.characteristicName = name
+        sheetBioNameView.valueText.text = name.localized()
         if name != "Level" {
             sheetBioDescView.valueText.text = desc
         } else {
@@ -151,7 +154,7 @@ class EditFieldModal: UIViewController {
 
     // MARK: - CoreDatas
     func editField() {
-        guard let name = sheetBioNameView.valueText.text else {return}
+        guard let name = characteristicName else {return}
         guard let desc = sheetBioDescView.valueText.text else {return}
         let value = sheetBioDescView.valueStepper.value
 
