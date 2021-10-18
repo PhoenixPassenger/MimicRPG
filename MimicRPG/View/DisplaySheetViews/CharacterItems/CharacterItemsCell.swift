@@ -75,12 +75,17 @@ class CharacterItemsCell: UITableViewCell {
         return stack
     }()
 
-    func set(itemName: String, itemDescription: String, itemUses: Int) {
+    func set(itemName: String, itemDescription: String, itemUses: Int, system: String) {
         configureLayout()
         self.backgroundColor = .clear
         itemNameLabel.text = itemName
         itemDescriptionTextLabel.text = itemDescription
         itemUsesLabel.text = "Uses".localized() + "\(itemUses)"
+        if system == "Cthulhu 7th ed." {
+            stack.backgroundColor = .shamrock
+            itemUsesBackground.backgroundColor = .lightShamrock
+            itemDescriptionTextLabel.backgroundColor = .lightShamrock
+        }
     }
     private func configureLayout() {
         self.sendSubviewToBack(itemUsesBackground)

@@ -155,7 +155,7 @@ class CreateAttackT20Modal: UIViewController {
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
             self.isEditMode ? editAttack() : createNewAttack()
-            dismiss(animated: true, completion: viewModel.callReloadAttacks)
+            dismiss(animated: true, completion: viewModel.callReloadAttacksT20)
         } else {
             paginator += 1
             updateUI()
@@ -260,7 +260,7 @@ class CreateAttackT20Modal: UIViewController {
         let newType = sheetAttackTypeView.getBoxText()
         let newRange = sheetAttackRangeView.getBoxText()
         let newCritical = sheetAttackCriticalView.getBoxText()
-        viewModel.createAttack(attackName: newName, attackDamage: newDamage, attackBonus: newBonus, attackType: newType, attackRange: newRange, criticalBonus: newCritical)
+        viewModel.createAttackT20(attackName: newName, attackDamage: newDamage, attackBonus: newBonus, attackType: newType, attackRange: newRange, criticalBonus: newCritical)
     }
 
     func editAttack() {
@@ -270,7 +270,7 @@ class CreateAttackT20Modal: UIViewController {
         let newType = sheetAttackTypeView.getBoxText()
         let newRange = sheetAttackRangeView.getBoxText()
         let newCritical = sheetAttackCriticalView.getBoxText()
-        viewModel.editCurrentAttack(currentAttack: self.editingAttack, attackName: newName, attackDamage: newDamage, attackBonus: newBonus, attackType: newType, attackRange: newRange, criticalBonus: newCritical)
+        viewModel.editCurrentAttackT20(currentAttack: self.editingAttack, attackName: newName, attackDamage: newDamage, attackBonus: newBonus, attackType: newType, attackRange: newRange, criticalBonus: newCritical)
     }
 
     private func configureLayout() {

@@ -22,7 +22,7 @@ class CharacterAttributesT20: UIView {
     }()
 
     @objc func editAttributes() {
-        viewModel.callEditAttributes()
+        viewModel.callEditAttributesT20()
     }
 
     let attributeSTRT20: AttributeBoxT20 = {

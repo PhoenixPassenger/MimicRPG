@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
     var viewModel: DisplaySheetViewModelType!
+
     func setupTableView() {
         self.register(CharacterItemsCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
@@ -26,7 +27,7 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
         guard let itemUses = item.characteristics?.numberValue else {
             fatalError()
         }
-        cell.set(itemName: item.name ?? "", itemDescription: item.characteristics?.stringValue ?? "", itemUses: Int(itemUses))
+        cell.set(itemName: item.name ?? "", itemDescription: item.characteristics?.stringValue ?? "", itemUses: Int(itemUses), system: self.viewModel.getSystem())
         return cell
     }
 

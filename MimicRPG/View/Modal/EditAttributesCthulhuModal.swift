@@ -12,9 +12,13 @@ class EditAttributesCthulhuModal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
+    
+    var viewModel: DisplaySheetViewModelType!
 
-    init() {
+    init(with viewModel: DisplaySheetViewModelType) {
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+        setStartingAttributeValues(with: self.viewModel)
     }
 
     var selectedRow: Int = 0
@@ -163,10 +167,37 @@ class EditAttributesCthulhuModal: UIViewController {
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
             editAttributes()
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: viewModel.callReloadAttributesCthulhu)
         } else {
             paginator += 1
             updateUI()
+        }
+    }
+    
+    func setStartingAttributeValues(with viewModel: DisplaySheetViewModelType) {
+        for attribute in viewModel.getAttributes() {
+            switch (attribute.name) {
+            case SkillCthulhuAttributes.getAttribute(.STR)().name:
+                strengthView.setStepperValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.DEX)().name:
+                dexterityView.setStepperValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.INT)().name:
+                 intelligenceView.setStepperValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.CON)().name:
+                constitutionView.setStepperValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.APP)().name:
+                appearanceView.setStepperValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.POW)().name:
+                powerView.setStepperValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.SIZ)().name:
+                sizeView.setStepperValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.EDU)().name:
+                educationView.setStepperValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.MOV)().name:
+                moveView.setStepperValue(with: Int(attribute.value))
+            default:
+                strengthView.setStepperValue(with: Int(attribute.value))
+            }
         }
     }
 
@@ -223,7 +254,16 @@ class EditAttributesCthulhuModal: UIViewController {
 
     // MARK: - CoreData
     func editAttributes() {
-        //
+        let editSTR = strengthView.getStepperValue()
+        let editDEX = dexterityView.getStepperValue()
+        let editINT = intelligenceView.getStepperValue()
+        let editCON = constitutionView.getStepperValue()
+        let editAPP = appearanceView.getStepperValue()
+        let editPOW = powerView.getStepperValue()
+        let editSIZ = sizeView.getStepperValue()
+        let editEDU = educationView.getStepperValue()
+        let editMOV = moveView.getStepperValue()
+        viewModel.setAttributesCthulhu(setSTR: editSTR, setDEX: editDEX, setINT: editINT, setCON: editCON, setAPP: editAPP, setPOW: editPOW, setSIZ: editSIZ, setEDU: editEDU, setMOV: editMOV)
     }
 
     private func configureLayout() {

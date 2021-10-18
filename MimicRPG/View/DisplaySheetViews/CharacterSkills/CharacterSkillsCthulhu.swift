@@ -21,6 +21,7 @@ class MockSkillCthulhu {
 }
 
 class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataSource {
+    var viewModel: DisplaySheetViewModelType!
 
     let mockSkills: [MockSkillCthulhu] = [
         MockSkillCthulhu(name: "Antropologia", active: true, value: 22),
@@ -30,7 +31,7 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         MockSkillCthulhu(name: "Astrologia", active: false, value: 22)
     ]
 
-    var filteredSkills: [MockSkillCthulhu] = []
+    var filteredSkills: [Skill] = []
 
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -53,10 +54,9 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         self.register(CharacterSkillsCellCthulhu.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
-//        self.tableView.separatorStyle = .none
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
-        filteredSkills = mockSkills
+        filteredSkills = viewModel.getSkills()
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.addGestureRecognizer(tap)
@@ -66,9 +66,9 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCellCthulhu
         guard let cell = cellWrap else { fatalError() }
         cell.set(
-            titleItem: filteredSkills[indexPath.row].name,
-            active: filteredSkills[indexPath.row].active,
-            value: filteredSkills[indexPath.row].value)
+            titleItem: filteredSkills[indexPath.row].name!,
+            active: filteredSkills[indexPath.row].isActivated,
+            value: Int(filteredSkills[indexPath.row].value))
         return cell
     }
 
@@ -111,10 +111,10 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
 extension CharacterSkillsCthulhu: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
-            filteredSkills = mockSkills
+            filteredSkills = viewModel.getSkills()
         } else {
-            filteredSkills = mockSkills.filter { item in
-                return item.name.lowercased().contains(searchText.lowercased())
+            filteredSkills = viewModel.getSkills().filter { item in
+                return item.name!.lowercased().contains(searchText.lowercased())
             }
         }
         self.reloadData()

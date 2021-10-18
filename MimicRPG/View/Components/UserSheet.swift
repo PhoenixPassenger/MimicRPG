@@ -61,7 +61,11 @@ class UserSheet: UICollectionViewCell {
         sheetImage.image = UIImage(named: image)
         nameLabel.text = name
         descLabel.text = desc
-        systemIcon.image = UIImage(named: system)
+        if system == "Tormenta 20" {
+            systemIcon.image = UIImage(named: "T20")
+        } else if system == "Cthulhu 7th ed." {
+            systemIcon.image = UIImage(named: "CT7")
+        }
     }
 
     private func configureLayout() {

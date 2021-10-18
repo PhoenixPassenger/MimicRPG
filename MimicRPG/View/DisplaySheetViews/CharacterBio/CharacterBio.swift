@@ -42,7 +42,7 @@ class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .normal, title: "EditAttack".localized()) { [weak self] (_, _, completionHandler) in
+        let action = UIContextualAction(style: .normal, title: "Edit".localized()) { [weak self] (_, _, completionHandler) in
             self?.editCell(row: indexPath.row)
             completionHandler(true)
         }

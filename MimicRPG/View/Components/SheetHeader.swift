@@ -64,9 +64,9 @@ class SheetHeader: UIView {
         return label
     }()
 
-    func set(name: String, race: String, level: Int) {
+    func set(name: String, desc: String) {
         nameLabel.text = name
-        descLabel.text = race + " - " + "Nvl".localized() + ". \(level)"
+        descLabel.text = desc
     }
 
     private func configureLayout() {

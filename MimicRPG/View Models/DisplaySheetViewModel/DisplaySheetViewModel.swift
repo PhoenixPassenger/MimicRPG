@@ -5,6 +5,8 @@
 //  Created by Eduardo Oliveira on 21/09/21.
 //
 // swiftlint:disable force_cast
+// swiftlint:disable function_parameter_count
+// swiftlint:disable line_length
 
 import Foundation
 import UIKit
@@ -17,8 +19,20 @@ final class DisplaySheetViewModel {
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
-    func callReloadAttacks() {
-        self.output?.reloadAttacks()
+    func getSystem() -> String {
+        return (sheet?.system)!
+    }
+
+    func setPointsT20(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    }
+
+    func callReloadAttacksT20() {
+        self.output?.reloadAttacksT20()
+    }
+    
+    func callReloadAttacksCthulhu() {
+        self.output?.reloadAttacksCthulhu()
     }
 
     func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
@@ -34,10 +48,16 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
                 point.actualValue = Int64(setTemporary)
             case PointsT20.getPoints(.life)().name:
                 point.maxValue = Int64(setMaxLife)
+                if point.actualValue > setMaxLife {
+                    point.actualValue = Int64(setMaxLife)
+                }
             case PointsT20.getPoints(.mana)().name:
                 point.maxValue = Int64(setMaxMana)
+                if point.actualValue > setMaxMana {
+                    point.actualValue = Int64(setMaxMana)
+                }
             default:
-                point.actualValue = Int64(setArmorBonus)
+                break
             }
         }
 
@@ -48,20 +68,86 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
     }
 
-    func callReloadPoints() {
-        self.output?.reloadPoints()
+    func setPointsCthulhu(setMaxLife: Int, setMaxMagic: Int, setMaxSanity: Int, setMaxLuck: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        for point in self.getPoints() {
+            switch (point.name) {
+            case PointsCthulhu.getPoints(.life)().name:
+                point.maxValue = Int64(setMaxLife)
+                if point.actualValue > setMaxLife {
+                    point.actualValue = Int64(setMaxLife)
+                }
+            case PointsCthulhu.getPoints(.magic)().name:
+                point.maxValue = Int64(setMaxMagic)
+                if point.actualValue > setMaxMagic {
+                    point.actualValue = Int64(setMaxMagic)
+                }
+            case PointsCthulhu.getPoints(.sanity)().name:
+                point.maxValue = Int64(setMaxSanity)
+                if point.actualValue > setMaxSanity {
+                    point.actualValue = Int64(setMaxSanity)
+                }
+            case PointsCthulhu.getPoints(.luck)().name:
+                point.maxValue = Int64(setMaxLuck)
+                if point.actualValue > setMaxLuck {
+                    point.actualValue = Int64(setMaxLuck)
+                }
+            default:
+                break
+            }
+        }
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
     }
 
-    func callEditAttributes() {
-        self.output?.displayEditAttributesModal()
+    func changePointValue(type: String, value: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        let point = self.getPoints().first(where: {$0.name == type})
+        point?.actualValue = Int64(value)
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
     }
 
-    func callEditPoints() {
-        self.output?.displayEditPointsModal()
+    func callReloadPointsT20() {
+        self.output?.reloadPointsT20()
+    }
+
+    func callReloadPointsCthulhu() {
+        self.output?.reloadPointsCthulhu()
+    }
+
+    func callEditAttributesT20() {
+        self.output?.displayEditAttributesT20Modal()
+    }
+
+    func callEditAttributesCthulhu() {
+        self.output?.displayEditAttributesCthulhuModal()
+    }
+
+    func callEditPointsT20() {
+        self.output?.displayEditPointsT20Modal()
+    }
+
+    func callEditPointsCthulhu() {
+        self.output?.displayEditPointsCthulhuModal()
     }
 
     func getAttributes() -> [Attributes] {
         return Array(sheet?.attribute as! Set<Attributes>)
+    }
+
+    func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
 
     func setAttributes(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
@@ -83,7 +169,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
                 attribute.value = Int64(setSTR)
             }
         }
-
         do {
             try context.save()
         } catch {
@@ -91,15 +176,57 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
     }
 
-    func callReloadAttributes() {
-        self.output?.reloadAttributes()
+    func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        for attribute in self.getAttributes() {
+            switch (attribute.name) {
+            case SkillCthulhuAttributes.getAttribute(.STR)().name:
+                attribute.value = Int64(setSTR)
+            case SkillCthulhuAttributes.getAttribute(.DEX)().name:
+                attribute.value = Int64(setDEX)
+            case SkillCthulhuAttributes.getAttribute(.INT)().name:
+                attribute.value = Int64(setINT)
+            case SkillCthulhuAttributes.getAttribute(.CON)().name:
+                attribute.value = Int64(setCON)
+            case SkillCthulhuAttributes.getAttribute(.APP)().name:
+                attribute.value = Int64(setAPP)
+            case SkillCthulhuAttributes.getAttribute(.POW)().name:
+                attribute.value = Int64(setPOW)
+            case SkillCthulhuAttributes.getAttribute(.SIZ)().name:
+                attribute.value = Int64(setSIZ)
+            case SkillCthulhuAttributes.getAttribute(.EDU)().name:
+                attribute.value = Int64(setEDU)
+            case SkillCthulhuAttributes.getAttribute(.MOV)().name:
+                attribute.value = Int64(setMOV)
+            default:
+                attribute.value = Int64(setSTR)
+            }
+        }
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
     }
 
-    func callAddAttack() {
-        self.output?.displayAddAttackModal()
+    func callReloadAttributesT20() {
+        self.output?.reloadAttributesT20()
     }
 
-    func createAttack(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+    func callReloadAttributesCthulhu() {
+        self.output?.reloadAttributesCthulhu()
+    }
+
+    func callAddAttackT20() {
+        self.output?.displayAddAttackT20Modal()
+    }
+    
+    func callAddAttackCthulhu() {
+        self.output?.displayAddAttackCthulhuModal()
+    }
+
+    func createAttackT20(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
 
         let newAttack = Attack(context: context)
         newAttack.name = attackName
@@ -138,6 +265,50 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
     }
+    
+    func createAttackCthulhu(attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) {
+        let newAttack = Attack(context: context)
+        newAttack.name = attackName
+
+        let newDamage = Characteristics(context: context)
+        newDamage.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackDamage)()
+        newDamage.stringValue = attackDamage
+        newAttack.addToCharacteristics(newDamage)
+
+        let newValue = Characteristics(context: context)
+        newValue.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackValue)()
+        newValue.numberValue = Int64(attackValue)
+        newAttack.addToCharacteristics(newValue)
+
+        let newAmmo = Characteristics(context: context)
+        newAmmo.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackAmmo)()
+        newAmmo.numberValue = Int64(attackAmmo)
+        newAttack.addToCharacteristics(newAmmo)
+        
+        let newRange = Characteristics(context: context)
+        newRange.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackRange)()
+        newRange.stringValue = attackRange
+        newAttack.addToCharacteristics(newRange)
+        
+        let newMalfunction = Characteristics(context: context)
+        newMalfunction.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackMalfunction)()
+        newMalfunction.stringValue = attackMalfunction
+        newAttack.addToCharacteristics(newMalfunction)
+        
+        let newAttacks = Characteristics(context: context)
+        newAttacks.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackAttacks)()
+        newAttacks.numberValue = Int64(attackAttacks)
+        newAttack.addToCharacteristics(newAttacks)
+
+        newAttack.sheet = self.sheet
+        sheet?.attack = sheet?.attack?.adding(newAttack) as NSSet?
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
 
     func getAttacks() -> [Attack] {
         return self.sheet?.attack?.allObjects as! [Attack]
@@ -150,14 +321,22 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to fetch data from core data ")
         }
-        self.output?.reloadAttacks()
+        if getSystem() == "Tormenta 20" {
+            self.output?.reloadAttacksT20()
+        } else if getSystem() == "Cthulhu 7th ed." {
+            self.output?.reloadAttacksCthulhu()
+        }
     }
 
-    func editAttackModal(attack: Attack) {
-        self.output?.displayEditAttackModal(editAttack: attack)
+    func editAttackT20Modal(attack: Attack) {
+        self.output?.displayEditAttackT20Modal(editAttack: attack)
     }
 
-    func editCurrentAttack(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+    func editAttackCthulhuModal(attack: Attack) {
+        self.output?.displayEditAttackCthulhuModal(editAttack: attack)
+    }
+
+    func editCurrentAttackT20(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
         currentAttack.name = attackName
 
         let attackCharac = currentAttack.characteristics?.allObjects as? [Characteristics]
@@ -186,6 +365,38 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
     }
+    
+    func editCurrentAttackCthulhu(currentAttack: Attack, attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) {
+        currentAttack.name = attackName
+
+        let attackCharac = currentAttack.characteristics?.allObjects as? [Characteristics]
+        if let charArr = attackCharac {
+            for currentChar in charArr {
+                switch (currentChar.name) {
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackDamage)():
+                    currentChar.stringValue = attackDamage
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackValue)():
+                    currentChar.numberValue = Int64(attackValue)
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackAmmo)():
+                    currentChar.numberValue = Int64(attackAmmo)
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackRange)():
+                    currentChar.stringValue = attackRange
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackMalfunction)():
+                    currentChar.stringValue = attackMalfunction
+                case AttackCharacteristicsCthulhu.getCharacteristicName(.attackAttacks)():
+                    currentChar.numberValue = Int64(attackAttacks)
+                default:
+                    currentChar.stringValue = attackDamage
+                }
+            }
+        }
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
 
     func getProfile() -> [Characteristics] {
         let profile = Array(sheet?.profile?.characteristics as! Set<Characteristics>)
@@ -193,7 +404,8 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func getSkills() -> [Skill] {
-        return Array(sheet?.skills as! Set<Skill>)
+        let skills = Array(sheet?.skills as! Set<Skill>)
+        return skills.sorted(by: { $0.name! < $1.name! })
     }
 
     func getPoints() -> [Points] {
@@ -232,7 +444,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
     func editField(name: String, text: String, value: Int, characteristic: Characteristics) {
         characteristic.name = name
-        if name == "CharacterName" {
+        if (name == "CharacterName") || (name == "01_NameInvestigator") {
             characteristic.profile?.sheet?.name = text
         }
         if name == "Level" {

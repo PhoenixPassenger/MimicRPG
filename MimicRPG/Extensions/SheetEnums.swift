@@ -20,7 +20,7 @@ struct Bio {
 }
 
 enum BiosT20 {
-    case characterName, race, level, characterClass, origin, description
+    case characterName, race, level, characterClass, origin, description, divinity
     
     func getBios() -> Bio {
         switch self {
@@ -36,12 +36,12 @@ enum BiosT20 {
             return Bio(name: "Origin", description: "")
         case .description:
             return Bio(name: "Description", description: "")
-        case .description:
+        case .divinity:
             return Bio(name: "Divinity", description: "")
         }
     }
     
-    static let allValues = [characterName, race, level, characterClass, origin, description]
+    static let allValues = [characterName, race, level, characterClass, origin, description, divinity]
 }
 
 // MARK: - Points T20
@@ -225,39 +225,39 @@ enum BiosCthulhu {
     func getBios() -> Bio {
         switch self {
         case .nameInvestigator:
-            return Bio(name: "NameInvestigator", description: "")
+            return Bio(name: "01_NameInvestigator", description: "")
         case .occupation:
-            return Bio(name: "Occupation", description: "")
+            return Bio(name: "02_Occupation", description: "")
         case .namePlayer:
-            return Bio(name: "NamePlayer", description: "")
+            return Bio(name: "03_NamePlayer", description: "")
         case .age:
-            return Bio(name: "Age", description: "")
+            return Bio(name: "04_Age", description: "")
         case .gender:
-            return Bio(name: "Gender", description: "")
+            return Bio(name: "05_Gender", description: "")
         case .address:
-            return Bio(name: "Address", description: "")
+            return Bio(name: "06_Address", description: "")
         case .birthPlace:
-            return Bio(name: "BirthPlace", description: "")
+            return Bio(name: "07_BirthPlace", description: "")
         case .personalDescription:
-            return Bio(name: "PersonalDescription", description: "")
+            return Bio(name: "08_PersonalDescription", description: "")
         case .ideology:
-            return Bio(name: "Ideology", description: "")
+            return Bio(name: "09_Ideology", description: "")
         case .traits:
-            return Bio(name: "Traits", description: "")
+            return Bio(name: "10_Traits", description: "")
         case .woundsAndScars:
-            return Bio(name: "WoundAndScars", description: "")
+            return Bio(name: "11_WoundAndScars", description: "")
         case .phobiasAndManias:
-            return Bio(name: "PhobiasAndManias", description: "")
+            return Bio(name: "12_PhobiasAndManias", description: "")
         case .importantPersons:
-            return Bio(name: "ImportantPersons", description: "")
+            return Bio(name: "13_ImportantPersons", description: "")
         case .importantLocals:
-            return Bio(name: "ImportantLocals", description: "")
+            return Bio(name: "14_ImportantLocals", description: "")
         case .possessions:
-            return Bio(name: "Possessions", description: "")
+            return Bio(name: "15_Possessions", description: "")
         case .tomesAndSpells:
-            return Bio(name: "TomesAndSpells", description: "")
+            return Bio(name: "16_TomesAndSpells", description: "")
         case .meetingWithEntities:
-            return Bio(name: "CMeetingWithEntities", description: "")
+            return Bio(name: "17_MeetingWithEntities", description: "")
         }
     }
     
@@ -315,7 +315,28 @@ enum SkillCthulhuAttributes {
     
     static let allValues = [STR, DEX, INT, CON, APP, POW, SIZ, EDU, MOV]
 }
+// MARK: - Attacks T20
 
+enum AttackCharacteristicsCthulhu {
+    case attackDamage, attackValue, attackAmmo, attackRange, attackMalfunction, attackAttacks
+    
+    func getCharacteristicName() -> String {
+        switch self {
+        case .attackDamage:
+            return "Damage"
+        case .attackValue:
+            return "Value"
+        case .attackAmmo:
+            return "Ammo"
+        case .attackRange:
+            return "Range"
+        case .attackMalfunction:
+            return "Malfunction"
+        case .attackAttacks:
+            return "Attacks"
+        }
+    }
+}
 // MARK: - Skills Cthulhu
 
 struct SkillCthulhu {
@@ -331,7 +352,7 @@ struct SkillCthulhu {
 enum SkillsCthulhu {
     case accounting, chemistry, art, astronomy, anthropology, bargain, archaeology, biology, climb, conceal, craft, creditRating, cthulhuMythos, disguise, driveAutomobile, eletricalRepair, fastTalk, firstAid, fistPunch, geology, grapple, handgun, headbutt, hide, history, jump, kick, law, libraryUse, listen, locksmith, machineGun, martialArts, mechanicalRepair, medicine
     
-    func setSkills() -> SkillCthulhu {
+    func getSkills() -> SkillCthulhu {
         switch self {
         case .accounting:
             return SkillCthulhu(name: "Accounting", value: 10)

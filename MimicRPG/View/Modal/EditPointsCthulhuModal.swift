@@ -10,8 +10,12 @@ import UIKit
 
 class EditPointsCthulhuModal: UIViewController {
 
-    init() {
+    var viewModel: DisplaySheetViewModelType!
+
+    init(with viewModel: DisplaySheetViewModelType) {
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+        setStartingPointsValues(with: self.viewModel)
     }
 
     var selectedRow: Int = 0
@@ -83,7 +87,7 @@ class EditPointsCthulhuModal: UIViewController {
     }()
 
     lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [maxLuckView, maxMagicView, maxSanityView, maxLifeView])
+        let stack = UIStackView(arrangedSubviews: [maxLifeView, maxMagicView, maxSanityView, maxLuckView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -108,7 +112,7 @@ class EditPointsCthulhuModal: UIViewController {
 
     @objc func rightButtonBehavior() {
         editPoints()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: viewModel.callReloadPointsCthulhu)
     }
 
     private func additionalConfigurations() {
@@ -116,9 +120,30 @@ class EditPointsCthulhuModal: UIViewController {
         view.backgroundColor = UIColor(named: "Background")
     }
 
+    func setStartingPointsValues(with viewModel: DisplaySheetViewModelType) {
+        for point in viewModel.getPoints() {
+            switch (point.name) {
+            case PointsCthulhu.getPoints(.life)().name:
+                maxLifeView.setStepperValue(with: Int(point.maxValue))
+            case PointsCthulhu.getPoints(.magic)().name:
+                maxMagicView.setStepperValue(with: Int(point.maxValue))
+            case PointsCthulhu.getPoints(.sanity)().name:
+                maxSanityView.setStepperValue(with: Int(point.maxValue))
+            case PointsCthulhu.getPoints(.luck)().name:
+                maxLuckView.setStepperValue(with: Int(point.maxValue))
+            default:
+                break
+            }
+        }
+    }
+    
     // MARK: - CoreData
     func editPoints() {
-       //
+        let editMaxLife = maxLifeView.getStepperValue()
+        let editMaxMagic = maxMagicView.getStepperValue()
+        let editMaxSanity = maxSanityView.getStepperValue()
+        let editMaxLuck = maxLuckView.getStepperValue()
+        viewModel.setPointsCthulhu(setMaxLife: editMaxLife, setMaxMagic: editMaxMagic, setMaxSanity: editMaxSanity, setMaxLuck: editMaxLuck)
     }
 
     private func configureLayout() {

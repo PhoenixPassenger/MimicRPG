@@ -146,7 +146,7 @@ class EditAttributesT20Modal: UIViewController {
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
             editAttributes()
-            dismiss(animated: true, completion: viewModel.callReloadAttributes)
+            dismiss(animated: true, completion: viewModel.callReloadAttributesT20)
         } else {
             paginator += 1
             updateUI()
@@ -233,7 +233,7 @@ class EditAttributesT20Modal: UIViewController {
         let editINT = intelligenceView.getStepperValue()
         let editWIS = wisdomView.getStepperValue()
         let editCHA = charismaView.getStepperValue()
-        viewModel.setAttributes(setSTR: editSTR, setDEX: editDEX, setCON: editCON, setINT: editINT, setWIS: editWIS, setCHA: editCHA)
+        viewModel.setAttributesT20(setSTR: editSTR, setDEX: editDEX, setCON: editCON, setINT: editINT, setWIS: editWIS, setCHA: editCHA)
     }
 
     private func configureLayout() {
