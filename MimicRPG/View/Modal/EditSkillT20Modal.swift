@@ -9,7 +9,9 @@
 import UIKit
 
 class EditSkillT20Modal: UIViewController {
-
+/*
+ Nota mental: Editar a aparencia dos componentes não editaveis pra ficarem diferentes do resto
+ */
     var viewModel : DisplaySheetViewModelType!
     var editSkill : Skill?
     var trainedSwitchState:Bool {
@@ -149,7 +151,7 @@ class EditSkillT20Modal: UIViewController {
 
         trainedView.trainedSwitch.isOn = skill.isActivated
         
-        otherView.setValue(with: Int(skill.value))
+        otherView.setStepperValue(with: Int(skill.value))
         
         self.editSkill = skill
         configureLayout()

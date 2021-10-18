@@ -105,6 +105,7 @@ class CreateSheetModal: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel!.font = UIFont.josefinSansRegular()
+        button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
         button.setTitle("\(Systems(id: selectedRow)?.description ?? "")", for: .normal)
         button.contentHorizontalAlignment = .left
         button.layer.borderWidth = 1

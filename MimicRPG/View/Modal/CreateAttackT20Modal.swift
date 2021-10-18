@@ -5,6 +5,7 @@
 //  Created by Eduardo Oliveira on 04/10/21.
 //
 // swiftlint:disable force_cast
+// swiftlint:disable all
 
 import UIKit
 
