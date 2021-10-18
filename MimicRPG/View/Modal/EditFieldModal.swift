@@ -70,6 +70,7 @@ class EditFieldModal: UIViewController {
     lazy var sheetBioNameView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Name".localized(), type: .text)
         view.valueText.isEditable = false
+        view.valueText.layer.opacity = 0.5
         return view
     }()
 
@@ -116,7 +117,7 @@ class EditFieldModal: UIViewController {
             updateUI()
         }
     }
-    
+
     func fillForm(name: String, desc: String, value: Int, characteristic: Characteristics) {
         sheetBioNameView.valueText.text = name
         print(name)
@@ -124,7 +125,7 @@ class EditFieldModal: UIViewController {
             sheetBioDescView.valueText.text = desc
         } else {
             sheetBioDescView = EditModalComponent(titleText: "Description".localized(), multiline: true, type: .stepper)
-            sheetBioDescView.setValue(with: value)
+            sheetBioDescView.setStepperValue(with: value)
         }
         self.editCharacteristic = characteristic
     }

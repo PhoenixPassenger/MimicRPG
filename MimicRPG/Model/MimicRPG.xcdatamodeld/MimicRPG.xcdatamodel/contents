@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Attack" representedClassName="Attack" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="characteristics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="attack" inverseEntity="Characteristics"/>
+        <relationship name="characteristics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="attack" inverseEntity="Characteristics"/>
         <relationship name="sheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="attack" inverseEntity="Sheet"/>
     </entity>
     <entity name="Attributes" representedClassName="Attributes" syncable="YES" codeGenerationType="category">
