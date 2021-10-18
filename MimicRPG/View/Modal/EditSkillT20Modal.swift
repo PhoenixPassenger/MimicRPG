@@ -138,13 +138,19 @@ class EditSkillT20Modal: UIViewController {
     func fillForm(name: String, skill: Skill){
         //Soluçao feia: Usar o configure ali embaixo, a label.text está criando uma nova label
         skillTitleLabel.text = name
+
         let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue
         halfLevelView.valueText.text = String(levelBy2!/2)
+
         let skillAtt = viewModel.getAttributes().first(where: {$0.abbreviation == skill.attribute!})
         let skillAttModif = floor(Double(skillAtt!.value-10)/2)
-        modifierView.valueText.text = String(skillAttModif)
+        modifierView.titleLabel.text = ("Modifier"+(skillAtt?.abbreviation)!).localized()
+        modifierView.valueText.text = String(Int(skillAttModif))
+
         trainedView.trainedSwitch.isOn = skill.isActivated
+        
         otherView.setValue(with: Int(skill.value))
+        
         self.editSkill = skill
         configureLayout()
     }
