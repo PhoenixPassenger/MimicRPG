@@ -71,7 +71,7 @@ class EditSkillT20Modal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "Latrocínio" // Localized strings depois
+        label.text = "" // Localized strings depois
         label.font = UIFont.josefinSansBold()
         self.view.addSubview(label)
         return label
@@ -136,13 +136,13 @@ class EditSkillT20Modal: UIViewController {
     }
     
     func fillForm(name: String, skill: Skill){
+        //Soluçao feia: Usar o configure ali embaixo, a label.text está criando uma nova label
         skillTitleLabel.text = name
         //skill.value = 10
-        modifierView.titleStepper.text = "\(skill.value)"
         
-        otherView.valueStepper.value = Double(skill.value)
+        otherView.setValue(with: Int(skill.value))
         self.editSkill = skill
-        //configureLayout()
+        configureLayout()
     }
 
     // MARK: - CoreData
