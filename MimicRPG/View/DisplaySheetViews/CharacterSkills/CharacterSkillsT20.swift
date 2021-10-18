@@ -52,7 +52,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
         guard let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue else {return cell}
         let skillAttModif = floor(Double(selectedAttribute!.value-10)/2)
         cell.set(
-            titleItem: filteredSkills[indexPath.row].name!,
+            titleItem: (filteredSkills[indexPath.row].name!).localized(),
             active: filteredSkills[indexPath.row].isActivated,
             other: Int(filteredSkills[indexPath.row].value),
             modAttribute: Int(skillAttModif),

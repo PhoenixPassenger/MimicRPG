@@ -139,7 +139,7 @@ class EditSkillT20Modal: UIViewController {
     
     func fillForm(name: String, skill: Skill){
         //Soluçao feia: Usar o configure ali embaixo, a label.text está criando uma nova label
-        skillTitleLabel.text = name
+        skillTitleLabel.text = name.localized()
 
         let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue
         halfLevelView.valueText.text = String(levelBy2!/2)
