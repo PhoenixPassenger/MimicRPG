@@ -4,20 +4,20 @@
 //
 //  Created by Eduardo Oliveira on 30/09/21.
 //
-// swiftlint:disable force_cast
+// swiftlint:disable all
 
 import UIKit
 
 enum Systems: String, CaseIterable {
     case t20 = "T20"
-//    case ct7 = "CT7"
+    case ct7 = "CT7"
 
     var description: String {
         switch self {
         case .t20:
             return "Tormenta 20"
-//        case .ct7:
-//            return "Cthulhu 7th ed."
+        case .ct7:
+            return "Cthulhu 7th ed."
         }
     }
 
@@ -25,8 +25,8 @@ enum Systems: String, CaseIterable {
         switch id {
         case 0:
             self = .t20
-//        case 1:
-//            self = .ct7
+        case 1:
+            self = .ct7
         default:
             return nil
         }
@@ -204,66 +204,134 @@ class CreateSheetModal: UIViewController {
         let newProfile = Profile(context: self.context)
         var sheetCharacteristics: [Characteristics] = []
 
-        for bio in BiosT20.allValues {
-            let newCharacteristic = Characteristics(context: self.context)
+        switch Systems(id: selectedRow) {
+        case .t20:
+            for bio in BiosT20.allValues {
+                let newCharacteristic = Characteristics(context: self.context)
 
-            newCharacteristic.name = bio.getBios().name
-            newCharacteristic.stringValue = bio.getBios().description
-            if newCharacteristic.name == "CharacterName" {
-                newCharacteristic.stringValue = name
-            } else if newCharacteristic.name == "Level" {
-                newCharacteristic.numberValue = 0
+                newCharacteristic.name = bio.getBios().name
+                newCharacteristic.stringValue = bio.getBios().description
+                if newCharacteristic.name == "CharacterName" {
+                    newCharacteristic.stringValue = name
+                } else if newCharacteristic.name == "Level" {
+                    newCharacteristic.numberValue = 0
+                }
+                newCharacteristic.profile = newProfile
+
+                sheetCharacteristics.append(newCharacteristic)
             }
-            newCharacteristic.profile = newProfile
+        case .ct7:
+            for bio in BiosCthulhu.allValues {
+                let newCharacteristic = Characteristics(context: self.context)
 
-            sheetCharacteristics.append(newCharacteristic)
+                newCharacteristic.name = bio.getBios().name
+                newCharacteristic.stringValue = bio.getBios().description
+                if newCharacteristic.name == "01_NameInvestigator" {
+                    newCharacteristic.stringValue = name
+                }
+                newCharacteristic.profile = newProfile
+
+                sheetCharacteristics.append(newCharacteristic)
+            }
+        case .none:
+            break
         }
+        
         newProfile.characteristics = NSSet(array: sheetCharacteristics)
         newProfile.sheet = newSheet
 
     // MARK: - Create attributes
         var sheetAttributes: [Attributes] = []
 
-        for attribute in SkillT20Attributes.allValues {
-            let newAttribute = Attributes(context: self.context)
+        switch Systems(id: selectedRow) {
+        case .t20:
+            for attribute in SkillT20Attributes.allValues {
+                let newAttribute = Attributes(context: self.context)
 
-            newAttribute.name = attribute.getAttribute().name
-            newAttribute.abbreviation = attribute.getAttribute().abbreviation
-            newAttribute.value = 13
-            newAttribute.sheet = newSheet
+                newAttribute.name = attribute.getAttribute().name
+                newAttribute.abbreviation = attribute.getAttribute().abbreviation
+                newAttribute.value = 13
+                newAttribute.sheet = newSheet
 
-            sheetAttributes.append(newAttribute)
+                sheetAttributes.append(newAttribute)
+            }
+        case .ct7:
+            for attribute in SkillCthulhuAttributes.allValues {
+                let newAttribute = Attributes(context: self.context)
+
+                newAttribute.name = attribute.getAttribute().name
+                newAttribute.abbreviation = attribute.getAttribute().abbreviation
+                newAttribute.value = 50
+                newAttribute.sheet = newSheet
+
+                sheetAttributes.append(newAttribute)
+            }
+        case .none:
+            break
         }
+        
         newSheet.attribute = NSSet(array: sheetAttributes)
 
     // MARK: - Create skills
         var sheetSkills: [Skill] = []
 
-        for skill in SkillsT20.allValues {
-            let newSkill = Skill(context: self.context)
+        switch Systems(id: selectedRow) {
+        case .t20:
+            for skill in SkillsT20.allValues {
+                let newSkill = Skill(context: self.context)
 
-            newSkill.name = skill.getSkills().name
-            newSkill.isActivated = false
-            newSkill.attribute = skill.getSkills().attribute.getAttribute().abbreviation
-            newSkill.value = 0
-            newSkill.sheet = newSheet
+                newSkill.name = skill.getSkills().name
+                newSkill.isActivated = false
+                newSkill.attribute = skill.getSkills().attribute.getAttribute().abbreviation
+                newSkill.value = 0
+                newSkill.sheet = newSheet
 
-            sheetSkills.append(newSkill)
+                sheetSkills.append(newSkill)
+            }
+        case .ct7:
+            for skill in SkillsCthulhu.allValues {
+                let newSkill = Skill(context: self.context)
+
+                newSkill.name = skill.getSkills().name
+                newSkill.isActivated = false
+                newSkill.value = 0
+                newSkill.sheet = newSheet
+
+                sheetSkills.append(newSkill)
+            }
+        case .none:
+            break
         }
         newSheet.skills = NSSet(array: sheetSkills)
 
     // MARK: - Create points
         var sheetPoints: [Points] = []
 
-        for point in PointsT20.allValues {
-            let newPoint = Points(context: self.context)
+        switch Systems(id: selectedRow) {
+        case .t20:
+            for point in PointsT20.allValues {
+                let newPoint = Points(context: self.context)
 
-            newPoint.name = point.getPoints().name
-            newPoint.actualValue = Int64(point.getPoints().actualValue)
-            newPoint.maxValue = Int64(point.getPoints().maximumValue)
-            newPoint.sheet = newSheet
+                newPoint.name = point.getPoints().name
+                newPoint.actualValue = Int64(point.getPoints().actualValue)
+                newPoint.maxValue = Int64(point.getPoints().maximumValue)
+                newPoint.sheet = newSheet
 
-            sheetPoints.append(newPoint)
+                sheetPoints.append(newPoint)
+            }
+        case .ct7:
+            for point in PointsCthulhu.allValues {
+                let newPoint = Points(context: self.context)
+
+                newPoint.name = point.getPoints().name
+                newPoint.actualValue = Int64(point.getPoints().actualValue)
+                newPoint.maxValue = Int64(point.getPoints().maximumValue)
+                newPoint.sheet = newSheet
+
+                sheetPoints.append(newPoint)
+            }
+        case .none:
+            break
         }
         newSheet.points = NSSet(array: sheetPoints)
 

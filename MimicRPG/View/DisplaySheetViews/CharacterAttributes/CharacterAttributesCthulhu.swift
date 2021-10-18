@@ -8,13 +8,29 @@
 import UIKit
 
 class CharacterAttributesCthulhu: UIView {
+    var viewModel: DisplaySheetViewModelType!
+
+    lazy var editButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 0, width: 30, height: 30)
+        button.setTitle("Edit".localized(), for: .normal)
+        button.setTitleColor(UIColor(named: "Azure"), for: .normal)
+        button.addTarget(self, action: #selector(self.editAttributes), for: .touchUpInside)
+        self.addSubview(button)
+        return button
+    }()
+
+    @objc func editAttributes() {
+        viewModel.callEditAttributesCthulhu()
+    }
 
     let attributeSTRCthulhu: AttributeBoxCthulhu = {
         let view = AttributeBoxCthulhu(attribute: "STR", value: 50)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    let attributeDESCthulhu: AttributeBoxCthulhu = {
+    let attributeDEXCthulhu: AttributeBoxCthulhu = {
         let view = AttributeBoxCthulhu(attribute: "DEX".localized(), value: 55)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -56,12 +72,12 @@ class CharacterAttributesCthulhu: UIView {
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [attributeSTRCthulhu, attributeDESCthulhu, attributeINTCthulhu])
+        let stack = UIStackView(arrangedSubviews: [attributeSTRCthulhu, attributeDEXCthulhu, attributeINTCthulhu])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
+        stack.spacing = UIScreen.main.bounds.width * 0.03
         stack.distribution = .fillEqually
-        stack.spacing = 15
         self.addSubview(stack)
         return stack
     }()
@@ -70,8 +86,8 @@ class CharacterAttributesCthulhu: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.distribution = .equalSpacing
-        stack.spacing = 15
+        stack.spacing = UIScreen.main.bounds.width * 0.03
+        stack.distribution = .fillEqually
         self.addSubview(stack)
         return stack
     }()
@@ -80,8 +96,8 @@ class CharacterAttributesCthulhu: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.distribution = .equalSpacing
-        stack.spacing = 15
+        stack.spacing = UIScreen.main.bounds.width * 0.03
+        stack.distribution = .fillEqually
         self.addSubview(stack)
         return stack
     }()
@@ -89,22 +105,54 @@ class CharacterAttributesCthulhu: UIView {
         super.init(frame: .zero)
         configureLayout()
     }
+    
+    func setupView() {
+        for attribute in viewModel.getAttributes() {
+            switch (attribute.name) {
+            case SkillCthulhuAttributes.getAttribute(.STR)().name:
+                attributeSTRCthulhu.setAttributeValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.DEX)().name:
+                attributeDEXCthulhu.setAttributeValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.INT)().name:
+                attributeINTCthulhu.setAttributeValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.CON)().name:
+                attributeCONCthulhu.setAttributeValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.APP)().name:
+                attributeAPPCthulhu.setAttributeValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.POW)().name:
+                attributePOWCthulhu.setAttributeValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.SIZ)().name:
+                attributeSIZCthulhu.setAttributeValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.EDU)().name:
+                attributeEDUCthulhu.setAttributeValue(with: Int(attribute.value))
+            case SkillCthulhuAttributes.getAttribute(.MOV)().name:
+                attributeMOVCthulhu.setAttributeValue(with: Int(attribute.value), isMovement: true)
+            default:
+                attributeSTRCthulhu.setAttributeValue(with: Int(attribute.value))
+            }
+        }
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            // Incluir botão de editar depois bem aqui
+            editButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            editButton.heightAnchor.constraint(equalToConstant: 34),
 
-            firstStack.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -0),
-            firstStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            firstStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.05),
+            firstStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.05),
+            firstStack.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15),
 
-            secondStack.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -0),
-            secondStack.topAnchor.constraint(equalTo: firstStack.bottomAnchor, constant: 15),
+            secondStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.05),
+            secondStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.05),
+            secondStack.topAnchor.constraint(equalTo: firstStack.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03),
 
-            thirdStack.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -0),
-            thirdStack.topAnchor.constraint(equalTo: secondStack.bottomAnchor, constant: 15)
+            thirdStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.05),
+            thirdStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.05),
+            thirdStack.topAnchor.constraint(equalTo: secondStack.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03),
             ])
 
     }

@@ -152,7 +152,7 @@ class EditPointsT20Modal: UIViewController {
     @objc func rightButtonBehavior() {
         if paginator == lastPage {
             editPoints()
-            dismiss(animated: true, completion: viewModel.callReloadPoints)
+            dismiss(animated: true, completion: viewModel.callReloadPointsT20)
         } else {
             paginator += 1
             updateUI()
@@ -239,7 +239,7 @@ class EditPointsT20Modal: UIViewController {
         let editTemporary = sheetTemporaryView.getStepperValue()
         let editMaxLife = sheetMaxLifeView.getStepperValue()
         let editMaxMana = sheetMaxManaView.getStepperValue()
-        viewModel.setPoints(setArmorBonus: editArmorBonus, setShieldBonus: editShieldBonus, setOthers: editOthers, setTemporary: editTemporary, setMaxLife: editMaxLife, setMaxMana: editMaxMana)
+        viewModel.setPointsT20(setArmorBonus: editArmorBonus, setShieldBonus: editShieldBonus, setOthers: editOthers, setTemporary: editTemporary, setMaxLife: editMaxLife, setMaxMana: editMaxMana)
     }
 
     private func configureLayout() {

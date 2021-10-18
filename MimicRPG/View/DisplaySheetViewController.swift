@@ -31,31 +31,71 @@ class DisplaySheetViewController: UIViewController {
                 view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
-            case 2:
-                let view = CharacterAttributesT20()
-                view.viewModel = self.viewModel
-                sheetView = view
-                view.setupView()
             case 1:
-                let view = CharacterPoints()
-                sheetView = view
-                view.viewModel = self.viewModel
-                view.setupView()
+                switch viewModel.getSystem() {
+                case "Tormenta 20":
+                    let view = CharacterPointsT20()
+                    sheetView = view
+                    view.viewModel = self.viewModel
+                    view.setupView()
+                case "Cthulhu 7th ed.":
+                    let view = CharacterPointsCthulhu()
+                    sheetView = view
+                    view.viewModel = self.viewModel
+                    view.setupView()
+                default:
+                    break
+                }
+            case 2:
+                switch viewModel.getSystem() {
+                case "Tormenta 20":
+                    let view = CharacterAttributesT20()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupView()
+                case "Cthulhu 7th ed.":
+                    let view = CharacterAttributesCthulhu()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupView()
+                default:
+                    break
+                }
             case 3:
-                let view = CharacterSkillsT20()
-                view.viewModel = self.viewModel
-                sheetView = view
-                view.setupTableView()
+                switch viewModel.getSystem() {
+                case "Tormenta 20":
+                    let view = CharacterSkillsT20()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupTableView()
+                case "Cthulhu 7th ed.":
+                    let view = CharacterSkillsCthulhu()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupTableView()
+                default:
+                    break
+                }
             case 4:
                 let view = CharacterItems()
                 view.viewModel = self.viewModel
                 sheetView = view
                 view.setupTableView()
             case 5:
-                let view = CharacterAttacks()
-                view.viewModel = self.viewModel
-                sheetView = view
-                view.setupTableView()
+                switch viewModel.getSystem() {
+                case "Tormenta 20":
+                    let view = CharacterAttacksT20()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupTableView()
+                case "Cthulhu 7th ed.":
+                    let view = CharacterAttacksCthulhu()
+                    view.viewModel = self.viewModel
+                    sheetView = view
+                    view.setupTableView()
+                default:
+                    break
+                }
             case 6:
                 let view = CharacterNotes()
                 view.viewModel = self.viewModel
@@ -259,8 +299,13 @@ class DisplaySheetViewController: UIViewController {
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
-    func reloadAttacks() {
-        let view = self.sheetView as? CharacterAttacks
+    func reloadAttacksT20() {
+        let view = self.sheetView as? CharacterAttacksT20
+        view?.reloadData()
+    }
+
+    func reloadAttacksCthulhu() {
+        let view = self.sheetView as? CharacterAttacksCthulhu
         view?.reloadData()
     }
 
@@ -313,11 +358,24 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
     }
 
     func updateHeader() {
-        sheetHeader.set(
-            name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "aa",
-            race: (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue) ?? "aa",
-            level: Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
-        )
+        if (viewModel.getSystem() == "Tormenta 20") {
+            let level = Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
+            var race = (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue)
+            if ((race?.isEmpty) != nil) {
+                race = "Unknown Race"
+            }
+            sheetHeader.set(
+                name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "Unknown Name",
+                desc: race! + " - " + "Nvl".localized() + ". \(level)"
+            )
+        } else {
+            let occupation = (viewModel.getProfile().first(where: {$0.name == "02_Occupation"})?.stringValue)
+            print(occupation)
+            sheetHeader.set(
+                name: (viewModel.getProfile().first(where: {$0.name == "01_NameInvestigator"})?.stringValue) ?? "Unknown Name",
+                desc: occupation!
+            )
+        }
     }
 
     func updateProfile() {
@@ -331,24 +389,46 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         modal.viewModel = self.viewModel
         self.present(modal, animated: true, completion: nil)
     }
-    func displayAddAttackModal() {
+
+    func displayAddAttackT20Modal() {
         let addAttackT20Modal = CreateAttackT20Modal(with: viewModel)
         present(addAttackT20Modal, animated: true, completion: nil)
     }
 
-    func displayEditAttackModal(editAttack: Attack) {
+    func displayAddAttackCthulhuModal() {
+        let addAttackT20Modal = CreateAttackCthulhuModal(with: viewModel)
+        present(addAttackT20Modal, animated: true, completion: nil)
+    }
+
+    func displayEditAttackT20Modal(editAttack: Attack) {
         let editAttackT20Modal = CreateAttackT20Modal(with: viewModel)
         editAttackT20Modal.fillForm(currentAttack: editAttack)
         present(editAttackT20Modal, animated: true, completion: nil)
     }
 
-    func reloadAttributes() {
+    func displayEditAttackCthulhuModal(editAttack: Attack) {
+        let editAttackCthulhuModal = CreateAttackCthulhuModal(with: viewModel)
+        editAttackCthulhuModal.fillForm(currentAttack: editAttack)
+        present(editAttackCthulhuModal, animated: true, completion: nil)
+    }
+
+    func reloadAttributesT20() {
         let attributesView = sheetView as? CharacterAttributesT20
         attributesView?.setupView()
     }
 
-    func reloadPoints() {
-        let pointsView = sheetView as? CharacterPoints
+    func reloadAttributesCthulhu() {
+        let attributesView = sheetView as? CharacterAttributesCthulhu
+        attributesView?.setupView()
+    }
+
+    func reloadPointsT20() {
+        let pointsView = sheetView as? CharacterPointsT20
+        pointsView?.setupView()
+    }
+
+    func reloadPointsCthulhu() {
+        let pointsView = sheetView as? CharacterPointsCthulhu
         pointsView?.setupView()
     }
 
@@ -357,13 +437,23 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         itemsView?.reloadData()
     }
 
-    func displayEditAttributesModal() {
+    func displayEditAttributesT20Modal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
 
-    func displayEditPointsModal() {
+    func displayEditAttributesCthulhuModal() {
+        let editPointsCthulhuModal = EditAttributesCthulhuModal(with: viewModel)
+        present(editPointsCthulhuModal, animated: true, completion: nil)
+    }
+
+    func displayEditPointsT20Modal() {
         let editPointsT20Modal = EditPointsT20Modal(with: viewModel)
+        present(editPointsT20Modal, animated: true, completion: nil)
+    }
+
+    func displayEditPointsCthulhuModal() {
+        let editPointsT20Modal = EditPointsCthulhuModal(with: viewModel)
         present(editPointsT20Modal, animated: true, completion: nil)
     }
 
