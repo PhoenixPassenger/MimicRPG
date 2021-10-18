@@ -50,11 +50,12 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
         guard let cell = cellWrap else { fatalError() }
         let selectedAttribute = attributes.first(where: {$0.abbreviation == filteredSkills[indexPath.row].attribute!})
         guard let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue else {return cell}
+        let skillAttModif = floor(Double(selectedAttribute!.value-10)/2)
         cell.set(
             titleItem: filteredSkills[indexPath.row].name!,
             active: filteredSkills[indexPath.row].isActivated,
             other: Int(filteredSkills[indexPath.row].value),
-            modAttribute: Int((selectedAttribute!.value - 10)/2),
+            modAttribute: Int(skillAttModif),
             attribute: filteredSkills[indexPath.row].attribute!,
             levelBy2: Int(levelBy2/2)
         )

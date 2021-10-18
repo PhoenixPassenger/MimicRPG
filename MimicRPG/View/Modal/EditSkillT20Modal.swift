@@ -138,14 +138,19 @@ class EditSkillT20Modal: UIViewController {
     func fillForm(name: String, skill: Skill){
         //Soluçao feia: Usar o configure ali embaixo, a label.text está criando uma nova label
         skillTitleLabel.text = name
-        //skill.value = 10
-        
+        let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue
+        halfLevelView.valueText.text = String(levelBy2!/2)
+        let skillAtt = viewModel.getAttributes().first(where: {$0.abbreviation == skill.attribute!})
+        let skillAttModif = floor(Double(skillAtt!.value-10)/2)
+        modifierView.valueText.text = String(skillAttModif)
+        trainedView.trainedSwitch.isOn = skill.isActivated
         otherView.setValue(with: Int(skill.value))
         self.editSkill = skill
         configureLayout()
     }
 
     // MARK: - CoreData
+    //Obsoleto, posso apagar depois
     func editSkills() {
         //self.viewModel.skillT20SaveChanges()
     }
