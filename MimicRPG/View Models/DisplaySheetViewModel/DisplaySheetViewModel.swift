@@ -539,4 +539,21 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func newItemModal() {
         self.output?.displayNewItem()
     }
+    
+    func editSkillsT20(skill: Skill){
+        self.output?.displayEditSkillsT20Modal(name: skill.name!, skill: skill)
+    }
+    
+    func skillT20SaveChanges(skillOtherValue: Int, trained: Bool, skill: Skill){
+        print("SOV",skillOtherValue)
+        skill.value = Int64(skillOtherValue)
+        print("Value",skill.value)
+        skill.isActivated = trained
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+        self.output?.updateSkillsT20()
+    }
 }

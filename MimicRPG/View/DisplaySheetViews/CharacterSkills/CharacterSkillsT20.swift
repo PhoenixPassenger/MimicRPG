@@ -50,11 +50,12 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
         guard let cell = cellWrap else { fatalError() }
         let selectedAttribute = attributes.first(where: {$0.abbreviation == filteredSkills[indexPath.row].attribute!})
         guard let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue else {return cell}
+        let skillAttModif = floor(Double(selectedAttribute!.value-10)/2)
         cell.set(
-            titleItem: filteredSkills[indexPath.row].name!,
+            titleItem: (filteredSkills[indexPath.row].name!).localized(),
             active: filteredSkills[indexPath.row].isActivated,
             other: Int(filteredSkills[indexPath.row].value),
-            modAttribute: Int((selectedAttribute!.value - 10)/2),
+            modAttribute: Int(skillAttModif),
             attribute: filteredSkills[indexPath.row].attribute!,
             levelBy2: Int(levelBy2/2)
         )
@@ -84,7 +85,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editSwipe = UIContextualAction(style: .normal, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
-            print("editar")
+            self.editSkillCell(row: indexPath.row)
         }
         editSwipe.backgroundColor = UIColor(named: "Azure")
         editSwipe.image = UIImage(systemName: "pencil")
@@ -112,5 +113,13 @@ extension CharacterSkillsT20: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.endEditing(true)
+    }
+    
+    private func editSkillCell(row: Int) {
+        print(row)
+        let skillCell = self.viewModel.getSkills()
+        let skillCellRow = skillCell[row]
+        self.viewModel.editSkillsT20(skill: skillCellRow)
+        
     }
 }

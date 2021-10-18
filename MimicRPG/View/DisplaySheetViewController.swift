@@ -352,6 +352,12 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         self.present(modal, animated: true, completion: nil)
     }
 
+    func displayEditSkillsT20Modal(name: String, skill: Skill){
+        let modal = EditSkillT20Modal()
+        modal.viewModel = self.viewModel
+        modal.fillForm(name: name, skill: skill)
+        self.present(modal, animated: true, completion: nil)
+    }
     func updateNotes() {
         let view = self.sheetView as? CharacterNotes
         view?.reloadData()
@@ -436,6 +442,13 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let itemsView = sheetView as? CharacterItems
         itemsView?.reloadData()
     }
+    
+    func updateSkillsT20() {
+        let skillsView = sheetView as? CharacterSkillsT20
+        skillsView?.reloadData()
+    }
+    
+    func displayEditAttributesModal() { }
 
     func displayEditAttributesT20Modal() {
         let editPointsT20Modal = EditAttributesT20Modal(with: viewModel)

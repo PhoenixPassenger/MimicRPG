@@ -9,7 +9,15 @@
 import UIKit
 
 class EditSkillT20Modal: UIViewController {
-
+/*
+ Nota mental: Editar a aparencia dos componentes não editaveis pra ficarem diferentes do resto
+ */
+    var viewModel : DisplaySheetViewModelType!
+    var editSkill : Skill?
+    var trainedSwitchState:Bool {
+        return self.trainedView.trainedSwitch.isOn
+    }
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -65,7 +73,7 @@ class EditSkillT20Modal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "Latrocínio" // Localized strings depois
+        label.text = (editSkill?.name)!.localized()
         label.font = UIFont.josefinSansBold()
         self.view.addSubview(label)
         return label
@@ -120,7 +128,7 @@ class EditSkillT20Modal: UIViewController {
     }
 
     @objc func rightButtonBehavior() {
-        editAttributes()
+        self.viewModel.skillT20SaveChanges(skillOtherValue: Int(otherView.titleStepper.text!)!, trained: self.trainedSwitchState, skill: self.editSkill!)
         dismiss(animated: true, completion: nil)
     }
 
@@ -128,10 +136,27 @@ class EditSkillT20Modal: UIViewController {
         configureLayout()
         view.backgroundColor = UIColor(named: "Background")
     }
+    
+    func fillForm(name: String, skill: Skill){
+        let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue
+        halfLevelView.valueText.text = String(levelBy2!/2)
+
+        let skillAtt = viewModel.getAttributes().first(where: {$0.abbreviation == skill.attribute!})
+        let skillAttModif = floor(Double(skillAtt!.value-10)/2)
+        modifierView.titleLabel.text = ("Modifier"+(skillAtt?.abbreviation)!).localized()
+        modifierView.valueText.text = String(Int(skillAttModif))
+
+        trainedView.trainedSwitch.isOn = skill.isActivated
+        
+        otherView.setStepperValue(with: Int(skill.value))
+        
+        self.editSkill = skill
+    }
 
     // MARK: - CoreData
-    func editAttributes() {
-        //
+    //Obsoleto, posso apagar depois
+    func editSkills() {
+        //self.viewModel.skillT20SaveChanges()
     }
 
     private func configureLayout() {
