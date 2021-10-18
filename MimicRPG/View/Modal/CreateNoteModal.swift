@@ -130,7 +130,7 @@ class CreateNoteModal: UIViewController {
             rightButton.setTitle("Next".localized(), for: .normal)
         }
     }
-    
+
     func fillForm(name: String, desc: String, note: Notes) {
         sheetNoteNameView.valueText.text = name
         sheetNoteDescView.valueText.text = desc

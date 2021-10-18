@@ -17,9 +17,11 @@ final class DisplaySheetViewModel {
 
 extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
-    func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    func callReloadAttacks() {
+        self.output?.reloadAttacks()
+    }
 
+    func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
         for point in self.getPoints() {
             switch (point.name) {
             case PointsT20.getPoints(.armorBonus)().name:
@@ -63,8 +65,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func setAttributes(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
         for attribute in self.getAttributes() {
             switch (attribute.name) {
             case SkillT20Attributes.getAttribute(.STR)().name:
@@ -93,6 +93,98 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
     func callReloadAttributes() {
         self.output?.reloadAttributes()
+    }
+
+    func callAddAttack() {
+        self.output?.displayAddAttackModal()
+    }
+
+    func createAttack(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+
+        let newAttack = Attack(context: context)
+        newAttack.name = attackName
+
+        let newDamage = Characteristics(context: context)
+        newDamage.name = AttackCharacteristicsT20.getCharacteristicName(.attackDamage)()
+        newDamage.stringValue = attackDamage
+        newAttack.addToCharacteristics(newDamage)
+
+        let newBonus = Characteristics(context: context)
+        newBonus.name = AttackCharacteristicsT20.getCharacteristicName(.attackBonus)()
+        newBonus.numberValue = Int64(attackBonus)
+        newAttack.addToCharacteristics(newBonus)
+
+        let newType = Characteristics(context: context)
+        newType.name = AttackCharacteristicsT20.getCharacteristicName(.attackType)()
+        newType.stringValue = attackType
+        newAttack.addToCharacteristics(newType)
+
+        let newReach = Characteristics(context: context)
+        newReach.name = AttackCharacteristicsT20.getCharacteristicName(.attackReach)()
+        newReach.stringValue = attackRange
+        newAttack.addToCharacteristics(newReach)
+
+        let newCritical = Characteristics(context: context)
+        newCritical.name = AttackCharacteristicsT20.getCharacteristicName(.attackCritical)()
+        newCritical.stringValue = criticalBonus
+        newAttack.addToCharacteristics(newCritical)
+
+        newAttack.sheet = self.sheet
+        sheet?.attack = sheet?.attack?.adding(newAttack) as NSSet?
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+
+    func getAttacks() -> [Attack] {
+        return self.sheet?.attack?.allObjects as! [Attack]
+    }
+
+    func removeAttack(attack: Attack) {
+        context.delete(attack)
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to fetch data from core data ")
+        }
+        self.output?.reloadAttacks()
+    }
+
+    func editAttackModal(attack: Attack) {
+        self.output?.displayEditAttackModal(editAttack: attack)
+    }
+
+    func editCurrentAttack(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+        currentAttack.name = attackName
+
+        let attackCharac = currentAttack.characteristics?.allObjects as? [Characteristics]
+        if let charArr = attackCharac {
+            for currentChar in charArr {
+                switch (currentChar.name) {
+                case AttackCharacteristicsT20.getCharacteristicName(.attackDamage)():
+                    currentChar.stringValue = attackDamage
+                case AttackCharacteristicsT20.getCharacteristicName(.attackBonus)():
+                    currentChar.numberValue = Int64(attackBonus)
+                case AttackCharacteristicsT20.getCharacteristicName(.attackType)():
+                    currentChar.stringValue = attackType
+                case AttackCharacteristicsT20.getCharacteristicName(.attackReach)():
+                    currentChar.stringValue = attackRange
+                case AttackCharacteristicsT20.getCharacteristicName(.attackCritical)():
+                    currentChar.stringValue = criticalBonus
+                default:
+                    currentChar.stringValue = attackDamage
+                }
+            }
+        }
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
     }
 
     func getProfile() -> [Characteristics] {
@@ -140,6 +232,9 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
     func editField(name: String, text: String, value: Int, characteristic: Characteristics) {
         characteristic.name = name
+        if name == "CharacterName" {
+            characteristic.profile?.sheet?.name = text
+        }
         if name == "Level" {
             characteristic.numberValue = Int64(value)
         } else {
@@ -178,12 +273,12 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func displayModal() {
         self.output?.displayEditModal()
     }
-    
+
     func getItemsCount() -> Int {
         return self.sheet?.item?.count ?? 0
     }
-    
-    func getItems() -> [Item] {
+
+    func getItems() -> [Item] {
         return self.sheet?.item?.allObjects as! [Item]
     }
 
@@ -196,11 +291,11 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         self.output?.updateItems()
     }
-    
+
     func editItemModal(item: Item) {
         self.output?.displayEditItemModal(name: item.name!, desc: (item.characteristics?.stringValue)!, uses: Int(item.characteristics!.numberValue), item: item)
     }
-    
+
     func editItem(name: String, description: String, uses: Int, item: Item) {
         item.name = name
         item.characteristics?.stringValue = description
