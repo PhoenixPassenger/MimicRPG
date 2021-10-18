@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
     var viewModel: DisplaySheetViewModelType!
-    
+
     func setupTableView() {
         self.register(CharacterItemsCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self

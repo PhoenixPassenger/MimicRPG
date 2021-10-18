@@ -25,6 +25,10 @@ class CharacterAttacksCellT20: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        print("aaa")
+    }
 
     lazy var cellBackground: UIImageView = {
         let view = UIImageView()
@@ -179,6 +183,12 @@ class CharacterAttacksCellT20: UITableViewCell {
         self.selectionStyle = .none
         self.layer.backgroundColor = UIColor(named: "Background")?.cgColor
         self.layer.borderColor = UIColor(named: "Background")?.cgColor
+        attackNameLabel.text = name
+        damageValueLabel.text = "DamageCell".localized() + damage
+        damageBonusLabel.text = "AttackBonusCell".localized() + String(bonus)
+        damageTypeLabel.text = "DamageTypeCell".localized() + type
+        attackReachLabel.text = "ReachCell".localized() + reach
+        attackCriticalLabel.text = "CriticalCell".localized() + critical
     }
 
     override func awakeFromNib() {

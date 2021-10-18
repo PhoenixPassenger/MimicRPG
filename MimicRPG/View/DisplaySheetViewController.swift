@@ -298,7 +298,6 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
-    
 
     func reloadAttacksT20() {
         let view = self.sheetView as? CharacterAttacksT20

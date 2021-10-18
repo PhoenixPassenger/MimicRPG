@@ -284,6 +284,15 @@ class CharacterAttacksCellCthulhu: UITableViewCell {
         self.selectionStyle = .none
         self.layer.backgroundColor = UIColor(named: "Background")?.cgColor
         self.layer.borderColor = UIColor(named: "Background")?.cgColor
+        attackNameLabel.text = name
+        damageValueLabel.text = "DamageCell".localized() + damageDice
+        attackValueLabel.text = attackValue
+        attackValueBy2Label.text = attackValueBy2
+        attackValueBy5Label.text = attackValueBy5
+        ammoLabel.text = "AmmoCell".localized() + attackAmmo
+        attackRangeLabel.text = "RangeCell".localized() + attackRange
+        attackMalfunctionLabel.text = "Malfunc.: " + attackMalfunction
+        attackAttacksLabel.text = attackAttacks
     }
 
     override func awakeFromNib() {
