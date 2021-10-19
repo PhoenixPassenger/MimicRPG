@@ -168,7 +168,15 @@ class DisplaySheetViewController: UIViewController {
         stackView.spacing = 32
 
         bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.image = UIImage(named: "banner")
+        if viewModel.getSystem() == "Tormenta 20" {
+            let color = UIImage.imageWithColor(color: .brandy)
+            bannerView.image = color
+        } else {
+            if viewModel.getSystem() == "Cthulhu 7th ed." {
+                let color = UIImage.imageWithColor(color: .shamrock)
+                bannerView.image = color
+            }
+        }
         bannerView.layer.opacity = 0.5
         bannerView.layer.zPosition = 1
 
@@ -367,9 +375,9 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         if (viewModel.getSystem() == "Tormenta 20") {
             let level = Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
             var race = (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue)
-            if ((race?.isEmpty) != nil) {
-                race = "Unknown Race"
-            }
+//            if ((race?.isEmpty) != nil) {
+//                race = "Unknown Race"
+//            }
             sheetHeader.set(
                 name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "Unknown Name",
                 desc: race! + " - " + "Nvl".localized() + ". \(level)"
