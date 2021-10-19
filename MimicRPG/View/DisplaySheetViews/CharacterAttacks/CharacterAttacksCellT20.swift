@@ -26,10 +26,6 @@ class CharacterAttacksCellT20: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func prepareForReuse() {
-        print("aaa")
-    }
-
     lazy var cellBackground: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false

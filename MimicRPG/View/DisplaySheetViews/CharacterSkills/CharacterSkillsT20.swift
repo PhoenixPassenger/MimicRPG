@@ -116,7 +116,6 @@ extension CharacterSkillsT20: UISearchBarDelegate {
     }
 
     private func editSkillCell(row: Int) {
-        print(row)
         let skillCell = self.viewModel.getSkills()
         let skillCellRow = skillCell[row]
         self.viewModel.editSkillsT20(skill: skillCellRow)

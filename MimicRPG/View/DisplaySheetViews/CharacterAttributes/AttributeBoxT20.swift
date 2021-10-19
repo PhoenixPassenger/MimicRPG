@@ -13,8 +13,6 @@ class AttributeBoxT20: UIView {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "T20AttributeBox")
         imgView.translatesAutoresizingMaskIntoConstraints = false
-       // imgView.clipsToBounds = true
-        // imgView.contentMode = .scaleAspectFit
         self.addSubview(imgView)
         return imgView
     }()

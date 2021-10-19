@@ -45,8 +45,6 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 3
-
-        print(UIScreen.main.bounds.width/2)
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView?.register(UserSheet.self, forCellWithReuseIdentifier: reuseIdentifier)
 
