@@ -11,7 +11,7 @@ import UIKit
 class EditAttributesCthulhuModal: UIViewController {
 
     var paginator: Int = 0
-    let lastPage: Int = 1
+    let lastPage: Int = 2
     
     var viewModel: DisplaySheetViewModelType!
 
@@ -70,7 +70,7 @@ class EditAttributesCthulhuModal: UIViewController {
     // MARK: - Breadcrumb
 
     lazy var breadcrumb: BreadcrumbForm = {
-        let breadcrumb = BreadcrumbForm()
+        let breadcrumb = BreadcrumbForm(numberOfCrumbs: 3)
         breadcrumb.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(breadcrumb)
         return breadcrumb
@@ -93,18 +93,8 @@ class EditAttributesCthulhuModal: UIViewController {
         return view
     }()
 
-    lazy var constitutionView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Constitution".localized(), type: .stepper)
-        return view
-    }()
-
-    lazy var appearanceView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Appearance".localized(), type: .stepper)
-        return view
-    }()
-
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [strengthView, dexterityView, intelligenceView, constitutionView, appearanceView])
+        let stack = UIStackView(arrangedSubviews: [strengthView, dexterityView, intelligenceView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -115,10 +105,32 @@ class EditAttributesCthulhuModal: UIViewController {
 
     // MARK: - Second Group
 
+    lazy var constitutionView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Constitution".localized(), type: .stepper)
+        return view
+    }()
+
+    lazy var appearanceView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Appearance".localized(), type: .stepper)
+        return view
+    }()
+    
     lazy var powerView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Power".localized(), type: .stepper)
         return view
     }()
+
+    lazy var secondStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [constitutionView, appearanceView, powerView])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.spacing = 22
+        self.view.addSubview(stack)
+        return stack
+    }()
+    
+    // MARK: - Third Group
 
     lazy var sizeView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Size".localized(), type: .stepper)
@@ -135,8 +147,8 @@ class EditAttributesCthulhuModal: UIViewController {
         return view
     }()
 
-    lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [powerView, sizeView, educationView, moveView])
+    lazy var thirdStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [sizeView, educationView, moveView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -218,9 +230,15 @@ class EditAttributesCthulhuModal: UIViewController {
         case 0:
             firstStack.isHidden = false
             secondStack.isHidden = true
+            thirdStack.isHidden = true
         case 1:
             firstStack.isHidden = true
             secondStack.isHidden = false
+            thirdStack.isHidden = true
+        case 2:
+            firstStack.isHidden = true
+            secondStack.isHidden = true
+            thirdStack.isHidden = false
         default:
             break
         }
@@ -232,14 +250,28 @@ class EditAttributesCthulhuModal: UIViewController {
             switch paginator {
             case 0:
                 breadcrumb.firstCircle.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
-                breadcrumb.line.backgroundColor = .systemGray
+                breadcrumb.firstLine.backgroundColor = .systemGray
                 breadcrumb.secondCircle.transform = CGAffineTransform.identity
                 breadcrumb.secondCircle.backgroundColor = .systemGray
+                breadcrumb.secondLine.backgroundColor = .systemGray
+                breadcrumb.thirdCircle.transform = CGAffineTransform.identity
+                breadcrumb.thirdCircle.backgroundColor = .systemGray
             case 1:
                 breadcrumb.firstCircle.transform = CGAffineTransform.identity
-                breadcrumb.line.backgroundColor = UIColor(named: "Azure")
+                breadcrumb.firstLine.backgroundColor = UIColor(named: "Azure")
                 breadcrumb.secondCircle.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
                 breadcrumb.secondCircle.backgroundColor = UIColor(named: "Azure")
+                breadcrumb.secondLine.backgroundColor = .systemGray
+                breadcrumb.thirdCircle.transform = CGAffineTransform.identity
+                breadcrumb.thirdCircle.backgroundColor = .systemGray
+            case 2:
+                breadcrumb.firstCircle.transform = CGAffineTransform.identity
+                breadcrumb.firstLine.backgroundColor = UIColor(named: "Azure")
+                breadcrumb.secondCircle.transform = CGAffineTransform.identity
+                breadcrumb.secondCircle.backgroundColor = UIColor(named: "Azure")
+                breadcrumb.secondLine.backgroundColor = UIColor(named: "Azure")
+                breadcrumb.thirdCircle.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
+                breadcrumb.thirdCircle.backgroundColor = UIColor(named: "Azure")
             default:
                 break
             }
@@ -293,7 +325,11 @@ class EditAttributesCthulhuModal: UIViewController {
 
             secondStack.topAnchor.constraint(equalTo: breadcrumb.bottomAnchor, constant: 10),
             secondStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            secondStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+            secondStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+
+            thirdStack.topAnchor.constraint(equalTo: breadcrumb.bottomAnchor, constant: 10),
+            thirdStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            thirdStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
     }
 }

@@ -24,20 +24,21 @@ class SheetHeader: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "banner")
+        let color = UIImage.imageWithColor(color: .shamrock)
+        imageView.image = color
         self.addSubview(imageView)
         return imageView
     }()
     lazy var perfilImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.borderWidth = 1
         imageView.layer.masksToBounds = false
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "perfil")
+        imageView.image = UIImage(named: "placeholder-profile")
         self.addSubview(imageView)
         return imageView
     }()

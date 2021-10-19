@@ -193,12 +193,12 @@ class CreateAttackT20Modal: UIViewController {
             switch paginator {
             case 0:
                 breadcrumb.firstCircle.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
-                breadcrumb.line.backgroundColor = .systemGray
+                breadcrumb.firstLine.backgroundColor = .systemGray
                 breadcrumb.secondCircle.transform = CGAffineTransform.identity
                 breadcrumb.secondCircle.backgroundColor = .systemGray
             case 1:
                 breadcrumb.firstCircle.transform = CGAffineTransform.identity
-                breadcrumb.line.backgroundColor = UIColor(named: "Azure")
+                breadcrumb.firstLine.backgroundColor = UIColor(named: "Azure")
                 breadcrumb.secondCircle.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
                 breadcrumb.secondCircle.backgroundColor = UIColor(named: "Azure")
             default:

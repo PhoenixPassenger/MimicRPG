@@ -103,6 +103,7 @@ class CharacterAttributesCthulhu: UIView {
     }()
     init() {
         super.init(frame: .zero)
+        self.backgroundColor = UIColor(named: "Background")
         configureLayout()
     }
     
