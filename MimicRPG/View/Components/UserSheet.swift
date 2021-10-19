@@ -72,15 +72,15 @@ class UserSheet: UICollectionViewCell {
 
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            sheetImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 7),
+            sheetImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
             sheetImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            sheetImage.heightAnchor.constraint(equalToConstant: 98),
-            sheetImage.widthAnchor.constraint(equalToConstant: 145),
+            sheetImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 91/160),
+            sheetImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 135/180),
 
             systemIcon.topAnchor.constraint(equalTo: self.sheetImage.topAnchor, constant: -15),
             systemIcon.rightAnchor.constraint(equalTo: self.sheetImage.rightAnchor, constant: 11),
-            systemIcon.heightAnchor.constraint(equalToConstant: 31),
-            systemIcon.widthAnchor.constraint(equalToConstant: 31),
+            systemIcon.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 31/160),
+            systemIcon.widthAnchor.constraint(equalTo: systemIcon.heightAnchor),
 
             nameLabel.topAnchor.constraint(equalTo: self.sheetImage.bottomAnchor, constant: 5),
             nameLabel.leftAnchor.constraint(equalTo: self.sheetImage.leftAnchor),
