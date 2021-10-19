@@ -82,6 +82,7 @@ class EditSkillT20Modal: UIViewController {
         let view = EditModalComponent(titleText: "HalfLevel".localized(), type: .text)
         view.valueText.text = "5"
         view.valueText.isEditable = false
+        view.valueText.layer.opacity = 0.5
         return view
     }()
 
@@ -89,6 +90,7 @@ class EditSkillT20Modal: UIViewController {
         let view = EditModalComponent(titleText: "ModifierCHA".localized(), type: .text)
         view.valueText.text = "4"
         view.valueText.isEditable = false
+        view.valueText.layer.opacity = 0.5
         return view
     }()
 
