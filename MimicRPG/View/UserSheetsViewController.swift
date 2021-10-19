@@ -106,7 +106,7 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? UserSheet else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         }
-        myCell.set(name: filteredSheets[indexPath.row].name!, desc: "mocked", system: filteredSheets[indexPath.row].system!)
+        myCell.set(name: filteredSheets[indexPath.row].name!, desc: "", system: filteredSheets[indexPath.row].system!)
         return myCell
     }
 

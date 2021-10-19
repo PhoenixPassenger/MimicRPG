@@ -168,7 +168,15 @@ class DisplaySheetViewController: UIViewController {
         stackView.spacing = 32
 
         bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.image = UIImage(named: "banner")
+        if viewModel.getSystem() == "Tormenta 20" {
+            let color = UIImage.imageWithColor(color: .brandy)
+            bannerView.image = color
+        } else {
+            if viewModel.getSystem() == "Cthulhu 7th ed." {
+                let color = UIImage.imageWithColor(color: .shamrock)
+                bannerView.image = color
+            }
+        }
         bannerView.layer.opacity = 0.5
         bannerView.layer.zPosition = 1
 
@@ -442,12 +450,12 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         let itemsView = sheetView as? CharacterItems
         itemsView?.reloadData()
     }
-    
+
     func updateSkillsT20() {
         let skillsView = sheetView as? CharacterSkillsT20
         skillsView?.reloadData()
     }
-    
+
     func displayEditAttributesModal() { }
 
     func displayEditAttributesT20Modal() {

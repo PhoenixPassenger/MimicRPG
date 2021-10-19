@@ -12,8 +12,10 @@ class UserSheet: UICollectionViewCell {
     lazy var sheetImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = false
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .systemGray
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 5
         self.addSubview(imageView)
         return imageView
     }()
@@ -56,7 +58,7 @@ class UserSheet: UICollectionViewCell {
         set(name: "Llanowar", desc: "Elfo - Nvl. 4")
     }
 
-    func set(image: String = "llanowar", name: String = "", desc: String = "", system: String = "T20") {
+    func set(image: String = "placeholder-profile", name: String = "", desc: String = "", system: String = "T20") {
         configureLayout()
         sheetImage.image = UIImage(named: image)
         nameLabel.text = name
