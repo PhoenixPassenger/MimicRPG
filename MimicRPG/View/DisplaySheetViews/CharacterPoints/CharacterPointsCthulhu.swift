@@ -140,7 +140,7 @@ class CharacterPointsCthulhu: UIView {
      lazy var magicText: UILabel = {
          let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
-         label.text = "Magic"
+         label.text = "Magic".localized()
          label.font = UIFont.josefinSansBold14()
          label.textColor = .ivory
          self.addSubview(label)
@@ -249,7 +249,7 @@ class CharacterPointsCthulhu: UIView {
      lazy var luckText: UILabel = {
          let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
-         label.text = "Luck"
+         label.text = "Luck".localized()
          label.font = UIFont.josefinSansBold14()
          label.textColor = .ivory
          self.addSubview(label)
