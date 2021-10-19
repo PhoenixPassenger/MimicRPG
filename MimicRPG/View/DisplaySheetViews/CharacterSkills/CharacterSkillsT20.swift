@@ -56,7 +56,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
             active: filteredSkills[indexPath.row].isActivated,
             other: Int(filteredSkills[indexPath.row].value),
             modAttribute: Int(skillAttModif),
-            attribute: filteredSkills[indexPath.row].attribute!,
+            attribute: (filteredSkills[indexPath.row].attribute!).localized(),
             levelBy2: Int(levelBy2/2)
         )
         return cell
@@ -114,12 +114,11 @@ extension CharacterSkillsT20: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.endEditing(true)
     }
-    
+
     private func editSkillCell(row: Int) {
         print(row)
         let skillCell = self.viewModel.getSkills()
         let skillCellRow = skillCell[row]
         self.viewModel.editSkillsT20(skill: skillCellRow)
-        
     }
 }

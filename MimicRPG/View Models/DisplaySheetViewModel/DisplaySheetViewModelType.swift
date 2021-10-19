@@ -21,12 +21,10 @@ protocol DisplaySheetViewModelType {
     func callEditPointsCthulhu()
     func changePointValue(type: String, value: Int)
     func getAttributes() -> [Attributes]
-
     func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int)
     func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int)
     func callReloadAttributesT20()
     func callReloadAttributesCthulhu()
-
     func callAddAttackT20()
     func callAddAttackCthulhu()
     func createAttackT20(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String)
@@ -39,8 +37,6 @@ protocol DisplaySheetViewModelType {
     func editAttackCthulhuModal(attack: Attack)
     func editCurrentAttackT20(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String)
     func editCurrentAttackCthulhu(currentAttack: Attack, attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int)
-    
-
     func getProfile() -> [Characteristics]
     func getSkills() -> [Skill]
     func setPointsT20(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int)

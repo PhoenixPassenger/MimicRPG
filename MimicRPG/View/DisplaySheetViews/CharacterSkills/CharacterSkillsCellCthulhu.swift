@@ -49,6 +49,8 @@ class CharacterSkillsCellCthulhu: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
         label.font = UIFont.josefinSansBold17()
+        label.lineBreakMode = .byCharWrapping
+        label.numberOfLines = 2
         label.sizeToFit()
         self.addSubview(label)
         return label
@@ -247,7 +249,9 @@ extension CharacterSkillsCellCthulhu {
             bottomBar.heightAnchor.constraint(equalToConstant: 1),
 
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 12)
+            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: totalBy2Box.leadingAnchor, constant: -10),
+            titleLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7)
         ])
     }
 }

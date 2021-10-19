@@ -136,7 +136,7 @@ class EditPointsCthulhuModal: UIViewController {
             }
         }
     }
-    
+
     // MARK: - CoreData
     func editPoints() {
         let editMaxLife = maxLifeView.getStepperValue()

@@ -17,7 +17,7 @@ class EditSkillT20Modal: UIViewController {
     var trainedSwitchState:Bool {
         return self.trainedView.trainedSwitch.isOn
     }
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -136,8 +136,8 @@ class EditSkillT20Modal: UIViewController {
         configureLayout()
         view.backgroundColor = UIColor(named: "Background")
     }
-    
-    func fillForm(name: String, skill: Skill){
+
+    func fillForm(name: String, skill: Skill) {
         let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue
         halfLevelView.valueText.text = String(levelBy2!/2)
 
@@ -147,9 +147,9 @@ class EditSkillT20Modal: UIViewController {
         modifierView.valueText.text = String(Int(skillAttModif))
 
         trainedView.trainedSwitch.isOn = skill.isActivated
-        
+
         otherView.setStepperValue(with: Int(skill.value))
-        
+
         self.editSkill = skill
     }
 

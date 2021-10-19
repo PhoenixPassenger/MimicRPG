@@ -13,7 +13,7 @@ class CreateAttackCthulhuModal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
-    
+
     var isEditMode: Bool = false
     var editingAttack: Attack!
 
@@ -217,7 +217,7 @@ class CreateAttackCthulhuModal: UIViewController {
         view.backgroundColor = UIColor(named: "Background")
         updateUI()
     }
-    
+
     func fillForm(currentAttack: Attack) {
         self.isEditMode = true
         self.title = "EditAttack".localized()
@@ -260,7 +260,6 @@ class CreateAttackCthulhuModal: UIViewController {
         sheetAttackMalfunctionView.setBoxTextValue(with: attackMalfunction)
         sheetAttackAttacksView.setStepperValue(with: attackAttacks)
     }
-
 
     // MARK: - CoreData
     func createNewAttack() {

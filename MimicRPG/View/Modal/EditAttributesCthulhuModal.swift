@@ -12,7 +12,7 @@ class EditAttributesCthulhuModal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 1
-    
+
     var viewModel: DisplaySheetViewModelType!
 
     init(with viewModel: DisplaySheetViewModelType) {
@@ -173,7 +173,7 @@ class EditAttributesCthulhuModal: UIViewController {
             updateUI()
         }
     }
-    
+
     func setStartingAttributeValues(with viewModel: DisplaySheetViewModelType) {
         for attribute in viewModel.getAttributes() {
             switch (attribute.name) {
