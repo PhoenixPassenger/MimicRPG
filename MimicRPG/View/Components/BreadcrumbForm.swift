@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class BreadcrumbForm: UIView {
-    init() {
+    init(numberOfCrumbs: Int = 2) {
         super.init(frame: .zero)
-        configureLayout()
+        configureLayout(numberOfCrumbs: numberOfCrumbs)
     }
 
     required init?(coder: NSCoder) {
@@ -27,7 +27,7 @@ class BreadcrumbForm: UIView {
         return circle
     }()
 
-    lazy var line: UIView = {
+    lazy var firstLine: UIView = {
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
         line.backgroundColor = .systemGray
@@ -43,23 +43,51 @@ class BreadcrumbForm: UIView {
         self.addSubview(circle)
         return circle
     }()
+    
+    lazy var secondLine: UIView = {
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.backgroundColor = .systemGray
+        self.addSubview(line)
+        return line
+    }()
 
-    private func configureLayout() {
-        NSLayoutConstraint.activate([
-            firstCircle.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            firstCircle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            firstCircle.widthAnchor.constraint(equalToConstant: 9),
-            firstCircle.heightAnchor.constraint(equalToConstant: 9),
+    lazy var thirdCircle: UIView = {
+        let circle = UIView()
+        circle.translatesAutoresizingMaskIntoConstraints = false
+        circle.layer.cornerRadius = 4.5
+        circle.backgroundColor = .systemGray
+        self.addSubview(circle)
+        return circle
+    }()
 
-            line.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            line.leadingAnchor.constraint(equalTo: firstCircle.trailingAnchor),
-            line.widthAnchor.constraint(equalToConstant: 14),
-            line.heightAnchor.constraint(equalToConstant: 1),
+    private func configureLayout(numberOfCrumbs: Int) {
 
-            secondCircle.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            secondCircle.leadingAnchor.constraint(equalTo: line.trailingAnchor),
-            secondCircle.widthAnchor.constraint(equalToConstant: 9),
-            secondCircle.heightAnchor.constraint(equalToConstant: 9)
-        ])
+        firstCircle.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        firstCircle.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        firstCircle.widthAnchor.constraint(equalToConstant: 9).isActive = true
+        firstCircle.heightAnchor.constraint(equalToConstant: 9).isActive = true
+
+        firstLine.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        firstLine.leadingAnchor.constraint(equalTo: firstCircle.trailingAnchor).isActive = true
+        firstLine.widthAnchor.constraint(equalToConstant: 14).isActive = true
+        firstLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
+
+        secondCircle.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        secondCircle.leadingAnchor.constraint(equalTo: firstLine.trailingAnchor).isActive = true
+        secondCircle.widthAnchor.constraint(equalToConstant: 9).isActive = true
+        secondCircle.heightAnchor.constraint(equalToConstant: 9).isActive = true
+        
+        if numberOfCrumbs > 2 {
+            secondLine.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+            secondLine.leadingAnchor.constraint(equalTo: secondCircle.trailingAnchor).isActive = true
+            secondLine.widthAnchor.constraint(equalToConstant: 14).isActive = true
+            secondLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
+
+            thirdCircle.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+            thirdCircle.leadingAnchor.constraint(equalTo: secondLine.trailingAnchor).isActive = true
+            thirdCircle.widthAnchor.constraint(equalToConstant: 9).isActive = true
+            thirdCircle.heightAnchor.constraint(equalToConstant: 9).isActive = true
+        }
     }
 }
