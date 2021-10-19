@@ -8,28 +8,8 @@
 import Foundation
 import UIKit
 
-class MockSkillCthulhu {
-    var name: String = ""
-    var active: Bool = false
-    var value: Int = 0
-
-    init(name: String, active: Bool, value: Int) {
-        self.name = name
-        self.active = active
-        self.value = value
-    }
-}
-
 class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataSource {
     var viewModel: DisplaySheetViewModelType!
-
-    let mockSkills: [MockSkillCthulhu] = [
-        MockSkillCthulhu(name: "Antropologia", active: true, value: 22),
-        MockSkillCthulhu(name: "Arqueologia", active: false, value: 22),
-        MockSkillCthulhu(name: "Arremessar", active: true, value: 25),
-        MockSkillCthulhu(name: "Artes Marciais", active: false, value: 22),
-        MockSkillCthulhu(name: "Astrologia", active: false, value: 22)
-    ]
 
     var filteredSkills: [Skill] = []
 
@@ -66,7 +46,7 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCellCthulhu
         guard let cell = cellWrap else { fatalError() }
         cell.set(
-            titleItem: filteredSkills[indexPath.row].name!,
+            titleItem: (filteredSkills[indexPath.row].name!).localized(),
             active: filteredSkills[indexPath.row].isActivated,
             value: Int(filteredSkills[indexPath.row].value))
         return cell
@@ -91,15 +71,6 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 96
-    }
-
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editSwipe = UIContextualAction(style: .normal, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
-            print("editar")
-        }
-        editSwipe.backgroundColor = UIColor(named: "Azure")
-        editSwipe.image = UIImage(systemName: "pencil")
-        return UISwipeActionsConfiguration(actions: [editSwipe])
     }
 
     @objc func dismissKeyboard() {
