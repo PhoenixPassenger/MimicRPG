@@ -9,6 +9,7 @@ import UIKit
 
 class CharacterAttributesT20: UIView {
     var viewModel: DisplaySheetViewModelType!
+    let scrollView: UIScrollView = UIScrollView()
 
     lazy var editButton: UIButton = {
         let button = UIButton(type: .system)
@@ -60,9 +61,8 @@ class CharacterAttributesT20: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.spacing = UIScreen.main.bounds.width * 0.03
         stack.distribution = .fillEqually
-        self.addSubview(stack)
+//        self.addSubview(stack)
         return stack
     }()
     lazy var stackMental: UIStackView = {
@@ -70,14 +70,24 @@ class CharacterAttributesT20: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.spacing = UIScreen.main.bounds.width * 0.03
         stack.distribution = .fillEqually
-        self.addSubview(stack)
+//        self.addSubview(stack)
         return stack
     }()
     init() {
         super.init(frame: .zero)
         self.backgroundColor = UIColor(named: "Background")
+
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentSize = CGSize(width: .zero, height: 38)
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.layer.zPosition = 1
+
+        scrollView.addSubview(stackPhysical)
+        scrollView.addSubview(stackMental)
+        scrollView.clipsToBounds = true
+        self.addSubview(scrollView)
+
         configureLayout()
     }
 
@@ -111,13 +121,17 @@ class CharacterAttributesT20: UIView {
             editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             editButton.heightAnchor.constraint(equalToConstant: 34),
 
-            stackPhysical.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.03),
-            stackPhysical.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.03),
-            stackPhysical.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15),
+            scrollView.topAnchor.constraint(equalTo: editButton.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
-            stackMental.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.03),
-            stackMental.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.03),
-            stackMental.topAnchor.constraint(equalTo: stackPhysical.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03)
+            stackPhysical.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            stackPhysical.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 35),
+
+            stackMental.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            stackMental.topAnchor.constraint(equalTo: stackPhysical.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03),
+            stackMental.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
 }
