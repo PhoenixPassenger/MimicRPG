@@ -384,7 +384,6 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
             )
         } else {
             let occupation = (viewModel.getProfile().first(where: {$0.name == "02_Occupation"})?.stringValue)
-            print(occupation)
             sheetHeader.set(
                 name: (viewModel.getProfile().first(where: {$0.name == "01_NameInvestigator"})?.stringValue) ?? "Unknown Name",
                 desc: occupation!
