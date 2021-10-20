@@ -14,9 +14,9 @@ class EditSkillT20Modal: UIViewController {
  */
     var viewModel : DisplaySheetViewModelType!
     var editSkill : Skill?
-    var trainedSwitchState:Bool {
+   /* var trainedSwitchState:Bool {
         return self.trainedView.trainedSwitch.isOn
-    }
+    }*/
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -82,6 +82,7 @@ class EditSkillT20Modal: UIViewController {
         let view = EditModalComponent(titleText: "HalfLevel".localized(), type: .text)
         view.valueText.text = "5"
         view.valueText.isEditable = false
+        view.valueText.layer.opacity = 0.5
         return view
     }()
 
@@ -89,6 +90,7 @@ class EditSkillT20Modal: UIViewController {
         let view = EditModalComponent(titleText: "ModifierCHA".localized(), type: .text)
         view.valueText.text = "4"
         view.valueText.isEditable = false
+        view.valueText.layer.opacity = 0.5
         return view
     }()
 
@@ -97,14 +99,14 @@ class EditSkillT20Modal: UIViewController {
         return view
     }()
 
-    lazy var trainedView: EditModalComponent = {
+    /*lazy var trainedView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Training", type: .switchButton)
         view.titleStepper.text = "Enabled".localized()
         return view
-    }()
+    }()*/
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [halfLevelView, modifierView, otherView, trainedView])
+        let stack = UIStackView(arrangedSubviews: [halfLevelView, modifierView, otherView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -128,7 +130,7 @@ class EditSkillT20Modal: UIViewController {
     }
 
     @objc func rightButtonBehavior() {
-        self.viewModel.skillT20SaveChanges(skillOtherValue: Int(otherView.titleStepper.text!)!, trained: self.trainedSwitchState, skill: self.editSkill!)
+        self.viewModel.skillT20SaveChanges(skillOtherValue: Int(otherView.titleStepper.text!)!, skill: self.editSkill!)
         dismiss(animated: true, completion: nil)
     }
 
@@ -146,7 +148,7 @@ class EditSkillT20Modal: UIViewController {
         modifierView.titleLabel.text = ("Modifier"+(skillAtt?.abbreviation)!).localized()
         modifierView.valueText.text = String(Int(skillAttModif))
 
-        trainedView.trainedSwitch.isOn = skill.isActivated
+        //trainedView.trainedSwitch.isOn = skill.isActivated
 
         otherView.setStepperValue(with: Int(skill.value))
 
