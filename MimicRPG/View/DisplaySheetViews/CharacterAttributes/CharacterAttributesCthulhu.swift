@@ -9,6 +9,7 @@ import UIKit
 
 class CharacterAttributesCthulhu: UIView {
     var viewModel: DisplaySheetViewModelType!
+    let scrollView: UIScrollView = UIScrollView()
 
     lazy var editButton: UIButton = {
         let button = UIButton(type: .system)
@@ -76,9 +77,9 @@ class CharacterAttributesCthulhu: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.spacing = UIScreen.main.bounds.width * 0.03
+        stack.spacing = UIScreen.main.bounds.width * 0.02
         stack.distribution = .fillEqually
-        self.addSubview(stack)
+//        self.addSubview(stack)
         return stack
     }()
     lazy var secondStack: UIStackView = {
@@ -86,9 +87,9 @@ class CharacterAttributesCthulhu: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.spacing = UIScreen.main.bounds.width * 0.03
+        stack.spacing = UIScreen.main.bounds.width * 0.02
         stack.distribution = .fillEqually
-        self.addSubview(stack)
+//        self.addSubview(stack)
         return stack
     }()
     lazy var thirdStack: UIStackView = {
@@ -96,14 +97,26 @@ class CharacterAttributesCthulhu: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.spacing = UIScreen.main.bounds.width * 0.03
+        stack.spacing = UIScreen.main.bounds.width * 0.02
         stack.distribution = .fillEqually
-        self.addSubview(stack)
+//        self.addSubview(stack)
         return stack
     }()
     init() {
         super.init(frame: .zero)
         self.backgroundColor = UIColor(named: "Background")
+
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentSize = CGSize(width: .zero, height: 38)
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.layer.zPosition = 1
+
+        scrollView.addSubview(firstStack)
+        scrollView.addSubview(secondStack)
+        scrollView.addSubview(thirdStack)
+        scrollView.clipsToBounds = true
+        self.addSubview(scrollView)
+
         configureLayout()
     }
 
@@ -143,17 +156,20 @@ class CharacterAttributesCthulhu: UIView {
             editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             editButton.heightAnchor.constraint(equalToConstant: 34),
 
-            firstStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.05),
-            firstStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.05),
-            firstStack.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15),
+            scrollView.topAnchor.constraint(equalTo: editButton.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
-            secondStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.05),
-            secondStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.05),
+            firstStack.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            firstStack.topAnchor.constraint(equalTo: scrollView.topAnchor),
+
+            secondStack.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             secondStack.topAnchor.constraint(equalTo: firstStack.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03),
 
-            thirdStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.05),
-            thirdStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.05),
-            thirdStack.topAnchor.constraint(equalTo: secondStack.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03)
+            thirdStack.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            thirdStack.topAnchor.constraint(equalTo: secondStack.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03),
+            thirdStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
             ])
 
     }

@@ -154,63 +154,63 @@ enum SkillsT20 {
     func getSkills() -> SkillT20 {
         switch self {
         case .acrobatics:
-            return SkillT20(name: "Acrobatics", attribute: .DEX)
+            return SkillT20(name: "01_Acrobatics", attribute: .DEX)
         case .dressage:
-            return SkillT20(name: "Dressage", attribute: .CHA)
+            return SkillT20(name: "02_Dressage", attribute: .CHA)
         case .athletics:
-            return SkillT20(name: "Athletics", attribute: .STR)
+            return SkillT20(name: "03_Athletics", attribute: .STR)
         case .acting:
-            return SkillT20(name: "Acting", attribute: .CHA)
+            return SkillT20(name: "04_Acting", attribute: .CHA)
         case .ride:
-            return SkillT20(name: "Ride", attribute: .DEX)
+            return SkillT20(name: "05_Ride", attribute: .DEX)
         case .knowledge:
-            return SkillT20(name: "Knowledge", attribute: .INT)
+            return SkillT20(name: "06_Knowledge", attribute: .INT)
         case .cure:
-            return SkillT20(name: "Cure", attribute: .WIS)
+            return SkillT20(name: "07_Cure", attribute: .WIS)
         case .diplomacy:
-            return SkillT20(name: "Diplomacy", attribute: .CHA)
+            return SkillT20(name: "08_Diplomacy", attribute: .CHA)
         case .cheat:
-            return SkillT20(name: "Cheat", attribute: .CHA)
+            return SkillT20(name: "09_Cheat", attribute: .CHA)
         case .fortitude:
-            return SkillT20(name: "Fortitude", attribute: .CON)
+            return SkillT20(name: "10_Fortitude", attribute: .CON)
         case .stealth:
-            return SkillT20(name: "Stealth", attribute: .DEX)
+            return SkillT20(name: "11_Stealth", attribute: .DEX)
         case .war:
-            return SkillT20(name: "War", attribute: .INT)
+            return SkillT20(name: "12_War", attribute: .INT)
         case .initiative:
-            return SkillT20(name: "Initiative", attribute: .DEX)
+            return SkillT20(name: "13_Initiative", attribute: .DEX)
         case .intimidation:
-            return SkillT20(name: "Intimidation", attribute: .CHA)
+            return SkillT20(name: "14_Intimidation", attribute: .CHA)
         case .intuition:
-            return SkillT20(name: "Intuition", attribute: .WIS)
+            return SkillT20(name: "15_Intuition", attribute: .WIS)
         case .investigation:
-            return SkillT20(name: "Investigation", attribute: .INT)
+            return SkillT20(name: "16_Investigation", attribute: .INT)
         case .gambling:
-            return SkillT20(name: "Gambling", attribute: .CHA)
+            return SkillT20(name: "17_Gambling", attribute: .CHA)
         case .thieving:
-            return SkillT20(name: "Thieving", attribute: .DEX)
+            return SkillT20(name: "18_Thieving", attribute: .DEX)
         case .fighting:
-            return SkillT20(name: "Fighting", attribute: .STR)
+            return SkillT20(name: "19_Fighting", attribute: .STR)
         case .mysticism:
-            return SkillT20(name: "Mysticism", attribute: .INT)
+            return SkillT20(name: "20_Mysticism", attribute: .INT)
         case .nobility:
-            return SkillT20(name: "Nobility", attribute: .INT)
+            return SkillT20(name: "21_Nobility", attribute: .INT)
         case .occupation:
-            return SkillT20(name: "Occupation", attribute: .INT)
+            return SkillT20(name: "22_Occupation", attribute: .INT)
         case .perception:
-            return SkillT20(name: "Perception", attribute: .WIS)
+            return SkillT20(name: "23_Perception", attribute: .WIS)
         case .piloting:
-            return SkillT20(name: "Piloting", attribute: .DEX)
+            return SkillT20(name: "24_Piloting", attribute: .DEX)
         case .aiming:
-            return SkillT20(name: "Aiming", attribute: .DEX)
+            return SkillT20(name: "25_Aiming", attribute: .DEX)
         case .reflexes:
-            return SkillT20(name: "Reflexes", attribute: .DEX)
+            return SkillT20(name: "26_Reflexes", attribute: .DEX)
         case .religion:
-            return SkillT20(name: "Religion", attribute: .WIS)
+            return SkillT20(name: "27_Religion", attribute: .WIS)
         case .survival:
-            return SkillT20(name: "Survival", attribute: .WIS)
+            return SkillT20(name: "28_Survival", attribute: .WIS)
         case .volition:
-            return SkillT20(name: "Volition", attribute: .WIS)
+            return SkillT20(name: "29_Volition", attribute: .WIS)
         }
     }
 

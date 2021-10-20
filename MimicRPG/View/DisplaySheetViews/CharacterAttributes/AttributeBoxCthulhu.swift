@@ -13,8 +13,6 @@ class AttributeBoxCthulhu: UIView {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "CthulhuAttributeBox")
         imgView.translatesAutoresizingMaskIntoConstraints = false
-       // imgView.clipsToBounds = true
-        // imgView.contentMode = .scaleAspectFit
         self.addSubview(imgView)
         return imgView
     }()
@@ -91,7 +89,6 @@ class AttributeBoxCthulhu: UIView {
             attributeValueBy2Cthulhu.centerXAnchor.constraint(equalTo: attributeBackgroundCthulhu.centerXAnchor, constant: -20),
             attributeValueBy5Cthulhu.bottomAnchor.constraint(equalTo: attributeBackgroundCthulhu.bottomAnchor, constant: -10),
             attributeValueBy5Cthulhu.centerXAnchor.constraint(equalTo: attributeBackgroundCthulhu.centerXAnchor, constant: 20)
-
         ])
     }
     required init?(coder: NSCoder) {
