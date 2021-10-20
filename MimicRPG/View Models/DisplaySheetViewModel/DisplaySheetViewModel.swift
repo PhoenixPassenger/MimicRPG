@@ -544,7 +544,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.displayEditSkillsT20Modal(name: skill.name!, skill: skill)
     }
 
-    func skillT20SaveChanges(skillOtherValue: Int, trained: Bool, skill: Skill){
+    func skillT20SaveChanges(skillOtherValue: Int, trained: Bool, skill: Skill) {
         print("SOV",skillOtherValue)
         skill.value = Int64(skillOtherValue)
         print("Value",skill.value)

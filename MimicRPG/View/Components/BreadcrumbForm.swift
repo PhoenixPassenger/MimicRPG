@@ -43,7 +43,7 @@ class BreadcrumbForm: UIView {
         self.addSubview(circle)
         return circle
     }()
-    
+
     lazy var secondLine: UIView = {
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
@@ -77,7 +77,7 @@ class BreadcrumbForm: UIView {
         secondCircle.leadingAnchor.constraint(equalTo: firstLine.trailingAnchor).isActive = true
         secondCircle.widthAnchor.constraint(equalToConstant: 9).isActive = true
         secondCircle.heightAnchor.constraint(equalToConstant: 9).isActive = true
-        
+
         if numberOfCrumbs > 2 {
             secondLine.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
             secondLine.leadingAnchor.constraint(equalTo: secondCircle.trailingAnchor).isActive = true
