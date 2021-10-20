@@ -30,7 +30,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func callReloadAttacksT20() {
         self.output?.reloadAttacksT20()
     }
-    
+
     func callReloadAttacksCthulhu() {
         self.output?.reloadAttacksCthulhu()
     }
@@ -221,7 +221,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func callAddAttackT20() {
         self.output?.displayAddAttackT20Modal()
     }
-    
+
     func callAddAttackCthulhu() {
         self.output?.displayAddAttackCthulhuModal()
     }
@@ -265,7 +265,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
     }
-    
+
     func createAttackCthulhu(attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) {
         let newAttack = Attack(context: context)
         newAttack.name = attackName
@@ -284,17 +284,17 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         newAmmo.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackAmmo)()
         newAmmo.numberValue = Int64(attackAmmo)
         newAttack.addToCharacteristics(newAmmo)
-        
+
         let newRange = Characteristics(context: context)
         newRange.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackRange)()
         newRange.stringValue = attackRange
         newAttack.addToCharacteristics(newRange)
-        
+
         let newMalfunction = Characteristics(context: context)
         newMalfunction.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackMalfunction)()
         newMalfunction.stringValue = attackMalfunction
         newAttack.addToCharacteristics(newMalfunction)
-        
+
         let newAttacks = Characteristics(context: context)
         newAttacks.name = AttackCharacteristicsCthulhu.getCharacteristicName(.attackAttacks)()
         newAttacks.numberValue = Int64(attackAttacks)
@@ -365,7 +365,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
     }
-    
+
     func editCurrentAttackCthulhu(currentAttack: Attack, attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) {
         currentAttack.name = attackName
 
@@ -539,8 +539,8 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func newItemModal() {
         self.output?.displayNewItem()
     }
-    
-    func editSkillsT20(skill: Skill){
+
+    func editSkillsT20(skill: Skill) {
         self.output?.displayEditSkillsT20Modal(name: skill.name!, skill: skill)
     }
     

@@ -94,7 +94,7 @@ class CharacterAttacksCellCthulhu: UITableViewCell {
         self.addSubview(label)
         return label
     }()
-    
+
     lazy var attackValueBy2Box: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -116,7 +116,7 @@ class CharacterAttacksCellCthulhu: UITableViewCell {
         self.addSubview(label)
         return label
     }()
-    
+
     lazy var attackValueBy2Divisor: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -356,7 +356,7 @@ class CharacterAttacksCellCthulhu: UITableViewCell {
             attackValueBy5Label.centerXAnchor.constraint(equalTo: attackValueBy5Box.centerXAnchor),
             attackValueBy5Label.topAnchor.constraint(equalTo: attackValueBy5Box.topAnchor),
             attackValueBy5Label.heightAnchor.constraint(equalTo: attackValueBy5Box.heightAnchor),
-            
+
             attackValueBackground.leadingAnchor.constraint(equalTo: attackValueBy5Box.leadingAnchor),
             attackValueBackground.trailingAnchor.constraint(equalTo: attackValueBox.trailingAnchor),
             attackValueBackground.topAnchor.constraint(equalTo: attackNameLabel.bottomAnchor, constant: 1),
@@ -409,4 +409,3 @@ class CharacterAttacksCellCthulhu: UITableViewCell {
         ])
     }
 }
-

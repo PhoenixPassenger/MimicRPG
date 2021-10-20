@@ -106,7 +106,7 @@ class CharacterAttributesCthulhu: UIView {
         self.backgroundColor = UIColor(named: "Background")
         configureLayout()
     }
-    
+
     func setupView() {
         for attribute in viewModel.getAttributes() {
             switch (attribute.name) {
@@ -153,7 +153,7 @@ class CharacterAttributesCthulhu: UIView {
 
             thirdStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.05),
             thirdStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.05),
-            thirdStack.topAnchor.constraint(equalTo: secondStack.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03),
+            thirdStack.topAnchor.constraint(equalTo: secondStack.bottomAnchor, constant: UIScreen.main.bounds.height * 0.03)
             ])
 
     }

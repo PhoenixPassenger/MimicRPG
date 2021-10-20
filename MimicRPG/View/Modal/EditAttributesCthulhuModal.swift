@@ -185,7 +185,7 @@ class EditAttributesCthulhuModal: UIViewController {
             updateUI()
         }
     }
-    
+
     func setStartingAttributeValues(with viewModel: DisplaySheetViewModelType) {
         for attribute in viewModel.getAttributes() {
             switch (attribute.name) {

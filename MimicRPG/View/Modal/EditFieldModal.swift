@@ -12,7 +12,7 @@ class EditFieldModal: UIViewController {
 
     var viewModel : DisplaySheetViewModelType!
     var editCharacteristic: Characteristics?
-    
+
     var characteristicName: String?
     var paginator: Int = 0
     let lastPage: Int = 0

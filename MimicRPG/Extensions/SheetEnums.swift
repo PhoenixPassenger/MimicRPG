@@ -158,7 +158,7 @@ enum SkillsT20 {
         case .dressage:
             return SkillT20(name: "Dressage", attribute: .CHA)
         case .athletics:
-            return SkillT20(name: "Athlectics", attribute: .STR)
+            return SkillT20(name: "Athletics", attribute: .STR)
         case .acting:
             return SkillT20(name: "Acting", attribute: .CHA)
         case .ride:
@@ -377,13 +377,13 @@ enum SkillsCthulhu {
         case .craft:
             return SkillCthulhu(name: "Craft", value: 5)
         case .creditRating:
-            return SkillCthulhu(name: "CreditRacing", value: 15)
+            return SkillCthulhu(name: "CreditRating", value: 15)
         case .cthulhuMythos:
             return SkillCthulhu(name: "CthulhuMythos", value: 1)
         case .disguise:
             return SkillCthulhu(name: "Disguise", value: 1)
         case .driveAutomobile:
-            return SkillCthulhu(name: "Drive Automobile", value: 20)
+            return SkillCthulhu(name: "DriveAutomobile", value: 20)
         case .eletricalRepair:
             return SkillCthulhu(name: "EletricalRepair", value: 10)
         case .fastTalk:

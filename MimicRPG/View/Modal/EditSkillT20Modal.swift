@@ -139,7 +139,7 @@ class EditSkillT20Modal: UIViewController {
         view.backgroundColor = UIColor(named: "Background")
     }
 
-    func fillForm(name: String, skill: Skill){
+    func fillForm(name: String, skill: Skill) {
         let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue
         halfLevelView.valueText.text = String(levelBy2!/2)
 
