@@ -300,12 +300,12 @@ class CharacterPointsCthulhu: UIView {
     
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            editButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 7),
+            editButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
             editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             editButton.heightAnchor.constraint(equalToConstant: 34),
             
             firstStackPoints.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            firstStackPoints.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 7),
+            firstStackPoints.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15),
             firstStackPoints.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.03),
             firstStackPoints.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.03),
 
@@ -324,7 +324,7 @@ class CharacterPointsCthulhu: UIView {
             magicStepper.centerYAnchor.constraint(equalTo: magicBox.bottomAnchor, constant: -10),
             
             secondStackPoints.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            secondStackPoints.topAnchor.constraint(equalTo: firstStackPoints.bottomAnchor, constant: 20),
+            secondStackPoints.topAnchor.constraint(equalTo: firstStackPoints.bottomAnchor, constant: 30),
             secondStackPoints.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.03),
             secondStackPoints.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.03),
 

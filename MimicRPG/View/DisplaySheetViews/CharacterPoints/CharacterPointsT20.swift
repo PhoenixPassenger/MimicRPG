@@ -419,7 +419,7 @@ class CharacterPointsT20: UIView {
             editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             editButton.heightAnchor.constraint(equalToConstant: 34),
             
-            defenseBox.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 7),
+            defenseBox.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15),
             defenseBox.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             defenseBox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             defenseBox.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
