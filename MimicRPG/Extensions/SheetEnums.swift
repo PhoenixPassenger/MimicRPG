@@ -357,93 +357,93 @@ enum SkillsCthulhu {
         case .accounting:
             return SkillCthulhu(name: "01_Accounting", value: 05)
         case .anthropology:
-            return SkillCthulhu(name: "02_Anthropology", value: 05)
+            return SkillCthulhu(name: "02_Anthropology", value: 01)
         case .appraise:
             return SkillCthulhu(name: "03_Appraise", value: 05)
         case .archaeology:
-            return SkillCthulhu(name: "04_Archaeology", value: 05)
+            return SkillCthulhu(name: "04_Archaeology", value: 01)
         case .artAndCraft:
             return SkillCthulhu(name: "05_ArtAndCraft", value: 05)
         case .charm:
-            return SkillCthulhu(name: "06_Charm", value: 05)
+            return SkillCthulhu(name: "06_Charm", value: 15)
         case .climb:
-            return SkillCthulhu(name: "07_Climb", value: 05)
+            return SkillCthulhu(name: "07_Climb", value: 20)
         case .creditRating:
-            return SkillCthulhu(name: "08_CreditRating", value: 05)
+            return SkillCthulhu(name: "08_CreditRating", value: 00)
         case .cthulhuMythos:
-            return SkillCthulhu(name: "09_CthulhuMythos", value: 05)
+            return SkillCthulhu(name: "09_CthulhuMythos", value: 00)
         case .disguise:
             return SkillCthulhu(name: "10_Disguise", value: 05)
         case .dodge:
-            return SkillCthulhu(name: "11_Dodge", value: 05)
+            return SkillCthulhu(name: "11_Dodge", value: 10)
         case .driveAuto:
-            return SkillCthulhu(name: "12_DriveAuto", value: 05)
+            return SkillCthulhu(name: "12_DriveAuto", value: 20)
         case .elecRepair:
-            return SkillCthulhu(name: "13_ElecRepair", value: 05)
+            return SkillCthulhu(name: "13_ElecRepair", value: 10)
         case .fastTalk:
             return SkillCthulhu(name: "14_FastTalk", value: 05)
         case .fighting:
-            return SkillCthulhu(name: "15_Fighting", value: 05)
+            return SkillCthulhu(name: "15_Fighting", value: 25)
         case .handgun:
-            return SkillCthulhu(name: "16_Handgun", value: 05)
+            return SkillCthulhu(name: "16_FirearmHandgun", value: 20)
         case .rifle:
-            return SkillCthulhu(name: "17_Rifle", value: 05)
+            return SkillCthulhu(name: "17_FirearmRifle", value: 25)
         case .firstAid:
-            return SkillCthulhu(name: "18_FirstAid", value: 05)
-        case .history:
-            return SkillCthulhu(name: "19_History", value: 05)
-        case .intimidate:
-            return SkillCthulhu(name: "20_Intimidate", value: 05)
-        case .jump:
-            return SkillCthulhu(name: "21_Jump", value: 05)
-        case .languageOwn:
-            return SkillCthulhu(name: "22_LanguageOwn", value: 05)
-        case .law:
-            return SkillCthulhu(name: "23_Law", value: 05)
-        case .libraryUse:
-            return SkillCthulhu(name: "24_LibraryUse", value: 05)
-        case .listen:
-            return SkillCthulhu(name: "25_Listen", value: 05)
-        case .locksmith:
-            return SkillCthulhu(name: "26_Locksmith", value: 05)
-        case .mechRepair:
-            return SkillCthulhu(name: "27_MechRepair", value: 05)
-        case .medicine:
-            return SkillCthulhu(name: "28_Medicine", value: 05)
-        case .naturalWorld:
-            return SkillCthulhu(name: "29_NaturalWorld", value: 05)
-        case .navigate:
-            return SkillCthulhu(name: "30_Navigate", value: 05)
-        case .occult:
-            return SkillCthulhu(name: "31_Occult", value: 05)
+            return SkillCthulhu(name: "18_FirstAid", value: 30)
         case .heavyMachines:
-            return SkillCthulhu(name: "32_HeavyMachines", value: 05)
+            return SkillCthulhu(name: "19_HeavyMachines", value: 01)
+        case .history:
+            return SkillCthulhu(name: "20_History", value: 05)
+        case .intimidate:
+            return SkillCthulhu(name: "21_Intimidate", value: 15)
+        case .jump:
+            return SkillCthulhu(name: "22_Jump", value: 20)
+        case .languageOwn:
+            return SkillCthulhu(name: "23_LanguageOwn", value: 10)
+        case .law:
+            return SkillCthulhu(name: "24_Law", value: 05)
+        case .libraryUse:
+            return SkillCthulhu(name: "25_LibraryUse", value: 20)
+        case .listen:
+            return SkillCthulhu(name: "26_Listen", value: 20)
+        case .locksmith:
+            return SkillCthulhu(name: "27_Locksmith", value: 01)
+        case .mechRepair:
+            return SkillCthulhu(name: "28_MechRepair", value: 01)
+        case .medicine:
+            return SkillCthulhu(name: "29_Medicine", value: 01)
+        case .naturalWorld:
+            return SkillCthulhu(name: "30_NaturalWorld", value: 10)
+        case .navigate:
+            return SkillCthulhu(name: "31_Navigate", value: 10)
+        case .occult:
+            return SkillCthulhu(name: "32_Occult", value: 05)
         case .persuade:
-            return SkillCthulhu(name: "33_Persuade", value: 05)
+            return SkillCthulhu(name: "33_Persuade", value: 10)
         case .pilot:
-            return SkillCthulhu(name: "34_Pilot", value: 05)
+            return SkillCthulhu(name: "34_Pilot", value: 01)
         case .psychology:
-            return SkillCthulhu(name: "35_Psychology", value: 05)
+            return SkillCthulhu(name: "35_Psychology", value: 10)
         case .psychoanalysis:
-            return SkillCthulhu(name: "36_Psychoanalysis", value: 05)
+            return SkillCthulhu(name: "36_Psychoanalysis", value: 01)
         case .ride:
             return SkillCthulhu(name: "37_Ride", value: 05)
         case .science:
-            return SkillCthulhu(name: "38_Science", value: 05)
+            return SkillCthulhu(name: "38_Science", value: 01)
         case .sleightOfHand:
-            return SkillCthulhu(name: "39_SleightOfHand", value: 05)
+            return SkillCthulhu(name: "39_SleightOfHand", value: 10)
         case .spotHidden:
-            return SkillCthulhu(name: "40_SpotHidden", value: 05)
+            return SkillCthulhu(name: "40_SpotHidden", value: 25)
         case .stealth:
-            return SkillCthulhu(name: "41_Stealth", value: 05)
+            return SkillCthulhu(name: "41_Stealth", value: 20)
         case .survival:
-            return SkillCthulhu(name: "42_Survival", value: 05)
+            return SkillCthulhu(name: "42_Survival", value: 10)
         case .swim:
-            return SkillCthulhu(name: "43_Swim", value: 05)
+            return SkillCthulhu(name: "43_Swim", value: 20)
         case .throwThing:
-            return SkillCthulhu(name: "44_Throw", value: 05)
+            return SkillCthulhu(name: "44_Throw", value: 20)
         case .track:
-            return SkillCthulhu(name: "45_Track", value: 05)
+            return SkillCthulhu(name: "45_Track", value: 10)
         }
     }
 
