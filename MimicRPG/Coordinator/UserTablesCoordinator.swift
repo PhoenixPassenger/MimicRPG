@@ -1,13 +1,13 @@
 //
-//  UserSheetsCoordinator.swift
+//  UserTablesCoordinator.swift
 //  MimicRPG
 //
-//  Created by Pedro Henrique on 21/09/21.
+//  Created by Eduardo Oliveira on 20/10/21.
 //
 
 import UIKit
 
-class UserSheetsCoordinator : Coordinator {
+class UserTablesCoordinator : Coordinator {
 
     var parentCoordinator: Coordinator
 

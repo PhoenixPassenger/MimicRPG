@@ -38,6 +38,17 @@
 		2E2C7B5A270784320084CBDE /* BreadcrumbForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */; };
 		2E5E3332270B2DEF00F7624D /* CreateAttackT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E3331270B2DEF00F7624D /* CreateAttackT20Modal.swift */; };
 		2E5E3334270B34C700F7624D /* EditPointsT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E3333270B34C700F7624D /* EditPointsT20Modal.swift */; };
+		2E5FD7812720988700B605D0 /* UserTablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD7802720988700B605D0 /* UserTablesViewController.swift */; };
+		2E5FD7842720992D00B605D0 /* UserTablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD7832720992D00B605D0 /* UserTablesViewModel.swift */; };
+		2E5FD7862720994800B605D0 /* UserTablesViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD7852720994800B605D0 /* UserTablesViewModelOutput.swift */; };
+		2E5FD7882720995B00B605D0 /* UserTablesViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD7872720995B00B605D0 /* UserTablesViewModelType.swift */; };
+		2E5FD78A27209AA800B605D0 /* UserTablesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD78927209AA800B605D0 /* UserTablesCoordinator.swift */; };
+		2E5FD78C27209B6A00B605D0 /* DisplayTableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD78B27209B6A00B605D0 /* DisplayTableCoordinator.swift */; };
+		2E5FD78E27209BC000B605D0 /* DisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD78D27209BC000B605D0 /* DisplayTableViewController.swift */; };
+		2E5FD79127209CA600B605D0 /* DisplayTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD79027209CA600B605D0 /* DisplayTableViewModel.swift */; };
+		2E5FD79327209CC300B605D0 /* DisplayTableViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD79227209CC300B605D0 /* DisplayTableViewModelOutput.swift */; };
+		2E5FD79527209CE200B605D0 /* DisplayTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD79427209CE200B605D0 /* DisplayTableViewModelType.swift */; };
+		2E5FD7972720D7E300B605D0 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD7962720D7E300B605D0 /* TableCell.swift */; };
 		2E636A1F2719A2D400872F1B /* CharacterPointsCthulhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E636A1E2719A2D400872F1B /* CharacterPointsCthulhu.swift */; };
 		2E6EAE3B270B4ADA00626650 /* EditAttributesT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */; };
 		2E6EAE3D270B820900626650 /* EditPointsCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */; };
@@ -155,6 +166,17 @@
 		2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadcrumbForm.swift; sourceTree = "<group>"; };
 		2E5E3331270B2DEF00F7624D /* CreateAttackT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAttackT20Modal.swift; sourceTree = "<group>"; };
 		2E5E3333270B34C700F7624D /* EditPointsT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPointsT20Modal.swift; sourceTree = "<group>"; };
+		2E5FD7802720988700B605D0 /* UserTablesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTablesViewController.swift; sourceTree = "<group>"; };
+		2E5FD7832720992D00B605D0 /* UserTablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTablesViewModel.swift; sourceTree = "<group>"; };
+		2E5FD7852720994800B605D0 /* UserTablesViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTablesViewModelOutput.swift; sourceTree = "<group>"; };
+		2E5FD7872720995B00B605D0 /* UserTablesViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTablesViewModelType.swift; sourceTree = "<group>"; };
+		2E5FD78927209AA800B605D0 /* UserTablesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTablesCoordinator.swift; sourceTree = "<group>"; };
+		2E5FD78B27209B6A00B605D0 /* DisplayTableCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableCoordinator.swift; sourceTree = "<group>"; };
+		2E5FD78D27209BC000B605D0 /* DisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewController.swift; sourceTree = "<group>"; };
+		2E5FD79027209CA600B605D0 /* DisplayTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewModel.swift; sourceTree = "<group>"; };
+		2E5FD79227209CC300B605D0 /* DisplayTableViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewModelOutput.swift; sourceTree = "<group>"; };
+		2E5FD79427209CE200B605D0 /* DisplayTableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewModelType.swift; sourceTree = "<group>"; };
+		2E5FD7962720D7E300B605D0 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		2E636A1E2719A2D400872F1B /* CharacterPointsCthulhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPointsCthulhu.swift; sourceTree = "<group>"; };
 		2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAttributesT20Modal.swift; sourceTree = "<group>"; };
 		2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPointsCthulhuModal.swift; sourceTree = "<group>"; };
@@ -275,6 +297,7 @@
 				2EF7724D2700EC5000A88EC8 /* SheetHeader.swift */,
 				2E2C7B522705E5B80084CBDE /* EditModalComponent.swift */,
 				2E2C7B59270784320084CBDE /* BreadcrumbForm.swift */,
+				2E5FD7962720D7E300B605D0 /* TableCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -318,6 +341,26 @@
 				2E24F77B26FA085100DE6BE9 /* DisplaySheetViewModelType.swift */,
 			);
 			path = DisplaySheetViewModel;
+			sourceTree = "<group>";
+		};
+		2E5FD7822720990F00B605D0 /* UserTablesViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E5FD7832720992D00B605D0 /* UserTablesViewModel.swift */,
+				2E5FD7852720994800B605D0 /* UserTablesViewModelOutput.swift */,
+				2E5FD7872720995B00B605D0 /* UserTablesViewModelType.swift */,
+			);
+			path = UserTablesViewModel;
+			sourceTree = "<group>";
+		};
+		2E5FD78F27209C8000B605D0 /* DisplayTableViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E5FD79027209CA600B605D0 /* DisplayTableViewModel.swift */,
+				2E5FD79227209CC300B605D0 /* DisplayTableViewModelOutput.swift */,
+				2E5FD79427209CE200B605D0 /* DisplayTableViewModelType.swift */,
+			);
+			path = DisplayTableViewModel;
 			sourceTree = "<group>";
 		};
 		2EA6F15A26FD3C9E00027E41 /* UserSheetsViewModel */ = {
@@ -455,7 +498,9 @@
 				9684023E26EF7435009AF620 /* DiceRollerViewController.swift */,
 				9684024026EF7447009AF620 /* SettingsViewController.swift */,
 				9684024226EF7486009AF620 /* UserSheetsViewController.swift */,
+				2E5FD78D27209BC000B605D0 /* DisplayTableViewController.swift */,
 				9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */,
+				2E5FD7802720988700B605D0 /* UserTablesViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -488,6 +533,8 @@
 				5B0DC5B626EA3513008C8578 /* MainCoordinator.swift */,
 				96F09C9826F9FAA3008F5554 /* DisplaySheetCoordinator.swift */,
 				96F09C9A26FA11B3008F5554 /* UserSheetsCoordinator.swift */,
+				2E5FD78927209AA800B605D0 /* UserTablesCoordinator.swift */,
+				2E5FD78B27209B6A00B605D0 /* DisplayTableCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -495,6 +542,8 @@
 		5B0DC5AB26EA2D1F008C8578 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E5FD78F27209C8000B605D0 /* DisplayTableViewModel */,
+				2E5FD7822720990F00B605D0 /* UserTablesViewModel */,
 				2EA6F15A26FD3C9E00027E41 /* UserSheetsViewModel */,
 				5B7BBE1526FCF3BD008260D9 /* SettingsViewModel */,
 				2E24F77626FA071700DE6BE9 /* DisplaySheetViewModel */,
@@ -755,9 +804,14 @@
 				5BC9C7CF26F3A936006F6BC1 /* TabBarViewController.swift in Sources */,
 				5B7C971226F0C09F00E01EBA /* Characteristics+CoreDataClass.swift in Sources */,
 				2E2C7B532705E5B80084CBDE /* EditModalComponent.swift in Sources */,
+				2E5FD7842720992D00B605D0 /* UserTablesViewModel.swift in Sources */,
 				2E6EAE41270B88BA00626650 /* CreateAttackCthulhuModal.swift in Sources */,
+				2E5FD79127209CA600B605D0 /* DisplayTableViewModel.swift in Sources */,
+				2E5FD7972720D7E300B605D0 /* TableCell.swift in Sources */,
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
+				2E5FD79527209CE200B605D0 /* DisplayTableViewModelType.swift in Sources */,
 				2E6EAE4B270CCD2E00626650 /* CharacterAttributesCthulhu.swift in Sources */,
+				2E5FD78C27209B6A00B605D0 /* DisplayTableCoordinator.swift in Sources */,
 				2EF772512703E18E00A88EC8 /* CharacterPointsT20.swift in Sources */,
 				2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
@@ -770,6 +824,7 @@
 				2E2C7B552705E7960084CBDE /* HideKeyboard.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
 				2E6EAE3F270B853B00626650 /* EditAttributesCthulhuModal.swift in Sources */,
+				2E5FD78A27209AA800B605D0 /* UserTablesCoordinator.swift in Sources */,
 				2E16CCD326F4068400500E44 /* DiceRollerViewModelOutput.swift in Sources */,
 				2E24F77C26FA085100DE6BE9 /* DisplaySheetViewModelType.swift in Sources */,
 				2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */,
@@ -800,6 +855,7 @@
 				2EF7724E2700EC5000A88EC8 /* SheetHeader.swift in Sources */,
 				5B1659FE26FA0AA9004CD628 /* CharacterBio.swift in Sources */,
 				5B7C970E26F0C09F00E01EBA /* Sheet+CoreDataClass.swift in Sources */,
+				2E5FD7882720995B00B605D0 /* UserTablesViewModelType.swift in Sources */,
 				5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */,
 				5B7BBE1B26FCFA18008260D9 /* Image+SolidColor.swift in Sources */,
 				5B7C971026F0C09F00E01EBA /* User+CoreDataClass.swift in Sources */,
@@ -809,6 +865,7 @@
 				2E6EAE47270C99A400626650 /* CharacterSkillsHeaderCthulhu.swift in Sources */,
 				5B7C971426F0C09F00E01EBA /* Attributes+CoreDataClass.swift in Sources */,
 				00C57CCF270DCFF200CEB5A7 /* EditSkillT20Modal.swift in Sources */,
+				2E5FD79327209CC300B605D0 /* DisplayTableViewModelOutput.swift in Sources */,
 				2E24F77A26FA081C00DE6BE9 /* DisplaySheetViewModelOutput.swift in Sources */,
 				2EFC74B626EA51FA00D9487F /* CustomFonts.swift in Sources */,
 				96435CF22705DD8F00C9E571 /* CharacterAttacksCellT20.swift in Sources */,
@@ -817,6 +874,8 @@
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				2EF7724426FE41A700A88EC8 /* CharacterSkillsT20.swift in Sources */,
 				5B7BBE1D26FCFAEF008260D9 /* CharacterItems.swift in Sources */,
+				2E5FD78E27209BC000B605D0 /* DisplayTableViewController.swift in Sources */,
+				2E5FD7812720988700B605D0 /* UserTablesViewController.swift in Sources */,
 				2E16CCD026F4061100500E44 /* DiceRollerViewModel.swift in Sources */,
 				2EA6F16026FD3D9C00027E41 /* UserSheetsViewModelType.swift in Sources */,
 				2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift in Sources */,
@@ -825,6 +884,7 @@
 				5B7BBE1926FCF9BE008260D9 /* CharacterItemsCell.swift in Sources */,
 				2E6EAE3D270B820900626650 /* EditPointsCthulhuModal.swift in Sources */,
 				00A89D91270598A900ED72B2 /* CharacterAttributesT20.swift in Sources */,
+				2E5FD7862720994800B605D0 /* UserTablesViewModelOutput.swift in Sources */,
 				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				2E6EAE43270C923F00626650 /* CharacterSkillsCthulhu.swift in Sources */,
 				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,

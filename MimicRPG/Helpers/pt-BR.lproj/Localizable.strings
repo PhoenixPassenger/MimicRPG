@@ -46,6 +46,7 @@ Attacks = "Ataques";
 Notes = "Notas";
 Life = "Vida";
 TabBarSheets = "Fichas";
+TabBarTables = "Mesas";
 TabBarDice = "Dados";
 TabBarOptions = "Opções";
 AttributesSTR = "FOR";

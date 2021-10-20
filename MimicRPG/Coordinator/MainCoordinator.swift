@@ -24,6 +24,13 @@ class MainCoordinator : Coordinator {
         sheetsViewController.title = "TabBarSheets".localized()
         sheetsViewController.tabBarItem = UITabBarItem(title: "TabBarSheets".localized(), image: UIImage(systemName: "doc.on.doc"),
                                        selectedImage: UIImage(systemName: "doc.on.doc.fill"))
+        
+        let tablesViewController = UserTablesViewController()
+        tablesViewController.viewModel = UserTablesViewModel()
+        tablesViewController.viewModel.output = tablesViewController
+        tablesViewController.title = "TabBarTables".localized()
+        tablesViewController.tabBarItem = UITabBarItem(title: "TabBarSheets".localized(), image: UIImage(systemName: "doc.on.doc"),
+                                       selectedImage: UIImage(systemName: "doc.on.doc.fill"))
 
         let diceRollerViewController = DiceRollerViewController()
         diceRollerViewController.viewModel = DiceRollerViewModel()
@@ -42,13 +49,14 @@ class MainCoordinator : Coordinator {
                                                          selectedImage: UIImage(systemName: "gearshape.fill"))
 
         let sheetsNavigationController = UINavigationController(rootViewController: sheetsViewController)
+        let tablesNavigationController = UINavigationController(rootViewController: tablesViewController)
         let diceNavigationController = UINavigationController(rootViewController: diceRollerViewController)
         let settingsNavigationController = UINavigationController(rootViewController: settingsViewController)
 
         let sheetsCoord = UserSheetsCoordinator(with: self, navController: sheetsNavigationController)
         sheetsViewController.coordinator = sheetsCoord
 
-        tabBarController.viewControllers = [sheetsNavigationController, diceNavigationController,settingsNavigationController]
+        tabBarController.viewControllers = [sheetsNavigationController, tablesNavigationController, diceNavigationController,settingsNavigationController]
 
 //        navigationController.pushViewController(startingViewController, animated: false)
     }
