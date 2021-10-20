@@ -14,8 +14,6 @@ class DisplayTableViewController: UIViewController {
     var viewModel: DisplayTableViewModelType!
     var coordinator: Coordinator?
 
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "SecondaryBackground")
