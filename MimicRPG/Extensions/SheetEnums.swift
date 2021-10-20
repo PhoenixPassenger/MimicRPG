@@ -350,82 +350,102 @@ struct SkillCthulhu {
 }
 
 enum SkillsCthulhu {
-    case accounting, chemistry, art, astronomy, anthropology, bargain, archaeology, biology, climb, conceal, craft, creditRating, cthulhuMythos, disguise, driveAutomobile, eletricalRepair, fastTalk, firstAid, fistPunch, geology, grapple, handgun, headbutt, hide, history, jump, kick, law, libraryUse, listen, locksmith, machineGun, martialArts, mechanicalRepair, medicine
-    
+    case accounting, anthropology, appraise, archaeology, artAndCraft, charm, climb, creditRating, cthulhuMythos, disguise, dodge, driveAuto, elecRepair, fastTalk, fighting, handgun, rifle, firstAid, history, intimidate, jump, languageOwn, law, libraryUse, listen, locksmith, mechRepair, medicine, naturalWorld, navigate, occult, heavyMachines, persuade, pilot, psychology, psychoanalysis, ride, science, sleightOfHand, spotHidden, stealth, survival, swim, throwThing, track
+
     func getSkills() -> SkillCthulhu {
         switch self {
         case .accounting:
-            return SkillCthulhu(name: "Accounting", value: 10)
-        case .chemistry:
-            return SkillCthulhu(name: "Chemistry", value: 1)
-        case .art:
-            return SkillCthulhu(name: "Art", value: 5)
-        case .astronomy:
-            return SkillCthulhu(name: "Astronomy", value: 1)
+            return SkillCthulhu(name: "01_Accounting", value: 05)
         case .anthropology:
-            return SkillCthulhu(name: "Anthropology", value: 1)
-        case .bargain:
-            return SkillCthulhu(name: "Bargain", value: 5)
+            return SkillCthulhu(name: "02_Anthropology", value: 01)
+        case .appraise:
+            return SkillCthulhu(name: "03_Appraise", value: 05)
         case .archaeology:
-            return SkillCthulhu(name: "Archaeology", value: 1)
-        case .biology:
-            return SkillCthulhu(name: "Biology", value: 1)
+            return SkillCthulhu(name: "04_Archaeology", value: 01)
+        case .artAndCraft:
+            return SkillCthulhu(name: "05_ArtAndCraft", value: 05)
+        case .charm:
+            return SkillCthulhu(name: "06_Charm", value: 15)
         case .climb:
-            return SkillCthulhu(name: "Climb", value: 40)
-        case .conceal:
-            return SkillCthulhu(name: "Conceal", value: 15)
-        case .craft:
-            return SkillCthulhu(name: "Craft", value: 5)
+            return SkillCthulhu(name: "07_Climb", value: 20)
         case .creditRating:
-            return SkillCthulhu(name: "CreditRating", value: 15)
+            return SkillCthulhu(name: "08_CreditRating", value: 00)
         case .cthulhuMythos:
-            return SkillCthulhu(name: "CthulhuMythos", value: 1)
+            return SkillCthulhu(name: "09_CthulhuMythos", value: 00)
         case .disguise:
-            return SkillCthulhu(name: "Disguise", value: 1)
-        case .driveAutomobile:
-            return SkillCthulhu(name: "DriveAutomobile", value: 20)
-        case .eletricalRepair:
-            return SkillCthulhu(name: "EletricalRepair", value: 10)
+            return SkillCthulhu(name: "10_Disguise", value: 05)
+        case .dodge:
+            return SkillCthulhu(name: "11_Dodge", value: 10)
+        case .driveAuto:
+            return SkillCthulhu(name: "12_DriveAuto", value: 20)
+        case .elecRepair:
+            return SkillCthulhu(name: "13_ElecRepair", value: 10)
         case .fastTalk:
-            return SkillCthulhu(name: "FastTalk", value: 5)
-        case .firstAid:
-            return SkillCthulhu(name: "FirstAid", value: 30)
-        case .fistPunch:
-            return SkillCthulhu(name: "Fist/Punch", value: 50)
-        case .geology:
-            return SkillCthulhu(name: "Geology", value: 1)
-        case .grapple:
-            return SkillCthulhu(name: "Grapple", value: 25)
+            return SkillCthulhu(name: "14_FastTalk", value: 05)
+        case .fighting:
+            return SkillCthulhu(name: "15_Fighting", value: 25)
         case .handgun:
-            return SkillCthulhu(name: "Handgun", value: 20)
-        case .headbutt:
-            return SkillCthulhu(name: "Headbutt", value: 10)
-        case .hide:
-            return SkillCthulhu(name: "Hide", value: 10)
+            return SkillCthulhu(name: "16_FirearmHandgun", value: 20)
+        case .rifle:
+            return SkillCthulhu(name: "17_FirearmRifle", value: 25)
+        case .firstAid:
+            return SkillCthulhu(name: "18_FirstAid", value: 30)
+        case .heavyMachines:
+            return SkillCthulhu(name: "19_HeavyMachines", value: 01)
         case .history:
-            return SkillCthulhu(name: "History", value: 10)
+            return SkillCthulhu(name: "20_History", value: 05)
+        case .intimidate:
+            return SkillCthulhu(name: "21_Intimidate", value: 15)
         case .jump:
-            return SkillCthulhu(name: "Jump", value: 20)
-        case .kick:
-            return SkillCthulhu(name: "Kick", value: 25)
+            return SkillCthulhu(name: "22_Jump", value: 20)
+        case .languageOwn:
+            return SkillCthulhu(name: "23_LanguageOwn", value: 10)
         case .law:
-            return SkillCthulhu(name: "Law", value: 25)
+            return SkillCthulhu(name: "24_Law", value: 05)
         case .libraryUse:
-            return SkillCthulhu(name: "LibraryUse", value: 5)
+            return SkillCthulhu(name: "25_LibraryUse", value: 20)
         case .listen:
-            return SkillCthulhu(name: "Listen", value: 25)
+            return SkillCthulhu(name: "26_Listen", value: 20)
         case .locksmith:
-            return SkillCthulhu(name: "Locksmith", value: 1)
-        case .machineGun:
-            return SkillCthulhu(name: "MachineGun", value: 15)
-        case .martialArts:
-            return SkillCthulhu(name: "MartialArts", value: 1)
-        case .mechanicalRepair:
-            return SkillCthulhu(name: "MechanicalRepair", value: 20)
+            return SkillCthulhu(name: "27_Locksmith", value: 01)
+        case .mechRepair:
+            return SkillCthulhu(name: "28_MechRepair", value: 01)
         case .medicine:
-            return SkillCthulhu(name: "Medicine", value: 5)
+            return SkillCthulhu(name: "29_Medicine", value: 01)
+        case .naturalWorld:
+            return SkillCthulhu(name: "30_NaturalWorld", value: 10)
+        case .navigate:
+            return SkillCthulhu(name: "31_Navigate", value: 10)
+        case .occult:
+            return SkillCthulhu(name: "32_Occult", value: 05)
+        case .persuade:
+            return SkillCthulhu(name: "33_Persuade", value: 10)
+        case .pilot:
+            return SkillCthulhu(name: "34_Pilot", value: 01)
+        case .psychology:
+            return SkillCthulhu(name: "35_Psychology", value: 10)
+        case .psychoanalysis:
+            return SkillCthulhu(name: "36_Psychoanalysis", value: 01)
+        case .ride:
+            return SkillCthulhu(name: "37_Ride", value: 05)
+        case .science:
+            return SkillCthulhu(name: "38_Science", value: 01)
+        case .sleightOfHand:
+            return SkillCthulhu(name: "39_SleightOfHand", value: 10)
+        case .spotHidden:
+            return SkillCthulhu(name: "40_SpotHidden", value: 25)
+        case .stealth:
+            return SkillCthulhu(name: "41_Stealth", value: 20)
+        case .survival:
+            return SkillCthulhu(name: "42_Survival", value: 10)
+        case .swim:
+            return SkillCthulhu(name: "43_Swim", value: 20)
+        case .throwThing:
+            return SkillCthulhu(name: "44_Throw", value: 20)
+        case .track:
+            return SkillCthulhu(name: "45_Track", value: 10)
         }
     }
-    
-    static let allValues = [accounting, chemistry, art, astronomy, anthropology, bargain, archaeology, biology, climb, conceal, craft, creditRating, cthulhuMythos, disguise, driveAutomobile, eletricalRepair, fastTalk, firstAid, fistPunch, geology, grapple, handgun, headbutt, hide, history, jump, kick, law, libraryUse, listen, locksmith, machineGun, martialArts, mechanicalRepair, medicine]
+
+    static let allValues = [accounting, anthropology, appraise, archaeology, artAndCraft, charm, climb, creditRating, cthulhuMythos, disguise, dodge, driveAuto, elecRepair, fastTalk, fighting, handgun, rifle, firstAid, history, intimidate, jump, languageOwn, law, libraryUse, listen, locksmith, mechRepair, medicine, naturalWorld, navigate, occult, heavyMachines, persuade, pilot, psychology, psychoanalysis, ride, science, sleightOfHand, spotHidden, stealth, survival, swim, throwThing, track]
 }

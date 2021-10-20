@@ -12,7 +12,7 @@ class EditAttributesCthulhuModal: UIViewController {
 
     var paginator: Int = 0
     let lastPage: Int = 2
-    
+
     var viewModel: DisplaySheetViewModelType!
 
     init(with viewModel: DisplaySheetViewModelType) {
@@ -114,7 +114,7 @@ class EditAttributesCthulhuModal: UIViewController {
         let view = EditModalComponent(titleText: "Appearance".localized(), type: .stepper)
         return view
     }()
-    
+
     lazy var powerView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Power".localized(), type: .stepper)
         return view
@@ -129,7 +129,7 @@ class EditAttributesCthulhuModal: UIViewController {
         self.view.addSubview(stack)
         return stack
     }()
-    
+
     // MARK: - Third Group
 
     lazy var sizeView: EditModalComponent = {

@@ -27,7 +27,7 @@ class CharacterAttributesCthulhu: UIView {
     }
 
     let attributeSTRCthulhu: AttributeBoxCthulhu = {
-        let view = AttributeBoxCthulhu(attribute: "STR", value: 50)
+        let view = AttributeBoxCthulhu(attribute: "STR".localized(), value: 50)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -37,12 +37,12 @@ class CharacterAttributesCthulhu: UIView {
         return view
     }()
     let attributeINTCthulhu: AttributeBoxCthulhu = {
-        let view = AttributeBoxCthulhu(attribute: "INT", value: 55)
+        let view = AttributeBoxCthulhu(attribute: "INT".localized(), value: 55)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     let attributeCONCthulhu: AttributeBoxCthulhu = {
-        let view = AttributeBoxCthulhu(attribute: "CON", value: 75)
+        let view = AttributeBoxCthulhu(attribute: "CON".localized(), value: 75)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -62,12 +62,12 @@ class CharacterAttributesCthulhu: UIView {
         return view
     }()
     let attributeEDUCthulhu: AttributeBoxCthulhu = {
-        let view = AttributeBoxCthulhu(attribute: "EDU", value: 61)
+        let view = AttributeBoxCthulhu(attribute: "EDU".localized(), value: 61)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     let attributeMOVCthulhu: AttributeBoxCthulhu = {
-        let view = AttributeBoxCthulhu(attribute: "MOV", value: 8, isMovement: true)
+        let view = AttributeBoxCthulhu(attribute: "MOV".localized(), value: 8, isMovement: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

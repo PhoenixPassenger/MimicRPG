@@ -156,9 +156,9 @@ class EditSkillT20Modal: UIViewController {
     }
 
     // MARK: - CoreData
-    //Obsoleto, posso apagar depois
+    // Obsoleto, posso apagar depois
     func editSkills() {
-        //self.viewModel.skillT20SaveChanges()
+        // self.viewModel.skillT20SaveChanges()
     }
 
     private func configureLayout() {

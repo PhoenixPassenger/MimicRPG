@@ -140,7 +140,7 @@ class CharacterPointsCthulhu: UIView {
      lazy var magicText: UILabel = {
          let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
-         label.text = "Magic"
+         label.text = "Magic".localized()
          label.font = UIFont.josefinSansBold14()
          label.textColor = .ivory
          self.addSubview(label)
@@ -249,7 +249,7 @@ class CharacterPointsCthulhu: UIView {
      lazy var luckText: UILabel = {
          let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
-         label.text = "Luck"
+         label.text = "Luck".localized()
          label.font = UIFont.josefinSansBold14()
          label.textColor = .ivory
          self.addSubview(label)
@@ -308,7 +308,8 @@ class CharacterPointsCthulhu: UIView {
             firstStackPoints.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15),
             firstStackPoints.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.03),
             firstStackPoints.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.03),
-
+            firstStackPoints.heightAnchor.constraint(equalToConstant: 100),
+            
             lifeText.centerXAnchor.constraint(equalTo: lifeBox.centerXAnchor),
             lifeText.topAnchor.constraint(equalTo: lifeBox.topAnchor, constant: 5),
             lifeValue.centerXAnchor.constraint(equalTo: lifeBox.centerXAnchor),
@@ -327,6 +328,7 @@ class CharacterPointsCthulhu: UIView {
             secondStackPoints.topAnchor.constraint(equalTo: firstStackPoints.bottomAnchor, constant: 30),
             secondStackPoints.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIScreen.main.bounds.width * 0.03),
             secondStackPoints.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: UIScreen.main.bounds.width * -0.03),
+            secondStackPoints.heightAnchor.constraint(equalToConstant: 100),
 
             sanityText.centerXAnchor.constraint(equalTo: sanityBox.centerXAnchor),
             sanityText.topAnchor.constraint(equalTo: sanityBox.topAnchor, constant: 5),
