@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 protocol UserTablesViewModelType {
     var output: UserTablesViewModelOutput? {get set}
-//    var sheets: [Sheet]? { get set }
-//
-//    func fetchSheets() -> [Sheet]
+    var tables: [Table]? { get set }
+
+    func fetchTables() -> [Table]
 }

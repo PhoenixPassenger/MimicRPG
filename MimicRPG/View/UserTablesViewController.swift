@@ -29,15 +29,15 @@ class UserTablesViewController: UIViewController, UISearchResultsUpdating {
 
     var collectionView: UICollectionView?
     let searchController = UISearchController()
-    lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(triggerNewSheetModal))
+    lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(triggerNewTableModal))
 
-    var mockTables: [MockTable] = [] {
+    var mockTables: [Table] = [] {
         didSet {
             filteredTables = mockTables
         }
     }
 
-    var filteredTables: [MockTable] = []
+    var filteredTables: [Table] = []
 
     override func viewDidLoad() {
 
@@ -90,15 +90,15 @@ class UserTablesViewController: UIViewController, UISearchResultsUpdating {
         collectionView?.reloadData()
     }
 
-    func toSheet(table: MockTable) {
+    func toSheet(table: Table) {
 //        coordinator?.goToSelectedSheet(sheet: sheet)
         coordinator?.goToSelectedSheet()
     }
 
-    @objc func triggerNewSheetModal() {
-        let createSheetModal = CreateSheetModal()
-//        createSheetModal.sheetsOutput = viewModel.output
-        present(createSheetModal, animated: true, completion: nil)
+    @objc func triggerNewTableModal() {
+        let createTableModal = CreateTableModal()
+        createTableModal.tablesOutput = viewModel.output
+        present(createTableModal, animated: true, completion: nil)
     }
 
     func updateSearchResults(for searchController: UISearchController) {
@@ -109,7 +109,7 @@ class UserTablesViewController: UIViewController, UISearchResultsUpdating {
             filteredTables = mockTables
         } else {
             filteredTables = mockTables.filter { item in
-                return item.tableName.lowercased().contains(text.lowercased())
+                return item.name!.lowercased().contains(text.lowercased())
             }
         }
         collectionView?.reloadData()
@@ -125,7 +125,7 @@ extension UserTablesViewController: UICollectionViewDataSource {
         guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TableCell else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         }
-        myCell.set(name: filteredTables[indexPath.row].tableName, numberOfPlayers: filteredTables[indexPath.row].numberOfPlayers, system: filteredTables[indexPath.row].system)
+        myCell.set(name: filteredTables[indexPath.row].name!, numberOfPlayers: "5 jogadores", system: filteredTables[indexPath.row].system!)
         return myCell
     }
 
@@ -134,11 +134,17 @@ extension UserTablesViewController: UICollectionViewDataSource {
     }
 
     func fetchData() {
-        mockTables = [
-            MockTable(image: "banner", name: "Guerra da Centelha", numberOfPlayers: "5 jogadores", system: "Tormenta 20"),
-            MockTable(image: "banner", name: "O Mistério do Sabiá", numberOfPlayers: "4 jogadores", system: "Cthulhu 7th ed."),
-            MockTable(image: "banner", name: "Retorno de Zendikar", numberOfPlayers: "6 jogadores", system: "Tormenta 20")
-        ]
+//        mockTables = [
+//            MockTable(image: "banner", name: "Guerra da Centelha", numberOfPlayers: "5 jogadores", system: "Tormenta 20"),
+//            MockTable(image: "banner", name: "O Mistério do Sabiá", numberOfPlayers: "4 jogadores", system: "Cthulhu 7th ed."),
+//            MockTable(image: "banner", name: "Retorno de Zendikar", numberOfPlayers: "6 jogadores", system: "Tormenta 20")
+//        ]
+        let storedTables = viewModel.fetchTables()
+        mockTables.removeAll()
+        for table in storedTables {
+            mockTables.append(table)
+        }
+        collectionView?.reloadData()
     }
 }
 

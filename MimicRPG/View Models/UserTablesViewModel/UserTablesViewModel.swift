@@ -11,7 +11,7 @@ import UIKit
 
 final class UserTablesViewModel {
 
-//    var sheets: [Sheet]? = []
+    var tables: [Table]? = []
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -20,12 +20,12 @@ final class UserTablesViewModel {
 
 extension UserTablesViewModel: UserTablesViewModelType {
 
-//    func fetchSheets() -> [Sheet] {
-//        do {
-//            self.sheets = try context.fetch(Sheet.fetchRequest())
-//        } catch {
-//            fatalError("Unable to fetch data from core data ")
-//        }
-//        return self.sheets!
-//    }
+    func fetchTables() -> [Table] {
+        do {
+            self.tables = try context.fetch(Table.fetchRequest())
+        } catch {
+            fatalError("Unable to fetch data from core data ")
+        }
+        return self.tables!
+    }
 }

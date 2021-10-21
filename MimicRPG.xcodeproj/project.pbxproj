@@ -49,6 +49,8 @@
 		2E5FD79327209CC300B605D0 /* DisplayTableViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD79227209CC300B605D0 /* DisplayTableViewModelOutput.swift */; };
 		2E5FD79527209CE200B605D0 /* DisplayTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD79427209CE200B605D0 /* DisplayTableViewModelType.swift */; };
 		2E5FD7972720D7E300B605D0 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD7962720D7E300B605D0 /* TableCell.swift */; };
+		2E5FD79927218ED600B605D0 /* CreateTableModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD79827218ED600B605D0 /* CreateTableModal.swift */; };
+		2E5FD79C272192DA00B605D0 /* Table+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5FD79B272192DA00B605D0 /* Table+CoreDataClass.swift */; };
 		2E636A1F2719A2D400872F1B /* CharacterPointsCthulhu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E636A1E2719A2D400872F1B /* CharacterPointsCthulhu.swift */; };
 		2E6EAE3B270B4ADA00626650 /* EditAttributesT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */; };
 		2E6EAE3D270B820900626650 /* EditPointsCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */; };
@@ -177,6 +179,8 @@
 		2E5FD79227209CC300B605D0 /* DisplayTableViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewModelOutput.swift; sourceTree = "<group>"; };
 		2E5FD79427209CE200B605D0 /* DisplayTableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewModelType.swift; sourceTree = "<group>"; };
 		2E5FD7962720D7E300B605D0 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		2E5FD79827218ED600B605D0 /* CreateTableModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTableModal.swift; sourceTree = "<group>"; };
+		2E5FD79B272192DA00B605D0 /* Table+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Table+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2E636A1E2719A2D400872F1B /* CharacterPointsCthulhu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPointsCthulhu.swift; sourceTree = "<group>"; };
 		2E6EAE3A270B4ADA00626650 /* EditAttributesT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAttributesT20Modal.swift; sourceTree = "<group>"; };
 		2E6EAE3C270B820900626650 /* EditPointsCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPointsCthulhuModal.swift; sourceTree = "<group>"; };
@@ -387,6 +391,7 @@
 				00C57CCE270DCFF200CEB5A7 /* EditSkillT20Modal.swift */,
 				2E6EAE40270B88BA00626650 /* CreateAttackCthulhuModal.swift */,
 				2E6EAE4E270DD3D800626650 /* EditFieldModal.swift */,
+				2E5FD79827218ED600B605D0 /* CreateTableModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -497,9 +502,9 @@
 				5B0DC57426EA2B68008C8578 /* TabBarViewController.swift */,
 				9684023E26EF7435009AF620 /* DiceRollerViewController.swift */,
 				9684024026EF7447009AF620 /* SettingsViewController.swift */,
-				9684024226EF7486009AF620 /* UserSheetsViewController.swift */,
 				2E5FD78D27209BC000B605D0 /* DisplayTableViewController.swift */,
 				9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */,
+				9684024226EF7486009AF620 /* UserSheetsViewController.swift */,
 				2E5FD7802720988700B605D0 /* UserTablesViewController.swift */,
 			);
 			path = View;
@@ -564,6 +569,7 @@
 				5B7C970026F0C09F00E01EBA /* Attributes+CoreDataClass.swift */,
 				5B7C970226F0C09F00E01EBA /* Points+CoreDataClass.swift */,
 				5B7C970426F0C09F00E01EBA /* Item+CoreDataClass.swift */,
+				2E5FD79B272192DA00B605D0 /* Table+CoreDataClass.swift */,
 				5B7C970626F0C09F00E01EBA /* Skill+CoreDataClass.swift */,
 				5B0DC57926EA2B68008C8578 /* MimicRPG.xcdatamodeld */,
 			);
@@ -816,6 +822,7 @@
 				2EA6F15E26FD3D6C00027E41 /* UserSheetsViewModelOutput.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				966A1D77270B3F900024DE12 /* CreateNoteModal.swift in Sources */,
+				2E5FD79927218ED600B605D0 /* CreateTableModal.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				2E636A1F2719A2D400872F1B /* CharacterPointsCthulhu.swift in Sources */,
 				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
@@ -831,6 +838,7 @@
 				5B0DC57B26EA2B68008C8578 /* MimicRPG.xcdatamodeld in Sources */,
 				5B0DC5B726EA3513008C8578 /* MainCoordinator.swift in Sources */,
 				5B1659FC26F9FF6E004CD628 /* CharacterBioCell.swift in Sources */,
+				2E5FD79C272192DA00B605D0 /* Table+CoreDataClass.swift in Sources */,
 				2E2C7B5A270784320084CBDE /* BreadcrumbForm.swift in Sources */,
 				9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */,
 				2E6EAE4D270CF9FE00626650 /* SheetEnums.swift in Sources */,
