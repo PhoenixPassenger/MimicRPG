@@ -88,7 +88,7 @@ class TableCell: UICollectionViewCell {
             sheetImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             sheetImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.8),
             sheetImage.widthAnchor.constraint(equalTo: self.widthAnchor),
-            
+
             overlay.topAnchor.constraint(equalTo: sheetImage.topAnchor),
             overlay.centerXAnchor.constraint(equalTo: sheetImage.centerXAnchor),
             overlay.heightAnchor.constraint(equalTo: sheetImage.heightAnchor),

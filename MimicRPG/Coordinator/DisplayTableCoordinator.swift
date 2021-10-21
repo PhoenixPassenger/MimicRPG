@@ -10,12 +10,13 @@ import UIKit
 class DisplayTableCoordinator : Coordinator {
 
     var parentCoordinator: Coordinator
-//    var sheet: Sheet
+//    var table: Table
     var navigationController: UINavigationController
 
-    init(with parent: Coordinator, navController: UINavigationController, sheet: Sheet) {
+//    init(with parent: Coordinator, navController: UINavigationController, table: Table) {
+    init(with parent: Coordinator, navController: UINavigationController) {
         parentCoordinator = parent
-//        self.sheet = sheet
+//        self.table = table
         navigationController = navController
     }
 
@@ -23,7 +24,7 @@ class DisplayTableCoordinator : Coordinator {
         let sheetVC = DisplayTableViewController()
         sheetVC.coordinator = self
         let sheetVM = DisplayTableViewModel()
-//        sheetVM.sheet = sheet
+//        sheetVM.table = table
         sheetVC.viewModel = sheetVM
         sheetVM.output = sheetVC
         navigationController.pushViewController(sheetVC, animated: true)

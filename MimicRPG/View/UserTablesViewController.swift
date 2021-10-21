@@ -90,8 +90,9 @@ class UserTablesViewController: UIViewController, UISearchResultsUpdating {
         collectionView?.reloadData()
     }
 
-    @objc func toSheet(sheet: Sheet) {
-        coordinator?.goToSelectedSheet(sheet: sheet)
+    func toSheet(table: MockTable) {
+//        coordinator?.goToSelectedSheet(sheet: sheet)
+        coordinator?.goToSelectedSheet()
     }
 
     @objc func triggerNewSheetModal() {
@@ -149,6 +150,6 @@ extension UserTablesViewController: UserTablesViewModelOutput {
 
 extension UserTablesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        toSheet(sheet: self.filteredSheets[indexPath.row])
+        toSheet(table: self.filteredTables[indexPath.row])
     }
 }
