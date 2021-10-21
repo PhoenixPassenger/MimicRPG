@@ -12,5 +12,12 @@ import UIKit
 
 protocol DisplayTableViewModelType {
     var output: DisplayTableViewModelOutput? {get set}
-//    var sheet: Sheet? { get set }
+    var table: Table? { get set }
+    
+    func getNotes() -> [Notes]
+    func newNote(name: String, text: String)
+    func editNote(name: String, text: String, note: Notes)
+    func removeNote(note: Notes)
+    func editNoteModal(note: Notes)
+    func newNoteModal()
 }

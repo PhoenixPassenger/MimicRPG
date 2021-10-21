@@ -29,6 +29,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="characteristics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Characteristics" inverseName="notes" inverseEntity="Characteristics"/>
         <relationship name="sheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="notes" inverseEntity="Sheet"/>
+        <relationship name="table" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Table" inverseName="notes" inverseEntity="Table"/>
     </entity>
     <entity name="Points" representedClassName="Points" syncable="YES" codeGenerationType="category">
         <attribute name="actualValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -63,6 +64,7 @@
     <entity name="Table" representedClassName="Table" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="system" optional="YES" attributeType="String"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notes" inverseName="table" inverseEntity="Notes"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sheet" inverseName="table" inverseEntity="Sheet"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="category">
@@ -87,12 +89,12 @@
         <element name="Attributes" positionX="36" positionY="81" width="128" height="89"/>
         <element name="Characteristics" positionX="-405.3682861328125" positionY="269.3602447509766" width="128" height="134"/>
         <element name="Item" positionX="-540.6806640625" positionY="5.531661987304688" width="128" height="74"/>
-        <element name="Notes" positionX="-408.4749755859375" positionY="-106.1026611328125" width="128" height="74"/>
+        <element name="Notes" positionX="-408.4749755859375" positionY="-106.1026611328125" width="128" height="89"/>
         <element name="Points" positionX="-4.2418212890625" positionY="-177.4718627929688" width="128" height="89"/>
         <element name="Profile" positionX="-196.2710571289062" positionY="80.95466613769531" width="128" height="59"/>
         <element name="Sheet" positionX="-667.0755615234375" positionY="328.3356323242188" width="128" height="194"/>
         <element name="Skill" positionX="-360.7604370117188" positionY="12.67359924316406" width="128" height="104"/>
-        <element name="Table" positionX="-459" positionY="-18" width="128" height="74"/>
+        <element name="Table" positionX="-459" positionY="-18" width="128" height="89"/>
         <element name="User" positionX="-120.60693359375" positionY="228.7191314697266" width="128" height="59"/>
     </elements>
 </model>

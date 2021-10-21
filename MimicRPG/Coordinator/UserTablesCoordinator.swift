@@ -18,15 +18,9 @@ class UserTablesCoordinator : Coordinator {
         navigationController = navController
     }
 
-    func goToSelectedSheet() {
-        let displayCoord = DisplayTableCoordinator(with: self, navController: navigationController)
+    func goToSelectedSheet(table: Table) {
+        let displayCoord = DisplayTableCoordinator(with: self, navController: navigationController, table: table)
         displayCoord.start()
         addChildCoordinator(displayCoord)
     }
-    
-//    func goToSelectedSheet(table: Table) {
-//        let displayCoord = DisplaySheetCoordinator(with: self, navController: navigationController, table: table)
-//        displayCoord.start()
-//        addChildCoordinator(displayCoord)
-//    }
 }

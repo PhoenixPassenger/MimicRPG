@@ -22,8 +22,8 @@ class MainCoordinator : Coordinator {
         sheetsViewController.viewModel = UserSheetsViewModel()
         sheetsViewController.viewModel.output = sheetsViewController
         sheetsViewController.title = "TabBarSheets".localized()
-        sheetsViewController.tabBarItem = UITabBarItem(title: "TabBarSheets".localized(), image: UIImage(systemName: "doc.on.doc"),
-                                       selectedImage: UIImage(systemName: "doc.on.doc.fill"))
+        sheetsViewController.tabBarItem = UITabBarItem(title: "TabBarSheets".localized(), image: UIImage(named: "TabSheet"),
+                                       selectedImage: UIImage(named: "TabSheet"))
 
         let tablesViewController = UserTablesViewController()
         tablesViewController.viewModel = UserTablesViewModel()

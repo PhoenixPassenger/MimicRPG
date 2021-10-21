@@ -10,7 +10,8 @@ import UIKit
 
 class CreateNoteModal: UIViewController {
 
-    var viewModel : DisplaySheetViewModelType!
+    var sheetViewModel : DisplaySheetViewModelType?
+    var tableViewModel : DisplayTableViewModelType?
     var isEditMode: Bool = false
     var editNote: Notes?
     var paginator: Int = 0
@@ -148,7 +149,12 @@ class CreateNoteModal: UIViewController {
     func createNewNote() {
         guard let name = sheetNoteNameView.valueText.text else {return}
         guard let desc = sheetNoteDescView.valueText.text else {return}
-        !self.isEditMode ? self.viewModel.newNote(name: name, text: desc) : self.viewModel.editNote(name: name, text: desc, note: self.editNote!)
+        if let sheetViewModel = self.sheetViewModel {
+            !self.isEditMode ? sheetViewModel.newNote(name: name, text: desc) : sheetViewModel.editNote(name: name, text: desc, note: self.editNote!)
+        }
+        if let tableViewModel = self.tableViewModel {
+            !self.isEditMode ? tableViewModel.newNote(name: name, text: desc) : tableViewModel.editNote(name: name, text: desc, note: self.editNote!)
+        }
     }
 
     private func configureLayout() {

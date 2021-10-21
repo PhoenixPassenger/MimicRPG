@@ -8,20 +8,6 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class MockTable {
-    var image: String = ""
-    var tableName: String = ""
-    var numberOfPlayers: String = ""
-    var system: String = ""
-
-    init(image: String, name: String, numberOfPlayers: String, system: String) {
-        self.image = image
-        self.tableName = name
-        self.numberOfPlayers = numberOfPlayers
-        self.system = system
-    }
-}
-
 class UserTablesViewController: UIViewController, UISearchResultsUpdating {
 
     var coordinator: UserTablesCoordinator?
@@ -91,8 +77,7 @@ class UserTablesViewController: UIViewController, UISearchResultsUpdating {
     }
 
     func toSheet(table: Table) {
-//        coordinator?.goToSelectedSheet(sheet: sheet)
-        coordinator?.goToSelectedSheet()
+        coordinator?.goToSelectedSheet(table: table)
     }
 
     @objc func triggerNewTableModal() {
@@ -134,11 +119,6 @@ extension UserTablesViewController: UICollectionViewDataSource {
     }
 
     func fetchData() {
-//        mockTables = [
-//            MockTable(image: "banner", name: "Guerra da Centelha", numberOfPlayers: "5 jogadores", system: "Tormenta 20"),
-//            MockTable(image: "banner", name: "O Mistério do Sabiá", numberOfPlayers: "4 jogadores", system: "Cthulhu 7th ed."),
-//            MockTable(image: "banner", name: "Retorno de Zendikar", numberOfPlayers: "6 jogadores", system: "Tormenta 20")
-//        ]
         let storedTables = viewModel.fetchTables()
         mockTables.removeAll()
         for table in storedTables {
