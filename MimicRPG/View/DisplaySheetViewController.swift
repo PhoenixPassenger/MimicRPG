@@ -348,7 +348,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
     func displayEditNoteModal(name: String, desc: String, note: Notes) {
         let modal = CreateNoteModal()
-        modal.viewModel = self.viewModel
+        modal.sheetViewModel = self.viewModel
         modal.fillForm(name: name, desc: desc, note: note)
         self.present(modal, animated: true, completion: nil)
     }
@@ -375,9 +375,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         if (viewModel.getSystem() == "Tormenta 20") {
             let level = Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
             var race = (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue)
-//            if ((race?.isEmpty) != nil) {
-//                race = "Unknown Race"
-//            }
+
             sheetHeader.set(
                 name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "Unknown Name",
                 desc: race! + " - " + "Nvl".localized() + ". \(level)"
@@ -399,7 +397,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
     func displayNewNoteModal() {
         let modal = CreateNoteModal()
-        modal.viewModel = self.viewModel
+        modal.sheetViewModel = self.viewModel
         self.present(modal, animated: true, completion: nil)
     }
 

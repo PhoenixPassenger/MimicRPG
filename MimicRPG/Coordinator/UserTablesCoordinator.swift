@@ -1,13 +1,13 @@
 //
-//  UserSheetsCoordinator.swift
+//  UserTablesCoordinator.swift
 //  MimicRPG
 //
-//  Created by Pedro Henrique on 21/09/21.
+//  Created by Eduardo Oliveira on 20/10/21.
 //
 
 import UIKit
 
-class UserSheetsCoordinator : Coordinator {
+class UserTablesCoordinator : Coordinator {
 
     var parentCoordinator: Coordinator
 
@@ -18,8 +18,8 @@ class UserSheetsCoordinator : Coordinator {
         navigationController = navController
     }
 
-    func goToSelectedSheet(sheet: Sheet) {
-        let displayCoord = DisplaySheetCoordinator(with: self, navController: navigationController, sheet: sheet)
+    func goToSelectedSheet(table: Table) {
+        let displayCoord = DisplayTableCoordinator(with: self, navController: navigationController, table: table)
         displayCoord.start()
         addChildCoordinator(displayCoord)
     }

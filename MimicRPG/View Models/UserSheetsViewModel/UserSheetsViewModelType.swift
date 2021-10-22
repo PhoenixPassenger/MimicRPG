@@ -12,13 +12,4 @@ protocol UserSheetsViewModelType {
     var sheets: [Sheet]? { get set }
 
     func fetchSheets() -> [Sheet]
-//
-//    func initVariables()
-//    func changeSystem(pickeredRow: Int)
-//    func getSystemsDescriptionById(row: Int) -> String
-//    func getNumberOfSystems() -> Int
-//    func numberOfSections() -> Int
-//    func viewForHeaderInSection(section: Int) -> UIView
-//    func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell
-//    func didSelectRowAt(indexPath: IndexPath)
 }
