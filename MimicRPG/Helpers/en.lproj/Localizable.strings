@@ -260,3 +260,5 @@ Sanity = "Sanity";
 28_Survival = "Survival";
 29_Volition  = "Volition";
 NewTable = "New Table";
+RebootTitle = "Language reboot successful";
+RebootBody = "App language was successfuly changed.";

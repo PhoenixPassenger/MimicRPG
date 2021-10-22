@@ -87,15 +87,31 @@ final class SettingsViewModel {
     var selectedRow: Int? = 0
     func switchButton() -> UIView {
         let switchButton = UISwitch()
+
         switchButton.isOn = false
         switchButton.isEnabled = false
-        let center = UNUserNotificationCenter.current()
-        center.getNotificationSettings(completionHandler: { settings in
-            guard (settings.authorizationStatus == .authorized) ||
-                    (settings.authorizationStatus == .provisional) else { return }
-            DispatchQueue.main.async {
-                switchButton.isOn = UserDefaults.standard.bool(forKey: "notificationsEnabled")
-                switchButton.isEnabled = true
+//        let center = UNUserNotificationCenter.current()
+//        center.getNotificationSettings(completionHandler: { settings in
+//            guard (settings.authorizationStatus == .authorized) ||
+//                    (settings.authorizationStatus == .provisional) else { return }
+//            DispatchQueue.main.async {
+//                switchButton.isOn = UserDefaults.standard.bool(forKey: "notificationsEnabled")
+//                switchButton.isEnabled = true
+//            }
+//        })
+        let current = UNUserNotificationCenter.current()
+
+        current.getNotificationSettings(completionHandler: { (settings) in
+            if settings.authorizationStatus == .authorized {
+                DispatchQueue.main.async {
+                    switchButton.isOn = true
+                    switchButton.isEnabled = true
+                }
+            } else {
+                DispatchQueue.main.async {
+                    switchButton.isOn = false
+                    switchButton.isEnabled = true
+                }
             }
         })
         switchButton.addTarget(self, action: #selector(handleSwitchAction), for: .valueChanged)
@@ -185,7 +201,7 @@ extension SettingsViewModel: SettingsViewModelType {
     }
 
     func restartApplication() {
-        NotificationService.shared.generateRestartNotification(title: "sim.", body: "test", timeInterval: 0.5)
+        NotificationService.shared.generateRestartNotification(title: "RebootTitle".localized(), body: "RebootBody".localized(), timeInterval: 0.5)
         fatalError()
     }
 }

@@ -260,3 +260,5 @@ Sanity = "Sanidade";
 28_Survival = "Sobrevivência";
 29_Volition  = "Vontade";
 NewTable = "Nova Mesa";
+RebootTitle = "Sucesso ao reiniciar o idioma";
+RebootBody = "Idioma da aplicação foi modificado.";

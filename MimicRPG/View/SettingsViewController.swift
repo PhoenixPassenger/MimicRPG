@@ -16,7 +16,6 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "Background")
         self.setupTableView()
-        print(LocalizedStrings.hello.localized)
     }
 
     func setupTableView() {
