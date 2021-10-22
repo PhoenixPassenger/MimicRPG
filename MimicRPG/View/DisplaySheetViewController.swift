@@ -375,9 +375,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         if (viewModel.getSystem() == "Tormenta 20") {
             let level = Int(viewModel.getProfile().first(where: {$0.name == "Level"})!.numberValue)
             var race = (viewModel.getProfile().first(where: {$0.name == "Race"})?.stringValue)
-//            if ((race?.isEmpty) != nil) {
-//                race = "Unknown Race"
-//            }
+
             sheetHeader.set(
                 name: (viewModel.getProfile().first(where: {$0.name == "CharacterName"})?.stringValue) ?? "Unknown Name",
                 desc: race! + " - " + "Nvl".localized() + ". \(level)"

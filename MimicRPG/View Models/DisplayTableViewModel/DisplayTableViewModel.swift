@@ -19,9 +19,10 @@ final class DisplayTableViewModel {
 
 extension DisplayTableViewModel: DisplayTableViewModelType {
     func getNotes() -> [Notes] {
-        return Array(table?.notes as! Set<Notes>)
+        let notes = Array(table?.notes as! Set<Notes>)
+        return notes.sorted(by: { $0.name! < $1.name! })
     }
-    
+
     func newNote(name: String, text: String) {
         let note = Notes(context: context)
         note.table = self.table
@@ -36,7 +37,7 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
         }
         self.output?.updateNotes()
     }
-    
+
     func editNote(name: String, text: String, note: Notes) {
         note.name = name
         note.characteristics?.stringValue = text
@@ -47,7 +48,7 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
         }
         self.output?.updateNotes()
     }
-    
+
     func removeNote(note: Notes) {
         context.delete(note)
         do {
@@ -57,15 +58,13 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
         }
         self.output?.updateNotes()
     }
-    
+
     func editNoteModal(note: Notes) {
         self.output?.displayEditNoteModal(name: note.name!, desc: (note.characteristics?.stringValue)!, note: note)
     }
-    
+
     func newNoteModal() {
         self.output?.displayNewNoteModal()
     }
-    
 
 }
-

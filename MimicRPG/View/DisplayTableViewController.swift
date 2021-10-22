@@ -10,7 +10,6 @@ import UIKit
 
 class DisplayTableViewController: UIViewController {
 
-    var buttons: [UIButton] = []
     var viewModel: DisplayTableViewModelType!
     var coordinator: Coordinator?
 
@@ -35,7 +34,7 @@ class DisplayTableViewController: UIViewController {
         return label
     }()
 
-    var tableNotes: UITableView = UITableView()
+    var tableNotes: TableNotes = TableNotes()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,15 +62,12 @@ class DisplayTableViewController: UIViewController {
     }
 
     func setupElements() {
-        configureConstraints()
         updateElements()
+        configureConstraints()
     }
 
     func configureConstraints() {
         tableNotes.translatesAutoresizingMaskIntoConstraints = false
-        tableNotes.register(CharacterNotesCell.self, forCellReuseIdentifier: "MyCell")
-        tableNotes.delegate = self
-        tableNotes.dataSource = self
         view.addSubview(tableNotes)
 
         NSLayoutConstraint.activate([
@@ -115,22 +111,6 @@ extension DisplayTableViewController: DisplayTableViewModelOutput {
     }
 
     func updateNotes() {
-        tableNotes.reloadData()
-    }
-}
-
-extension DisplayTableViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.getNotes().count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterNotesCell
-        guard let cell = cellWrap else { fatalError() }
-        let notes = self.viewModel.getNotes()
-        let noteRow = notes[indexPath.row]
-        cell.set(titleItem: noteRow.name ?? "Nota", valueItem: (noteRow.characteristics?.stringValue) ?? "Descrição")
-//        cell.set(titleItem: "Nota de mesa", valueItem: "Descrição")
-        return cell
+        self.tableNotes.reloadData()
     }
 }

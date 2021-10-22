@@ -15,7 +15,6 @@ class TableNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.register(CharacterNotesCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
-//        self.tableView.separatorStyle = .none
         self.backgroundColor = UIColor(named: "Background")
         self.tableFooterView = UIView()
     }
@@ -26,6 +25,12 @@ class TableNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
         if let color = colorComponents {
             view.backgroundColor = UIColor.init(red: color[0], green: color[1], blue: color[2], alpha: 0.75)
         }
+        let label = UILabel()
+        label.frame = CGRect(x: 15, y: 0, width: 90, height: 30)
+        label.text = "Notes".localized()
+        label.tintColor = UIColor(named: "FontColor")
+        label.font = UIFont.josefinSansRegular()
+        view.addSubview(label)
 
         let button = UIButton(type: .system)
         button.frame = CGRect(x: UIScreen.main.bounds.width * 0.9, y: 0, width: 30, height: 30)
