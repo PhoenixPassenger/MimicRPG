@@ -13,6 +13,8 @@ class DisplayTableViewController: UIViewController {
     var viewModel: DisplayTableViewModelType!
     var coordinator: Coordinator?
 
+    var myCollectionView:UICollectionView?
+
     lazy var bannerView: UIImageView = {
         let bannerView = UIImageView()
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,13 +27,22 @@ class DisplayTableViewController: UIViewController {
     }()
 
     lazy var titleView: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Table without name"
         label.font = UIFont.josefinSansBold30()
         label.tintColor = UIColor(named: "FontColor")
         view.addSubview(label)
         return label
+    }()
+
+    lazy var shareButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "Chain"), for: .normal)
+        button.tintColor = UIColor(named: "Azure")
+        view.addSubview(button)
+        return button
     }()
 
     var tableNotes: TableNotes = TableNotes()
@@ -66,7 +77,31 @@ class DisplayTableViewController: UIViewController {
         configureConstraints()
     }
 
+    func updateElements() {
+        titleView.text = viewModel.table?.name
+
+        let view = TableNotes()
+        view.viewModel = self.viewModel
+        tableNotes = view
+        view.setupTableView()
+
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 160, height: 160)
+        layout.scrollDirection = .horizontal
+
+        myCollectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 179), size: CGSize(width: self.view.frame.size.width, height: 190)), collectionViewLayout: layout)
+        myCollectionView?.register(UserSheet.self, forCellWithReuseIdentifier: "MyCell")
+        myCollectionView?.backgroundColor = UIColor.white
+
+        myCollectionView?.dataSource = self
+        myCollectionView?.delegate = self
+    }
+
     func configureConstraints() {
+        myCollectionView?.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(myCollectionView ?? UICollectionView())
+
         tableNotes.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableNotes)
 
@@ -76,23 +111,19 @@ class DisplayTableViewController: UIViewController {
             bannerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bannerView.heightAnchor.constraint(equalToConstant: 139),
 
+            shareButton.topAnchor.constraint(equalTo: bannerView.bottomAnchor, constant: 15),
+            shareButton.trailingAnchor.constraint(equalTo: bannerView.trailingAnchor, constant: -15),
+            shareButton.widthAnchor.constraint(equalToConstant: 41),
+
             titleView.topAnchor.constraint(equalTo: bannerView.bottomAnchor, constant: 15),
             titleView.leadingAnchor.constraint(equalTo: bannerView.leadingAnchor, constant: 16),
+            titleView.trailingAnchor.constraint(equalTo: shareButton.leadingAnchor, constant: -5),
 
-            tableNotes.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+            tableNotes.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 190),
             tableNotes.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableNotes.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableNotes.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-    }
-
-    func updateElements() {
-        titleView.text = viewModel.table?.name
-
-        let view = TableNotes()
-        view.viewModel = self.viewModel
-        tableNotes = view
-        view.setupTableView()
     }
 }
 
@@ -112,5 +143,22 @@ extension DisplayTableViewController: DisplayTableViewModelOutput {
 
     func updateNotes() {
         self.tableNotes.reloadData()
+    }
+}
+
+extension DisplayTableViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 9 // How many cells to display
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as? UserSheet else {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+        }
+        return myCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       print("User tapped on item \(indexPath.row)")
     }
 }
