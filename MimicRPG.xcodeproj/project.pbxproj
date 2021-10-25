@@ -116,6 +116,7 @@
 		9684024126EF7447009AF620 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024026EF7447009AF620 /* SettingsViewController.swift */; };
 		9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024226EF7486009AF620 /* UserSheetsViewController.swift */; };
 		9684024526EF7DA3009AF620 /* DisplaySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */; };
+		9688AA622726DBA600BC6E9C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9688AA612726DBA600BC6E9C /* CloudKit.framework */; };
 		96B23B4A27049F2600A394E0 /* CharacterAttacksT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B23B4927049F2600A394E0 /* CharacterAttacksT20.swift */; };
 		96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F09C9826F9FAA3008F5554 /* DisplaySheetCoordinator.swift */; };
 		96F09C9B26FA11B3008F5554 /* UserSheetsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F09C9A26FA11B3008F5554 /* UserSheetsCoordinator.swift */; };
@@ -257,6 +258,7 @@
 		9684024026EF7447009AF620 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9684024226EF7486009AF620 /* UserSheetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewController.swift; sourceTree = "<group>"; };
 		9684024426EF7DA3009AF620 /* DisplaySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewController.swift; sourceTree = "<group>"; };
+		9688AA612726DBA600BC6E9C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		96B23B4927049F2600A394E0 /* CharacterAttacksT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttacksT20.swift; sourceTree = "<group>"; };
 		96F09C9826F9FAA3008F5554 /* DisplaySheetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetCoordinator.swift; sourceTree = "<group>"; };
 		96F09C9A26FA11B3008F5554 /* UserSheetsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsCoordinator.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9688AA622726DBA600BC6E9C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +441,7 @@
 				5B0DC58926EA2B6A008C8578 /* MimicRPGTests */,
 				5B0DC59426EA2B6A008C8578 /* MimicRPGUITests */,
 				5B0DC56E26EA2B68008C8578 /* Products */,
+				9688AA602726DBA600BC6E9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -639,6 +643,14 @@
 				5B7BBE1C26FCFAEF008260D9 /* CharacterItems.swift */,
 			);
 			path = CharacterItems;
+			sourceTree = "<group>";
+		};
+		9688AA602726DBA600BC6E9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9688AA612726DBA600BC6E9C /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		96B23B4827049B2D00A394E0 /* CharacterAttacks */ = {
@@ -1097,7 +1109,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = MimicRPG/MimicRPG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 795A25396T;
+				DEVELOPMENT_TEAM = Q2AATBYW8Z;
 				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1118,7 +1130,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = MimicRPG/MimicRPG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 795A25396T;
+				DEVELOPMENT_TEAM = Q2AATBYW8Z;
 				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
