@@ -19,7 +19,7 @@ class TableCell: UICollectionViewCell {
         self.addSubview(imageView)
         return imageView
     }()
-    
+
     lazy var overlay: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -104,7 +104,7 @@ class TableCell: UICollectionViewCell {
 
             nameLabel.bottomAnchor.constraint(equalTo: self.numberOfPlayersLabel.topAnchor, constant: -5),
             nameLabel.leftAnchor.constraint(equalTo: self.sheetImage.leftAnchor, constant: 7),
-            nameLabel.heightAnchor.constraint(equalToConstant: 18),
+            nameLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
 }
