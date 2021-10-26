@@ -273,3 +273,5 @@ DeleteItemConfirm = "Apagar Item";
 DeleteAttackTitle = "Apagando Ataque";
 DeleteAttackMessage = "Isto apagará o ataque selecionado. Essa ação não pode ser desfeita.";
 DeleteAttackConfirm = "Apagar Ataque";
+RebootLanguageTitle = "Aplicação reiniciada com sucesso";
+RebootLanguageMessage = "O idioma foi modificado com sucesso";

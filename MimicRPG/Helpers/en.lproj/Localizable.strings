@@ -273,3 +273,5 @@ DeleteItemConfirm = "Delete Item";
 DeleteAttackTitle = "Deleting Attack";
 DeleteAttackMessage = "This will delete the selected attack. This action cannot be undone.";
 DeleteAttackConfirm = "Delete Attack";
+RebootLanguageTitle = "App reboot successful";
+RebootLanguageMessage = "Language was changed successfully";
