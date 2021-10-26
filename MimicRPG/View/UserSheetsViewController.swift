@@ -115,17 +115,18 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating, UIGes
         let indexPath = self.collectionView?.indexPathForItem(at: prep)
 
         if let index = indexPath {
-            var cell = self.collectionView?.cellForItem(at: index)
-            alertDeleteCell()
-            print(index.item)
+            let cell = self.collectionView?.cellForItem(at: index)
+            alertDeleteCell(selected: cell)
         } else {
             print("Could not find index path")
         }
     }
 
-    func alertDeleteCell() {
+    func alertDeleteCell(selected cell: UICollectionViewCell!) {
         let alert = UIAlertController(title: "DeleteSheetTitle".localized(), message: "DeleteSheetMessage".localized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "DeleteSheetConfirm".localized(), style: .destructive, handler: { _ in
+            let sheetCell = cell as? UserSheet
+            self.viewModel.deleteSheet(sheet: sheetCell)
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
         }))
