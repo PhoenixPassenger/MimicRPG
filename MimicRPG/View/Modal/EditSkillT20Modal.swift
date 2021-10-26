@@ -148,7 +148,7 @@ class EditSkillT20Modal: UIViewController {
         modifierView.titleLabel.text = ("Modifier"+(skillAtt?.abbreviation)!).localized()
         modifierView.valueText.text = String(Int(skillAttModif))
 
-        //trainedView.trainedSwitch.isOn = skill.isActivated
+        // trainedView.trainedSwitch.isOn = skill.isActivated
 
         otherView.setStepperValue(with: Int(skill.value))
 

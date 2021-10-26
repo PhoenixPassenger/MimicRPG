@@ -260,3 +260,6 @@ Sanity = "Sanity";
 28_Survival = "Survival";
 29_Volition  = "Volition";
 NewTable = "New Table";
+DeleteSheetTitle = "Deleting Sheet";
+DeleteSheetMessage = "This will delete the selected sheet. This action cannot be undone.";
+DeleteSheetConfirm = "Delete Sheet";

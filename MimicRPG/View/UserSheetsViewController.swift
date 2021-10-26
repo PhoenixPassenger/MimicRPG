@@ -8,7 +8,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
+class UserSheetsViewController: UIViewController, UISearchResultsUpdating, UIGestureRecognizerDelegate {
 
     var coordinator: UserSheetsCoordinator?
     var viewModel: UserSheetsViewModelType!
@@ -50,6 +50,12 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
 
         collectionView?.dataSource = self
         collectionView?.delegate = self
+
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(pressSheetCell(_:)))
+        gestureRecognizer.minimumPressDuration = 0.5
+        gestureRecognizer.delaysTouchesBegan = true
+        gestureRecognizer.delegate = self
+        self.collectionView?.addGestureRecognizer(gestureRecognizer)
 
         view.addSubview(collectionView ?? UICollectionView())
 
@@ -99,6 +105,33 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating {
         }
         collectionView?.reloadData()
     }
+
+    @objc func pressSheetCell(_ gestureReconizer : UILongPressGestureRecognizer) {
+        if gestureReconizer.state != .began {
+            return
+        }
+
+        let prep = gestureReconizer.location(in: self.collectionView)
+        let indexPath = self.collectionView?.indexPathForItem(at: prep)
+
+        if let index = indexPath {
+            var cell = self.collectionView?.cellForItem(at: index)
+            alertDeleteCell()
+            print(index.item)
+        } else {
+            print("Could not find index path")
+        }
+    }
+
+    func alertDeleteCell() {
+        let alert = UIAlertController(title: "DeleteSheetTitle".localized(), message: "DeleteSheetMessage".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "DeleteSheetConfirm".localized(), style: .destructive, handler: { _ in
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UserSheetsViewController: UICollectionViewDataSource {
@@ -111,6 +144,7 @@ extension UserSheetsViewController: UICollectionViewDataSource {
             return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         }
         myCell.set(name: filteredSheets[indexPath.row].name!, desc: "", system: filteredSheets[indexPath.row].system!)
+
         return myCell
     }
 
@@ -126,6 +160,7 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         }
         collectionView?.reloadData()
     }
+
 }
 
 extension UserSheetsViewController: UserSheetsViewModelOutput {
