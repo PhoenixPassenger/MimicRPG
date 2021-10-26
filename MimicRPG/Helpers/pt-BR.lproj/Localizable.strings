@@ -9,6 +9,7 @@ hello = "oi";
 English = "Inglês";
 Portuguese = "Português";
 Enabled = "Habilitado";
+Disabled = "Desabilitado";
 Language = "Linguagem";
 Notifications = "Notificações";
 titleAlert = "Escolha a linguagem";
