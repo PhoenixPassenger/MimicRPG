@@ -67,4 +67,21 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
         self.output?.displayNewNoteModal()
     }
 
+    func addSheetModal() {
+        self.output?.displayAddSheetModal()
+    }
+    
+    func fetchSheetByIdentifier(identifier: String) -> Sheet? {
+        do {
+            let sheets = try context.fetch(Sheet.fetchRequest())
+            if let fetchSheet = sheets.first(where: {$0.identifier?.uuidString == identifier}) {
+                return fetchSheet
+            } else {
+                return nil
+            }
+        } catch {
+            fatalError("Unable to fetch data from core data ")
+        }
+        return nil
+    }
 }

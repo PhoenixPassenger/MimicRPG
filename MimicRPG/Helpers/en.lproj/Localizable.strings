@@ -260,3 +260,6 @@ Sanity = "Sanity";
 28_Survival = "Survival";
 29_Volition  = "Volition";
 NewTable = "New Table";
+Sheets = "Sheets";
+AddSheetToTable = "Add Sheet To Table";
+SheetCode = "Sheet Code";

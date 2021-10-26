@@ -36,11 +36,22 @@ class DisplayTableViewController: UIViewController {
         return label
     }()
 
-    lazy var shareButton: UIButton = {
-        let button = UIButton()
+    lazy var collectionHeaderTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Notes".localized()
+        label.tintColor = UIColor(named: "FontColor")
+        label.font = UIFont.josefinSansRegular()
+        view.addSubview(label)
+        return label
+    }()
+
+    lazy var collectionHeaderButton: UIButton = {
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "Chain"), for: .normal)
+        button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
         button.tintColor = UIColor(named: "Azure")
+        button.addTarget(self, action: #selector(self.addSheet), for: .touchUpInside)
         view.addSubview(button)
         return button
     }()
@@ -77,6 +88,10 @@ class DisplayTableViewController: UIViewController {
         configureConstraints()
     }
 
+    @objc func addSheet() {
+        self.viewModel.addSheetModal()
+    }
+
     func updateElements() {
         titleView.text = viewModel.table?.name
 
@@ -90,7 +105,7 @@ class DisplayTableViewController: UIViewController {
         layout.itemSize = CGSize(width: 160, height: 160)
         layout.scrollDirection = .horizontal
 
-        myCollectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 179), size: CGSize(width: self.view.frame.size.width, height: 190)), collectionViewLayout: layout)
+        myCollectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 189), size: CGSize(width: self.view.frame.size.width, height: 180)), collectionViewLayout: layout)
         myCollectionView?.register(UserSheet.self, forCellWithReuseIdentifier: "MyCell")
         myCollectionView?.backgroundColor = UIColor.white
 
@@ -111,13 +126,13 @@ class DisplayTableViewController: UIViewController {
             bannerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bannerView.heightAnchor.constraint(equalToConstant: 139),
 
-            shareButton.topAnchor.constraint(equalTo: bannerView.bottomAnchor, constant: 15),
-            shareButton.trailingAnchor.constraint(equalTo: bannerView.trailingAnchor, constant: -15),
-            shareButton.widthAnchor.constraint(equalToConstant: 41),
-
             titleView.topAnchor.constraint(equalTo: bannerView.bottomAnchor, constant: 15),
             titleView.leadingAnchor.constraint(equalTo: bannerView.leadingAnchor, constant: 16),
-            titleView.trailingAnchor.constraint(equalTo: shareButton.leadingAnchor, constant: -5),
+
+            collectionHeaderTitle.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 7),
+            collectionHeaderTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            collectionHeaderButton.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+            collectionHeaderButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
 
             tableNotes.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 190),
             tableNotes.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -128,6 +143,12 @@ class DisplayTableViewController: UIViewController {
 }
 
 extension DisplayTableViewController: DisplayTableViewModelOutput {
+    func displayAddSheetModal() {
+        let modal = AddSheetToTableModal()
+        modal.tableViewModel = self.viewModel
+        self.present(modal, animated: true, completion: nil)
+    }
+
     func displayNewNoteModal() {
         let modal = CreateNoteModal()
         modal.tableViewModel = self.viewModel
