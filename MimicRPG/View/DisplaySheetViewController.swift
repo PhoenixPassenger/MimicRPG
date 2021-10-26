@@ -306,6 +306,16 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func alertDeleteNote(receivedNote: Notes) {
+        let alert = UIAlertController(title: "DeleteNoteTitle".localized(), message: "DeleteNoteMessage".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "DeleteNoteConfirm".localized(), style: .destructive, handler: { _ in
+            self.viewModel.removeNote(note: receivedNote)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
 
     func reloadAttacksT20() {
         let view = self.sheetView as? CharacterAttacksT20

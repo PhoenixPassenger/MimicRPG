@@ -29,6 +29,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
 
     func displayEditModal()
     func updateNotes()
+    func alertDeleteNote(receivedNote: Notes)
     func updateProfile()
     func updateItems()
     func displayEditItemModal(name: String, desc: String, uses: Int, item: Item)

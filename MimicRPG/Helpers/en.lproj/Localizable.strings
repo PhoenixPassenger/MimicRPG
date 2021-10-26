@@ -263,3 +263,6 @@ NewTable = "New Table";
 DeleteSheetTitle = "Deleting Sheet";
 DeleteSheetMessage = "This will delete the selected sheet. This action cannot be undone.";
 DeleteSheetConfirm = "Delete Sheet";
+DeleteNoteTitle = "Deleting Note";
+DeleteNoteMessage = "This will delete the selected note. This action cannot be undone.";
+DeleteNoteConfirm = "Delete Note";

@@ -71,10 +71,9 @@ class CharacterNotes: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     private func removeCell(row: Int) {
-        // Melhor implementar um alert antes disso
         let notes = self.viewModel.getNotes()
         let noteRow = notes[row]
-        self.viewModel.removeNote(note: noteRow)
+        self.viewModel.output?.alertDeleteNote(receivedNote: noteRow)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

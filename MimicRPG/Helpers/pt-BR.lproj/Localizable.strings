@@ -263,3 +263,6 @@ NewTable = "Nova Mesa";
 DeleteSheetTitle = "Apagando Ficha";
 DeleteSheetMessage = "Isto apagará a ficha selecionada. Essa ação não pode ser desfeita.";
 DeleteSheetConfirm = "Apagar Ficha";
+DeleteNoteTitle = "Apagando Nota";
+DeleteNoteMessage = "Isto apagará a nota selecionada. Essa ação não pode ser desfeita.";
+DeleteNoteConfirm = "Apagar Nota";
