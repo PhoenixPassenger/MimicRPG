@@ -269,3 +269,6 @@ DeleteNoteConfirm = "Apagar Nota";
 DeleteItemTitle = "Apagando Item";
 DeleteItemMessage = "Isto apagará o item selecionado. Essa ação não pode ser desfeita.";
 DeleteItemConfirm = "Apagar Item";
+DeleteAttackTitle = "Apagando Ataque";
+DeleteAttackMessage = "Isto apagará o ataque selecionado. Essa ação não pode ser desfeita.";
+DeleteAttackConfirm = "Apagar Ataque";

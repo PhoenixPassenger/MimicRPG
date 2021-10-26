@@ -269,3 +269,6 @@ DeleteNoteConfirm = "Delete Note";
 DeleteItemTitle = "Deleting Item";
 DeleteItemMessage = "This will delete the selected item. This action cannot be undone.";
 DeleteItemConfirm = "Delete Item";
+DeleteAttackTitle = "Deleting Attack";
+DeleteAttackMessage = "This will delete the selected attack. This action cannot be undone.";
+DeleteAttackConfirm = "Delete Attack";
