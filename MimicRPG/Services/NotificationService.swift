@@ -9,10 +9,14 @@ import Foundation
 class NotificationService {
     var center: UNUserNotificationCenter?
 
-    static var shared: NotificationService = {
+    static var shared: NotificationService? = {
         let instance = NotificationService()
         instance.center = UNUserNotificationCenter.current()
-        return instance
+        if (UserDefaults.standard.bool(forKey: "notificationsEnabled")) {
+            return instance
+        } else {
+            return nil
+        }
     }()
 
     func generateRestartNotification(title: String, body: String, timeInterval: Double) {
@@ -28,4 +32,5 @@ class NotificationService {
         let request = UNNotificationRequest.init(identifier: identifier, content: content, trigger: trigger)
         self.center?.add(request)
     }
+    
 }
