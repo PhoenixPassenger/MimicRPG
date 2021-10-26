@@ -84,10 +84,9 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     private func removeCell(row: Int) {
-        // Melhor implementar um alert antes disso
         let items = self.viewModel.getItems()
         let itemRow = items[row]
-        self.viewModel.removeItem(item: itemRow)
+        self.viewModel.output?.alertDeleteItem(receivedItem: itemRow)
     }
 
     private func editCell(row: Int) {

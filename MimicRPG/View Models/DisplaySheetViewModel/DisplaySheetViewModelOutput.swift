@@ -32,6 +32,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func alertDeleteNote(receivedNote: Notes)
     func updateProfile()
     func updateItems()
+    func alertDeleteItem(receivedItem: Item)
     func displayEditItemModal(name: String, desc: String, uses: Int, item: Item)
     func displayEditSkillsT20Modal(name: String, skill: Skill)
     func updateSkillsT20()

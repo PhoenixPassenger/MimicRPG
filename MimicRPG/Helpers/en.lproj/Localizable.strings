@@ -266,3 +266,6 @@ DeleteSheetConfirm = "Delete Sheet";
 DeleteNoteTitle = "Deleting Note";
 DeleteNoteMessage = "This will delete the selected note. This action cannot be undone.";
 DeleteNoteConfirm = "Delete Note";
+DeleteItemTitle = "Deleting Item";
+DeleteItemMessage = "This will delete the selected item. This action cannot be undone.";
+DeleteItemConfirm = "Delete Item";

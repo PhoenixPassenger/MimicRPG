@@ -266,3 +266,6 @@ DeleteSheetConfirm = "Apagar Ficha";
 DeleteNoteTitle = "Apagando Nota";
 DeleteNoteMessage = "Isto apagará a nota selecionada. Essa ação não pode ser desfeita.";
 DeleteNoteConfirm = "Apagar Nota";
+DeleteItemTitle = "Apagando Item";
+DeleteItemMessage = "Isto apagará o item selecionado. Essa ação não pode ser desfeita.";
+DeleteItemConfirm = "Apagar Item";
