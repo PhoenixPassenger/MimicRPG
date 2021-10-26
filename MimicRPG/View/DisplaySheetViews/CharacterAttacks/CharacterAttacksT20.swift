@@ -100,10 +100,9 @@ class CharacterAttacksT20: UITableView, UITableViewDelegate, UITableViewDataSour
     }
 
     private func removeAttack(row: Int) {
-        // Melhor implementar um alert antes disso
         let attacks = self.viewModel.getAttacks()
         let attackRow = attacks[row]
-        self.viewModel.removeAttack(attack: attackRow)
+        self.viewModel.output?.alertDeleteAttack(receivedAttack: attackRow)
     }
 
     private func editCell(row: Int) {

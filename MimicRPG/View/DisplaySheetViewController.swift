@@ -306,6 +306,38 @@ class DisplaySheetViewController: UIViewController {
 }
 
 extension DisplaySheetViewController: DisplaySheetViewModelOutput {
+    func alertDeleteAttack(receivedAttack: Attack) {
+        let alert = UIAlertController(title: "DeleteAttackTitle".localized(), message: "DeleteAttackMessage".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "DeleteAttackConfirm".localized(), style: .destructive, handler: { _ in
+            self.viewModel.removeAttack(attack: receivedAttack)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func alertDeleteItem(receivedItem: Item) {
+        let alert = UIAlertController(title: "DeleteItemTitle".localized(), message: "DeleteItemMessage".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "DeleteItemConfirm".localized(), style: .destructive, handler: { _ in
+            self.viewModel.removeItem(item: receivedItem)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func alertDeleteNote(receivedNote: Notes) {
+        let alert = UIAlertController(title: "DeleteNoteTitle".localized(), message: "DeleteNoteMessage".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "DeleteNoteConfirm".localized(), style: .destructive, handler: { _ in
+            self.viewModel.removeNote(note: receivedNote)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
 
     func reloadAttacksT20() {
         let view = self.sheetView as? CharacterAttacksT20
