@@ -146,6 +146,12 @@ class CreateAttackCthulhuModal: UIViewController {
         additionalConfigurations()
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
+
+        if (isEditMode) {
+            titleModal.text = "EditAttack".localized()
+        } else {
+            titleModal.text = "NewAttack".localized()
+        }
     }
 
     @objc func leftButtonBehavior() {
