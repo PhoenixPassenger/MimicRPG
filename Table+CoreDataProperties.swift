@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Table {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Table> {
@@ -39,6 +38,6 @@ extension Table {
 
 }
 
-extension Table : Identifiable {
+extension Table: Identifiable {
 
 }

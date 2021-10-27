@@ -43,7 +43,7 @@ class CreateAttackT20Modal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "NewAttack".localized()
+        label.text = ""
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -140,6 +140,12 @@ class CreateAttackT20Modal: UIViewController {
         additionalConfigurations()
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
+        
+        if (isEditMode) {
+            titleModal.text = "EditAttack".localized()
+        } else {
+            titleModal.text = "NewAttack".localized()
+        }
     }
 
     @objc func leftButtonBehavior() {

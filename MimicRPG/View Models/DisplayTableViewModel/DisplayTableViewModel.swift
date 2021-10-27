@@ -5,8 +5,6 @@
 //  Created by Eduardo Oliveira on 20/10/21.
 //
 // swiftlint:disable force_cast
-// swiftlint:disable function_parameter_count
-// swiftlint:disable line_length
 
 import Foundation
 import UIKit
