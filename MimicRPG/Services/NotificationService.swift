@@ -32,5 +32,5 @@ class NotificationService {
         let request = UNNotificationRequest.init(identifier: identifier, content: content, trigger: trigger)
         self.center?.add(request)
     }
-    
+
 }
