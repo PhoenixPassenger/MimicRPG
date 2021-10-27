@@ -316,7 +316,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     func alertDeleteItem(receivedItem: Item) {
         let alert = UIAlertController(title: "DeleteItemTitle".localized(), message: "DeleteItemMessage".localized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "DeleteItemConfirm".localized(), style: .destructive, handler: { _ in
