@@ -13,6 +13,7 @@ class DisplayTableViewController: UIViewController {
     var viewModel: DisplayTableViewModelType!
     var coordinator: Coordinator?
 
+    var tableSheets: [Sheet] = []
     var myCollectionView:UICollectionView?
 
     lazy var bannerView: UIImageView = {
@@ -39,7 +40,7 @@ class DisplayTableViewController: UIViewController {
     lazy var collectionHeaderTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Notes".localized()
+        label.text = "Sheets".localized()
         label.tintColor = UIColor(named: "FontColor")
         label.font = UIFont.josefinSansRegular()
         view.addSubview(label)
@@ -72,6 +73,7 @@ class DisplayTableViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true
 
+        fetchData()
         setupElements()
     }
 
@@ -105,12 +107,17 @@ class DisplayTableViewController: UIViewController {
         layout.itemSize = CGSize(width: 160, height: 160)
         layout.scrollDirection = .horizontal
 
-        myCollectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 189), size: CGSize(width: self.view.frame.size.width, height: 180)), collectionViewLayout: layout)
+        myCollectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 204), size: CGSize(width: self.view.frame.size.width, height: 180)), collectionViewLayout: layout)
         myCollectionView?.register(UserSheet.self, forCellWithReuseIdentifier: "MyCell")
         myCollectionView?.backgroundColor = UIColor.white
 
         myCollectionView?.dataSource = self
         myCollectionView?.delegate = self
+    }
+    
+    func fetchData() {
+        self.tableSheets = viewModel.fetchSheets()
+        myCollectionView?.reloadData()
     }
 
     func configureConstraints() {
@@ -132,9 +139,9 @@ class DisplayTableViewController: UIViewController {
             collectionHeaderTitle.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 7),
             collectionHeaderTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             collectionHeaderButton.topAnchor.constraint(equalTo: titleView.bottomAnchor),
-            collectionHeaderButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            collectionHeaderButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  UIScreen.main.bounds.width * 0.9 + 2),
 
-            tableNotes.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 190),
+            tableNotes.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 170),
             tableNotes.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableNotes.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableNotes.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -169,13 +176,15 @@ extension DisplayTableViewController: DisplayTableViewModelOutput {
 
 extension DisplayTableViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9 // How many cells to display
+        print(tableSheets.count)
+        return tableSheets.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as? UserSheet else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
         }
+        myCell.set(name: tableSheets[indexPath.row].name!, desc: "", system: tableSheets[indexPath.row].system!)
         return myCell
     }
 

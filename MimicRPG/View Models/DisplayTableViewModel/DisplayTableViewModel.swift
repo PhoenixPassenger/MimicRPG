@@ -70,7 +70,7 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
     func addSheetModal() {
         self.output?.displayAddSheetModal()
     }
-    
+
     func fetchSheetByIdentifier(identifier: String) -> Sheet? {
         do {
             let sheets = try context.fetch(Sheet.fetchRequest())
@@ -83,5 +83,23 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
             fatalError("Unable to fetch data from core data ")
         }
         return nil
+    }
+
+    func fetchSheets() -> [Sheet] {
+        let sheets = Array(table?.players as! Set<Sheet>)
+        return sheets.sorted(by: { $0.name! < $1.name! })
+    }
+    
+    func addSheetToTable(sheet: Sheet) {
+        sheet.table = self.table
+        print(sheet.name)
+        print(sheet.system)
+        self.table?.players = self.table?.players?.adding(sheet) as NSSet?
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+        print(self.table?.players?.count)
     }
 }

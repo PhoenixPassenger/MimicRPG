@@ -17,7 +17,7 @@ class AddSheetToTableModal: UIViewController {
     var selectedRow: Int = 0
     var isFetching: Bool = true
     var tableViewModel : DisplayTableViewModelType?
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var sheet: Sheet?
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -90,6 +90,8 @@ class AddSheetToTableModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.josefinSansButton()
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
         return label
     }()
     
@@ -130,6 +132,7 @@ class AddSheetToTableModal: UIViewController {
     func fetchSheetByIdentifier() {
         if let fetchSheet = tableViewModel?.fetchSheetByIdentifier(identifier: valueText.text) {
             if tableViewModel?.table?.system == fetchSheet.system {
+                sheet = fetchSheet
                 feedbackLabel.text = "Existe uma ficha com esse código!"
                 feedbackLabel.textColor = .systemGreen
                 rightButton.isEnabled = true
@@ -151,7 +154,9 @@ class AddSheetToTableModal: UIViewController {
 
     // MARK: - CoreData
     func addSheetToTable() {
-        
+        if let fetchSheet = sheet {
+            tableViewModel?.addSheetToTable(sheet: fetchSheet)
+        }
     }
 
     // MARK: - Layout

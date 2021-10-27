@@ -110,7 +110,13 @@ extension UserTablesViewController: UICollectionViewDataSource {
         guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TableCell else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         }
-        myCell.set(name: filteredTables[indexPath.row].name!, numberOfPlayers: "5 jogadores", system: filteredTables[indexPath.row].system!)
+        let playersCount = filteredTables[indexPath.row].players?.count
+        switch playersCount {
+        case 1:
+            myCell.set(name: filteredTables[indexPath.row].name!, numberOfPlayers: "\(playersCount ?? 0) jogador", system: filteredTables[indexPath.row].system!)
+        default:
+            myCell.set(name: filteredTables[indexPath.row].name!, numberOfPlayers: "\(playersCount ?? 0) jogadores", system: filteredTables[indexPath.row].system!)
+        }
         return myCell
     }
 
