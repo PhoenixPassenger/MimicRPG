@@ -13,6 +13,8 @@ class DisplaySheetViewController: UIViewController {
     var buttons: [UIButton] = []
     var viewModel: DisplaySheetViewModelType!
     var coordinator: Coordinator?
+    
+    lazy var chainButton = UIBarButtonItem(image: UIImage(named: "Chain"), style: .plain, target: self, action: #selector(copyIdentifierToClipboard))
 
     var bannerView: UIImageView = UIImageView()
     var sheetHeader: SheetHeader = SheetHeader()
@@ -124,6 +126,11 @@ class DisplaySheetViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true
+
+        chainButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.josefinSansButton()], for: .normal)
+        navigationItem.rightBarButtonItem = chainButton
+
+        chainButton.tintColor = UIColor(named: "Ivory")
 
         updateButtons()
         setupButtons()
@@ -301,6 +308,10 @@ class DisplaySheetViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    @objc func copyIdentifierToClipboard() {
+        UIPasteboard.general.string = viewModel.sheet?.identifier?.uuidString
     }
 
 }

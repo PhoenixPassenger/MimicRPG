@@ -196,6 +196,7 @@ class CreateSheetModal: UIViewController {
     func createNewSheet() {
         let newSheet = Sheet(context: self.context)
 
+        newSheet.identifier = UUID()
         guard let name = sheetNameView.valueText.text else {return}
         newSheet.name = name
         guard let system = Systems(id: selectedRow)?.description else {return}

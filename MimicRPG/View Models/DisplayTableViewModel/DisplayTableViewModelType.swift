@@ -18,4 +18,10 @@ protocol DisplayTableViewModelType {
     func removeNote(note: Notes)
     func editNoteModal(note: Notes)
     func newNoteModal()
+
+    func addSheetModal()
+    func fetchSheetByIdentifier(identifier: String) -> Sheet?
+
+    func fetchSheets() -> [Sheet]
+    func addSheetToTable(sheet: Sheet)
 }

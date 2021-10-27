@@ -9,6 +9,8 @@ import Foundation
 protocol DisplayTableViewModelOutput: AnyObject {
     func displayNewNoteModal()
     func displayEditNoteModal(name: String, desc: String, note: Notes)
+    func displayAddSheetModal()
 
     func updateNotes()
+    func reloadDisplayData()
 }
