@@ -114,7 +114,7 @@ class DisplayTableViewController: UIViewController {
         myCollectionView?.dataSource = self
         myCollectionView?.delegate = self
     }
-    
+
     func fetchData() {
         self.tableSheets = viewModel.fetchSheets()
         myCollectionView?.reloadData()
@@ -168,6 +168,10 @@ extension DisplayTableViewController: DisplayTableViewModelOutput {
         modal.fillForm(name: name, desc: desc, note: note)
         self.present(modal, animated: true, completion: nil)
     }
+    
+    func reloadDisplayData() {
+        fetchData()
+    }
 
     func updateNotes() {
         self.tableNotes.reloadData()
@@ -176,7 +180,6 @@ extension DisplayTableViewController: DisplayTableViewModelOutput {
 
 extension DisplayTableViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(tableSheets.count)
         return tableSheets.count
     }
 

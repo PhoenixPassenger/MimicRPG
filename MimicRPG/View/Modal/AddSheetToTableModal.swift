@@ -132,19 +132,26 @@ class AddSheetToTableModal: UIViewController {
     func fetchSheetByIdentifier() {
         if let fetchSheet = tableViewModel?.fetchSheetByIdentifier(identifier: valueText.text) {
             if tableViewModel?.table?.system == fetchSheet.system {
-                sheet = fetchSheet
-                feedbackLabel.text = "Existe uma ficha com esse código!"
-                feedbackLabel.textColor = .systemGreen
-                rightButton.isEnabled = true
-                rightButton.setTitleColor(UIColor(named: "Azure"), for: .normal)
+                if let sheetTable = fetchSheet.table {
+                    feedbackLabel.text = "AddSheetToTableAlreadyHasTableError".localized()
+                    feedbackLabel.textColor = .systemRed
+                    rightButton.isEnabled = false
+                    rightButton.setTitleColor(.gray, for: .normal)
+                } else {
+                    sheet = fetchSheet
+                    feedbackLabel.text = "AddSheetToTableSuccess".localized()
+                    feedbackLabel.textColor = .systemGreen
+                    rightButton.isEnabled = true
+                    rightButton.setTitleColor(UIColor(named: "Azure"), for: .normal)
+                }
             } else {
-                feedbackLabel.text = "A ficha deste código pertence a outro sistema de RPG!"
+                feedbackLabel.text = "AddSheetToTableDifferentSystemsError".localized()
                 feedbackLabel.textColor = .systemRed
                 rightButton.isEnabled = false
                 rightButton.setTitleColor(.gray, for: .normal)
             }
         } else {
-            feedbackLabel.text = "Não existe uma ficha com esse código!"
+            feedbackLabel.text = "AddSheetToTableSheetDoesntExistsError".localized()
             feedbackLabel.textColor = .systemRed
             rightButton.isEnabled = false
             rightButton.setTitleColor(.gray, for: .normal)

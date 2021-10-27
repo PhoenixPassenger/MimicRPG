@@ -92,14 +92,12 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
     
     func addSheetToTable(sheet: Sheet) {
         sheet.table = self.table
-        print(sheet.name)
-        print(sheet.system)
         self.table?.players = self.table?.players?.adding(sheet) as NSSet?
         do {
             try context.save()
         } catch {
             fatalError("Unable to save data in coredata model")
         }
-        print(self.table?.players?.count)
+        self.output?.reloadDisplayData()
     }
 }

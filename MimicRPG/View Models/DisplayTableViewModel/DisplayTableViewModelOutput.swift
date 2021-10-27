@@ -12,4 +12,5 @@ protocol DisplayTableViewModelOutput: AnyObject {
     func displayAddSheetModal()
 
     func updateNotes()
+    func reloadDisplayData()
 }
