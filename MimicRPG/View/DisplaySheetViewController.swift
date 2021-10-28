@@ -128,7 +128,7 @@ class DisplaySheetViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         chainButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.josefinSansButton()], for: .normal)
-        navigationItem.rightBarButtonItem = chainButton
+//        navigationItem.rightBarButtonItem = chainButton
 
         chainButton.tintColor = UIColor(named: "Ivory")
 
