@@ -26,7 +26,14 @@ class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
         if bio[indexPath.row].name! == "Level" {
             cell.set(titleItem: bio[indexPath.row].name!.localized(), valueItem: "\(bio[indexPath.row].numberValue)")
         } else {
-            cell.set(titleItem: bio[indexPath.row].name!.localized(), valueItem: bio[indexPath.row].stringValue!)
+            if let stringValue = bio[indexPath.row].stringValue {
+                if (!stringValue.isEmpty) {
+                    cell.set(titleItem: bio[indexPath.row].name!.localized(), valueItem: stringValue)
+                } else {
+                    cell.set(titleItem: bio[indexPath.row].name!.localized(), valueItem: "Empty".localized(), isPlaceholder: true)
+                }
+                
+            }
         }
         return cell
     }

@@ -285,3 +285,4 @@ DeleteAttackMessage = "This will delete the selected attack. This action cannot 
 DeleteAttackConfirm = "Delete Attack";
 RebootLanguageTitle = "App reboot successful";
 RebootLanguageMessage = "Language was changed successfully";
+Empty = "Empty";

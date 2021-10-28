@@ -53,9 +53,15 @@ class CharacterBioCell: UITableViewCell {
         return stack
     }()
 
-    func set( titleItem: String, valueItem: String) {
+    func set( titleItem: String, valueItem: String, isPlaceholder: Bool = false) {
         titleLabel.text = titleItem
         valueLabel.text = valueItem
+
+        if isPlaceholder {
+            valueLabel.layer.opacity = 0.5
+        } else {
+            valueLabel.layer.opacity = 1.0
+        }
     }
 
 }

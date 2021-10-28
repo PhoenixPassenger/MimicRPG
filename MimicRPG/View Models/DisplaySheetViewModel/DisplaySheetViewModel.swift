@@ -24,18 +24,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func setPointsT20(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    }
-
-    func callReloadAttacksT20() {
-        self.output?.reloadAttacksT20()
-    }
-
-    func callReloadAttacksCthulhu() {
-        self.output?.reloadAttacksCthulhu()
-    }
-
-    func setPoints(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
         for point in self.getPoints() {
             switch (point.name) {
             case PointsT20.getPoints(.armorBonus)().name:
@@ -60,7 +48,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
                 break
             }
         }
-
         do {
             try context.save()
         } catch {
@@ -68,9 +55,15 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
     }
 
-    func setPointsCthulhu(setMaxLife: Int, setMaxMagic: Int, setMaxSanity: Int, setMaxLuck: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    func callReloadAttacksT20() {
+        self.output?.reloadAttacksT20()
+    }
 
+    func callReloadAttacksCthulhu() {
+        self.output?.reloadAttacksCthulhu()
+    }
+
+    func setPointsCthulhu(setMaxLife: Int, setMaxMagic: Int, setMaxSanity: Int, setMaxLuck: Int) {
         for point in self.getPoints() {
             switch (point.name) {
             case PointsCthulhu.getPoints(.life)().name:
@@ -147,10 +140,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    }
-
-    func setAttributes(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
         for attribute in self.getAttributes() {
             switch (attribute.name) {
             case SkillT20Attributes.getAttribute(.STR)().name:
@@ -177,8 +166,6 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     }
 
     func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
         for attribute in self.getAttributes() {
             switch (attribute.name) {
             case SkillCthulhuAttributes.getAttribute(.STR)().name:
