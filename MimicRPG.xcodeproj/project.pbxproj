@@ -728,7 +728,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					5B0DC56C26EA2B68008C8578 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -852,9 +852,7 @@
 				2E5FD79927218ED600B605D0 /* CreateTableModal.swift in Sources */,
 				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				2E636A1F2719A2D400872F1B /* CharacterPointsCthulhu.swift in Sources */,
-				5B7C971626F0C09F00E01EBA /* Points+CoreDataClass.swift in Sources */,
 				00A89D9327059B9100ED72B2 /* AttributeBoxT20.swift in Sources */,
-				5B7C970826F0C09F00E01EBA /* Attack+CoreDataClass.swift in Sources */,
 				2E2C7B552705E7960084CBDE /* HideKeyboard.swift in Sources */,
 				5B7C971826F0C09F00E01EBA /* Item+CoreDataClass.swift in Sources */,
 				2E6EAE3F270B853B00626650 /* EditAttributesCthulhuModal.swift in Sources */,
@@ -920,9 +918,7 @@
 				2E6EAE3D270B820900626650 /* EditPointsCthulhuModal.swift in Sources */,
 				00A89D91270598A900ED72B2 /* CharacterAttributesT20.swift in Sources */,
 				2E5FD7862720994800B605D0 /* UserTablesViewModelOutput.swift in Sources */,
-				5B0DC5B226EA34F8008C8578 /* NotificationService.swift in Sources */,
 				2E6EAE43270C923F00626650 /* CharacterSkillsCthulhu.swift in Sources */,
-				5B0DC5B526EA3509008C8578 /* SettingsViewModel.swift in Sources */,
 				2EA75AC62721AE4D008444A5 /* TableNotes.swift in Sources */,
 				9684024326EF7486009AF620 /* UserSheetsViewController.swift in Sources */,
 				2E5E3332270B2DEF00F7624D /* CreateAttackT20Modal.swift in Sources */,
@@ -1110,12 +1106,13 @@
 				CODE_SIGN_ENTITLEMENTS = MimicRPG/MimicRPG.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3PDP2RPN7;
+				DEVELOPMENT_TEAM = Q2AATBYW8Z;
 				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.MimicRPG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1133,12 +1130,13 @@
 				CODE_SIGN_ENTITLEMENTS = MimicRPG/MimicRPG.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3PDP2RPN7;
+				DEVELOPMENT_TEAM = Q2AATBYW8Z;
 				INFOPLIST_FILE = MimicRPG/Helpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.MimicRPG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

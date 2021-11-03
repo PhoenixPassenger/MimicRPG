@@ -13,7 +13,7 @@ class DisplaySheetViewController: UIViewController {
     var buttons: [UIButton] = []
     var viewModel: DisplaySheetViewModelType!
     var coordinator: Coordinator?
-    
+
     lazy var chainButton = UIBarButtonItem(image: UIImage(named: "Chain"), style: .plain, target: self, action: #selector(copyIdentifierToClipboard))
 
     var bannerView: UIImageView = UIImageView()
@@ -121,8 +121,8 @@ class DisplaySheetViewController: UIViewController {
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [.font:
         UIFont.boldSystemFont(ofSize: 20.0),
-                                      .foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
+                                          .foregroundColor: UIColor(named: "FontColor") as Any]
+        navigationController?.navigationBar.tintColor = UIColor(named: "FontColor")
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true

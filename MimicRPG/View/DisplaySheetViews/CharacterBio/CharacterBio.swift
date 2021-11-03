@@ -32,7 +32,6 @@ class CharacterBio: UITableView, UITableViewDelegate, UITableViewDataSource {
                 } else {
                     cell.set(titleItem: bio[indexPath.row].name!.localized(), valueItem: "Empty".localized(), isPlaceholder: true)
                 }
-                
             }
         }
         return cell

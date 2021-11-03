@@ -167,7 +167,7 @@ extension DisplayTableViewController: DisplayTableViewModelOutput {
         modal.fillForm(name: name, desc: desc, note: note)
         self.present(modal, animated: true, completion: nil)
     }
-    
+
     func reloadDisplayData() {
         fetchData()
     }

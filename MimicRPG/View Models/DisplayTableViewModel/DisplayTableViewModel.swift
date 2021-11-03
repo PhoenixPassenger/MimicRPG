@@ -80,14 +80,13 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
         } catch {
             fatalError("Unable to fetch data from core data ")
         }
-        return nil
     }
 
     func fetchSheets() -> [Sheet] {
         let sheets = Array(table?.players as! Set<Sheet>)
         return sheets.sorted(by: { $0.name! < $1.name! })
     }
-    
+
     func addSheetToTable(sheet: Sheet) {
         sheet.table = self.table
         self.table?.players = self.table?.players?.adding(sheet) as NSSet?
