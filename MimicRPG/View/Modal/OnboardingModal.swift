@@ -35,7 +35,7 @@ class OnboardingModal: UIViewController {
     
     lazy var onboard1Text: UILabel = {
         let label = UILabel()
-        label.text = "Olá!\nBem vindo ao Mimic RPG!"
+        label.text = "Onboard1Text".localized()
         label.font = UIFont.josefinSansButton()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -65,7 +65,7 @@ class OnboardingModal: UIViewController {
 
     lazy var onboard2Text: UILabel = {
         let label = UILabel()
-        label.text = "Para criar fichas e/ou mesas\nnovas, selecione o botão ”+” no\ncanto superior direito"
+        label.text = "Onboard2Text".localized()
         label.font = UIFont.josefinSansButton()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -96,7 +96,7 @@ class OnboardingModal: UIViewController {
 
     lazy var onboard3Text: UILabel = {
         let label = UILabel()
-        label.text = "Para editar alguns campos\ndentro da ficha, role a\nlinha para a esquerda."
+        label.text = "Onboard3Text".localized()
         label.font = UIFont.josefinSansButton()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -127,7 +127,7 @@ class OnboardingModal: UIViewController {
 
     lazy var onboard4Text: UILabel = {
         let label = UILabel()
-        label.text = "Para excluir itens, ataques e notas\ncriadas na ficha, role a linha para\na direita."
+        label.text = "Onboard4Text".localized()
         label.font = UIFont.josefinSansButton()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -155,10 +155,10 @@ class OnboardingModal: UIViewController {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
+
     lazy var onboard5Text: UILabel = {
         let label = UILabel()
-        label.text = "Para excluir fichas ou mesas,\nsegure o ícone referente e espere\no alerta aparecer."
+        label.text = "Onboard5Text".localized()
         label.font = UIFont.josefinSansButton()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
