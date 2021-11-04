@@ -59,12 +59,12 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating, UIGes
         view.addSubview(collectionView ?? UICollectionView())
 
         self.fetchData()
-        
-//        if !UserDefaults.standard.bool(forKey: "HasAtLeastOnboardOnce") {
-//            UserDefaults.standard.set(true, forKey: "HasAtLeastOnboardOnce")
+
+        if !UserDefaults.standard.bool(forKey: "HasAtLeastOnboardOnce") {
+            UserDefaults.standard.set(true, forKey: "HasAtLeastOnboardOnce")
             callOnboarding()
-//            UserDefaults.standard.synchronize()
-//        }
+            UserDefaults.standard.synchronize()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

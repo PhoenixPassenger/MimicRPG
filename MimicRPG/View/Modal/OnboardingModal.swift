@@ -89,7 +89,7 @@ class OnboardingModal: UIViewController {
     lazy var onboard3Image: UIImageView = {
         let image = UIImage.gifImageWithName("onboard3")
         let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0.0, y: 0.0, width: 160, height: 328)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -109,7 +109,7 @@ class OnboardingModal: UIViewController {
         let stack = UIStackView(arrangedSubviews: [onboard3Image, onboard3Text])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.alignment = .fill
+        stack.alignment = .center
         stack.spacing = 22
         self.view.addSubview(stack)
         return stack
@@ -120,11 +120,11 @@ class OnboardingModal: UIViewController {
     lazy var onboard4Image: UIImageView = {
         let image = UIImage.gifImageWithName("onboard4")
         let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0.0, y: 0.0, width: 160, height: 328)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
+
     lazy var onboard4Text: UILabel = {
         let label = UILabel()
         label.text = "Para excluir itens, ataques e notas\ncriadas na ficha, role a linha para\na direita."
@@ -140,7 +140,7 @@ class OnboardingModal: UIViewController {
         let stack = UIStackView(arrangedSubviews: [onboard4Image, onboard4Text])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.alignment = .fill
+        stack.alignment = .center
         stack.spacing = 22
         self.view.addSubview(stack)
         return stack
@@ -148,6 +148,14 @@ class OnboardingModal: UIViewController {
 
     // MARK: - Fifth Group
 
+    lazy var onboard5Image: UIImageView = {
+        let image = UIImage.gifImageWithName("onboard5")
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     lazy var onboard5Text: UILabel = {
         let label = UILabel()
         label.text = "Para excluir fichas ou mesas,\nsegure o ícone referente e espere\no alerta aparecer."
@@ -160,10 +168,10 @@ class OnboardingModal: UIViewController {
     }()
 
     lazy var fifthStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [onboard5Text])
+        let stack = UIStackView(arrangedSubviews: [onboard5Image, onboard5Text])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.alignment = .fill
+        stack.alignment = .center
         stack.spacing = 22
         self.view.addSubview(stack)
         return stack
@@ -343,28 +351,33 @@ class OnboardingModal: UIViewController {
             secondStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             secondStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 
-            thirdStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: UIScreen.main.bounds.height/15),
+            thirdStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: UIScreen.main.bounds.height/5),
             thirdStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             thirdStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 
-            onboard3Text.topAnchor.constraint(equalTo: onboard3Image.bottomAnchor, constant: -57),
+            onboard3Image.widthAnchor.constraint(equalToConstant: 328),
+            onboard3Image.heightAnchor.constraint(equalToConstant: 160),
 
-            fourthStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: UIScreen.main.bounds.height/15),
+            fourthStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: UIScreen.main.bounds.height/5),
             fourthStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             fourthStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 
-            onboard4Text.topAnchor.constraint(equalTo: onboard4Image.bottomAnchor, constant: -57),
+            onboard4Image.widthAnchor.constraint(equalToConstant: 328),
+            onboard4Image.heightAnchor.constraint(equalToConstant: 160),
 
-            fifthStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: UIScreen.main.bounds.height/15),
+            fifthStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: UIScreen.main.bounds.height/5),
             fifthStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             fifthStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+
+            onboard5Image.widthAnchor.constraint(equalToConstant: 328),
+            onboard5Image.heightAnchor.constraint(equalToConstant: 160),
 
             nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50),
             nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             nextButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8),
             nextButton.heightAnchor.constraint(equalToConstant: 45),
 
-            breadcrumb.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -22),
+            breadcrumb.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -15),
             breadcrumb.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             breadcrumb.heightAnchor.constraint(equalToConstant: 9),
             breadcrumb.widthAnchor.constraint(equalToConstant: 106)
