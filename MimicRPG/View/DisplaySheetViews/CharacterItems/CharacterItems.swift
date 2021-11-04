@@ -29,6 +29,7 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
         }
         cell.set(itemName: item.name ?? "", itemDescription: item.characteristics?.stringValue ?? "", itemUses: Int(itemUses),
                  system: self.viewModel.getSystem())
+        cell.selectionStyle = .none
         return cell
     }
 
