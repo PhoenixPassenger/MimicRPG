@@ -192,8 +192,8 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
             label.text = rollValue
             label.numberOfLines = 3
             label.lineBreakMode = .byWordWrapping
-            label.font = UIFont.josefinSansSemiBold24()
-            label.frame = CGRect(x: 10, y: -10, width: UIScreen.main.bounds.width - 20, height: 74)
+            label.font = UIFont.josefinSansBold24()
+            label.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 20, height: 74)
             view.addSubview(label)
         case .dices:
             let button = UIButton(type: .custom)
