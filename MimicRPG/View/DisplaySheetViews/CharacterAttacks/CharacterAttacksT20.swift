@@ -11,6 +11,7 @@ class CharacterAttacksT20: UITableView, UITableViewDelegate, UITableViewDataSour
     var viewModel: DisplaySheetViewModelType!
 
     func setupTableView() {
+        self.contentInset = UIEdgeInsets(top: 10,left: 0,bottom: 0,right: 0)
         self.register(CharacterAttacksCellT20.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
