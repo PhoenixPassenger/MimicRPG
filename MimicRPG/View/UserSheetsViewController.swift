@@ -26,7 +26,6 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating, UIGes
     var filteredSheets: [Sheet] = []
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
@@ -60,6 +59,12 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating, UIGes
         view.addSubview(collectionView ?? UICollectionView())
 
         self.fetchData()
+        
+//        if !UserDefaults.standard.bool(forKey: "HasAtLeastOnboardOnce") {
+//            UserDefaults.standard.set(true, forKey: "HasAtLeastOnboardOnce")
+            callOnboarding()
+//            UserDefaults.standard.synchronize()
+//        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -120,6 +125,11 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating, UIGes
         } else {
             print("Could not find index path")
         }
+    }
+
+    func callOnboarding() {
+        let onboardingModal = OnboardingModal()
+        present(onboardingModal, animated: true, completion: nil)
     }
 
     func alertDeleteCell(selected cell: UICollectionViewCell!) {
