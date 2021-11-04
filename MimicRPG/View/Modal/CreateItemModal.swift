@@ -214,7 +214,8 @@ class CreateItemModal: UIViewController {
         let name = sheetItemNameView.valueText.text ?? ""
         let uses = Int(sheetItemQtdView.valueStepper.value)
         let desc = sheetItemDescView.valueText.text ?? ""
-        !self.isEditMode ? self.viewModel.createNewItem(name: name, uses: uses, description: desc) : self.viewModel.editItem(name: name, description: desc, uses: uses, item: self.editItem!)
+        !self.isEditMode ? self.viewModel.createNewItem(name: name, uses: uses, description: desc)
+        : self.viewModel.editItem(name: name, description: desc, uses: uses, item: self.editItem!)
     }
 
     private func configureLayout() {

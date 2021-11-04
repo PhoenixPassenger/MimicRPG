@@ -78,7 +78,8 @@ class CharacterAttacksCthulhu: UITableView, UITableViewDelegate, UITableViewData
             }
         }
 
-        cell.set(name: attack.name ?? "", damage: attackDamage, value: attackValue, ammo: attackAmmo, range: attackRange, malfunction: attackMalfunction, attacks: attackAttacks)
+        cell.set(name: attack.name ?? "", damage: attackDamage, value: attackValue, ammo: attackAmmo,
+                 range: attackRange, malfunction: attackMalfunction, attacks: attackAttacks)
 
         cell.contentView.isUserInteractionEnabled = false
         return cell

@@ -27,7 +27,8 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
         guard let itemUses = item.characteristics?.numberValue else {
             fatalError()
         }
-        cell.set(itemName: item.name ?? "", itemDescription: item.characteristics?.stringValue ?? "", itemUses: Int(itemUses), system: self.viewModel.getSystem())
+        cell.set(itemName: item.name ?? "", itemDescription: item.characteristics?.stringValue ?? "", itemUses: Int(itemUses),
+                 system: self.viewModel.getSystem())
         return cell
     }
 

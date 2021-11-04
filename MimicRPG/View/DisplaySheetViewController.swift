@@ -284,17 +284,15 @@ class DisplaySheetViewController: UIViewController {
 
     func changeSelectedButton(tag: Int) {
 
-        for button in buttons {
-            if button.tag == tag {
-                widthAnchor.constant = button.frame.width
-                centerXAnchor.constant = button.frame.midX
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
-                    self.view.layoutIfNeeded()
-                }, completion: { _ in
-                    self.selectedTag = tag
-                    self.updateButtons()
-                })
-            }
+        for button in buttons where button.tag == tag {
+            widthAnchor.constant = button.frame.width
+            centerXAnchor.constant = button.frame.midX
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { _ in
+                self.selectedTag = tag
+                self.updateButtons()
+            })
         }
     }
 

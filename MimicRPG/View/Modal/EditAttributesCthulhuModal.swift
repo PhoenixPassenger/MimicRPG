@@ -295,7 +295,8 @@ class EditAttributesCthulhuModal: UIViewController {
         let editSIZ = sizeView.getStepperValue()
         let editEDU = educationView.getStepperValue()
         let editMOV = moveView.getStepperValue()
-        viewModel.setAttributesCthulhu(setSTR: editSTR, setDEX: editDEX, setINT: editINT, setCON: editCON, setAPP: editAPP, setPOW: editPOW, setSIZ: editSIZ, setEDU: editEDU, setMOV: editMOV)
+        viewModel.setAttributesCthulhu(setSTR: editSTR, setDEX: editDEX, setINT: editINT, setCON: editCON,
+                                       setAPP: editAPP, setPOW: editPOW, setSIZ: editSIZ, setEDU: editEDU, setMOV: editMOV)
     }
 
     private func configureLayout() {

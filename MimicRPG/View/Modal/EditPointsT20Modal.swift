@@ -239,7 +239,8 @@ class EditPointsT20Modal: UIViewController {
         let editTemporary = sheetTemporaryView.getStepperValue()
         let editMaxLife = sheetMaxLifeView.getStepperValue()
         let editMaxMana = sheetMaxManaView.getStepperValue()
-        viewModel.setPointsT20(setArmorBonus: editArmorBonus, setShieldBonus: editShieldBonus, setOthers: editOthers, setTemporary: editTemporary, setMaxLife: editMaxLife, setMaxMana: editMaxMana)
+        viewModel.setPointsT20(setArmorBonus: editArmorBonus, setShieldBonus: editShieldBonus,
+                               setOthers: editOthers, setTemporary: editTemporary, setMaxLife: editMaxLife, setMaxMana: editMaxMana)
     }
 
     private func configureLayout() {
