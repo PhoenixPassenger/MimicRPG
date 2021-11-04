@@ -132,7 +132,7 @@ class AddSheetToTableModal: UIViewController {
     func fetchSheetByIdentifier() {
         if let fetchSheet = tableViewModel?.fetchSheetByIdentifier(identifier: valueText.text) {
             if tableViewModel?.table?.system == fetchSheet.system {
-                if let sheetTable = fetchSheet.table {
+                if fetchSheet.table != nil {
                     feedbackLabel.text = "AddSheetToTableAlreadyHasTableError".localized()
                     feedbackLabel.textColor = .systemRed
                     rightButton.isEnabled = false

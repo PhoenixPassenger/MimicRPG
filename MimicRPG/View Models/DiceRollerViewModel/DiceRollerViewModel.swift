@@ -114,7 +114,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
     func heightForHeaderInSection(section: Int) -> CGFloat {
         switch DiceRoller(id: section) {
         case .result:
-            return 60
+            return 74
         default:
             return 44
         }
@@ -152,6 +152,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
         case .none:
             break
         }
+        cell.selectionStyle = .none
         return cell
     }
 
@@ -191,8 +192,8 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
             label.text = rollValue
             label.numberOfLines = 3
             label.lineBreakMode = .byWordWrapping
-            label.font = UIFont.josefinSansBold30()
-            label.frame = CGRect(x: 10, y: 10, width: UIScreen.main.bounds.width - 15, height: 44)
+            label.font = UIFont.josefinSansSemiBold24()
+            label.frame = CGRect(x: 10, y: -10, width: UIScreen.main.bounds.width - 20, height: 74)
             view.addSubview(label)
         case .dices:
             let button = UIButton(type: .custom)
