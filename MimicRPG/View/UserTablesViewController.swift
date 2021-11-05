@@ -113,9 +113,11 @@ extension UserTablesViewController: UICollectionViewDataSource {
         let playersCount = filteredTables[indexPath.row].players?.count
         switch playersCount {
         case 1:
-            myCell.set(name: filteredTables[indexPath.row].name!, numberOfPlayers: "\(playersCount ?? 0) " + "Player".localized(), system: filteredTables[indexPath.row].system!)
+            myCell.set(name: filteredTables[indexPath.row].name!, numberOfPlayers: "\(playersCount ?? 0) "
+                       + "Player".localized(), system: filteredTables[indexPath.row].system!)
         default:
-            myCell.set(name: filteredTables[indexPath.row].name!, numberOfPlayers: "\(playersCount ?? 0) " + "Players".localized(), system: filteredTables[indexPath.row].system!)
+            myCell.set(name: filteredTables[indexPath.row].name!, numberOfPlayers: "\(playersCount ?? 0) "
+                       + "Players".localized(), system: filteredTables[indexPath.row].system!)
         }
         return myCell
     }

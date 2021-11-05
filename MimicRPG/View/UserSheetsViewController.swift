@@ -73,9 +73,9 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating, UIGes
         appearance.backgroundColor = UIColor(named: "SecondaryBackground")
         appearance.titleTextAttributes = [.font:
         UIFont.boldSystemFont(ofSize: 20.0),
-                                      .foregroundColor: UIColor.white]
+                                      .foregroundColor: UIColor(named: "FontColor") as Any]
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = UIColor(named: "FontColor")
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
@@ -154,7 +154,8 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? UserSheet else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         }
-        myCell.set(name: filteredSheets[indexPath.row].name!, desc: filteredSheets[indexPath.row].table?.name ?? "NoTable".localized(), system: filteredSheets[indexPath.row].system!)
+        myCell.set(name: filteredSheets[indexPath.row].name!, desc: filteredSheets[indexPath.row].table?.name
+                   ?? "NoTable".localized(), system: filteredSheets[indexPath.row].system!)
         return myCell
     }
 

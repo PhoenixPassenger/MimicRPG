@@ -185,7 +185,8 @@ extension SettingsViewModel: SettingsViewModelType {
     }
 
     func restartApplication() {
-        NotificationService.shared?.generateRestartNotification(title: "RebootLanguageTitle".localized(), body: "RebootLanguageMessage".localized(), timeInterval: 0.5)
+        NotificationService.shared?.generateRestartNotification(title: "RebootLanguageTitle".localized(),
+                                                                body: "RebootLanguageMessage".localized(), timeInterval: 0.5)
         fatalError()
     }
 }

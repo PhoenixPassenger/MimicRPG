@@ -84,11 +84,11 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editSwipe = UIContextualAction(style: .normal, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
+        let editSwipe = UIContextualAction(style: .normal, title: "EditSkill".localized()) { (_, _, _: (Bool) -> Void) in
             self.editSkillCell(row: indexPath.row)
         }
-        editSwipe.backgroundColor = UIColor(named: "Azure")
-        editSwipe.image = UIImage(systemName: "pencil")
+        editSwipe.backgroundColor = .systemBlue
+        // editSwipe.image = UIImage(systemName: "pencil")
         return UISwipeActionsConfiguration(actions: [editSwipe])
     }
 

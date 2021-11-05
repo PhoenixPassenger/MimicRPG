@@ -6,7 +6,7 @@
 //
 // swiftlint:disable force_cast
 // swiftlint:disable function_parameter_count
-// swiftlint:disable line_length
+// swiftlint:disable cyclomatic_complexity
 
 import Foundation
 import UIKit

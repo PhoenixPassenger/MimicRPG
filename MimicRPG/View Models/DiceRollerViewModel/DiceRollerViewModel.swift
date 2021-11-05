@@ -97,12 +97,10 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
         selectedRow = pickeredRow
         if !dices!.isEmpty {
             var isAdditionalDice: Bool = false
-            for dice in dices! {
-                if dice.size == diceSizes![selectedRow!] {
-                    dice.quantity += 1
-                    dice.stepper.value = Double(dice.quantity)
-                    isAdditionalDice = true
-                }
+            for dice in dices! where dice.size == diceSizes![selectedRow!] {
+                dice.quantity += 1
+                dice.stepper.value = Double(dice.quantity)
+                isAdditionalDice = true
             }
             if !isAdditionalDice {
                 dices!.append(Dice(size: diceSizes![selectedRow!], quantity: 1))
@@ -116,7 +114,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
     func heightForHeaderInSection(section: Int) -> CGFloat {
         switch DiceRoller(id: section) {
         case .result:
-            return 60
+            return 74
         default:
             return 44
         }
@@ -125,7 +123,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
     func trailingSwipeActionsConfigurationForRowAt(indexPath: IndexPath) -> UISwipeActionsConfiguration {
         switch DiceRoller(id: indexPath.section) {
         case .dices:
-            let delete = UIContextualAction(style: .destructive, title: nil) { (contextualAction, view, actionPerformed: (Bool) -> ()) in
+            let delete = UIContextualAction(style: .destructive, title: nil) { (_, _, _: (Bool) -> Void) in
                 self.output?.removeDice(indexPath: indexPath)
             }
             delete.image = UIImage(systemName: "trash")
@@ -154,6 +152,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
         case .none:
             break
         }
+        cell.selectionStyle = .none
         return cell
     }
 
@@ -191,8 +190,10 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
                 rollValue += " \(bonus!)"
             }
             label.text = rollValue
-            label.font = UIFont.josefinSansBold30()
-            label.frame = CGRect(x: 10, y: 10, width: UIScreen.main.bounds.width - 10, height: 44)
+            label.numberOfLines = 3
+            label.lineBreakMode = .byWordWrapping
+            label.font = UIFont.josefinSansBold24()
+            label.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 20, height: 74)
             view.addSubview(label)
         case .dices:
             let button = UIButton(type: .custom)

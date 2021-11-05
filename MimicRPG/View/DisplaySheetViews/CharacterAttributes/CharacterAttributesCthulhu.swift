@@ -4,6 +4,7 @@
 //
 //  Created by Eduardo Oliveira on 05/10/21.
 //
+// swiftlint:disable cyclomatic_complexity
 
 import UIKit
 

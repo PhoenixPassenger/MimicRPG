@@ -59,9 +59,9 @@ class SettingsViewController: UITableViewController {
         appearance.backgroundColor = UIColor(named: "SecondaryBackground")
         appearance.titleTextAttributes = [.font:
         UIFont.boldSystemFont(ofSize: 20.0),
-                                      .foregroundColor: UIColor.white]
+                                      .foregroundColor: UIColor(named: "FontColor") as Any]
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = UIColor(named: "FontColor")
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }

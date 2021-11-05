@@ -13,7 +13,7 @@ class DisplaySheetViewController: UIViewController {
     var buttons: [UIButton] = []
     var viewModel: DisplaySheetViewModelType!
     var coordinator: Coordinator?
-    
+
     lazy var chainButton = UIBarButtonItem(image: UIImage(named: "Chain"), style: .plain, target: self, action: #selector(copyIdentifierToClipboard))
 
     var bannerView: UIImageView = UIImageView()
@@ -121,8 +121,8 @@ class DisplaySheetViewController: UIViewController {
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [.font:
         UIFont.boldSystemFont(ofSize: 20.0),
-                                      .foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
+                                          .foregroundColor: UIColor(named: "FontColor") as Any]
+        navigationController?.navigationBar.tintColor = UIColor(named: "FontColor")
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -284,17 +284,15 @@ class DisplaySheetViewController: UIViewController {
 
     func changeSelectedButton(tag: Int) {
 
-        for button in buttons {
-            if button.tag == tag {
-                widthAnchor.constant = button.frame.width
-                centerXAnchor.constant = button.frame.midX
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
-                    self.view.layoutIfNeeded()
-                }, completion: { _ in
-                    self.selectedTag = tag
-                    self.updateButtons()
-                })
-            }
+        for button in buttons where button.tag == tag {
+            widthAnchor.constant = button.frame.width
+            centerXAnchor.constant = button.frame.midX
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { _ in
+                self.selectedTag = tag
+                self.updateButtons()
+            })
         }
     }
 

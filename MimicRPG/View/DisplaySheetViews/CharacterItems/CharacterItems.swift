@@ -11,6 +11,7 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
     var viewModel: DisplaySheetViewModelType!
 
     func setupTableView() {
+        self.contentInset = UIEdgeInsets(top: 10,left: 0,bottom: 0,right: 0)
         self.register(CharacterItemsCell.self, forCellReuseIdentifier: "MyCell")
         self.dataSource = self
         self.delegate = self
@@ -27,7 +28,9 @@ class CharacterItems: UITableView, UITableViewDelegate, UITableViewDataSource {
         guard let itemUses = item.characteristics?.numberValue else {
             fatalError()
         }
-        cell.set(itemName: item.name ?? "", itemDescription: item.characteristics?.stringValue ?? "", itemUses: Int(itemUses), system: self.viewModel.getSystem())
+        cell.set(itemName: item.name ?? "", itemDescription: item.characteristics?.stringValue ?? "", itemUses: Int(itemUses),
+                 system: self.viewModel.getSystem())
+        cell.selectionStyle = .none
         return cell
     }
 

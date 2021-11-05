@@ -106,7 +106,8 @@ class DisplayTableViewController: UIViewController {
         layout.itemSize = CGSize(width: 160, height: 160)
         layout.scrollDirection = .horizontal
 
-        myCollectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 204), size: CGSize(width: self.view.frame.size.width, height: 180)), collectionViewLayout: layout)
+        myCollectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 204),
+                                                          size: CGSize(width: self.view.frame.size.width, height: 180)), collectionViewLayout: layout)
         myCollectionView?.register(UserSheet.self, forCellWithReuseIdentifier: "MyCell")
         myCollectionView?.backgroundColor = UIColor.white
 
@@ -167,7 +168,7 @@ extension DisplayTableViewController: DisplayTableViewModelOutput {
         modal.fillForm(name: name, desc: desc, note: note)
         self.present(modal, animated: true, completion: nil)
     }
-    
+
     func reloadDisplayData() {
         fetchData()
     }
