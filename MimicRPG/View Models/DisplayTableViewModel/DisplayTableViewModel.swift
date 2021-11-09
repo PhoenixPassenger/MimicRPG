@@ -66,16 +66,19 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
         return success
     }
 
-    func editNoteModal(note: Notes) {
+    @discardableResult func editNoteModal(note: Notes) -> Bool {
         self.output?.displayEditNoteModal(name: note.name!, desc: (note.characteristics?.stringValue)!, note: note)
+        return true
     }
 
-    func newNoteModal() {
+    @discardableResult func newNoteModal() -> Bool {
         self.output?.displayNewNoteModal()
+        return true
     }
 
-    func addSheetModal() {
+    @discardableResult func addSheetModal() -> Bool {
         self.output?.displayAddSheetModal()
+        return true
     }
 // MARK: - MUDAR
     func fetchSheetByIdentifier(identifier: String) -> Sheet? {
@@ -96,14 +99,17 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
         return sheets.sorted(by: { $0.name! < $1.name! })
     }
 
-    func addSheetToTable(sheet: Sheet) {
+    @discardableResult func addSheetToTable(sheet: Sheet) -> Bool {
+        var success: Bool = false
         sheet.table = self.table
         self.table?.players = self.table?.players?.adding(sheet) as NSSet?
         do {
             try context.save()
+            success = true
         } catch {
             fatalError("Unable to save data in coredata model")
         }
         self.output?.reloadDisplayData()
+        return success
     }
 }

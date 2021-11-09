@@ -35,6 +35,11 @@ class DisplayTableViewModelTests: XCTestCase {
         XCTAssertTrue(sut.newNote(name: "Note Name", text: "Note Description"))
     }
 
+    func testDisplayTableViewModel_newNote_fail() {
+        sut.table = newTable
+        XCTAssertTrue(sut.newNote(name: "Note Name", text: "Note Description"))
+    }
+
     func testDisplayTableViewModel_editNote() {
         sut.table = newTable
         XCTAssertTrue(sut.editNote(name: "Note Name", text: "Note Description", note: note))
@@ -45,4 +50,35 @@ class DisplayTableViewModelTests: XCTestCase {
         XCTAssertTrue(sut.removeNote(note: note))
     }
 
+    func testDisplayTableViewModel_addSheetToTable() {
+        sut.table = newTable
+        let newSheet = Sheet(context: self.context)
+        XCTAssertTrue(sut.addSheetToTable(sheet: newSheet))
+    }
+
+    func testDisplayTableViewModel_fetchSheets() {
+        sut.table = newTable
+        XCTAssertTrue(sut.fetchSheets().isEmpty)
+    }
+
+    func testDisplayTableViewModel_editNoteModal() {
+        sut.table = newTable
+        XCTAssertTrue(sut.editNoteModal(note: note))
+    }
+
+    func testDisplayTableViewModel_newNoteModal() {
+        sut.table = newTable
+        XCTAssertTrue(sut.newNoteModal())
+    }
+
+    func testDisplayTableViewModel_addSheetModal() {
+        sut.table = newTable
+        XCTAssertTrue(sut.addSheetModal())
+    }
+    
+    func testDisplayTableViewModel_fetchSheetByIdentifier() {
+        sut.table = newTable
+        let newSheet = Sheet(context: self.context)
+        XCTAssertFalse(sut.fetchSheetByIdentifier(identifier: "TESTETESTETESTE") != nil)
+    }
 }

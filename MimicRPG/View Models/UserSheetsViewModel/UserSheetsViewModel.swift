@@ -20,7 +20,8 @@ final class UserSheetsViewModel {
 
 extension UserSheetsViewModel: UserSheetsViewModelType {
 
-    func deleteSheet(sheet: UserSheet!) {
+    @discardableResult func deleteSheet(sheet: UserSheet!) -> Bool {
+        var success: Bool = false
         let receivedSheet = sheet
 
         let storedSheets = fetchSheets()
@@ -29,17 +30,18 @@ extension UserSheetsViewModel: UserSheetsViewModelType {
                 context.delete(sheet)
                 do {
                     try context.save()
+                    success = true
                 } catch {
                     fatalError("Unable to fetch data from core data ")
                 }
                 break
             }
         }
-
         self.output?.reloadDisplayData()
+        return success
     }
 
-    private func getAbbSystemName(system: String) -> String {
+    func getAbbSystemName(system: String) -> String {
         if system == "Tormenta 20" {
             return "T20"
         } else if system == "Cthulhu 7th ed." {
