@@ -13,9 +13,9 @@ protocol DisplayTableViewModelType {
     var table: Table? { get set }
 
     func getNotes() -> [Notes]
-    func newNote(name: String, text: String)
-    func editNote(name: String, text: String, note: Notes)
-    func removeNote(note: Notes)
+    func newNote(name: String, text: String) -> Bool
+    func editNote(name: String, text: String, note: Notes) -> Bool
+    func removeNote(note: Notes) -> Bool
     func editNoteModal(note: Notes)
     func newNoteModal()
 

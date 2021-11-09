@@ -21,7 +21,8 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
         return notes.sorted(by: { $0.name! < $1.name! })
     }
 
-    func newNote(name: String, text: String) {
+    @discardableResult func newNote(name: String, text: String) -> Bool {
+        var success: Bool = false
         let note = Notes(context: context)
         note.table = self.table
         note.name = name
@@ -30,31 +31,39 @@ extension DisplayTableViewModel: DisplayTableViewModelType {
         note.characteristics = char
         do {
             try context.save()
+            success = true
         } catch {
             fatalError("Unable to save data in coredata model")
         }
         self.output?.updateNotes()
+        return success
     }
 
-    func editNote(name: String, text: String, note: Notes) {
+    @discardableResult func editNote(name: String, text: String, note: Notes) -> Bool {
+        var success: Bool = false
         note.name = name
         note.characteristics?.stringValue = text
         do {
             try context.save()
+            success = true
         } catch {
             fatalError("Unable to save data in coredata model")
         }
         self.output?.updateNotes()
+        return success
     }
 
-    func removeNote(note: Notes) {
+    @discardableResult func removeNote(note: Notes) -> Bool {
+        var success: Bool = false
         context.delete(note)
         do {
             try context.save()
+            success = true
         } catch {
             fatalError("Unable to fetch data from core data ")
         }
         self.output?.updateNotes()
+        return success
     }
 
     func editNoteModal(note: Notes) {
