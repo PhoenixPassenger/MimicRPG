@@ -32,7 +32,7 @@ class OnboardingModal: UIViewController {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
+
     lazy var onboard1Text: UILabel = {
         let label = UILabel()
         label.text = "Onboard1Text".localized()

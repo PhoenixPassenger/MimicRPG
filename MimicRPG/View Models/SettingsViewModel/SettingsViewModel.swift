@@ -156,6 +156,7 @@ extension SettingsViewModel: SettingsViewModelType {
             break
         }
 
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         cell.backgroundColor = UIColor(named: "SecondaryBackground")
         return cell
     }
@@ -165,10 +166,16 @@ extension SettingsViewModel: SettingsViewModelType {
         view.backgroundColor = UIColor(named: "Background")
         let label = UILabel()
         label.text = Settings(id: section)?.description
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = UIColor(named: "SettingsText")
-        label.frame = CGRect(x: 10, y: 10, width: 130, height: 44)
+        label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5),
+            label.widthAnchor.constraint(equalToConstant: 0.7*UIScreen.main.bounds.width),
+            label.heightAnchor.constraint(equalToConstant: label.font.lineHeight)
+        ])
         return view
     }
 
