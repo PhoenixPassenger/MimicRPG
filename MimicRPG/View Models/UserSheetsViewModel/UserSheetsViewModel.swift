@@ -20,21 +20,21 @@ final class UserSheetsViewModel {
 
 extension UserSheetsViewModel: UserSheetsViewModelType {
 
-    @discardableResult func deleteSheet(sheet: UserSheet!) -> Bool {
+    @discardableResult func deleteSheet(receivedSheet: Sheet?) -> Bool {
         var success: Bool = false
-        let receivedSheet = sheet
-
-        let storedSheets = fetchSheets()
-        for sheet in storedSheets {
-            if (receivedSheet?.nameLabel.text == sheet.name && receivedSheet?.systemIcon.image == UIImage(named: getAbbSystemName(system: sheet.system!))) {
-                context.delete(sheet)
-                do {
-                    try context.save()
-                    success = true
-                } catch {
-                    fatalError("Unable to fetch data from core data ")
+        if let receivedSheet = receivedSheet {
+            let storedSheets = fetchSheets()
+            for sheet in storedSheets {
+                if (receivedSheet.identifier == sheet.identifier) {
+                    context.delete(sheet)
+                    do {
+                        try context.save()
+                        success = true
+                    } catch {
+                        fatalError("Unable to fetch data from core data ")
+                    }
+                    break
                 }
-                break
             }
         }
         self.output?.reloadDisplayData()

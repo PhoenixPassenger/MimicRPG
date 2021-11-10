@@ -11,11 +11,11 @@ protocol SettingsViewModelType {
     var output: SettingsViewModelOutput? {get set}
     var selectedRow: Int? { get set }
     func restartApplication()
-    func changeLanguage(pickeredRow: Int)
+    func changeLanguage(pickeredRow: Int) -> Bool
     func numberOfSections() -> Int
     func viewForHeaderInSection(section: Int) -> UIView
     func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell
-    func didSelectRowAt(indexPath: IndexPath)
+    func didSelectRowAt(indexPath: IndexPath) -> Bool
     func getLanguageDescriptionById(row: Int) -> String
     func getNumberOfLanguages() -> Int
 }

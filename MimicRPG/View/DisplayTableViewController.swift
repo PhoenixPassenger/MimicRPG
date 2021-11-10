@@ -187,7 +187,7 @@ extension DisplayTableViewController: UICollectionViewDataSource, UICollectionVi
         guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as? UserSheet else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
         }
-        myCell.set(name: tableSheets[indexPath.row].name!, desc: "", system: tableSheets[indexPath.row].system!)
+        myCell.set(sheet: tableSheets[indexPath.row] ,name: tableSheets[indexPath.row].name!, desc: "", system: tableSheets[indexPath.row].system!)
         return myCell
     }
 

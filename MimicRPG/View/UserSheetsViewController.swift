@@ -136,7 +136,7 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating, UIGes
         let alert = UIAlertController(title: "DeleteSheetTitle".localized(), message: "DeleteSheetMessage".localized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "DeleteSheetConfirm".localized(), style: .destructive, handler: { _ in
             let sheetCell = cell as? UserSheet
-            self.viewModel.deleteSheet(sheet: sheetCell)
+            self.viewModel.deleteSheet(receivedSheet: sheetCell?.sheet)
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
         }))
@@ -154,8 +154,8 @@ extension UserSheetsViewController: UICollectionViewDataSource {
         guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? UserSheet else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         }
-        myCell.set(name: filteredSheets[indexPath.row].name ?? "", desc: filteredSheets[indexPath.row].table?.name
-                   ?? "NoTable".localized(), system: filteredSheets[indexPath.row].system ?? ")
+        myCell.set(sheet: filteredSheets[indexPath.row], name: filteredSheets[indexPath.row].name ?? "", desc: filteredSheets[indexPath.row].table?.name
+                   ?? "NoTable".localized(), system: filteredSheets[indexPath.row].system ?? "")
         return myCell
     }
 

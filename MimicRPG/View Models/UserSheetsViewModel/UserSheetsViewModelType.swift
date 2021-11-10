@@ -12,5 +12,5 @@ protocol UserSheetsViewModelType {
     var sheets: [Sheet]? { get set }
 
     func fetchSheets() -> [Sheet]
-    func deleteSheet(sheet: UserSheet!) -> Bool
+    func deleteSheet(receivedSheet: Sheet?) -> Bool
 }

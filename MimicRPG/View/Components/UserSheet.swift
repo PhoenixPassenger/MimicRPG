@@ -8,6 +8,8 @@
 import UIKit
 
 class UserSheet: UICollectionViewCell {
+    
+    var sheet: Sheet?
 
     lazy var sheetImage: UIImageView = {
         let imageView = UIImageView()
@@ -55,11 +57,11 @@ class UserSheet: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        set(name: "Llanowar", desc: "Elfo - Nvl. 4")
     }
 
-    func set(image: String = "placeholder-profile", name: String = "", desc: String = "", system: String = "T20") {
+    func set(sheet: Sheet?, image: String = "placeholder-profile", name: String = "", desc: String = "", system: String = "T20") {
         configureLayout()
+        self.sheet = sheet
         sheetImage.image = UIImage(named: image)
         nameLabel.text = name
         descLabel.text = desc
