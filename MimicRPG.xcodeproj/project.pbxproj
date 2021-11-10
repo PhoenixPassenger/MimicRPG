@@ -14,6 +14,7 @@
 		2E035D29273AB4E5006EB31F /* UserTablesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D28273AB4E5006EB31F /* UserTablesViewModelTests.swift */; };
 		2E035D2B273AB618006EB31F /* UserSheetsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D2A273AB618006EB31F /* UserSheetsViewModelTests.swift */; };
 		2E035D2D273BE615006EB31F /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D2C273BE615006EB31F /* SettingsViewModelTests.swift */; };
+		2E035D2F273BF153006EB31F /* DisplaySheetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D2E273BF153006EB31F /* DisplaySheetViewModelTests.swift */; };
 		2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCB026F36A4B00500E44 /* UserSheet.swift */; };
 		2E16CCC126F36A9800500E44 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */; };
 		2E16CCC226F36A9800500E44 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */; };
@@ -156,6 +157,7 @@
 		2E035D28273AB4E5006EB31F /* UserTablesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTablesViewModelTests.swift; sourceTree = "<group>"; };
 		2E035D2A273AB618006EB31F /* UserSheetsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelTests.swift; sourceTree = "<group>"; };
 		2E035D2C273BE615006EB31F /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		2E035D2E273BF153006EB31F /* DisplaySheetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModelTests.swift; sourceTree = "<group>"; };
 		2E16CCB026F36A4B00500E44 /* UserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheet.swift; sourceTree = "<group>"; };
 		2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
@@ -506,6 +508,7 @@
 				2E035D28273AB4E5006EB31F /* UserTablesViewModelTests.swift */,
 				2E035D2A273AB618006EB31F /* UserSheetsViewModelTests.swift */,
 				2E035D2C273BE615006EB31F /* SettingsViewModelTests.swift */,
+				2E035D2E273BF153006EB31F /* DisplaySheetViewModelTests.swift */,
 			);
 			path = MimicRPGTests;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E035D2F273BF153006EB31F /* DisplaySheetViewModelTests.swift in Sources */,
 				2E035D27273AAB43006EB31F /* DisplayTableViewModelTests.swift in Sources */,
 				5B0DC58B26EA2B6A008C8578 /* MimicRPGTests.swift in Sources */,
 				2E035D2D273BE615006EB31F /* SettingsViewModelTests.swift in Sources */,

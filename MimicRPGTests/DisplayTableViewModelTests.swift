@@ -75,10 +75,9 @@ class DisplayTableViewModelTests: XCTestCase {
         sut.table = newTable
         XCTAssertTrue(sut.addSheetModal())
     }
-    
+
     func testDisplayTableViewModel_fetchSheetByIdentifier() {
         sut.table = newTable
-        let newSheet = Sheet(context: self.context)
         XCTAssertFalse(sut.fetchSheetByIdentifier(identifier: "TESTETESTETESTE") != nil)
     }
 }
