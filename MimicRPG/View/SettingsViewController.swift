@@ -16,7 +16,6 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "Background")
         self.setupTableView()
-        print(LocalizedStrings.hello.localized)
     }
 
     func setupTableView() {
@@ -147,7 +146,7 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         let screenWidth = UIScreen.main.bounds.width - 10
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
         label.text = self.viewModel.getLanguageDescriptionById(row: row)
-        label.font = .systemFont(ofSize: 17)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.sizeToFit()
         return label
     }

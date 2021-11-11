@@ -29,7 +29,7 @@ extension UIImage {
         }
         return UIImage.animatedImageWithSource(source)
     }
-    
+
     public class func gifImageWithURL(_ gifUrl:String) -> UIImage? {
         guard let bundleURL:URL? = URL(string: gifUrl)
             else {
@@ -77,7 +77,7 @@ extension UIImage {
         }
         return delay
     }
-    
+
     class func gcdForPair(_ a: Int?, _ b: Int?) -> Int {
         var a = a
         var b = b
@@ -109,7 +109,7 @@ extension UIImage {
         }
     }
 
-    class func gcdForArray(_ array: Array<Int>) -> Int {
+    class func gcdForArray(_ array: [Int]) -> Int {
         if array.isEmpty {
             return 1
         }
@@ -146,7 +146,7 @@ extension UIImage {
         for i in 0..<count {
             frame = UIImage(cgImage: images[Int(i)])
             frameCount = Int(delays[Int(i)] / gcd)
-            
+
             for _ in 0..<frameCount {
                 frames.append(frame)
             }
