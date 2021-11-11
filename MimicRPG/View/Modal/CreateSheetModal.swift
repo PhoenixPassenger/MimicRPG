@@ -97,14 +97,15 @@ class CreateSheetModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "System".localized()
-        label.font = UIFont.josefinSansButton()
+        label.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .josefinSansRegular())
+        label.heightAnchor.constraint(equalToConstant: label.font.lineHeight).isActive = true
         return label
     }()
 
     lazy var systemButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel!.font = UIFont.josefinSansRegular()
+        button.titleLabel!.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .josefinSansRegular())
         button.setTitleColor(UIColor(named: "FontColor"), for: .normal)
         button.setTitle("\(Systems(id: selectedRow)?.description ?? "")", for: .normal)
         button.contentHorizontalAlignment = .left
@@ -113,8 +114,8 @@ class CreateSheetModal: UIViewController {
         button.layer.borderColor = UIColor.systemGray3.cgColor
         button.addTarget(self, action: #selector(showSystemsPicker), for: .touchUpInside)
         button.backgroundColor = UIColor(named: "SecondaryBackground")
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
-        button.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        button.titleEdgeInsets = UIEdgeInsets(top: (button.titleLabel?.font.lineHeight)!/4, left: 8, bottom: 0, right: 0)
+        button.heightAnchor.constraint(equalToConstant: (button.titleLabel?.font.lineHeight)!).isActive = true
         return button
     }()
 
@@ -123,7 +124,7 @@ class CreateSheetModal: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.distribution = .fillEqually
+        stack.distribution = .fillProportionally
         return stack
     }()
 
@@ -180,7 +181,7 @@ class CreateSheetModal: UIViewController {
             pickerView.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor)
         ])
 
-        let alert = UIAlertController(title: "titleAlert".localized(), message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "SystemChoice".localized(), message: "", preferredStyle: .actionSheet)
         alert.setValue(viewController, forKey: "contentViewController")
         alert.addAction(UIAlertAction(title: "Confirm".localized(), style: .default, handler: { [self] _ in
             selectedRow = pickerView.selectedRow(inComponent: 0)
@@ -373,7 +374,7 @@ extension CreateSheetModal: UIPickerViewDelegate, UIPickerViewDataSource {
         let screenWidth = UIScreen.main.bounds.width - 10
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
         label.text = Systems(id: row)?.description
-        label.font = .systemFont(ofSize: 17)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.sizeToFit()
         return label
     }

@@ -21,20 +21,21 @@ class EditModalComponent: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.josefinSansButton()
+        label.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .josefinSansRegular())
         return label
     }()
 
     lazy var valueText: UITextView = {
         let field = UITextView()
         field.translatesAutoresizingMaskIntoConstraints = false
-        field.font = UIFont.josefinSansRegular()
+        field.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .josefinSansRegular())
         field.delegate = self
         field.layer.borderWidth = 1
         field.layer.cornerRadius = 5
         field.textContainer.lineBreakMode = .byWordWrapping
         field.layer.borderColor = UIColor.systemGray3.cgColor
         field.backgroundColor = UIColor(named: "SecondaryBackground")
+        field.textContainerInset = UIEdgeInsets(top: (field.font?.lineHeight)!/4, left: 8, bottom: 0, right: 0)
         return field
     }()
 
@@ -105,7 +106,7 @@ class EditModalComponent: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.spacing = 12
+        stack.spacing = 0
         self.addSubview(stack)
         return stack
     }()
@@ -163,10 +164,10 @@ class EditModalComponent: UIView {
         ])
 
         if isMultiline {
-            valueText.heightAnchor.constraint(equalToConstant: 90).isActive = true
+            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 1.2).isActive = true
             valueText.textContainer.maximumNumberOfLines = 10
         } else {
-            valueText.heightAnchor.constraint(equalToConstant: 35).isActive = true
+            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 1.2).isActive = true
             valueText.textContainer.maximumNumberOfLines = 1
         }
     }

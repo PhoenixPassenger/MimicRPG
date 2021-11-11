@@ -12,6 +12,7 @@ Enabled = "Enabled";
 Disabled = "Disabled";
 Language = "Language";
 Notifications = "Notifications";
+SystemChoice = "Choose the system";
 titleAlert = "Choose the language";
 Confirm = "Confirm";
 Cancel = "Cancel";
