@@ -29,6 +29,7 @@ class SheetHeader: UIView {
         self.addSubview(imageView)
         return imageView
     }()
+
     lazy var perfilImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +48,7 @@ class SheetHeader: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .josefinSansBold17())
         label.text = "Llanowar"
         label.textColor = UIColor(named: "FontColor")
         label.textAlignment = .center
@@ -58,7 +59,7 @@ class SheetHeader: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.josefinSansDetail()
+        label.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: .josefinSansDetail())
         label.text = "Elfo - Nvl. 4"
         label.textColor = UIColor(named: "FontColor")
         label.textAlignment = .center
@@ -78,7 +79,7 @@ class SheetHeader: UIView {
             perfilImage.widthAnchor.constraint(equalToConstant: 100),
             perfilImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
 
-            nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
+            nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: nameLabel.font.lineHeight * -0.5),
             nameLabel.leadingAnchor.constraint(equalTo: self.perfilImage.trailingAnchor, constant: 12),
 
             descLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
