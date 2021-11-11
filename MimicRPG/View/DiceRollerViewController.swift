@@ -155,7 +155,7 @@ extension DiceRollerViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: viewModel.screenWidth!, height: 30))
         label.text = "\(viewModel.diceSizes![row])"
-        label.font = UIFont.josefinSansBold30()
+        label.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .josefinSansBold30())
         label.sizeToFit()
         return label
     }
