@@ -89,7 +89,7 @@ class CreateSheetModal: UIViewController {
     // MARK: - First Group
 
     lazy var sheetNameView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Name".localized(), type: .text)
+        let view = EditModalComponent(titleText: "Name".localized(), multiline: true, type: .text)
         return view
     }()
 
