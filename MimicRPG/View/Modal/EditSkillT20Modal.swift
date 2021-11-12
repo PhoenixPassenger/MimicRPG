@@ -43,7 +43,7 @@ class EditSkillT20Modal: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
         label.text = "EditSkill".localized()
-        label.font = UIFont.josefinSansButton()
+        label.font = .josefinSansButton()
         self.view.addSubview(label)
         return label
     }()
@@ -74,7 +74,7 @@ class EditSkillT20Modal: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
         label.text = (editSkill?.name)!.localized()
-        label.font = UIFont.josefinSansBold()
+        label.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: .josefinSansBold())
         self.view.addSubview(label)
         return label
     }()

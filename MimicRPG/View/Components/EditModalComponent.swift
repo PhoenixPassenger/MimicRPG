@@ -22,6 +22,8 @@ class EditModalComponent: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .josefinSansRegular())
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
         return label
     }()
 
@@ -43,7 +45,8 @@ class EditModalComponent: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "0"
-        label.font = UIFont.josefinSansRegular()
+        label.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .josefinSansRegular())
+        label.heightAnchor.constraint(equalToConstant: label.font!.lineHeight).isActive = true
         return label
     }()
 
