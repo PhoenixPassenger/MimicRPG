@@ -17,6 +17,7 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         let searchBar = UISearchBar()
         searchBar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 38)
         searchBar.delegate = self
+        searchBar.searchTextField.font = UIFont.josefinSansRegular()
         searchBar.barTintColor = UIColor(named: "Background")
         searchBar.searchBarStyle = UISearchBar.Style.default
         searchBar.placeholder = "SearchHere".localized()
