@@ -222,7 +222,7 @@ class DisplaySheetViewController: UIViewController {
             bannerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bannerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bannerView.bottomAnchor.constraint(equalTo: bannerView.topAnchor,
-                                               constant: max(self.view.bounds.height/4, sheetHeader.nameLabel.font.lineHeight * 4)),
+                                               constant: max(self.view.bounds.height/4.5, sheetHeader.nameLabel.font.lineHeight * 4)),
 
             sheetHeader.topAnchor.constraint(equalTo: bannerView.bottomAnchor, constant: sheetHeader.nameLabel.font.lineHeight * 0.8),
             sheetHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor),
