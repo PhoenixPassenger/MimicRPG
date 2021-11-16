@@ -81,6 +81,7 @@
 		2ED157372734179400A083B3 /* onboard3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2ED157362734179400A083B3 /* onboard3.gif */; };
 		2ED157392734194300A083B3 /* onboard4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2ED157382734194300A083B3 /* onboard4.gif */; };
 		2ED1573B2734242900A083B3 /* onboard5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2ED1573A2734242900A083B3 /* onboard5.gif */; };
+		2EDA62DE2743F22500F4FCF8 /* DiceRollerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */; };
 		2EF7724426FE41A700A88EC8 /* CharacterSkillsT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724326FE41A700A88EC8 /* CharacterSkillsT20.swift */; };
 		2EF7724626FE41E500A88EC8 /* CharacterSkillsCellT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */; };
 		2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */; };
@@ -225,6 +226,7 @@
 		2ED157362734179400A083B3 /* onboard3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboard3.gif; sourceTree = "<group>"; };
 		2ED157382734194300A083B3 /* onboard4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboard4.gif; sourceTree = "<group>"; };
 		2ED1573A2734242900A083B3 /* onboard5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboard5.gif; sourceTree = "<group>"; };
+		2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModelTests.swift; sourceTree = "<group>"; };
 		2EF7724326FE41A700A88EC8 /* CharacterSkillsT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsT20.swift; sourceTree = "<group>"; };
 		2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCellT20.swift; sourceTree = "<group>"; };
 		2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeaderT20.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				2E035D2A273AB618006EB31F /* UserSheetsViewModelTests.swift */,
 				2E035D2C273BE615006EB31F /* SettingsViewModelTests.swift */,
 				2E035D2E273BF153006EB31F /* DisplaySheetViewModelTests.swift */,
+				2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -990,6 +993,7 @@
 				5B0DC58B26EA2B6A008C8578 /* MimicRPGTests.swift in Sources */,
 				2E035D2D273BE615006EB31F /* SettingsViewModelTests.swift in Sources */,
 				2E035D29273AB4E5006EB31F /* UserTablesViewModelTests.swift in Sources */,
+				2EDA62DE2743F22500F4FCF8 /* DiceRollerViewModelTests.swift in Sources */,
 				2E035D2B273AB618006EB31F /* UserSheetsViewModelTests.swift in Sources */,
 				2E035D32273C0C2D006EB31F /* DiceRollerViewControllerTests.swift in Sources */,
 			);

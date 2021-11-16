@@ -61,7 +61,7 @@ final class DiceRollerViewModel {
 
 extension DiceRollerViewModel: DiceRollerViewModelType {
 
-    func settingValues() {
+    @discardableResult func settingValues() -> Bool {
         dices = [Dice(size: 20, quantity: 1)]
         bonus = 0
         cellReuseIdentifier = "cell"
@@ -70,6 +70,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
         diceSizes = [2, 4, 6, 8, 10, 12, 20, 100]
         selectedRow = 0
         bonusStepper = UIStepper()
+        return true
     }
 
     func rollingDices() -> (resultString: String, resultValue: Int) {

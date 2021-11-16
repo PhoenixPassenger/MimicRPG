@@ -20,7 +20,7 @@ protocol DiceRollerViewModelType {
     var bonusStepper: UIStepper? {get set}
 
     func addDice(pickeredRow: Int)
-    func settingValues()
+    func settingValues() -> Bool
     func rollingDices() -> (resultString: String, resultValue: Int)
 
     func numberOfSections() -> Int
