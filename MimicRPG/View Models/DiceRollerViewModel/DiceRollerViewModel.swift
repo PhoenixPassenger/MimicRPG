@@ -142,16 +142,15 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
             dices![indexPath.row].stepper.addTarget(self, action: #selector(reloadDataViewModel), for: .valueChanged)
             dices![indexPath.row].quantity = Int(dices![indexPath.row].stepper.value)
             cell.textLabel?.text = "d\(dices![indexPath.row].size) (x\(dices![indexPath.row].quantity))"
-            cell.textLabel?.font = UIFont.josefinSansRegular()
         case .bonus:
             cell.accessoryView = bonusStepper
             bonusStepper!.addTarget(self, action: #selector(reloadDataViewModel), for: .valueChanged)
             bonus! = Int(bonusStepper!.value)
             cell.textLabel?.text = "\(bonus!)"
-        cell.textLabel?.font = UIFont.josefinSansRegular()
         case .none:
             break
         }
+        cell.textLabel?.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .josefinSansRegular())
         cell.selectionStyle = .none
         return cell
     }
@@ -192,6 +191,7 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
             label.text = rollValue
             label.numberOfLines = 3
             label.lineBreakMode = .byWordWrapping
+            // label.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .josefinSansBold24())
             label.font = UIFont.josefinSansBold24()
             label.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 20, height: 74)
             view.addSubview(label)
@@ -204,10 +204,18 @@ extension DiceRollerViewModel: DiceRollerViewModelType {
             view.addSubview(button)
         case .bonus:
             let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
             label.text = "Bonus".localized()
-            label.font = UIFont.josefinSansSkillDesc()
-            label.frame = CGRect(x: 10, y: 10, width: 130, height: 44)
+            label.textColor = UIColor(named: "SettingsText")
+            label.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .josefinSansSkillDesc())
+            // label.frame = CGRect(x: 10, y: 10, width: 0.7*UIScreen.main.bounds.width, height: label.font.lineHeight)
             view.addSubview(label)
+            NSLayoutConstraint.activate([
+                label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+                label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5),
+                label.widthAnchor.constraint(equalToConstant: 0.7*UIScreen.main.bounds.width),
+                label.heightAnchor.constraint(equalToConstant: label.font.lineHeight)
+            ])
         case .none:
             break
         }
