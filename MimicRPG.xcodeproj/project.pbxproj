@@ -82,6 +82,7 @@
 		2ED157392734194300A083B3 /* onboard4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2ED157382734194300A083B3 /* onboard4.gif */; };
 		2ED1573B2734242900A083B3 /* onboard5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2ED1573A2734242900A083B3 /* onboard5.gif */; };
 		2EDA62DE2743F22500F4FCF8 /* DiceRollerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */; };
+		2EDA62E027453A6D00F4FCF8 /* EditSkillCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA62DF27453A6D00F4FCF8 /* EditSkillCthulhuModal.swift */; };
 		2EF7724426FE41A700A88EC8 /* CharacterSkillsT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724326FE41A700A88EC8 /* CharacterSkillsT20.swift */; };
 		2EF7724626FE41E500A88EC8 /* CharacterSkillsCellT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */; };
 		2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */; };
@@ -227,6 +228,7 @@
 		2ED157382734194300A083B3 /* onboard4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboard4.gif; sourceTree = "<group>"; };
 		2ED1573A2734242900A083B3 /* onboard5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboard5.gif; sourceTree = "<group>"; };
 		2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModelTests.swift; sourceTree = "<group>"; };
+		2EDA62DF27453A6D00F4FCF8 /* EditSkillCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillCthulhuModal.swift; sourceTree = "<group>"; };
 		2EF7724326FE41A700A88EC8 /* CharacterSkillsT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsT20.swift; sourceTree = "<group>"; };
 		2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCellT20.swift; sourceTree = "<group>"; };
 		2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeaderT20.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				2E5FD79827218ED600B605D0 /* CreateTableModal.swift */,
 				2EA75ACD272835FC008444A5 /* AddSheetToTableModal.swift */,
 				2ED1572A2732BFEC00A083B3 /* OnboardingModal.swift */,
+				2EDA62DF27453A6D00F4FCF8 /* EditSkillCthulhuModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				2E5FD7842720992D00B605D0 /* UserTablesViewModel.swift in Sources */,
 				2E6EAE41270B88BA00626650 /* CreateAttackCthulhuModal.swift in Sources */,
 				2E5FD79127209CA600B605D0 /* DisplayTableViewModel.swift in Sources */,
+				2EDA62E027453A6D00F4FCF8 /* EditSkillCthulhuModal.swift in Sources */,
 				2E5FD7972720D7E300B605D0 /* TableCell.swift in Sources */,
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
 				2E5FD79527209CE200B605D0 /* DisplayTableViewModelType.swift in Sources */,

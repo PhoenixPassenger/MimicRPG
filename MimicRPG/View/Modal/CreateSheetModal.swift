@@ -296,6 +296,8 @@ class CreateSheetModal: UIViewController {
 
                 newSkill.name = skill.getSkills().name
                 newSkill.isActivated = false
+                let initialValue = skill.getSkills().value
+                newSkill.initialValue = Int64(initialValue)
                 newSkill.value = 0
                 newSkill.sheet = newSheet
 

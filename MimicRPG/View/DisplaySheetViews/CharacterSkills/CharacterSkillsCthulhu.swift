@@ -48,7 +48,8 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         cell.set(
             titleItem: (filteredSkills[indexPath.row].name!).localized(),
             active: filteredSkills[indexPath.row].isActivated,
-            value: Int(filteredSkills[indexPath.row].value))
+            value: Int(filteredSkills[indexPath.row].value),
+            initialValue: Int(filteredSkills[indexPath.row].initialValue))
         return cell
     }
 
@@ -60,6 +61,21 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         return 55
     }
 
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editSwipe = UIContextualAction(style: .normal, title: "EditSkill".localized()) { (_, _, _: (Bool) -> Void) in
+            self.editSkillCell(row: indexPath.row)
+        }
+        editSwipe.backgroundColor = .systemBlue
+        // editSwipe.image = UIImage(systemName: "pencil")
+        return UISwipeActionsConfiguration(actions: [editSwipe])
+    }
+
+    private func editSkillCell(row: Int) {
+        let skillCell = self.viewModel.getSkills()
+        let skillCellRow = skillCell[row]
+        self.viewModel.editSkillsCthulhu(skill: skillCellRow)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let stack = UIStackView()
         stack.axis = .vertical

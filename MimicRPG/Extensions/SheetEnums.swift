@@ -355,25 +355,25 @@ enum SkillsCthulhu {
     func getSkills() -> SkillCthulhu {
         switch self {
         case .accounting:
-            return SkillCthulhu(name: "01_Accounting", value: 05)
+            return SkillCthulhu(name: "01_Accounting", value: 5)
         case .anthropology:
-            return SkillCthulhu(name: "02_Anthropology", value: 01)
+            return SkillCthulhu(name: "02_Anthropology", value: 1)
         case .appraise:
-            return SkillCthulhu(name: "03_Appraise", value: 05)
+            return SkillCthulhu(name: "03_Appraise", value: 5)
         case .archaeology:
-            return SkillCthulhu(name: "04_Archaeology", value: 01)
+            return SkillCthulhu(name: "04_Archaeology", value: 1)
         case .artAndCraft:
-            return SkillCthulhu(name: "05_ArtAndCraft", value: 05)
+            return SkillCthulhu(name: "05_ArtAndCraft", value: 5)
         case .charm:
             return SkillCthulhu(name: "06_Charm", value: 15)
         case .climb:
             return SkillCthulhu(name: "07_Climb", value: 20)
         case .creditRating:
-            return SkillCthulhu(name: "08_CreditRating", value: 00)
+            return SkillCthulhu(name: "08_CreditRating", value: 0)
         case .cthulhuMythos:
-            return SkillCthulhu(name: "09_CthulhuMythos", value: 00)
+            return SkillCthulhu(name: "09_CthulhuMythos", value: 0)
         case .disguise:
-            return SkillCthulhu(name: "10_Disguise", value: 05)
+            return SkillCthulhu(name: "10_Disguise", value: 5)
         case .dodge:
             return SkillCthulhu(name: "11_Dodge", value: 10)
         case .driveAuto:
