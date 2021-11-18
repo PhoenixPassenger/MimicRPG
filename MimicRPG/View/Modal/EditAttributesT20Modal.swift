@@ -40,7 +40,7 @@ class EditAttributesT20Modal: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
         label.text = "EditAttributes".localized()
-        label.font = UIFont.josefinSansButton()
+        label.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: .josefinSansButton())
         self.view.addSubview(label)
         return label
     }()

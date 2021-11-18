@@ -25,7 +25,9 @@ class CharacterBioCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "Azure")
-        label.font = UIFont.josefinSansBold17()
+        label.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: .josefinSansBold17())
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
         label.sizeToFit()
         self.addSubview(label)
         return label
@@ -35,8 +37,8 @@ class CharacterBioCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.font = UIFont.josefinSansBold14()
-        label.numberOfLines = 0
+        label.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .josefinSansBold14())
+        label.numberOfLines = 5
         label.sizeToFit()
         self.addSubview(label)
         return label

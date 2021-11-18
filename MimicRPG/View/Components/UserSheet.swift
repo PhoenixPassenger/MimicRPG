@@ -33,7 +33,7 @@ class UserSheet: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.josefinSansBold14()
+        label.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .josefinSansBold14())
         label.textColor = UIColor(named: "FontColor")
         label.textAlignment = .center
         return label
@@ -43,7 +43,7 @@ class UserSheet: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.josefinSansDetail()
+        label.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .josefinSansDetail())
         label.textColor = UIColor(named: "FontColor")
         label.textAlignment = .center
         return label
@@ -84,7 +84,7 @@ class UserSheet: UICollectionViewCell {
 
             nameLabel.topAnchor.constraint(equalTo: self.sheetImage.bottomAnchor, constant: 5),
             nameLabel.leftAnchor.constraint(equalTo: self.sheetImage.leftAnchor),
-            nameLabel.heightAnchor.constraint(equalToConstant: 18),
+            nameLabel.heightAnchor.constraint(equalToConstant: nameLabel.font.lineHeight),
 
             descLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 5),
             descLabel.leftAnchor.constraint(equalTo: self.sheetImage.leftAnchor)

@@ -221,13 +221,14 @@ class DisplaySheetViewController: UIViewController {
             bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -(navigationController?.navigationBar.frame.height)!),
             bannerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bannerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bannerView.heightAnchor.constraint(equalToConstant: 139),
+            bannerView.bottomAnchor.constraint(equalTo: bannerView.topAnchor,
+                                               constant: max(self.view.bounds.height/4.5, sheetHeader.nameLabel.font.lineHeight * 4)),
 
-            sheetHeader.topAnchor.constraint(equalTo: bannerView.bottomAnchor),
+            sheetHeader.topAnchor.constraint(equalTo: bannerView.bottomAnchor, constant: sheetHeader.nameLabel.font.lineHeight * 0.8),
             sheetHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             sheetHeader.trailingAnchor.constraint(equalTo: view.leadingAnchor),
 
-            scrollView.topAnchor.constraint(equalTo: sheetHeader.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: sheetHeader.bottomAnchor, constant: (buttons[0].titleLabel?.font.lineHeight)!),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: 38),
@@ -278,7 +279,7 @@ class DisplaySheetViewController: UIViewController {
         button.addTarget(self, action: #selector(tabFunction(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.sizeToFit()
-        button.titleLabel?.font = UIFont.josefinSansBold17()
+        button.titleLabel?.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .josefinSansBold17())
         return button
     }
 

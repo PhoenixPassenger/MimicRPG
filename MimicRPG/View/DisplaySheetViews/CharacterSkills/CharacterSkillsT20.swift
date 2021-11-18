@@ -18,6 +18,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
         let searchBar = UISearchBar()
         searchBar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 38)
         searchBar.delegate = self
+        searchBar.searchTextField.font = UIFont.josefinSansRegular()
         searchBar.barTintColor = UIColor(named: "Background")
         searchBar.searchBarStyle = UISearchBar.Style.default
         searchBar.placeholder = "SearchHere".localized()
@@ -76,6 +77,7 @@ class CharacterSkillsT20: UITableView, UITableViewDelegate, UITableViewDataSourc
         stack.alignment = .center
         stack.addSubview(searchBar)
         stack.addSubview(infoView)
+       // infoView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0).isActive = true
         return stack
     }
 

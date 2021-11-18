@@ -39,10 +39,10 @@ class UserSheetsViewController: UIViewController, UISearchResultsUpdating, UIGes
         let itemSize = UIScreen.main.bounds.width/2 - 3
 
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: itemSize/5, right: 0)
         layout.itemSize = CGSize(width: itemSize, height: itemSize)
 
-        layout.minimumInteritemSpacing = 3
+        layout.minimumInteritemSpacing = itemSize/34
         layout.minimumLineSpacing = 3
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView?.register(UserSheet.self, forCellWithReuseIdentifier: reuseIdentifier)
