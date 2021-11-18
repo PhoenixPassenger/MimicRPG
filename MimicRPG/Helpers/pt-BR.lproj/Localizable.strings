@@ -291,3 +291,6 @@ Onboard2Text = "Para criar fichas e/ou mesas\nnovas, selecione o botão ”+” 
 Onboard3Text = "Para editar alguns campos\ndentro da ficha, role a\nlinha para a esquerda.";
 Onboard4Text = "Para excluir itens, ataques e notas\ncriadas na ficha, role a linha para\na direita.";
 Onboard5Text = "Para excluir fichas ou mesas,\nsegure o ícone referente e espere\no alerta aparecer.";
+Value = "Valor";
+SkillName = "Nome da perícia";
+CreateSkill = "Criar perícia";

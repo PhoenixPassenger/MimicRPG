@@ -543,15 +543,17 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
     func editSkillsT20(skill: Skill) {
         self.output?.displayEditSkillsT20Modal(name: skill.name!, skill: skill)
     }
-    
+
     func editSkillsCthulhu(skill: Skill) {
         self.output?.displayEditSkillsCthulhuModal(name: skill.name!, skill: skill)
     }
 
+    func createSkillsCthulhu() {
+        self.output?.displayCreateSkillsCthulhuModal()
+    }
+
     func skillT20SaveChanges(skillOtherValue: Int, skill: Skill) {
-        print("SOV",skillOtherValue)
         skill.value = Int64(skillOtherValue)
-        print("Value",skill.value)
         do {
             try context.save()
         } catch {
@@ -559,11 +561,27 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         self.output?.updateSkillsT20()
     }
-    
+
     func skillCthulhuSaveChanges(skillOtherValue: Int, skill: Skill) {
-        print("SOV",skillOtherValue)
         skill.value = Int64(skillOtherValue)
-        print("Value",skill.value)
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+        self.output?.updateSkillsCthulhu()
+    }
+
+    func createSkillCthulhu(skillName: String, skillValue: Int) {
+        let newSkill = Skill(context: self.context)
+        newSkill.name = skillName
+        newSkill.value = Int64(skillValue)
+        newSkill.initialValue = Int64(skillValue)
+        newSkill.attribute = "personalized"
+        newSkill.isActivated = true
+        newSkill.sheet = sheet
+
+        sheet?.skills?.adding(newSkill)
         do {
             try context.save()
         } catch {

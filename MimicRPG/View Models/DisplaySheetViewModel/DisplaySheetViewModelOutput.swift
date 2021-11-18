@@ -37,6 +37,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func displayEditItemModal(name: String, desc: String, uses: Int, item: Item)
     func displayEditSkillsT20Modal(name: String, skill: Skill)
     func displayEditSkillsCthulhuModal(name: String, skill: Skill)
+    func displayCreateSkillsCthulhuModal()
     func updateSkillsT20()
     func updateSkillsCthulhu()
 }

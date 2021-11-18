@@ -155,12 +155,6 @@ class EditSkillT20Modal: UIViewController {
         self.editSkill = skill
     }
 
-    // MARK: - CoreData
-    // Obsoleto, posso apagar depois
-    func editSkills() {
-        // self.viewModel.skillT20SaveChanges()
-    }
-
     private func configureLayout() {
         NSLayoutConstraint.activate([
             navigationBar.topAnchor.constraint(equalTo: self.view.topAnchor),

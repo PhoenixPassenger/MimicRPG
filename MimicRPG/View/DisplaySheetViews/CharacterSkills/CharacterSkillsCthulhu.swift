@@ -19,7 +19,9 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         searchBar.delegate = self
         searchBar.barTintColor = UIColor(named: "Background")
         searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.showsBookmarkButton = true
         searchBar.placeholder = "SearchHere".localized()
+        searchBar.setImage(UIImage(systemName: "plus"), for: UISearchBar.Icon.bookmark, state: .normal)
         searchBar.sizeToFit()
         return searchBar
     }()
@@ -45,11 +47,23 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCellCthulhu
         guard let cell = cellWrap else { fatalError() }
+        var initialValue = Int(filteredSkills[indexPath.row].initialValue)
+        if filteredSkills[indexPath.row].name! == "11_Dodge" {
+            let attribute: Attributes = viewModel.getAttributes().first(where: {$0.abbreviation == "DEX"})!
+            initialValue = Int(attribute.value)
+        } else if filteredSkills[indexPath.row].name! == "23_LanguageOwn" {
+            let attribute: Attributes = viewModel.getAttributes().first(where: {$0.abbreviation == "EDU"})!
+            initialValue = Int(attribute.value)
+        }
+        var skillTitle = (filteredSkills[indexPath.row].name!)
+        if (filteredSkills[indexPath.row].attribute != "personalized") {
+            skillTitle = skillTitle.localized()
+        }
         cell.set(
-            titleItem: (filteredSkills[indexPath.row].name!).localized(),
+            titleItem: skillTitle,
             active: filteredSkills[indexPath.row].isActivated,
             value: Int(filteredSkills[indexPath.row].value),
-            initialValue: Int(filteredSkills[indexPath.row].initialValue))
+            initialValue: initialValue)
         return cell
     }
 
@@ -75,7 +89,7 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         let skillCellRow = skillCell[row]
         self.viewModel.editSkillsCthulhu(skill: skillCellRow)
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -111,4 +125,8 @@ extension CharacterSkillsCthulhu: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.endEditing(true)
     }
+
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        self.viewModel.createSkillsCthulhu()
+       }
 }

@@ -401,6 +401,11 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         self.present(modal, animated: true, completion: nil)
     }
 
+    func displayCreateSkillsCthulhuModal() {
+        let modal = CreateSkillCthulhuModal()
+        modal.viewModel = self.viewModel
+        self.present(modal, animated: true, completion: nil)
+    }
     func displayEditSkillsT20Modal(name: String, skill: Skill) {
         let modal = EditSkillT20Modal()
         modal.viewModel = self.viewModel
@@ -502,6 +507,7 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
 
     func updateSkillsCthulhu() {
         let skillsView = sheetView as? CharacterSkillsCthulhu
+        skillsView?.filteredSkills = viewModel.getSkills()
         skillsView?.reloadData()
     }
 

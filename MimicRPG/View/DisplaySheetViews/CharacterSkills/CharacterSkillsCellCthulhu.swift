@@ -164,7 +164,7 @@ class CharacterSkillsCellCthulhu: UITableViewCell {
         return view
     }()
 
-    func set( titleItem: String, active: Bool, value: Int, initialValue: Int) {
+    func set(titleItem: String, active: Bool, value: Int, initialValue: Int) {
         titleLabel.text = titleItem
         isChecked = active
         checkmark.isHidden = !isChecked

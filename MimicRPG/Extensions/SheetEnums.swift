@@ -399,7 +399,7 @@ enum SkillsCthulhu {
         case .jump:
             return SkillCthulhu(name: "22_Jump", value: 20)
         case .languageOwn:
-            return SkillCthulhu(name: "23_LanguageOwn", value: 10)
+            return SkillCthulhu(name: "23_LanguageOwn", value: 0)
         case .law:
             return SkillCthulhu(name: "24_Law", value: 05)
         case .libraryUse:

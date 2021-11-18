@@ -83,6 +83,7 @@
 		2ED1573B2734242900A083B3 /* onboard5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2ED1573A2734242900A083B3 /* onboard5.gif */; };
 		2EDA62DE2743F22500F4FCF8 /* DiceRollerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */; };
 		2EDA62E027453A6D00F4FCF8 /* EditSkillCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA62DF27453A6D00F4FCF8 /* EditSkillCthulhuModal.swift */; };
+		2EDA62E22745437400F4FCF8 /* CreateSkillCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA62E12745437400F4FCF8 /* CreateSkillCthulhuModal.swift */; };
 		2EF7724426FE41A700A88EC8 /* CharacterSkillsT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724326FE41A700A88EC8 /* CharacterSkillsT20.swift */; };
 		2EF7724626FE41E500A88EC8 /* CharacterSkillsCellT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */; };
 		2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */; };
@@ -229,6 +230,7 @@
 		2ED1573A2734242900A083B3 /* onboard5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboard5.gif; sourceTree = "<group>"; };
 		2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModelTests.swift; sourceTree = "<group>"; };
 		2EDA62DF27453A6D00F4FCF8 /* EditSkillCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillCthulhuModal.swift; sourceTree = "<group>"; };
+		2EDA62E12745437400F4FCF8 /* CreateSkillCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSkillCthulhuModal.swift; sourceTree = "<group>"; };
 		2EF7724326FE41A700A88EC8 /* CharacterSkillsT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsT20.swift; sourceTree = "<group>"; };
 		2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCellT20.swift; sourceTree = "<group>"; };
 		2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeaderT20.swift; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 				2EA75ACD272835FC008444A5 /* AddSheetToTableModal.swift */,
 				2ED1572A2732BFEC00A083B3 /* OnboardingModal.swift */,
 				2EDA62DF27453A6D00F4FCF8 /* EditSkillCthulhuModal.swift */,
+				2EDA62E12745437400F4FCF8 /* CreateSkillCthulhuModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -953,6 +956,7 @@
 				2E5FD7882720995B00B605D0 /* UserTablesViewModelType.swift in Sources */,
 				5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */,
 				5B7BBE1B26FCFA18008260D9 /* Image+SolidColor.swift in Sources */,
+				2EDA62E22745437400F4FCF8 /* CreateSkillCthulhuModal.swift in Sources */,
 				5B7C971026F0C09F00E01EBA /* User+CoreDataClass.swift in Sources */,
 				5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */,
 				5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */,

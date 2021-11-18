@@ -62,6 +62,8 @@ protocol DisplaySheetViewModelType {
     func editBioModal(characteristic: Characteristics)
     func editSkillsT20(skill: Skill)
     func editSkillsCthulhu(skill: Skill)
+    func createSkillsCthulhu()
     func skillT20SaveChanges(skillOtherValue: Int, skill: Skill)
     func skillCthulhuSaveChanges(skillOtherValue: Int, skill: Skill)
+    func createSkillCthulhu(skillName: String, skillValue: Int)
 }

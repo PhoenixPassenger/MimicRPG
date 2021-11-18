@@ -1,5 +1,5 @@
 //
-//  EditSkillCthulhuModal.swift
+//  CreateSkillCthulhuModal.swift
 //  MimicRPG
 //
 //  Created by Eduardo Oliveira on 17/11/21.
@@ -8,15 +8,9 @@
 
 import UIKit
 
-class EditSkillCthulhuModal: UIViewController {
-/*
- Nota mental: Editar a aparencia dos componentes não editaveis pra ficarem diferentes do resto
- */
+class CreateSkillCthulhuModal: UIViewController {
+
     var viewModel : DisplaySheetViewModelType!
-    var editSkill : Skill?
-   /* var trainedSwitchState:Bool {
-        return self.trainedView.trainedSwitch.isOn
-    }*/
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -42,7 +36,7 @@ class EditSkillCthulhuModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = "EditSkill".localized()
+        label.text = "CreateSkill".localized()
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -69,28 +63,21 @@ class EditSkillCthulhuModal: UIViewController {
     }()
 
     // MARK: - First Group
-    lazy var skillTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(named: "FontColor")
-        if editSkill?.attribute == "personalized" {
-            label.text = (editSkill?.name)!
-        } else {
-            label.text = (editSkill?.name)!.localized()
-        }
-        label.font = UIFont.josefinSansBold()
-        self.view.addSubview(label)
-        return label
+    lazy var skillNameView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "SkillName".localized(), type: .text)
+        return view
     }()
 
-    lazy var valueView: EditModalComponent = {
+    lazy var otherView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Value".localized(), type: .stepper)
         return view
     }()
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [valueView])
+        let stack = UIStackView(arrangedSubviews: [skillNameView, otherView])
         stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.alignment = .fill
         stack.spacing = 22
         self.view.addSubview(stack)
         return stack
@@ -111,18 +98,13 @@ class EditSkillCthulhuModal: UIViewController {
     }
 
     @objc func rightButtonBehavior() {
-        self.viewModel.skillCthulhuSaveChanges(skillOtherValue: Int(valueView.titleStepper.text!)!, skill: self.editSkill!)
+        self.viewModel.createSkillCthulhu(skillName: skillNameView.valueText.text!, skillValue: Int(otherView.titleStepper.text!)!)
         dismiss(animated: true, completion: nil)
     }
 
     private func additionalConfigurations() {
         configureLayout()
         view.backgroundColor = UIColor(named: "Background")
-    }
-
-    func fillForm(name: String, skill: Skill) {
-        valueView.setStepperValue(with: Int(skill.value))
-        self.editSkill = skill
     }
 
     private func configureLayout() {
@@ -141,10 +123,7 @@ class EditSkillCthulhuModal: UIViewController {
             rightButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             rightButton.centerYAnchor.constraint(equalTo: navigationBar.centerYAnchor),
 
-            skillTitleLabel.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
-            skillTitleLabel.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
-
-            firstStack.topAnchor.constraint(equalTo: skillTitleLabel.bottomAnchor, constant: 10),
+            firstStack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 10),
             firstStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             firstStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
