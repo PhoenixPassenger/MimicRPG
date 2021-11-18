@@ -33,6 +33,7 @@ protocol DisplaySheetViewModelType {
     func callReloadAttacksT20()
     func callReloadAttacksCthulhu()
     func removeAttack(attack: Attack) -> Bool
+    func removeSkill(skill: Skill) -> Bool
     func editAttackT20Modal(attack: Attack)
     func editAttackCthulhuModal(attack: Attack)
     func editCurrentAttackT20(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) -> Bool

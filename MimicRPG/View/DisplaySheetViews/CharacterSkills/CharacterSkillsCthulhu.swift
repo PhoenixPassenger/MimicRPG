@@ -80,8 +80,26 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
             self.editSkillCell(row: indexPath.row)
         }
         editSwipe.backgroundColor = .systemBlue
-        // editSwipe.image = UIImage(systemName: "pencil")
         return UISwipeActionsConfiguration(actions: [editSwipe])
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "DeleteSkill".localized()) { [weak self] (_, _, completionHandler) in
+            self?.removeSkill(row: indexPath.row)
+            completionHandler(true)
+        }
+        action.backgroundColor = .systemRed
+        if (filteredSkills[indexPath.row].attribute != "personalized") {
+            return UISwipeActionsConfiguration(actions: [])
+        } else {
+            return UISwipeActionsConfiguration(actions: [action])
+        }
+    }
+
+    private func removeSkill(row: Int) {
+        let skills = self.viewModel.getSkills()
+        let skillRow = skills[row]
+        self.viewModel.output?.alertDeleteSkill(receivedSkill: skillRow)
     }
 
     private func editSkillCell(row: Int) {

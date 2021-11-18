@@ -326,6 +326,17 @@ extension DisplaySheetViewController: DisplaySheetViewModelOutput {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func alertDeleteSkill(receivedSkill: Skill) {
+        let alert = UIAlertController(title: "DeleteSkillTitle".localized(), message: "DeleteSkillMessage".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "DeleteSkillConfirm".localized(), style: .destructive, handler: { _ in
+            self.viewModel.removeSkill(skill: receivedSkill)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+
     func alertDeleteItem(receivedItem: Item) {
         let alert = UIAlertController(title: "DeleteItemTitle".localized(), message: "DeleteItemMessage".localized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "DeleteItemConfirm".localized(), style: .destructive, handler: { _ in

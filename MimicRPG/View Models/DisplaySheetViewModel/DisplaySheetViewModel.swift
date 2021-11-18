@@ -321,6 +321,21 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         return true
     }
+    
+    @discardableResult func removeSkill(skill: Skill) -> Bool {
+        context.delete(skill)
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to fetch data from core data ")
+        }
+        if getSystem() == "Tormenta 20" {
+            self.output?.updateSkillsT20()
+        } else if getSystem() == "Cthulhu 7th ed." {
+            self.output?.updateSkillsCthulhu()
+        }
+        return true
+    }
 
     func editAttackT20Modal(attack: Attack) {
         self.output?.displayEditAttackT20Modal(editAttack: attack)
@@ -401,7 +416,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
     func getSkills() -> [Skill] {
         let skills = Array(sheet?.skills as! Set<Skill>)
-        return skills.sorted(by: { $0.name! < $1.name! })
+        return skills.sorted(by: { ($0.attribute == "personalized" ? $0.name!.localized() : $0.name!) < ($1.attribute == "personalized" ? $1.name!.localized() : $1.name!) })
     }
 
     func getPoints() -> [Points] {

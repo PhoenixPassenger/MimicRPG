@@ -25,6 +25,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func displayEditAttackT20Modal(editAttack: Attack)
     func displayEditAttackCthulhuModal(editAttack: Attack)
     func alertDeleteAttack(receivedAttack: Attack)
+    func alertDeleteSkill(receivedSkill: Skill)
     func reloadAttacksT20()
     func reloadAttacksCthulhu()
 
