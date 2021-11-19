@@ -25,6 +25,7 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func displayEditAttackT20Modal(editAttack: Attack)
     func displayEditAttackCthulhuModal(editAttack: Attack)
     func alertDeleteAttack(receivedAttack: Attack)
+    func alertDeleteSkill(receivedSkill: Skill)
     func reloadAttacksT20()
     func reloadAttacksCthulhu()
 
@@ -36,5 +37,8 @@ protocol DisplaySheetViewModelOutput: AnyObject {
     func alertDeleteItem(receivedItem: Item)
     func displayEditItemModal(name: String, desc: String, uses: Int, item: Item)
     func displayEditSkillsT20Modal(name: String, skill: Skill)
+    func displayEditSkillsCthulhuModal(name: String, skill: Skill)
+    func displayCreateSkillsCthulhuModal()
     func updateSkillsT20()
+    func updateSkillsCthulhu()
 }

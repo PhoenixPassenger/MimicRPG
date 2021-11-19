@@ -20,7 +20,9 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
         searchBar.searchTextField.font = UIFont.josefinSansRegular()
         searchBar.barTintColor = UIColor(named: "Background")
         searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.showsBookmarkButton = true
         searchBar.placeholder = "SearchHere".localized()
+        searchBar.setImage(UIImage(systemName: "plus"), for: UISearchBar.Icon.bookmark, state: .normal)
         searchBar.sizeToFit()
         return searchBar
     }()
@@ -46,10 +48,23 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellWrap = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CharacterSkillsCellCthulhu
         guard let cell = cellWrap else { fatalError() }
+        var initialValue = Int(filteredSkills[indexPath.row].initialValue)
+        if filteredSkills[indexPath.row].name! == "11_Dodge" {
+            let attribute: Attributes = viewModel.getAttributes().first(where: {$0.abbreviation == "DEX"})!
+            initialValue = Int(attribute.value)
+        } else if filteredSkills[indexPath.row].name! == "23_LanguageOwn" {
+            let attribute: Attributes = viewModel.getAttributes().first(where: {$0.abbreviation == "EDU"})!
+            initialValue = Int(attribute.value)
+        }
+        var skillTitle = (filteredSkills[indexPath.row].name!)
+        if (filteredSkills[indexPath.row].attribute != "personalized") {
+            skillTitle = skillTitle.localized()
+        }
         cell.set(
-            titleItem: (filteredSkills[indexPath.row].name!).localized(),
+            titleItem: skillTitle,
             active: filteredSkills[indexPath.row].isActivated,
-            value: Int(filteredSkills[indexPath.row].value))
+            value: Int(filteredSkills[indexPath.row].value),
+            initialValue: initialValue)
         return cell
     }
 
@@ -59,6 +74,39 @@ class CharacterSkillsCthulhu: UITableView, UITableViewDelegate, UITableViewDataS
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
+    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editSwipe = UIContextualAction(style: .normal, title: "EditSkill".localized()) { (_, _, _: (Bool) -> Void) in
+            self.editSkillCell(row: indexPath.row)
+        }
+        editSwipe.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [editSwipe])
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "DeleteSkill".localized()) { [weak self] (_, _, completionHandler) in
+            self?.removeSkill(row: indexPath.row)
+            completionHandler(true)
+        }
+        action.backgroundColor = .systemRed
+        if (filteredSkills[indexPath.row].attribute != "personalized") {
+            return UISwipeActionsConfiguration(actions: [])
+        } else {
+            return UISwipeActionsConfiguration(actions: [action])
+        }
+    }
+
+    private func removeSkill(row: Int) {
+        let skills = self.viewModel.getSkills()
+        let skillRow = skills[row]
+        self.viewModel.output?.alertDeleteSkill(receivedSkill: skillRow)
+    }
+
+    private func editSkillCell(row: Int) {
+        let skillCell = self.viewModel.getSkills()
+        let skillCellRow = skillCell[row]
+        self.viewModel.editSkillsCthulhu(skill: skillCellRow)
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -96,4 +144,8 @@ extension CharacterSkillsCthulhu: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.endEditing(true)
     }
+
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        self.viewModel.createSkillsCthulhu()
+       }
 }

@@ -1,14 +1,14 @@
 //
-//  EditSkillT20Modal.swift
+//  EditSkillCthulhuModal.swift
 //  MimicRPG
 //
-//  Created by Gustavo Lemos on 05/10/21.
+//  Created by Eduardo Oliveira on 17/11/21.
 //
 // swiftlint:disable force_cast
 
 import UIKit
 
-class EditSkillT20Modal: UIViewController {
+class EditSkillCthulhuModal: UIViewController {
 /*
  Nota mental: Editar a aparencia dos componentes não editaveis pra ficarem diferentes do resto
  */
@@ -43,7 +43,7 @@ class EditSkillT20Modal: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
         label.text = "EditSkill".localized()
-        label.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: .josefinSansButton())
+        label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
     }()
@@ -73,43 +73,24 @@ class EditSkillT20Modal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "FontColor")
-        label.text = (editSkill?.name)!.localized()
-        label.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: .josefinSansBold())
+        if editSkill?.attribute == "personalized" {
+            label.text = (editSkill?.name)!
+        } else {
+            label.text = (editSkill?.name)!.localized()
+        }
+        label.font = UIFont.josefinSansBold()
         self.view.addSubview(label)
         return label
     }()
-    lazy var halfLevelView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "HalfLevel".localized(), type: .text)
-        view.valueText.text = "5"
-        view.valueText.isEditable = false
-        view.valueText.layer.opacity = 0.5
+
+    lazy var valueView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Value".localized(), type: .stepper)
         return view
     }()
-
-    lazy var modifierView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "ModifierCHA".localized(), type: .text)
-        view.valueText.text = "4"
-        view.valueText.isEditable = false
-        view.valueText.layer.opacity = 0.5
-        return view
-    }()
-
-    lazy var otherView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Others".localized(), type: .stepper)
-        return view
-    }()
-
-    /*lazy var trainedView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Training", type: .switchButton)
-        view.titleStepper.text = "Enabled".localized()
-        return view
-    }()*/
 
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [halfLevelView, modifierView, otherView])
+        let stack = UIStackView(arrangedSubviews: [valueView])
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.alignment = .fill
         stack.spacing = 22
         self.view.addSubview(stack)
         return stack
@@ -130,7 +111,7 @@ class EditSkillT20Modal: UIViewController {
     }
 
     @objc func rightButtonBehavior() {
-        self.viewModel.skillT20SaveChanges(skillOtherValue: Int(otherView.titleStepper.text!)!, skill: self.editSkill!)
+        self.viewModel.skillCthulhuSaveChanges(skillOtherValue: Int(valueView.titleStepper.text!)!, skill: self.editSkill!)
         dismiss(animated: true, completion: nil)
     }
 
@@ -140,18 +121,7 @@ class EditSkillT20Modal: UIViewController {
     }
 
     func fillForm(name: String, skill: Skill) {
-        let levelBy2 = viewModel.getProfile().first(where: {$0.name == "Level"})?.numberValue
-        halfLevelView.valueText.text = String(levelBy2!/2)
-
-        let skillAtt = viewModel.getAttributes().first(where: {$0.abbreviation == skill.attribute!})
-        let skillAttModif = floor(Double(skillAtt!.value-10)/2)
-        modifierView.titleLabel.text = ("Modifier"+(skillAtt?.abbreviation)!).localized()
-        modifierView.valueText.text = String(Int(skillAttModif))
-
-        // trainedView.trainedSwitch.isOn = skill.isActivated
-
-        otherView.setStepperValue(with: Int(skill.value))
-
+        valueView.setStepperValue(with: Int(skill.value))
         self.editSkill = skill
     }
 

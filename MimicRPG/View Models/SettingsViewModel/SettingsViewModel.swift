@@ -53,6 +53,7 @@ enum Configurations: CaseIterable {
 enum Settings: CaseIterable {
     case language
     case notifications
+
     var description: String {
         switch self {
         case .language: return "Language".localized()
@@ -83,8 +84,10 @@ final class SettingsViewModel {
         let language = UserDefaults.standard.stringArray(forKey: "AppleLanguages")?.first ?? "en"
         self.selectedRow = Languages.allCases.firstIndex(of: Languages(rawValue: language)!)
     }
+
     public weak var output: SettingsViewModelOutput?
     var selectedRow: Int? = 0
+
     func switchButton() -> UIView {
         let switchButton = UISwitch()
         switchButton.isOn = false
@@ -109,6 +112,7 @@ final class SettingsViewModel {
 
 }
 extension SettingsViewModel: SettingsViewModelType {
+
     func getLanguageDescriptionById(row: Int) -> String {
         let description = Languages(id: row)?.description
         guard let desc = description else { return Languages.english.description }
@@ -119,11 +123,12 @@ extension SettingsViewModel: SettingsViewModelType {
         return Languages.allCases.count
     }
 
-    func didSelectRowAt(indexPath: IndexPath) {
+    @discardableResult func didSelectRowAt(indexPath: IndexPath) -> Bool {
         self.initSelectedRow()
         switch Settings(id:indexPath.section) {
         case .language:
             self.output?.showLanguagePicker()
+            return true
         case .notifications:
             let center = UNUserNotificationCenter.current()
             center.getNotificationSettings(completionHandler: { settings in
@@ -138,11 +143,12 @@ extension SettingsViewModel: SettingsViewModelType {
                     self.output?.reloadData()
                 }
             })
-            return
+            return true
         case .none:
-            break
+            return false
         }
     }
+
     func cellForRowAt(cell: UITableViewCell, section: Int) -> UITableViewCell {
         cell.textLabel?.font = .systemFont(ofSize: 17)
         switch Settings(id:section) {
@@ -179,12 +185,13 @@ extension SettingsViewModel: SettingsViewModelType {
         return view
     }
 
-    func changeLanguage(pickeredRow: Int) {
+    @discardableResult func changeLanguage(pickeredRow: Int) -> Bool {
         let language = Languages(id: pickeredRow)
-        guard let finalLanguage = language else { return }
+        guard let finalLanguage = language else { return false }
         UserDefaults.standard.set([finalLanguage.rawValue], forKey: "AppleLanguages")
         UserDefaults.standard.synchronize()
         self.output?.showAlert()
+        return true
     }
 
     func numberOfSections() -> Int {
@@ -192,8 +199,7 @@ extension SettingsViewModel: SettingsViewModelType {
     }
 
     func restartApplication() {
-        NotificationService.shared?.generateRestartNotification(title: "RebootLanguageTitle".localized(),
-                                                                body: "RebootLanguageMessage".localized(), timeInterval: 0.5)
+        NotificationService.shared?.generateRestartNotification(title: "RebootLanguageTitle".localized(), body: "RebootLanguageMessage".localized(), timeInterval: 0.5)
         fatalError()
     }
 }

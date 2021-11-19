@@ -11,6 +11,7 @@ class CharacterSkillsCellCthulhu: UITableViewCell {
 
     var isChecked: Bool = true
     var value: Int = 0
+    var initialValue: Int = 0
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -163,23 +164,24 @@ class CharacterSkillsCellCthulhu: UITableViewCell {
         return view
     }()
 
-    func set( titleItem: String, active: Bool, value: Int) {
+    func set(titleItem: String, active: Bool, value: Int, initialValue: Int) {
         titleLabel.text = titleItem
         isChecked = active
         checkmark.isHidden = !isChecked
         self.value = value
-        totalBy5Label.text = (isChecked ? "\(Int(self.value/5))" : "1")
-        totalBy2Label.text = (isChecked ? "\(Int(self.value/2))" : "1")
-        totalLabel.text = (isChecked ? "\(self.value)" : "1")
+        self.initialValue = initialValue
+        totalBy5Label.text = (isChecked ? "\(Int(self.value/5))" : "\(Int(self.initialValue/5))")
+        totalBy2Label.text = (isChecked ? "\(Int(self.value/2))" : "\(Int(self.initialValue/2))")
+        totalLabel.text = (isChecked ? "\(self.value)" : "\(self.initialValue)")
         checkbox.addTarget(self, action: #selector(didTapCheckbox), for: .touchUpInside)
     }
 
     @objc func didTapCheckbox () {
         self.isChecked = !isChecked
         checkmark.isHidden = !isChecked
-        totalBy5Label.text = (isChecked ? "\(Int(self.value/5))" : "1")
-        totalBy2Label.text = (isChecked ? "\(Int(self.value/2))" : "1")
-        totalLabel.text = (isChecked ? "\(self.value)" : "1")
+        totalBy5Label.text = (isChecked ? "\(Int(self.value/5))" : "\(Int(self.initialValue/5))")
+        totalBy2Label.text = (isChecked ? "\(Int(self.value/2))" : "\(Int(self.initialValue/2))")
+        totalLabel.text = (isChecked ? "\(self.value)" : "\(self.initialValue)")
     }
 }
 

@@ -23,7 +23,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         return (sheet?.system)!
     }
 
-    func setPointsT20(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) {
+    @discardableResult func setPointsT20(setArmorBonus: Int, setShieldBonus: Int, setOthers: Int, setTemporary: Int, setMaxLife: Int, setMaxMana: Int) -> Bool {
         for point in self.getPoints() {
             switch (point.name) {
             case PointsT20.getPoints(.armorBonus)().name:
@@ -53,6 +53,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return true
     }
 
     func callReloadAttacksT20() {
@@ -63,7 +64,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.reloadAttacksCthulhu()
     }
 
-    func setPointsCthulhu(setMaxLife: Int, setMaxMagic: Int, setMaxSanity: Int, setMaxLuck: Int) {
+    @discardableResult  func setPointsCthulhu(setMaxLife: Int, setMaxMagic: Int, setMaxSanity: Int, setMaxLuck: Int) -> Bool {
         for point in self.getPoints() {
             switch (point.name) {
             case PointsCthulhu.getPoints(.life)().name:
@@ -90,15 +91,15 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
                 break
             }
         }
-
         do {
             try context.save()
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return true
     }
 
-    func changePointValue(type: String, value: Int) {
+    @discardableResult func changePointValue(type: String, value: Int) -> Bool {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         let point = self.getPoints().first(where: {$0.name == type})
@@ -109,6 +110,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return true
     }
 
     func callReloadPointsT20() {
@@ -139,7 +141,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         return Array(sheet?.attribute as! Set<Attributes>)
     }
 
-    func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) {
+    @discardableResult func setAttributesT20(setSTR: Int, setDEX: Int, setCON: Int, setINT: Int, setWIS: Int, setCHA: Int) -> Bool {
         for attribute in self.getAttributes() {
             switch (attribute.name) {
             case SkillT20Attributes.getAttribute(.STR)().name:
@@ -163,9 +165,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return true
     }
 
-    func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int) {
+    @discardableResult func setAttributesCthulhu(setSTR: Int, setDEX: Int, setINT: Int, setCON: Int, setAPP: Int, setPOW: Int, setSIZ: Int, setEDU: Int, setMOV: Int) -> Bool {
         for attribute in self.getAttributes() {
             switch (attribute.name) {
             case SkillCthulhuAttributes.getAttribute(.STR)().name:
@@ -195,6 +198,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return true
     }
 
     func callReloadAttributesT20() {
@@ -213,7 +217,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.displayAddAttackCthulhuModal()
     }
 
-    func createAttackT20(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+    @discardableResult func createAttackT20(attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) -> Attack {
 
         let newAttack = Attack(context: context)
         newAttack.name = attackName
@@ -251,9 +255,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return newAttack
     }
 
-    func createAttackCthulhu(attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) {
+    @discardableResult func createAttackCthulhu(attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) -> Attack {
         let newAttack = Attack(context: context)
         newAttack.name = attackName
 
@@ -295,13 +300,14 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return newAttack
     }
 
     func getAttacks() -> [Attack] {
         return self.sheet?.attack?.allObjects as! [Attack]
     }
 
-    func removeAttack(attack: Attack) {
+    @discardableResult func removeAttack(attack: Attack) -> Bool {
         context.delete(attack)
         do {
             try context.save()
@@ -313,6 +319,22 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } else if getSystem() == "Cthulhu 7th ed." {
             self.output?.reloadAttacksCthulhu()
         }
+        return true
+    }
+    
+    @discardableResult func removeSkill(skill: Skill) -> Bool {
+        context.delete(skill)
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to fetch data from core data ")
+        }
+        if getSystem() == "Tormenta 20" {
+            self.output?.updateSkillsT20()
+        } else if getSystem() == "Cthulhu 7th ed." {
+            self.output?.updateSkillsCthulhu()
+        }
+        return true
     }
 
     func editAttackT20Modal(attack: Attack) {
@@ -323,7 +345,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.displayEditAttackCthulhuModal(editAttack: attack)
     }
 
-    func editCurrentAttackT20(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) {
+    @discardableResult func editCurrentAttackT20(currentAttack: Attack, attackName: String, attackDamage: String, attackBonus: Int, attackType: String, attackRange: String, criticalBonus: String) -> Bool {
         currentAttack.name = attackName
 
         let attackCharac = currentAttack.characteristics?.allObjects as? [Characteristics]
@@ -351,9 +373,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return true
     }
 
-    func editCurrentAttackCthulhu(currentAttack: Attack, attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) {
+    @discardableResult func editCurrentAttackCthulhu(currentAttack: Attack, attackName: String, attackDamage: String, attackValue: Int, attackAmmo: Int, attackRange: String, attackMalfunction: String, attackAttacks: Int) -> Bool {
         currentAttack.name = attackName
 
         let attackCharac = currentAttack.characteristics?.allObjects as? [Characteristics]
@@ -383,6 +406,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return true
     }
 
     func getProfile() -> [Characteristics] {
@@ -392,7 +416,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
 
     func getSkills() -> [Skill] {
         let skills = Array(sheet?.skills as! Set<Skill>)
-        return skills.sorted(by: { $0.name! < $1.name! })
+        return skills.sorted(by: { ($0.attribute == "personalized" ? $0.name!.localized() : $0.name!) < ($1.attribute == "personalized" ? $1.name!.localized() : $1.name!) })
     }
 
     func getPoints() -> [Points] {
@@ -403,7 +427,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         return Array(sheet?.notes as! Set<Notes>)
     }
 
-    func newNote(name: String, text: String) {
+    @discardableResult func newNote(name: String, text: String) -> Notes {
         let note = Notes(context: context)
         note.sheet = self.sheet
         note.name = name
@@ -416,9 +440,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
         self.output?.updateNotes()
+        return note
     }
 
-    func editNote(name: String, text: String, note: Notes) {
+    @discardableResult func editNote(name: String, text: String, note: Notes) -> Notes {
         note.name = name
         note.characteristics?.stringValue = text
         do {
@@ -427,9 +452,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
         self.output?.updateNotes()
+        return note
     }
 
-    func editField(name: String, text: String, value: Int, characteristic: Characteristics) {
+    @discardableResult func editField(name: String, text: String, value: Int, characteristic: Characteristics) -> Bool {
         characteristic.name = name
         if (name == "CharacterName") || (name == "01_NameInvestigator") {
             characteristic.profile?.sheet?.name = text
@@ -445,9 +471,10 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to save data in coredata model")
         }
         self.output?.updateProfile()
+        return true
     }
 
-    func removeNote(note: Notes) {
+    @discardableResult func removeNote(note: Notes) -> Bool {
         context.delete(note)
         do {
             try context.save()
@@ -455,6 +482,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
             fatalError("Unable to fetch data from core data ")
         }
         self.output?.updateNotes()
+        return true
     }
 
     func editNoteModal(note: Notes) {
@@ -531,15 +559,49 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         self.output?.displayEditSkillsT20Modal(name: skill.name!, skill: skill)
     }
 
+    func editSkillsCthulhu(skill: Skill) {
+        self.output?.displayEditSkillsCthulhuModal(name: skill.name!, skill: skill)
+    }
+
+    func createSkillsCthulhu() {
+        self.output?.displayCreateSkillsCthulhuModal()
+    }
+
     func skillT20SaveChanges(skillOtherValue: Int, skill: Skill) {
-        print("SOV",skillOtherValue)
         skill.value = Int64(skillOtherValue)
-        print("Value",skill.value)
         do {
             try context.save()
         } catch {
             fatalError("Unable to save data in coredata model")
         }
         self.output?.updateSkillsT20()
+    }
+
+    func skillCthulhuSaveChanges(skillOtherValue: Int, skill: Skill) {
+        skill.value = Int64(skillOtherValue)
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+        self.output?.updateSkillsCthulhu()
+    }
+
+    func createSkillCthulhu(skillName: String, skillValue: Int) {
+        let newSkill = Skill(context: self.context)
+        newSkill.name = skillName
+        newSkill.value = Int64(skillValue)
+        newSkill.initialValue = Int64(skillValue)
+        newSkill.attribute = "personalized"
+        newSkill.isActivated = true
+        newSkill.sheet = sheet
+
+        sheet?.skills?.adding(newSkill)
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+        self.output?.updateSkillsCthulhu()
     }
 }

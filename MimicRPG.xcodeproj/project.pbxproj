@@ -10,6 +10,12 @@
 		00A89D91270598A900ED72B2 /* CharacterAttributesT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A89D90270598A900ED72B2 /* CharacterAttributesT20.swift */; };
 		00A89D9327059B9100ED72B2 /* AttributeBoxT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A89D9227059B9100ED72B2 /* AttributeBoxT20.swift */; };
 		00C57CCF270DCFF200CEB5A7 /* EditSkillT20Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C57CCE270DCFF200CEB5A7 /* EditSkillT20Modal.swift */; };
+		2E035D27273AAB43006EB31F /* DisplayTableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D26273AAB43006EB31F /* DisplayTableViewModelTests.swift */; };
+		2E035D29273AB4E5006EB31F /* UserTablesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D28273AB4E5006EB31F /* UserTablesViewModelTests.swift */; };
+		2E035D2B273AB618006EB31F /* UserSheetsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D2A273AB618006EB31F /* UserSheetsViewModelTests.swift */; };
+		2E035D2D273BE615006EB31F /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D2C273BE615006EB31F /* SettingsViewModelTests.swift */; };
+		2E035D2F273BF153006EB31F /* DisplaySheetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D2E273BF153006EB31F /* DisplaySheetViewModelTests.swift */; };
+		2E035D32273C0C2D006EB31F /* DiceRollerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E035D31273C0C2D006EB31F /* DiceRollerViewControllerTests.swift */; };
 		2E16CCB126F36A4B00500E44 /* UserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16CCB026F36A4B00500E44 /* UserSheet.swift */; };
 		2E16CCC126F36A9800500E44 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */; };
 		2E16CCC226F36A9800500E44 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */; };
@@ -75,6 +81,9 @@
 		2ED157372734179400A083B3 /* onboard3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2ED157362734179400A083B3 /* onboard3.gif */; };
 		2ED157392734194300A083B3 /* onboard4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2ED157382734194300A083B3 /* onboard4.gif */; };
 		2ED1573B2734242900A083B3 /* onboard5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2ED1573A2734242900A083B3 /* onboard5.gif */; };
+		2EDA62DE2743F22500F4FCF8 /* DiceRollerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */; };
+		2EDA62E027453A6D00F4FCF8 /* EditSkillCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA62DF27453A6D00F4FCF8 /* EditSkillCthulhuModal.swift */; };
+		2EDA62E22745437400F4FCF8 /* CreateSkillCthulhuModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA62E12745437400F4FCF8 /* CreateSkillCthulhuModal.swift */; };
 		2EF7724426FE41A700A88EC8 /* CharacterSkillsT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724326FE41A700A88EC8 /* CharacterSkillsT20.swift */; };
 		2EF7724626FE41E500A88EC8 /* CharacterSkillsCellT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */; };
 		2EF7724C26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */; };
@@ -148,6 +157,12 @@
 		00A89D90270598A900ED72B2 /* CharacterAttributesT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttributesT20.swift; sourceTree = "<group>"; };
 		00A89D9227059B9100ED72B2 /* AttributeBoxT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeBoxT20.swift; sourceTree = "<group>"; };
 		00C57CCE270DCFF200CEB5A7 /* EditSkillT20Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillT20Modal.swift; sourceTree = "<group>"; };
+		2E035D26273AAB43006EB31F /* DisplayTableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewModelTests.swift; sourceTree = "<group>"; };
+		2E035D28273AB4E5006EB31F /* UserTablesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTablesViewModelTests.swift; sourceTree = "<group>"; };
+		2E035D2A273AB618006EB31F /* UserSheetsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetsViewModelTests.swift; sourceTree = "<group>"; };
+		2E035D2C273BE615006EB31F /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		2E035D2E273BF153006EB31F /* DisplaySheetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySheetViewModelTests.swift; sourceTree = "<group>"; };
+		2E035D31273C0C2D006EB31F /* DiceRollerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewControllerTests.swift; sourceTree = "<group>"; };
 		2E16CCB026F36A4B00500E44 /* UserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheet.swift; sourceTree = "<group>"; };
 		2E16CCB326F36A9700500E44 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		2E16CCB426F36A9700500E44 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
@@ -213,6 +228,9 @@
 		2ED157362734179400A083B3 /* onboard3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboard3.gif; sourceTree = "<group>"; };
 		2ED157382734194300A083B3 /* onboard4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboard4.gif; sourceTree = "<group>"; };
 		2ED1573A2734242900A083B3 /* onboard5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboard5.gif; sourceTree = "<group>"; };
+		2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModelTests.swift; sourceTree = "<group>"; };
+		2EDA62DF27453A6D00F4FCF8 /* EditSkillCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillCthulhuModal.swift; sourceTree = "<group>"; };
+		2EDA62E12745437400F4FCF8 /* CreateSkillCthulhuModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSkillCthulhuModal.swift; sourceTree = "<group>"; };
 		2EF7724326FE41A700A88EC8 /* CharacterSkillsT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsT20.swift; sourceTree = "<group>"; };
 		2EF7724526FE41E500A88EC8 /* CharacterSkillsCellT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsCellT20.swift; sourceTree = "<group>"; };
 		2EF7724B26FFC42A00A88EC8 /* CharacterSkillsHeaderT20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSkillsHeaderT20.swift; sourceTree = "<group>"; };
@@ -309,6 +327,19 @@
 				2E6EAE4A270CCD2E00626650 /* CharacterAttributesCthulhu.swift */,
 			);
 			path = CharacterAttributes;
+			sourceTree = "<group>";
+		};
+		2E035D30273C0BD1006EB31F /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				2E035D26273AAB43006EB31F /* DisplayTableViewModelTests.swift */,
+				2E035D28273AB4E5006EB31F /* UserTablesViewModelTests.swift */,
+				2E035D2A273AB618006EB31F /* UserSheetsViewModelTests.swift */,
+				2E035D2C273BE615006EB31F /* SettingsViewModelTests.swift */,
+				2E035D2E273BF153006EB31F /* DisplaySheetViewModelTests.swift */,
+				2EDA62DD2743F22400F4FCF8 /* DiceRollerViewModelTests.swift */,
+			);
+			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
 		2E16CCAF26F36A3000500E44 /* Components */ = {
@@ -419,6 +450,8 @@
 				2E5FD79827218ED600B605D0 /* CreateTableModal.swift */,
 				2EA75ACD272835FC008444A5 /* AddSheetToTableModal.swift */,
 				2ED1572A2732BFEC00A083B3 /* OnboardingModal.swift */,
+				2EDA62DF27453A6D00F4FCF8 /* EditSkillCthulhuModal.swift */,
+				2EDA62E12745437400F4FCF8 /* CreateSkillCthulhuModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -492,8 +525,10 @@
 		5B0DC58926EA2B6A008C8578 /* MimicRPGTests */ = {
 			isa = PBXGroup;
 			children = (
+				2E035D30273C0BD1006EB31F /* ViewModelTests */,
 				5B0DC58A26EA2B6A008C8578 /* MimicRPGTests.swift */,
 				5B0DC58C26EA2B6A008C8578 /* Info.plist */,
+				2E035D31273C0C2D006EB31F /* DiceRollerViewControllerTests.swift */,
 			);
 			path = MimicRPGTests;
 			sourceTree = "<group>";
@@ -865,6 +900,7 @@
 				2E5FD7842720992D00B605D0 /* UserTablesViewModel.swift in Sources */,
 				2E6EAE41270B88BA00626650 /* CreateAttackCthulhuModal.swift in Sources */,
 				2E5FD79127209CA600B605D0 /* DisplayTableViewModel.swift in Sources */,
+				2EDA62E027453A6D00F4FCF8 /* EditSkillCthulhuModal.swift in Sources */,
 				2E5FD7972720D7E300B605D0 /* TableCell.swift in Sources */,
 				96F09C9926F9FAA3008F5554 /* DisplaySheetCoordinator.swift in Sources */,
 				2E5FD79527209CE200B605D0 /* DisplayTableViewModelType.swift in Sources */,
@@ -920,6 +956,7 @@
 				2E5FD7882720995B00B605D0 /* UserTablesViewModelType.swift in Sources */,
 				5B7C970A26F0C09F00E01EBA /* Notes+CoreDataClass.swift in Sources */,
 				5B7BBE1B26FCFA18008260D9 /* Image+SolidColor.swift in Sources */,
+				2EDA62E22745437400F4FCF8 /* CreateSkillCthulhuModal.swift in Sources */,
 				5B7C971026F0C09F00E01EBA /* User+CoreDataClass.swift in Sources */,
 				5B7C970C26F0C09F00E01EBA /* Profile+CoreDataClass.swift in Sources */,
 				5B7C971A26F0C09F00E01EBA /* Skill+CoreDataClass.swift in Sources */,
@@ -959,7 +996,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E035D2F273BF153006EB31F /* DisplaySheetViewModelTests.swift in Sources */,
+				2E035D27273AAB43006EB31F /* DisplayTableViewModelTests.swift in Sources */,
 				5B0DC58B26EA2B6A008C8578 /* MimicRPGTests.swift in Sources */,
+				2E035D2D273BE615006EB31F /* SettingsViewModelTests.swift in Sources */,
+				2E035D29273AB4E5006EB31F /* UserTablesViewModelTests.swift in Sources */,
+				2EDA62DE2743F22500F4FCF8 /* DiceRollerViewModelTests.swift in Sources */,
+				2E035D2B273AB618006EB31F /* UserSheetsViewModelTests.swift in Sources */,
+				2E035D32273C0C2D006EB31F /* DiceRollerViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

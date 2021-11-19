@@ -63,9 +63,9 @@ enum PointsT20 {
     func getPoints() -> Point {
         switch self {
         case .life:
-            return Point(name: "Life", actualValue: 0, maximumValue: 10)
+            return Point(name: "Life", actualValue: 10, maximumValue: 10)
         case .mana:
-            return Point(name: "Mana", actualValue: 0, maximumValue: 8)
+            return Point(name: "Mana", actualValue: 8, maximumValue: 8)
         case .classArmorTemp:
             return Point(name: "ClassArmorTemporary", actualValue: 0)
         case .armorBonus:
@@ -272,13 +272,13 @@ enum PointsCthulhu {
     func getPoints() -> Point {
         switch self {
         case .life:
-            return Point(name: "Life", actualValue: 0)
+            return Point(name: "Life", actualValue: 10)
         case .magic:
-            return Point(name: "Magic", actualValue: 0)
+            return Point(name: "Magic", actualValue: 10)
         case .sanity:
-            return Point(name: "Sanity", actualValue: 0)
+            return Point(name: "Sanity", actualValue: 10)
         case .luck:
-            return Point(name: "Luck", actualValue: 0)
+            return Point(name: "Luck", actualValue: 10)
         }
     }
     
@@ -355,25 +355,25 @@ enum SkillsCthulhu {
     func getSkills() -> SkillCthulhu {
         switch self {
         case .accounting:
-            return SkillCthulhu(name: "01_Accounting", value: 05)
+            return SkillCthulhu(name: "01_Accounting", value: 5)
         case .anthropology:
-            return SkillCthulhu(name: "02_Anthropology", value: 01)
+            return SkillCthulhu(name: "02_Anthropology", value: 1)
         case .appraise:
-            return SkillCthulhu(name: "03_Appraise", value: 05)
+            return SkillCthulhu(name: "03_Appraise", value: 5)
         case .archaeology:
-            return SkillCthulhu(name: "04_Archaeology", value: 01)
+            return SkillCthulhu(name: "04_Archaeology", value: 1)
         case .artAndCraft:
-            return SkillCthulhu(name: "05_ArtAndCraft", value: 05)
+            return SkillCthulhu(name: "05_ArtAndCraft", value: 5)
         case .charm:
             return SkillCthulhu(name: "06_Charm", value: 15)
         case .climb:
             return SkillCthulhu(name: "07_Climb", value: 20)
         case .creditRating:
-            return SkillCthulhu(name: "08_CreditRating", value: 00)
+            return SkillCthulhu(name: "08_CreditRating", value: 0)
         case .cthulhuMythos:
-            return SkillCthulhu(name: "09_CthulhuMythos", value: 00)
+            return SkillCthulhu(name: "09_CthulhuMythos", value: 0)
         case .disguise:
-            return SkillCthulhu(name: "10_Disguise", value: 05)
+            return SkillCthulhu(name: "10_Disguise", value: 5)
         case .dodge:
             return SkillCthulhu(name: "11_Dodge", value: 10)
         case .driveAuto:
@@ -399,7 +399,7 @@ enum SkillsCthulhu {
         case .jump:
             return SkillCthulhu(name: "22_Jump", value: 20)
         case .languageOwn:
-            return SkillCthulhu(name: "23_LanguageOwn", value: 10)
+            return SkillCthulhu(name: "23_LanguageOwn", value: 0)
         case .law:
             return SkillCthulhu(name: "24_Law", value: 05)
         case .libraryUse:
