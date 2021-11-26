@@ -4,7 +4,6 @@
 //
 //  Created by Eduardo Oliveira on 16/11/21.
 //
-// swiftlint:disable force_cast
 
 import XCTest
 @testable import MimicRPG

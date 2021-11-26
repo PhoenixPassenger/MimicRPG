@@ -8,7 +8,7 @@
 import UIKit
 
 class UserSheet: UICollectionViewCell {
-    
+
     var sheet: Sheet?
 
     lazy var sheetImage: UIImageView = {

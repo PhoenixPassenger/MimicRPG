@@ -115,7 +115,7 @@ class CreateSheetModal: UIViewController {
         button.addTarget(self, action: #selector(showSystemsPicker), for: .touchUpInside)
         button.backgroundColor = UIColor(named: "SecondaryBackground")
         button.titleEdgeInsets = UIEdgeInsets(top: (button.titleLabel?.font.lineHeight)!/4, left: 8, bottom: 0, right: 0)
-        button.heightAnchor.constraint(equalToConstant: (button.titleLabel?.font.lineHeight)!).isActive = true
+        button.heightAnchor.constraint(equalToConstant: ((button.titleLabel?.font.lineHeight)! * 1.5)).isActive = true
         return button
     }()
 

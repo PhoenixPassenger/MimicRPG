@@ -321,7 +321,7 @@ extension DisplaySheetViewModel: DisplaySheetViewModelType {
         }
         return true
     }
-    
+
     @discardableResult func removeSkill(skill: Skill) -> Bool {
         context.delete(skill)
         do {

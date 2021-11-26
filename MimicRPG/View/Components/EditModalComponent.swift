@@ -161,18 +161,21 @@ class EditModalComponent: UIView {
     private func configureLayout() {
         NSLayoutConstraint.activate([
             stack.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            stack.topAnchor.constraint(equalTo: self.topAnchor),
-            stack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            stack.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         ])
 
         if isMultiline {
-            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 1.2).isActive = true
+            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 1.5).isActive = true
             valueText.textContainer.maximumNumberOfLines = 10
         } else {
-            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 1.2).isActive = true
+            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 1.5).isActive = true
             valueText.textContainer.maximumNumberOfLines = 1
         }
+
+//        if (valueStepper.isDescendant(of: stack)) {
+//            stack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+//            stack.heightAnchor.constraint(greaterThanOrEqualTo: valueStepper.heightAnchor, constant: 10).isActive = true
+//        }
     }
 }
 
