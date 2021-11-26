@@ -165,17 +165,17 @@ class EditModalComponent: UIView {
         ])
 
         if isMultiline {
-            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 1.5).isActive = true
+            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 4.7).isActive = true
             valueText.textContainer.maximumNumberOfLines = 10
+            self.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 5.7).isActive = true
         } else {
-            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 1.5).isActive = true
+            valueText.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 1.7).isActive = true
             valueText.textContainer.maximumNumberOfLines = 1
+            self.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 2.7).isActive = true
         }
-
-//        if (valueStepper.isDescendant(of: stack)) {
-//            stack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//            stack.heightAnchor.constraint(greaterThanOrEqualTo: valueStepper.heightAnchor, constant: 10).isActive = true
-//        }
+        if typeOfModalComponent == .stepper {
+            stackStepper.heightAnchor.constraint(equalToConstant: valueText.font!.lineHeight * 2.1).isActive = true
+        }
     }
 }
 
