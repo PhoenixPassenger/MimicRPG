@@ -1,5 +1,8 @@
 # MimicRPG
 
+## Available in the App Store
+
+[Click here](https://apps.apple.com/br/app/mimic-rpg/id1591232884?l=en) to check it in the App Store
 
 ## Privacy Policy
 
